@@ -1,0 +1,351 @@
+20251217 IK ver 1.5.4
+Fixed FloorFF form - now it updates FloorFF gains and adaptive rate. The command itself is recorder in the ".Tag" of control.
+Fixed bug - FF to motor Adaptive was using wrong command "loop_FFM", changed to "loop_MAD" (Motor ADaptive)
+Added on System tab, in velocity frame "Reset all offsets" button which sends the "zero" command
+Fixed second input selection (was empty string) for advanced TF
+
+20251208 IK ver 1.5.3
+Updated Analyzer to accomodate changes in firmware:
+fixed floor FF gains - moved them in SysData.FFgain[8][4] instead of SysData.gain[12], [13], [14] which is used for something else (Aux pneumatic damping gain)
+The SysData.FFgain[8][4] matrix is for stageFF, so I just reused it 
+Only 3 gains are used: FFgain[0][0] for ZfloorFF, FFgain[1][1] for XfloorFF,FFgain[2][2] for YfloorFF. In a future if it is working we can use cross gains as in StageFF
+Added floor FF output to motor axes
+fixed associated with floor FF commands (i.e., "g_fff#") and menu
+
+20251114 IK & SL:
+change Analyzer filter form so it understands negative axis gains and prox-to-motor position loops
+Made Analyzer aware of PONG system - the pneumatic frame hides, and FloorFF window appers instead of Stage FF
+
+20250819
+Changed and verified against firmware filter calculations with safety check by Simon Li
+Added diffrence Part Per Million labels on filter form
+
+20250814
+Fixed filter calculations:
+frequency 2 correction wa set as Q2*Q1 but it should be Q2*Q2
+
+20250812
+checked filter calculations.
+IK: restored compile to DLL project and compiled PONG ElectroDampSim.dll
+But, simulation in VB6 ED Analyser becomes worse than previous DLL compiled in 2017 for CDSAX:
+bugs:
+1.	in the menu, selections such "axif select" do not return and menu is not updated;
+	however, the real time 4 lines at the top are updated
+
+2.	during filter parameter retrieval, 2017 dll shows 'a' and 'b' coefficients in Terminal
+	but Pong DLL made with VS2019 does not show fpar for 'a' and 'b', just empty after '=';
+	if terminal is closed, fiter coefficients from controller still not showing
+
+2023-01-17
+Fixed bug when sending "oltf stop" it sends "oltfstop". It was because of Replace(message), " ",""). Instead, used LTrim(message)
+created version 1.4.5.
+
+2022-11-10
+Made PosMonitoring grath resizable
+added on splash form: "if only one port discovered, put it to the drop-down list and enable connect button
+
+2022-01-30
+Fixed bug in filter update:
+some_nmber = 4
+the Str(some_number) produced " 4", which combined, gives "fpar000= 4"and firmware does not recognize it
+FIX>>> use Format(some_number,"0") or  str = str & some_number
+Also, the TAB after command cuased the same "Unrecognized" error - fixed in GetSend
+		temp_str = Replace(Trim(temp_str), vbTab, "")   ' IK 20220129 remove TABs
+		temp_str = Replace(temp_str, " ", "")   ' IK 20220130 remove spaces
+
+
+
+
+2022-01-12
+BUG>>> REFRESH does not read or not recognized vert dock bit
+BUG>>> The AuxDamping control on filters form correctly reads AuxDamp gain but changing it does not send command, so it is not updated in controller.
+BUG>>> if "Limits" checkmark is unchecked, it should not ask for limits but it does when reading test file
+BUG>>> even if "update selected filters is checked, all filters are updated which increases response time
+
+
+2021-10-04
+BUG>>> P_TF VATX PATZ gain=$$$, the SSS is taken from TY gain (TX and TY swapped)
+
+2021-09-17
+PN 95-38961-02 rev.G
+V1.4.0 @ 17-Sep-2021
+Fixed visibility of Valve test parameters on Monitoring window
+Fixed negative values labels update on Valve test results window (changing min value was updating max label)
+
+
+2020-12-11 rev E ver 1.3.5 @ 11-Dec-2020
+fixed cannot read position 'b' bug -  was TMP_BUF as String *10000 not updated in GetSend.
+Added missing sample lines on RT mon form (even if did not see it, but ElDamp does see at 0.1 and 0.2 sec)
+simplified GetSend - put Dim LocalBUF as String and exclude case with single char command - all commands are returning >~OK now
+
+2020-04-10 ver 1.3.3
+Changed Upgrade_Help messages to include Ethernet upgrade
+
+2020-04-10 ver 1.3.3
+fixed / added autoreading of criteria while reading test TF file.
+Analyzer asks first time where are criteria files.
+If user clicks on "OPEN", instead of clicking on Go-NoGo file, this folder is selected and remembered
+If user clicks on a particular go-NoGo file, the file gets loaded.
+Next time a OLFT or P_TF file is loaded test criteria will be read automatically if go-NoGo.txt file exists
+
+
+2020-04-07
+
+Added telnet port reading from winSock. Menu seems to work better, does not loose chars
+
+ changed "upgrade FW message" telling that controller can be upgraded without touching.
+"1. DC-2020 has been restarted. Perform steps 2-6 in less than 15 sec !" & vbCrLf & _
+"2. C2Prog.exe' updater has been started, select new firmware image '1st_Upgr*.ehx' file" & vbCrLf & _
+"3. On 'C2Prog' screen press 'Configure Ports', in new window press 'Scan Ports', " & vbCrLf & _
+"4. From drop down list select COM # Analyzer was connected to" & vbCrLf & _
+"5. Hit 'OK' to return to C2Prog main window" & vbCrLf & _
+"6. On 'C2Prog' screen, press the 'Program' button" & vbCrLf & _
+"7. The 'C2Prog' should start programming, DC-2020 LED will blink yellow" & vbCrLf & _
+"7a. If not: On DC-2020, turn off POWER switch, turn it ON. LED might blink RED" & vbCrLf & _
+
+
+transferred from  STACIS VB6 Analyzer: 1.4.1
+Fixed Advanced TF sweep so it correctly selects Excitation
+Included option to see Terminal in Analyzer Lite.
+Form Monitoring shows default scope variables name because controls were assigned before real channels read from controller
+Added check if formMonitoring is loaded while have calls to it. Now it shows correct actual names
+However, form Monitoring needs debugging and tuning, it is not clear what it actually recording.
+
+Added ability to read TF criteria from controller (FW rev > Ct21 has criteria for Web Diagnostic TF)
+Added ability to include coherence in TF measurements (FW rev > Ct30 calculates coherence during TF measurement)
+re-arranged controls on TF tab
+Updated "how to upgrade FW" message.
+Fixed bug while loading parameters message about different versions of current FW and param file – it did not have version of param file
+Added ability to save predicted TF
+updated zero phase and Unity Gain calculations
+
+ADDED coherence to phase plot; updated read to / write from csv files
+
+
+2018-11-30 ED VB6: port file:
+the location from file is loaded not an application folder?
+When tried to save TMC.port it opens location:
+C:\In_Out\TMC_products\In development\OEM systems\KLA\ICOS\11-28-18 new matrix\
+
+
+To talk to DC-2020 from Windows XP virtual machine:
+In VM menu, select Tools->Settings->NEtworking.
+It is Network Adapter 1 enabled.
+Select for this adapter physical adapter (ASIX AX88179....
+From LAN or High-speed Internet check - it should be:
+Intel 21140-Based PCI Fast Ethernet Adapter (Generic)
+Right click  on it and select Internet Protocol properties.
+There, set IP address 169.254.20.1 and mask 255.255.0.0.
+Try in command window "ping 169.254.20.20" - should be connected
+
+5-Apr-18
+>>bug: gains in the name of TF csv file were mismatched.
+>>FIXED>>> corrected indexes in input and output selection forms to be in order X, Y, tZ, Z, tX, tY
+
+
+12-24-17
+when controller returns "Doing_CMD", VB crashes "Run Time error '13' type mismatch" on "gngx"
+
+08-05-17:
+the float-docked control is not updated on refresh. Win-450 wakes up in "docked" mode but "vertical Dock" cw toggle control does not show it.
+
+02-05-17
+bug:
+GetSend if use TMP_BUF often produces short strings especially in RT monitoring "b" command
+If remove TMP_BUF the DLL does not work.
+In this version 1.2.8 the DLL does not work.
+
+29-03-17:
+BUG>> System control: does not read Go-NoGo window or Isolator vertical offsets
+COSMETIC BUG>>> System control: the max 1000 does not fit into Go-NoGo window and shown as 100
+COSMETIC BUG>>> FF gains page: increase label sizes - on some computers text appears too large and shown in 2 lines
+ADD>>> pheumatic gain boost when stage motion detected:
+ "gain40" for Z,
+ "gain41" for tX,
+ "gain42" for tY,
+
+17-01-17
+FIXED>>>BUG>>> when "acquiring then plotting valve test time stamp is added on first line only
+17-01-16
+FIXED>>>BUG>>> valve test does not show correct plot, shows streight lines between 0,0 and some pressure.
+>> CAUSE>>> Function ExtractDataFromScanLine(data_line As String, Optional scan_num As Long = 0) As Long
+
+	If scan_num = 0 Then 'if optional parameter is missing, update data array line number taken from controller (for "g" command)
+	  ScanValues(ch, 0) = Val(tmp_str)'<<<<< ERROR: second index ZERO
+	  RelativeScanValues(ch, 0) = Val(tmp_str) - ScanValues(ch, 0) + cwSpreadPlotsByY.Value * (5 - ch) ' subtract the first measurement
+FIX>>>>
+	  ScanValues(ch, ExtractDataFromScanLine) = Val(tmp_str)
+	  RelativeScanValues(ch, ExtractDataFromScanLine) = Val(tmp_str) - ScanValues(ch, 0) + cwSpreadPlotsByY.Value * (5 - ch) ' subtract the first measurement
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+16-12-20
+in C:\In_out\Software\DC-2020_ED_Analyzer_VB6\DC-2020_ElectroDamp_Analyzer_install\11-21-2016_15-39 Test_VlvBrd.csv
+in valve test result delay shows 1.7 sec? - should be 3.0?
+
+does not read correctly
+C:\In_out\Software\DC-2020_ED_Analyzer_VB6\DC-2020_ElectroDamp_Analyzer_install\01-17-2014_20-20 Test_VlvBrd.csv (without time stamp)
+
+
+
+DONE 16-12-19 add version to "REFRESH settings"
+16-12-17 Added calls to C2prog and TMC DC-2020 scope.
+Fixed phase appearance in predicted plot (it was sometimes showed 180 degree jumps). BUG was in CalculateFilterTF();
+DONE 121416 >>> increase docked pos window : 3000 is shown as 300
+vert dock status sometimes is not updated - shows "ON"
+
+DONE 16-12-17 >>> put test pulse on the FF and FB gains
+DONE 16-12-17 >>> add call to Scope and to C2 prog
+DONE 16-12-17 >>> When plotting TF, make previous and ref plots immeditely visible (now they updated with test)
+DONE 16-12-17 >>> Put "current test plot visible" (blue trace) check box
+
+Conversion utilities
+http://www.developerfusion.com/tools/convert/csharp-to-vb/  cannot convert and hangs?
+http://converter.telerik.com/   converts
+
+If DLL "cannot be found": it is because When you run from the VB6 IDE,
+it will find DLLs from the app directory...
+but it considers the app directory to be the directory containing the VB6 IDE itself :(
+Another workaround you could try is, just on your development machine,
+put a copy of the DLL in the same directory where the VB6 IDE is installed.
+Probably C:\Program Files\Microsoft Visual Studio\VB98\
+
+>>>> "The current directory seems to be VB6's dir" only when you open a project using File-Open.
+>>>> Open it by double clicking the .vbp file while having the IDE closed.
+
+
+>>NEED>>add dynamic array for valve test.
+
+2016-11-18 00:17
+frm Monitoring Added dynamic array for quicker better plotting
+BAG>>> during valve test heavy processor load??
+frm Monitoring
+reduced MAX_SCAN from 100000 to 10000 to decrease load and increase performance on intervals < 0.2 sec
+saves valve plots.
+BAG>>> does not save pos plot
+
+2016-11-16 redesigned GUI.
+DONE>>> NEED: combine "REFRESH" into one function
+
+2016-11-02
+1. when taking params, auto hide terminal window
+2. p command is replaced with "pulse" even if I do not get part number '95-' string
+
+test valve board does not record time
+ line#	InfCnt	EhxCnt	 Inflat_mA	Exhaust_mA	 PSI_1	PSI_2	PSI_3	PSI_4	PSI_in	 time
+0	-7999	2226	69.96	59.97	23.51	24.67	21.97	19.19	61.59	'00:00:00.00	%
+1	-7799	2226	70.46	59.97	19.72	20.69	18.39	16.08	61.58	'00:00:00.00	%
+2	-7599	2226	70.96	59.97	16.72	17.45	15.61	13.67	61.59	'00:00:00.00	%
+
+
+
+
+2016-10-28
+created "diagnostic and tuning tab.
+BUG>> Excitation does not update
+BUG>> BNC pointers do not update (copy from STACIS)
+
+2016-10-24 retrieve parameters on "Cancel" while save dialog continues retrieveing one more set, cannot get out from retrieving - saving cycle
+after params are retrieved, echo is remains in verbose - slows down reading filters
+
+2016-10-12
+FIXED >>>BUG>>> " wait time, 0.01 sec" - should be 0.2-0.4, etc.
+FIXED >>>BUG>>> index in reading or writing is shifted by 1
+>>>BUG>>> cannot read correctly saved data - something with time format
+
+2016-10-03
+BUG>>> damping gain limit is 50, should be larger
+BUG>>> valve test does not work: the comming line always has index 0000, which
+seems to be replaced by PC time. But, the plot is not updated.
+
+2016-08-09
+Pressure monitoring: when reading file back, it shows correct profile,
+BUT: when started again after that, the Y scale is -5000 to +5000 and
+ it cannot be changed (because of Auto scale mode)
+
+if start DC2020 valve test by clicking "save until stop" pink button, the file is not open and it tells 'File'' is not open for writing.
+
+2016-02-29
+ADDED>>>>NEED: to read older transfer function plota without #, detect: Frequency Hz	Gain dB	Phase deg
+then ignore "#" tocken.
+NEED: FIX unity gain/phase caclulation & show
+
+Sometimes phase still jumps 90 degrees vs 180
+the file name gets wrong gain: p_tf MA_Y GA_Y 03-29-2016 10-05, gain=-10.71.csv
+
+
+
+2016-01-29
+form Gains:
+change tags for FF gains and include W/P A/N fron the buttons
+incluse jerk gains
+change buttons for better appearance
+
+2016-01-28
+BUG>>>> Frm terminal always want to be on top, blinking if lost focus, == becomes Modal
+when Terminal is open, attemt to read or save file gives this message"
+"cannot show non-modal form when another modal form is displayed"
+It actually opens dialog, but when dialog is closed, Analyzer gets terminated
+CAUSE>>>>
+' Following lines cause Terminal form to be "modal" - it prevents opening other dialogs and want to be on top of other forms
+'  If TerminalVisible = True Then
+'    Me.Show vbModeless 'this does not help, still modal
+'  Else
+'    Me.Hide
+'  End If
+
+
+2015-12-16 made international version IsNumber(string) instead of IsNumeric, which result depends on region settins
+
+11-17-2015 France UTS-Newport. Replaced CCng(string) which is culture - dependent, i.e decimal separator can be comma,
+ with Val(string) which always asume the dot as decimal separator.
+Improved prediction phase (due to ATAN calculates between -90 and +90)
+somewhat better but not perfect
+
+missing lines / chars when outputting data into ListParams
+correct:     gain15=+0.730 // MotZ3->Geo_3Z  test gain
+incorrect:   in15=+0.730 // MotZ3->Geo_3Z  test gain
+incorrect:   otZ3->Geo_3Z  test gain
+
+2015-06-25 build 1.07
+new interface, filters plots, TF prediction
+NEED condition phase plots - phase is wrapping in the wrong place, at 90 degrees?
+
+On Win7 Home,
+the DC2020_Analyzer on 09-02-14 gave error (was OK before). The Mag-NetX Analyzer starts OK
+"cannot find "msstdfmt.dll"
+It is actually exist in:
+C:\In_Out\Software\DC-2020_Analyzer_VB6\Package\Support (ver 6.1.97.82)
+
+It can be downloaded from (but older ver 6.0.84.50):
+http://superuser.com/questions/519841/getting-msstdfmt-dll-missing-when-starting-visual-basic-6-application
+>>WORKS>>3.copy msstdfmt.dll to c:\windows\system32
+ if running on 32 bit OS
+ or
+>>NO NEED>> to c:\windows\syswow64 if running on a 64 bit OS
+4.open a command prompt (cmd.exe) with administrator privileges
+
+5.in the prompt type on 32 bit OS
+>>WORKS>>regsvr32 c:\windows\system32\msstdfmt.dll
+
+or on 64 bit OS
+>>NO NEED>>regsvr32 c:\windows\syswow64\msstdfmt.dll
+
+
+6.now your VB6 program should start successfully
+
+
+V2.2 fo2 DC-2020 @25-Nov-2013
+LTF: added 7x,7y,7z commands to drive vert motors and look on prox
+removed atime command,
+"drvout" changed to "drvo"
+========================================================
+
+when taking LTF and enable terminal, it stop updating plots and communication history
+If close terminal, it again pick up from current transmitted frequency and finishes
+
+After that, hext LTF does not add to the history, but can be seen on terminal
+
+LTF stopped on freq 21 Hz, by itself, "st" command gets accepted, but immediately brings garbage on LCD
+Serial comm is still operational
+pressing key brings proper LCD message
+
