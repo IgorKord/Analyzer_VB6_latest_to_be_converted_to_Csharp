@@ -332,7 +332,7 @@ Private Declare Sub InitStringCallBackFuncPtr Lib "ElectroDampSim.dll" _
 
 Private Declare Sub InitCharCallBackFuncPtr Lib "ElectroDampSim.dll" _
         (ByVal lpfnMyFunc As Long)
-        
+
 Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" ( _
     ByRef Destination As Any, _
     ByRef Source As Any, _
@@ -530,7 +530,7 @@ End Function
 Public Sub FFT(FR() As Double, FI() As Double, LnN As Long)
 
   'THE FAST FOURIER TRANSFORM
-  'copyright © 1997-1999 by California Technical Publishing
+  'copyright 1997-1999 by California Technical Publishing
   'published with  permission from Steven W Smith, www.dspguide.com
   'GUI by logix4u , www.logix4u.net
   'modified by logix4u, www.logix4.net
@@ -595,7 +595,7 @@ Dim tr As Double, ti As Double, DivN As Double
       ui = ur * wi + ui * wr
       ur = ur1
       Next j
-    Next l  '{l - l›kke}
+    Next L  '{l - l>kke}
 
 End Sub
 
@@ -1723,7 +1723,7 @@ End Function
 ''"gain#$=GGG.GGG" Set/get Feed Back Loop Gain.
 ''Parameter "#": 0...3, gain for the: 0=Axes, 1=Test_gains, 2=Test_phases, 3=Pressure.
 ''Parameter "$": index of axis : position Xp=0,Yp=1,tZp=2,Zp=3,tXp=4,tYp=5; velocity Xv=6,Yv=7,tZv=8,Zv=9,tXv=A,tYv=B; damping Zd=C,tXd=D,tYd=E
-''Value "ggg.ggg"= feedback gain can be regular or scientific notation "±m.mmE±pp"; range: ±100.0
+''Value "ggg.ggg"= feedback gain can be regular or scientific notation "+/-m.mmE+/-pp"; range: +/-100.0
 ''Get gain "gain$#?": returns ->"gain@#=ggg.gg
 'Dim axis As Integer
 'Dim index1 As Integer
@@ -1850,7 +1850,7 @@ Public Function FORMAT_G(ByVal Value As Single, Optional ByVal UseLocale As Bool
     End If
 End Function
 
-'Note: BitsToSingle() is not a numeric conversion — it directly reinterprets the bit pattern (identical to a C-style union or type pun).
+'Note: BitsToSingle() is not a numeric conversion - it directly reinterprets the bit pattern (identical to a C-style union or type pun).
 'For example:
 'BitsToSingle(&H3F800000) = 1#
 'BitsToSingle(&HC0000000) = -2#
@@ -1867,21 +1867,21 @@ End Function
 
 ' --- Main normalization function ---
 ' ChatGPT & IK20251112
-' This function developer-friendly and DSP-debugger-ready — while remaining totally safe for normal users.
-' They’ll never know the hex path exists unless they paste one in.
+' This function developer-friendly and DSP-debugger-ready - while remaining totally safe for normal users.
+' They'll never know the hex path exists unless they paste one in.
 Public Function NormalizeFloatStringEx(ByVal s As String, ByRef IsConverted As Boolean) As String
     Dim DecimalSep As String
     Dim ThousandSep As String
     Dim Result As String
     Dim vSingle As Single
-    
+
     IsConverted = False
     Result = Trim$(s)
-    
+
     ' Get system decimal and thousand separators
     DecimalSep = Mid$(Format$(0.1, "0.0"), 2, 1)
     ThousandSep = Mid$(Format$(1000, "#,###"), 2, 1)
-    
+
     ' --- 1. Hexadecimal 32-bit float handling ---
     If UCase$(Left$(Result, 2)) = "&H" Then
         Dim hexVal As Long
@@ -1897,13 +1897,13 @@ Public Function NormalizeFloatStringEx(ByVal s As String, ByRef IsConverted As B
         Err.Clear
         Exit Function
     End If
-    
+
     ' --- 2. Remove thousand separators ---
     If ThousandSep <> "" Then Result = Replace(Result, ThousandSep, "")
-    
+
     ' --- 3. Replace locale decimal separator with dot ---
     If DecimalSep <> "." Then Result = Replace(Result, DecimalSep, ".")
-    
+
     ' --- 4. Validate numeric input ---
     If IsNumber(Result) Then
         IsConverted = True
