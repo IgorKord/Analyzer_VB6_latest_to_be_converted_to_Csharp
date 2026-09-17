@@ -6,12 +6,394 @@ Begin VB.Form frmMonitoring
    ClientHeight    =   9285
    ClientLeft      =   60
    ClientTop       =   345
-   ClientWidth     =   11670
+   ClientWidth     =   19305
    Icon            =   "frmMonitoring.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   9285
-   ScaleWidth      =   11670
+   ScaleWidth      =   19305
    StartUpPosition =   3  'Windows Default
+   Begin VB.ComboBox cmb_TestType 
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   345
+      ItemData        =   "frmMonitoring.frx":030A
+      Left            =   45
+      List            =   "frmMonitoring.frx":031A
+      Style           =   2  'Dropdown List
+      TabIndex        =   87
+      ToolTipText     =   "Choose axis OUTPUT for excitation"
+      Top             =   15
+      Width           =   2280
+   End
+   Begin VB.Frame FrmDeflateOffset 
+      Height          =   2085
+      Left            =   17415
+      TabIndex        =   54
+      Top             =   1305
+      Width           =   1860
+      Begin CWUIControlsLib.CWNumEdit cwValveHoldCurrent 
+         Height          =   300
+         Left            =   810
+         TabIndex        =   55
+         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
+         Top             =   1665
+         Width           =   945
+         _Version        =   524288
+         _ExtentX        =   1667
+         _ExtentY        =   529
+         _StockProps     =   4
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   12
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Reset_0         =   0   'False
+         CompatibleVers_0=   524288
+         NumEdit_0       =   1
+         ClassName_1     =   "CCWNumEdit"
+         opts_1          =   458814
+         C[0]_1          =   16777215
+         C[1]_1          =   0
+         BorderStyle_1   =   1
+         TextAlignment_1 =   1
+         Appearance_1    =   0
+         format_1        =   2
+         ClassName_2     =   "CCWFormat"
+         Format_2        =   ".0"
+         scale_1         =   3
+         ClassName_3     =   "CCWScale"
+         opts_3          =   65536
+         dMax_3          =   10
+         discInterval_3  =   1
+         ValueVarType_1  =   5
+         Value_Val_1     =   60
+         IncValueVarType_1=   5
+         IncValue_Val_1  =   1
+         AccelIncVarType_1=   5
+         AccelInc_Val_1  =   5
+         RangeMinVarType_1=   5
+         RangeMaxVarType_1=   5
+         RangeMax_Val_1  =   150
+         ButtonStyle_1   =   0
+         Bindings_1      =   4
+         ClassName_4     =   "CCWBindingHolderArray"
+         Editor_4        =   5
+         ClassName_5     =   "CCWBindingHolderArrayEditor"
+         Owner_5         =   1
+      End
+      Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
+         Height          =   300
+         Index           =   0
+         Left            =   855
+         TabIndex        =   56
+         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
+         Top             =   225
+         Visible         =   0   'False
+         Width           =   855
+         _Version        =   524288
+         _ExtentX        =   1508
+         _ExtentY        =   529
+         _StockProps     =   4
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   11.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Reset_0         =   0   'False
+         CompatibleVers_0=   524288
+         NumEdit_0       =   1
+         ClassName_1     =   "CCWNumEdit"
+         opts_1          =   196670
+         C[0]_1          =   16777215
+         C[1]_1          =   0
+         BorderStyle_1   =   1
+         TextAlignment_1 =   1
+         Appearance_1    =   0
+         format_1        =   2
+         ClassName_2     =   "CCWFormat"
+         Format_2        =   ".#0"
+         scale_1         =   3
+         ClassName_3     =   "CCWScale"
+         opts_3          =   65536
+         dMax_3          =   10
+         discInterval_3  =   1
+         ValueVarType_1  =   5
+         Value_Val_1     =   60
+         IncValueVarType_1=   5
+         IncValue_Val_1  =   1
+         AccelIncVarType_1=   5
+         AccelInc_Val_1  =   5
+         RangeMinVarType_1=   5
+         RangeMaxVarType_1=   5
+         RangeMax_Val_1  =   150
+         ButtonStyle_1   =   0
+         Bindings_1      =   4
+         ClassName_4     =   "CCWBindingHolderArray"
+         Editor_4        =   5
+         ClassName_5     =   "CCWBindingHolderArrayEditor"
+         Owner_5         =   1
+      End
+      Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
+         Height          =   300
+         Index           =   1
+         Left            =   855
+         TabIndex        =   57
+         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
+         Top             =   585
+         Visible         =   0   'False
+         Width           =   855
+         _Version        =   524288
+         _ExtentX        =   1508
+         _ExtentY        =   529
+         _StockProps     =   4
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   11.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Reset_0         =   0   'False
+         CompatibleVers_0=   524288
+         NumEdit_0       =   1
+         ClassName_1     =   "CCWNumEdit"
+         opts_1          =   196670
+         C[0]_1          =   16777215
+         C[1]_1          =   0
+         BorderStyle_1   =   1
+         TextAlignment_1 =   1
+         Appearance_1    =   0
+         format_1        =   2
+         ClassName_2     =   "CCWFormat"
+         Format_2        =   ".#0"
+         scale_1         =   3
+         ClassName_3     =   "CCWScale"
+         opts_3          =   65536
+         dMax_3          =   10
+         discInterval_3  =   1
+         ValueVarType_1  =   5
+         Value_Val_1     =   60
+         IncValueVarType_1=   5
+         IncValue_Val_1  =   1
+         AccelIncVarType_1=   5
+         AccelInc_Val_1  =   5
+         RangeMinVarType_1=   5
+         RangeMaxVarType_1=   5
+         RangeMax_Val_1  =   150
+         ButtonStyle_1   =   0
+         Bindings_1      =   4
+         ClassName_4     =   "CCWBindingHolderArray"
+         Editor_4        =   5
+         ClassName_5     =   "CCWBindingHolderArrayEditor"
+         Owner_5         =   1
+      End
+      Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
+         Height          =   300
+         Index           =   2
+         Left            =   855
+         TabIndex        =   58
+         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
+         Top             =   945
+         Visible         =   0   'False
+         Width           =   855
+         _Version        =   524288
+         _ExtentX        =   1508
+         _ExtentY        =   529
+         _StockProps     =   4
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   11.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Reset_0         =   0   'False
+         CompatibleVers_0=   524288
+         NumEdit_0       =   1
+         ClassName_1     =   "CCWNumEdit"
+         opts_1          =   196670
+         C[0]_1          =   16777215
+         C[1]_1          =   0
+         BorderStyle_1   =   1
+         TextAlignment_1 =   1
+         Appearance_1    =   0
+         format_1        =   2
+         ClassName_2     =   "CCWFormat"
+         Format_2        =   ".#0"
+         scale_1         =   3
+         ClassName_3     =   "CCWScale"
+         opts_3          =   65536
+         dMax_3          =   10
+         discInterval_3  =   1
+         ValueVarType_1  =   5
+         Value_Val_1     =   60
+         IncValueVarType_1=   5
+         IncValue_Val_1  =   1
+         AccelIncVarType_1=   5
+         AccelInc_Val_1  =   5
+         RangeMinVarType_1=   5
+         RangeMaxVarType_1=   5
+         RangeMax_Val_1  =   150
+         ButtonStyle_1   =   0
+         Bindings_1      =   4
+         ClassName_4     =   "CCWBindingHolderArray"
+         Editor_4        =   5
+         ClassName_5     =   "CCWBindingHolderArrayEditor"
+         Owner_5         =   1
+      End
+      Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
+         Height          =   300
+         Index           =   3
+         Left            =   855
+         TabIndex        =   59
+         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
+         Top             =   1305
+         Visible         =   0   'False
+         Width           =   855
+         _Version        =   524288
+         _ExtentX        =   1508
+         _ExtentY        =   529
+         _StockProps     =   4
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   11.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Reset_0         =   0   'False
+         CompatibleVers_0=   524288
+         NumEdit_0       =   1
+         ClassName_1     =   "CCWNumEdit"
+         opts_1          =   196670
+         C[0]_1          =   16777215
+         C[1]_1          =   0
+         BorderStyle_1   =   1
+         TextAlignment_1 =   1
+         Appearance_1    =   0
+         format_1        =   2
+         ClassName_2     =   "CCWFormat"
+         Format_2        =   ".#0"
+         scale_1         =   3
+         ClassName_3     =   "CCWScale"
+         opts_3          =   65536
+         dMax_3          =   10
+         discInterval_3  =   1
+         ValueVarType_1  =   5
+         Value_Val_1     =   60
+         IncValueVarType_1=   5
+         IncValue_Val_1  =   1
+         AccelIncVarType_1=   5
+         AccelInc_Val_1  =   5
+         RangeMinVarType_1=   5
+         RangeMaxVarType_1=   5
+         RangeMax_Val_1  =   150
+         ButtonStyle_1   =   0
+         Bindings_1      =   4
+         ClassName_4     =   "CCWBindingHolderArray"
+         Editor_4        =   5
+         ClassName_5     =   "CCWBindingHolderArrayEditor"
+         Owner_5         =   1
+      End
+      Begin VB.Label Label1 
+         Alignment       =   1  'Right Justify
+         BackColor       =   &H00FFFFC0&
+         Caption         =   "V4set"
+         Height          =   210
+         Index           =   19
+         Left            =   180
+         TabIndex        =   65
+         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
+         Top             =   1350
+         Visible         =   0   'False
+         Width           =   645
+      End
+      Begin VB.Label Label1 
+         Alignment       =   1  'Right Justify
+         BackColor       =   &H00FFFFC0&
+         Caption         =   "V3set"
+         Height          =   210
+         Index           =   16
+         Left            =   180
+         TabIndex        =   64
+         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
+         Top             =   990
+         Visible         =   0   'False
+         Width           =   645
+      End
+      Begin VB.Label Label1 
+         Alignment       =   1  'Right Justify
+         BackColor       =   &H00FFFFC0&
+         Caption         =   "V2set"
+         Height          =   210
+         Index           =   15
+         Left            =   180
+         TabIndex        =   63
+         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
+         Top             =   630
+         Visible         =   0   'False
+         Width           =   645
+      End
+      Begin VB.Label Label1 
+         Alignment       =   1  'Right Justify
+         BackColor       =   &H00FFFFC0&
+         Caption         =   "V1set"
+         Height          =   210
+         Index           =   14
+         Left            =   180
+         TabIndex        =   62
+         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
+         Top             =   315
+         Visible         =   0   'False
+         Width           =   645
+      End
+      Begin VB.Label Label1 
+         Alignment       =   1  'Right Justify
+         BackColor       =   &H00FFFFC0&
+         Caption         =   "Deflate Offset mA"
+         Height          =   255
+         Index           =   13
+         Left            =   180
+         TabIndex        =   61
+         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   1320
+      End
+      Begin VB.Label Label1 
+         Alignment       =   1  'Right Justify
+         BackColor       =   &H00FFFFC0&
+         Caption         =   "Hold mA"
+         Height          =   255
+         Index           =   12
+         Left            =   135
+         TabIndex        =   60
+         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
+         Top             =   1710
+         Width           =   645
+      End
+   End
    Begin VB.Timer aTimerContMonitoring 
       Enabled         =   0   'False
       Left            =   6660
@@ -26,11 +408,11 @@ Begin VB.Form frmMonitoring
       Appearance      =   0  'Flat
       BackColor       =   &H00FFFF80&
       Height          =   285
-      Left            =   90
-      TabIndex        =   82
+      Left            =   2340
+      TabIndex        =   23
       Text            =   "Position Monitoring, Recording and Excitation"
-      Top             =   0
-      Width           =   11400
+      Top             =   15
+      Width           =   9150
    End
    Begin VB.Frame FramePosScan 
       BackColor       =   &H00E0E0E0&
@@ -38,11 +420,1179 @@ Begin VB.Form frmMonitoring
       Height          =   8520
       Left            =   0
       TabIndex        =   0
-      Top             =   300
-      Width           =   11610
-      Begin VB.Frame FrameTest 
+      Top             =   360
+      Width           =   16605
+      Begin VB.Frame FramData 
+         BorderStyle     =   0  'None
+         Caption         =   "Data"
+         Height          =   4965
+         Left            =   2610
+         TabIndex        =   151
+         Top             =   3510
+         Width           =   915
+         Begin VB.Label Label1 
+            Alignment       =   2  'Center
+            BackColor       =   &H00FFFFFF&
+            Caption         =   "Data"
+            Height          =   240
+            Index           =   4
+            Left            =   180
+            TabIndex        =   169
+            Top             =   0
+            Width           =   600
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00C0C000&
+            Height          =   285
+            Index           =   10
+            Left            =   45
+            TabIndex        =   163
+            ToolTipText     =   "Ch11 Measured Signal"
+            Top             =   4050
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00008000&
+            Height          =   285
+            Index           =   11
+            Left            =   45
+            TabIndex        =   162
+            ToolTipText     =   "Ch12 Measured Signal"
+            Top             =   4425
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFC0&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   285
+            Index           =   0
+            Left            =   45
+            TabIndex        =   161
+            ToolTipText     =   "Measured Vertical #1 Prox Sensor Raw Signal"
+            Top             =   300
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00C0FFC0&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   285
+            Index           =   1
+            Left            =   45
+            TabIndex        =   160
+            ToolTipText     =   "Measured Vertical #2 Prox Sensor Raw Signal"
+            Top             =   675
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H0080C0FF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   285
+            Index           =   2
+            Left            =   45
+            TabIndex        =   159
+            ToolTipText     =   "Measured Vertical #3 Prox Sensor Raw Signal"
+            Top             =   1050
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H0000C080&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   285
+            Index           =   3
+            Left            =   45
+            TabIndex        =   158
+            ToolTipText     =   "Measured Horizontal #1 Prox Sensor Raw Signal"
+            Top             =   1425
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFC0C0&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   285
+            Index           =   4
+            Left            =   45
+            TabIndex        =   157
+            ToolTipText     =   "Measured Horizontal #2 Prox Sensor Raw Signal"
+            Top             =   1800
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFC0FF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   285
+            Index           =   5
+            Left            =   45
+            TabIndex        =   156
+            ToolTipText     =   "Measured Horizontal #3 Prox Sensor Raw Signal"
+            Top             =   2175
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00C000C0&
+            Height          =   285
+            Index           =   9
+            Left            =   45
+            TabIndex        =   155
+            ToolTipText     =   "Measured Stage Feed Forward Y-acceleration Signal"
+            Top             =   3675
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00C00000&
+            Height          =   285
+            Index           =   8
+            Left            =   45
+            TabIndex        =   154
+            ToolTipText     =   "Measured Stage Feed Forward X-acceleration Signal"
+            Top             =   3300
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00008000&
+            Height          =   285
+            Index           =   7
+            Left            =   45
+            TabIndex        =   153
+            ToolTipText     =   "Measured Stage Feed Forward Y-position Signal"
+            Top             =   2925
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H000000C0&
+            Height          =   285
+            Index           =   6
+            Left            =   45
+            TabIndex        =   152
+            ToolTipText     =   "Measured Stage Feed Forward X-position Signal"
+            Top             =   2550
+            Width           =   780
+         End
+      End
+      Begin VB.Frame FramPlotSinal 
+         BorderStyle     =   0  'None
+         Height          =   4875
+         Left            =   45
+         TabIndex        =   140
+         Top             =   3510
+         Width           =   555
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00008000&
+            Height          =   285
+            Index           =   11
+            Left            =   45
+            TabIndex        =   165
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   4425
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00808000&
+            Height          =   285
+            Index           =   10
+            Left            =   45
+            TabIndex        =   164
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   4050
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00FF00FF&
+            Height          =   285
+            Index           =   9
+            Left            =   45
+            TabIndex        =   150
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   3675
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00FF0000&
+            Height          =   285
+            Index           =   8
+            Left            =   45
+            TabIndex        =   149
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   3300
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H0000C000&
+            Height          =   285
+            Index           =   7
+            Left            =   45
+            TabIndex        =   148
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   2925
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H000000FF&
+            Height          =   285
+            Index           =   6
+            Left            =   45
+            TabIndex        =   147
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   2550
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00FFC0FF&
+            Height          =   285
+            Index           =   5
+            Left            =   45
+            TabIndex        =   146
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   2175
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00FFC0C0&
+            Height          =   285
+            Index           =   4
+            Left            =   45
+            TabIndex        =   145
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   1800
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H0000C080&
+            Height          =   285
+            Index           =   3
+            Left            =   45
+            TabIndex        =   144
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   1425
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H000080FF&
+            Height          =   285
+            Index           =   2
+            Left            =   45
+            TabIndex        =   143
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   1050
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00C0FFC0&
+            Height          =   285
+            Index           =   1
+            Left            =   45
+            TabIndex        =   142
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   675
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00FFFFC0&
+            Height          =   285
+            Index           =   0
+            Left            =   45
+            TabIndex        =   141
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   300
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.Label Label1 
+            Alignment       =   2  'Center
+            BackColor       =   &H00FFFFFF&
+            Caption         =   "Plot?"
+            Height          =   240
+            Index           =   18
+            Left            =   45
+            TabIndex        =   166
+            Top             =   0
+            Width           =   420
+         End
+      End
+      Begin VB.Frame Fram_B_cmd 
+         BorderStyle     =   0  'None
+         Caption         =   "Pos && FF"
+         Height          =   4965
+         Left            =   585
+         TabIndex        =   128
+         Top             =   3510
+         Width           =   960
+         Begin VB.CommandButton cmdGetCurrentPosition 
+            BackColor       =   &H0080FF80&
+            Caption         =   "Get position once"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   735
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   139
+            ToolTipText     =   "Reads momentary proximity sensors and FF signals"
+            Top             =   4050
+            Width           =   825
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FFC0FF&
+            Caption         =   "Prox H3"
+            Height          =   300
+            Index           =   6
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   138
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   2175
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FFC0C0&
+            Caption         =   "Prox H2"
+            Height          =   300
+            Index           =   5
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   137
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   1800
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H0000C080&
+            Caption         =   "Prox H1"
+            Height          =   300
+            Index           =   4
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   136
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   1425
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H000080FF&
+            Caption         =   "Prox V3"
+            Height          =   300
+            Index           =   3
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   135
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   1050
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00C0FFC0&
+            Caption         =   "Prox V2"
+            Height          =   300
+            Index           =   2
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   134
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   675
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FFFFC0&
+            Caption         =   "Prox V1"
+            Height          =   300
+            Index           =   1
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   133
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   300
+            Value           =   -1  'True
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H000000FF&
+            Caption         =   "FF Xpos"
+            ForeColor       =   &H00FFFFFF&
+            Height          =   300
+            Index           =   7
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   132
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   2550
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H0000C000&
+            Caption         =   "FF Ypos"
+            ForeColor       =   &H00FFFFFF&
+            Height          =   300
+            Index           =   8
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   131
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   2925
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FF0000&
+            Caption         =   "FF Xacc"
+            ForeColor       =   &H00FFFFFF&
+            Height          =   300
+            Index           =   9
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   130
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   3300
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FF00FF&
+            Caption         =   "FF Yacc"
+            ForeColor       =   &H00FFFFFF&
+            Height          =   300
+            Index           =   10
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   129
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   3675
+            Width           =   800
+         End
+         Begin VB.Label Label1 
+            Alignment       =   2  'Center
+            BackColor       =   &H00FFFFFF&
+            Caption         =   "Pos && FF"
+            Height          =   240
+            Index           =   0
+            Left            =   0
+            TabIndex        =   167
+            Top             =   0
+            Width           =   825
+         End
+      End
+      Begin VB.Frame FramSelAnyCh 
+         Caption         =   "Free Selection"
+         Height          =   4875
+         Left            =   495
+         TabIndex        =   103
+         Top             =   3510
+         Width           =   2175
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00008000&
+            Caption         =   "12"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   300
+            Index           =   21
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   127
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   4425
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00808000&
+            Caption         =   "11"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   300
+            Index           =   20
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   126
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   4050
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FF80FF&
+            Caption         =   "10"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   300
+            Index           =   19
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   125
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   3675
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FF8080&
+            Caption         =   "9"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   300
+            Index           =   18
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   124
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   3300
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H0000C000&
+            Caption         =   "8"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   300
+            Index           =   17
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   123
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   2925
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H008080FF&
+            Caption         =   "7"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   300
+            Index           =   16
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   122
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   2550
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FFFFC0&
+            Caption         =   "1"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   300
+            Index           =   15
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   121
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   300
+            Value           =   -1  'True
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00C0FFC0&
+            Caption         =   "2"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   300
+            Index           =   14
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   120
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   675
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H000080FF&
+            Caption         =   "3"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   300
+            Index           =   13
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   119
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   1050
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H0000C080&
+            Caption         =   "4"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   300
+            Index           =   12
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   118
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   1425
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FFC0C0&
+            Caption         =   "5"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   300
+            Index           =   11
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   117
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   1800
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FFC0FF&
+            Caption         =   "6"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   300
+            Index           =   0
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   116
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   2175
+            Width           =   390
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00008000&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   11
+            ItemData        =   "frmMonitoring.frx":0377
+            Left            =   540
+            List            =   "frmMonitoring.frx":0387
+            Style           =   2  'Dropdown List
+            TabIndex        =   115
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   4425
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00808000&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   10
+            ItemData        =   "frmMonitoring.frx":03B0
+            Left            =   540
+            List            =   "frmMonitoring.frx":03C0
+            Style           =   2  'Dropdown List
+            TabIndex        =   114
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   4050
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00FF80FF&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   330
+            Index           =   9
+            ItemData        =   "frmMonitoring.frx":03E9
+            Left            =   540
+            List            =   "frmMonitoring.frx":03F9
+            Style           =   2  'Dropdown List
+            TabIndex        =   113
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   3675
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00FF8080&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   330
+            Index           =   8
+            ItemData        =   "frmMonitoring.frx":0422
+            Left            =   540
+            List            =   "frmMonitoring.frx":0432
+            Style           =   2  'Dropdown List
+            TabIndex        =   112
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   3300
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H0000C000&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   7
+            ItemData        =   "frmMonitoring.frx":045B
+            Left            =   540
+            List            =   "frmMonitoring.frx":046B
+            Style           =   2  'Dropdown List
+            TabIndex        =   111
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   2925
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H008080FF&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   6
+            ItemData        =   "frmMonitoring.frx":0494
+            Left            =   540
+            List            =   "frmMonitoring.frx":04A4
+            Style           =   2  'Dropdown List
+            TabIndex        =   110
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   2550
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00FFC0FF&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   5
+            ItemData        =   "frmMonitoring.frx":04CD
+            Left            =   540
+            List            =   "frmMonitoring.frx":04DD
+            Style           =   2  'Dropdown List
+            TabIndex        =   109
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   2175
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00FFC0C0&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   4
+            ItemData        =   "frmMonitoring.frx":0506
+            Left            =   540
+            List            =   "frmMonitoring.frx":0516
+            Style           =   2  'Dropdown List
+            TabIndex        =   108
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   1800
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H0000C080&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   3
+            ItemData        =   "frmMonitoring.frx":053F
+            Left            =   540
+            List            =   "frmMonitoring.frx":054F
+            Style           =   2  'Dropdown List
+            TabIndex        =   107
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   1425
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H000080FF&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   2
+            ItemData        =   "frmMonitoring.frx":0578
+            Left            =   540
+            List            =   "frmMonitoring.frx":0588
+            Style           =   2  'Dropdown List
+            TabIndex        =   106
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   1050
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00C0FFC0&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   1
+            ItemData        =   "frmMonitoring.frx":05B1
+            Left            =   540
+            List            =   "frmMonitoring.frx":05C1
+            Style           =   2  'Dropdown List
+            TabIndex        =   105
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   675
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00FFFFC0&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   0
+            ItemData        =   "frmMonitoring.frx":05EA
+            Left            =   540
+            List            =   "frmMonitoring.frx":05FA
+            Style           =   2  'Dropdown List
+            TabIndex        =   104
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   300
+            Width           =   1580
+         End
+         Begin VB.Label Label1 
+            Alignment       =   2  'Center
+            BackColor       =   &H00FFFFFF&
+            Caption         =   "Free Selection"
+            Height          =   240
+            Index           =   1
+            Left            =   135
+            TabIndex        =   168
+            Top             =   0
+            Width           =   1455
+         End
+      End
+      Begin VB.Frame framExitation 
          BackColor       =   &H00E0E0E0&
-         Caption         =   "Test type"
+         Caption         =   "Exitation"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   9.75
@@ -52,12 +1602,13 @@ Begin VB.Form frmMonitoring
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   1770
-         Left            =   90
-         TabIndex        =   86
-         Top             =   -45
-         Width           =   2445
-         Begin VB.ComboBox cmb_TestType 
+         Height          =   1365
+         Left            =   11070
+         TabIndex        =   92
+         ToolTipText     =   $"frmMonitoring.frx":0623
+         Top             =   315
+         Width           =   4965
+         Begin VB.ComboBox cmb_ExcitAxis 
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   9
@@ -68,34 +1619,888 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Height          =   345
-            ItemData        =   "frmMonitoring.frx":030A
-            Left            =   90
-            List            =   "frmMonitoring.frx":0317
+            ItemData        =   "frmMonitoring.frx":06C0
+            Left            =   2790
+            List            =   "frmMonitoring.frx":0711
             Style           =   2  'Dropdown List
-            TabIndex        =   105
+            TabIndex        =   102
             ToolTipText     =   "Choose axis OUTPUT for excitation"
-            Top             =   225
-            Width           =   2280
+            Top             =   155
+            Width           =   1875
          End
+         Begin VB.OptionButton optExitation 
+            BackColor       =   &H00FFC0FF&
+            Caption         =   "Noise"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   204
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   270
+            Index           =   1
+            Left            =   1080
+            TabIndex        =   101
+            ToolTipText     =   "Enables noise exitation (Frequency is set to 0 Hz means niose)"
+            Top             =   510
+            Width           =   870
+         End
+         Begin VB.OptionButton optExitation 
+            BackColor       =   &H00C0FFC0&
+            Caption         =   "Sine"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   204
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   270
+            Index           =   0
+            Left            =   1080
+            TabIndex        =   100
+            ToolTipText     =   "Enables Sine exitation (Frequency MUST BE NOT ZERO)"
+            Top             =   195
+            Value           =   -1  'True
+            Width           =   870
+         End
+         Begin VB.CommandButton cmdPulse 
+            BackColor       =   &H0000FFFF&
+            Caption         =   "Apply Pulse"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   495
+            Left            =   1080
+            Style           =   1  'Graphical
+            TabIndex        =   99
+            ToolTipText     =   "Applies pulse to chosen axis (If excitation was ON, it is disabled after pulse)"
+            Top             =   825
+            Width           =   870
+         End
+         Begin CWUIControlsLib.CWButton cwBut_Excitation 
+            Height          =   1110
+            Left            =   90
+            TabIndex        =   93
+            ToolTipText     =   "Enable / Disable excitation on chosen axis output"
+            Top             =   225
+            Width           =   870
+            _Version        =   524288
+            _ExtentX        =   1535
+            _ExtentY        =   1958
+            _StockProps     =   68
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   204
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Reset_0         =   0   'False
+            CompatibleVers_0=   524288
+            Boolean_0       =   1
+            ClassName_1     =   "CCWBoolean"
+            opts_1          =   2614
+            SclRef_1.l      =   2
+            SclRef_1.t      =   2
+            SclRef_1.r      =   60
+            SclRef_1.b      =   85
+            Scl_1.l         =   5
+            Scl_1.t         =   12
+            Scl_1.r         =   57
+            Scl_1.b         =   75
+            C[0]_1          =   8438015
+            Enum_1          =   2
+            ClassName_2     =   "CCWEnum"
+            Array_2         =   2
+            Editor_2        =   0
+            Array[0]_2      =   3
+            ClassName_3     =   "CCWEnumElt"
+            opts_3          =   1
+            Name_3          =   "Off"
+            frame_3         =   286
+            DrawList_3      =   4
+            ClassName_4     =   "CDrawList"
+            count_4         =   4
+            list[4]_4       =   5
+            ClassName_5     =   "CCWDrawObj"
+            opts_5          =   62
+            C[0]_5          =   -2147483640
+            C[1]_5          =   -2147483640
+            Image_5         =   6
+            ClassName_6     =   "CCWTextImage"
+            font_6          =   0
+            Animator_5      =   0
+            Blinker_5       =   0
+            list[3]_4       =   7
+            ClassName_7     =   "CCWDrawObj"
+            opts_7          =   52
+            SclRef_7.l      =   7
+            SclRef_7.t      =   19
+            SclRef_7.r      =   66
+            SclRef_7.b      =   84
+            Scl_7.l         =   26
+            Scl_7.t         =   26
+            Scl_7.r         =   48
+            Scl_7.b         =   45
+            C[0]_7          =   -2147483640
+            C[1]_7          =   -2147483640
+            Image_7         =   8
+            ClassName_8     =   "CCWTextImage"
+            font_8          =   9
+            ClassName_9     =   "CCWFont"
+            bFont_9         =   -1  'True
+            BeginProperty Font_9 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   12
+               Charset         =   204
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Animator_7      =   0
+            Blinker_7       =   0
+            list[2]_4       =   10
+            ClassName_10    =   "CCWDrawObj"
+            opts_10         =   54
+            SclRef_10.l     =   7
+            SclRef_10.t     =   19
+            SclRef_10.r     =   66
+            SclRef_10.b     =   84
+            Scl_10.l        =   25
+            Scl_10.t        =   58
+            Scl_10.r        =   47
+            Scl_10.b        =   77
+            C[0]_10         =   -2147483640
+            C[1]_10         =   -2147483640
+            Image_10        =   11
+            ClassName_11    =   "CCWTextImage"
+            style_11        =   1076101120
+            font_11         =   12
+            ClassName_12    =   "CCWFont"
+            bFont_12        =   -1  'True
+            BeginProperty Font_12 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   12
+               Charset         =   204
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Animator_10     =   0
+            Blinker_10      =   0
+            list[1]_4       =   13
+            ClassName_13    =   "CCWDrawObj"
+            opts_13         =   62
+            C[0]_13         =   8454016
+            C[1]_13         =   8454016
+            Image_13        =   14
+            ClassName_14    =   "CCWPictImage"
+            opts_14         =   256
+            Rows_14         =   1
+            Cols_14         =   1
+            URL_14          =   "C:\in_out\Software\DC-2020_ED_Analyzer_VB6\Resources\SwitchOffGreen.bmp"
+            Pict_14         =   "frmMonitoring.frx":083A
+            ColorReplaceWith_14=   8421504
+            ColorReplace_14 =   8421504
+            Tolerance_14    =   2
+            Animator_13     =   0
+            Blinker_13      =   0
+            varVarType_3    =   5
+            Array[1]_2      =   15
+            ClassName_15    =   "CCWEnumElt"
+            opts_15         =   1
+            Name_15         =   "On"
+            frame_15        =   286
+            DrawList_15     =   16
+            ClassName_16    =   "CDrawList"
+            count_16        =   4
+            list[4]_16      =   17
+            ClassName_17    =   "CCWDrawObj"
+            opts_17         =   62
+            C[0]_17         =   -2147483640
+            C[1]_17         =   -2147483640
+            Image_17        =   6
+            Animator_17     =   0
+            Blinker_17      =   0
+            list[3]_16      =   18
+            ClassName_18    =   "CCWDrawObj"
+            opts_18         =   54
+            SclRef_18.l     =   7
+            SclRef_18.t     =   19
+            SclRef_18.r     =   66
+            SclRef_18.b     =   84
+            Scl_18.l        =   26
+            Scl_18.t        =   26
+            Scl_18.r        =   48
+            Scl_18.b        =   45
+            C[0]_18         =   -2147483640
+            C[1]_18         =   -2147483640
+            Image_18        =   8
+            Animator_18     =   0
+            Blinker_18      =   0
+            list[2]_16      =   19
+            ClassName_19    =   "CCWDrawObj"
+            opts_19         =   52
+            SclRef_19.l     =   7
+            SclRef_19.t     =   19
+            SclRef_19.r     =   66
+            SclRef_19.b     =   84
+            Scl_19.l        =   25
+            Scl_19.t        =   58
+            Scl_19.r        =   47
+            Scl_19.b        =   77
+            C[0]_19         =   -2147483640
+            C[1]_19         =   -2147483640
+            Image_19        =   11
+            Animator_19     =   0
+            Blinker_19      =   0
+            list[1]_16      =   20
+            ClassName_20    =   "CCWDrawObj"
+            opts_20         =   62
+            C[0]_20         =   8421631
+            C[1]_20         =   8421631
+            Image_20        =   21
+            ClassName_21    =   "CCWPictImage"
+            opts_21         =   256
+            Rows_21         =   1
+            Cols_21         =   1
+            URL_21          =   "C:\in_out\Software\DC-2020_ED_Analyzer_VB6\Resources\SwitchOnYellow.bmp"
+            Pict_21         =   "frmMonitoring.frx":19F6C
+            ColorReplaceWith_21=   8421504
+            ColorReplace_21 =   8421504
+            Tolerance_21    =   2
+            Animator_20     =   0
+            Blinker_20      =   22
+            ClassName_22    =   "CCWBlinker"
+            Interval_22     =   600
+            EventID_22      =   7
+            Obj_22          =   20
+            varVarType_15   =   5
+            Bindings_1      =   23
+            ClassName_23    =   "CCWBindingHolderArray"
+            Editor_23       =   24
+            ClassName_24    =   "CCWBindingHolderArrayEditor"
+            Owner_24        =   1
+            mechAction_1    =   1
+            BGImg_1         =   25
+            ClassName_25    =   "CCWDrawObj"
+            opts_25         =   62
+            Image_25        =   26
+            ClassName_26    =   "CCWPictImage"
+            opts_26         =   1280
+            Rows_26         =   1
+            Cols_26         =   1
+            Pict_26         =   286
+            F_26            =   -2147483633
+            B_26            =   -2147483633
+            ColorReplaceWith_26=   8421504
+            ColorReplace_26 =   8421504
+            Tolerance_26    =   2
+            Animator_25     =   0
+            Blinker_25      =   0
+            Array_1         =   6
+            Editor_1        =   0
+            Array[0]_1      =   13
+            Array[1]_1      =   20
+            Array[2]_1      =   0
+            Array[3]_1      =   0
+            Array[4]_1      =   27
+            ClassName_27    =   "CCWDrawObj"
+            opts_27         =   62
+            Image_27        =   8
+            Animator_27     =   0
+            Blinker_27      =   0
+            Array[5]_1      =   28
+            ClassName_28    =   "CCWDrawObj"
+            opts_28         =   62
+            Image_28        =   11
+            Animator_28     =   0
+            Blinker_28      =   0
+            Label_1         =   29
+            ClassName_29    =   "CCWDrawObj"
+            opts_29         =   62
+            C[0]_29         =   -2147483640
+            Image_29        =   6
+            Animator_29     =   0
+            Blinker_29      =   0
+         End
+         Begin CWUIControlsLib.CWNumEdit cwNumExcitFreq 
+            Height          =   360
+            Left            =   3285
+            TabIndex        =   94
+            ToolTipText     =   "Driving frequency, Hz, 0.01...1000 Hz (default = 5 Hz)"
+            Top             =   555
+            Width           =   1335
+            _Version        =   524288
+            _ExtentX        =   2355
+            _ExtentY        =   635
+            _StockProps     =   4
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   12
+               Charset         =   204
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Reset_0         =   0   'False
+            CompatibleVers_0=   524288
+            NumEdit_0       =   1
+            ClassName_1     =   "CCWNumEdit"
+            opts_1          =   458814
+            C[0]_1          =   12648384
+            C[1]_1          =   0
+            BorderStyle_1   =   1
+            TextAlignment_1 =   2
+            format_1        =   2
+            ClassName_2     =   "CCWFormat"
+            Format_2        =   ".#0"
+            scale_1         =   3
+            ClassName_3     =   "CCWScale"
+            opts_3          =   65536
+            dMax_3          =   10
+            discInterval_3  =   1
+            ValueVarType_1  =   5
+            Value_Val_1     =   200
+            IncValueVarType_1=   5
+            IncValue_Val_1  =   1
+            AccelIncVarType_1=   5
+            AccelInc_Val_1  =   10
+            RangeMinVarType_1=   5
+            RangeMaxVarType_1=   5
+            RangeMax_Val_1  =   200
+            ButtonStyle_1   =   0
+            Bindings_1      =   4
+            ClassName_4     =   "CCWBindingHolderArray"
+            Editor_4        =   5
+            ClassName_5     =   "CCWBindingHolderArrayEditor"
+            Owner_5         =   1
+         End
+         Begin CWUIControlsLib.CWNumEdit cwNumExcitAmpl 
+            Height          =   360
+            Left            =   3285
+            TabIndex        =   95
+            ToolTipText     =   "Driving Amplitude, 0...30000 (default = 300)"
+            Top             =   960
+            Width           =   1335
+            _Version        =   524288
+            _ExtentX        =   2355
+            _ExtentY        =   635
+            _StockProps     =   4
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   12
+               Charset         =   204
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Reset_0         =   0   'False
+            CompatibleVers_0=   524288
+            NumEdit_0       =   1
+            ClassName_1     =   "CCWNumEdit"
+            opts_1          =   458814
+            C[0]_1          =   16777215
+            C[1]_1          =   0
+            BorderStyle_1   =   1
+            TextAlignment_1 =   2
+            format_1        =   2
+            ClassName_2     =   "CCWFormat"
+            Format_2        =   ".###"
+            scale_1         =   3
+            ClassName_3     =   "CCWScale"
+            opts_3          =   65536
+            dMax_3          =   10
+            discInterval_3  =   1
+            ValueVarType_1  =   5
+            Value_Val_1     =   1000
+            IncValueVarType_1=   5
+            IncValue_Val_1  =   100
+            AccelIncVarType_1=   5
+            AccelInc_Val_1  =   10
+            RangeMinVarType_1=   5
+            RangeMin_Val_1  =   -30000
+            RangeMaxVarType_1=   5
+            RangeMax_Val_1  =   30000
+            ButtonStyle_1   =   0
+            Bindings_1      =   4
+            ClassName_4     =   "CCWBindingHolderArray"
+            Editor_4        =   5
+            ClassName_5     =   "CCWBindingHolderArrayEditor"
+            Owner_5         =   1
+         End
+         Begin VB.Label Label1 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BackColor       =   &H00C0FFC0&
+            Caption         =   " Sine Freq Hz"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   330
+            Index           =   35
+            Left            =   2070
+            TabIndex        =   98
+            ToolTipText     =   "Driving frequency, Hz, 0.01...1000 Hz (default = 5 Hz)"
+            Top             =   555
+            Width           =   1215
+         End
+         Begin VB.Label Label1 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            Caption         =   "Amplitude"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   330
+            Index           =   6
+            Left            =   2070
+            TabIndex        =   97
+            ToolTipText     =   "Driving Amplitude, 0...30000 (default = 300)"
+            Top             =   960
+            Width           =   1335
+         End
+         Begin VB.Label Label1 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            Caption         =   "Output"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   285
+            Index           =   5
+            Left            =   2070
+            TabIndex        =   96
+            ToolTipText     =   "Choose axis OUTPUT for excitation"
+            Top             =   195
+            Width           =   690
+         End
+      End
+      Begin VB.Frame frameMonitoring 
+         BackColor       =   &H00C0FFFF&
+         Caption         =   "Monitoring"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   1365
+         Left            =   3825
+         TabIndex        =   88
+         ToolTipText     =   "Position recording can be internal, by controller, up to 10 sec, and external, by PC, up to 1000 lines (100 - 1000 sec)"
+         Top             =   90
+         Width           =   1275
+         Begin CWUIControlsLib.CWNumEdit cwContCMDperiod 
+            Height          =   360
+            Left            =   135
+            TabIndex        =   89
+            ToolTipText     =   "Wait interval between repeated position requests, sec, 0.1-10"
+            Top             =   450
+            Width           =   990
+            _Version        =   524288
+            _ExtentX        =   1746
+            _ExtentY        =   635
+            _StockProps     =   4
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   12
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Reset_0         =   0   'False
+            CompatibleVers_0=   524288
+            NumEdit_0       =   1
+            ClassName_1     =   "CCWNumEdit"
+            opts_1          =   458814
+            C[0]_1          =   16777215
+            C[1]_1          =   0
+            BorderStyle_1   =   1
+            TextAlignment_1 =   1
+            Appearance_1    =   0
+            format_1        =   2
+            ClassName_2     =   "CCWFormat"
+            Format_2        =   ".00"
+            scale_1         =   3
+            ClassName_3     =   "CCWScale"
+            opts_3          =   65536
+            dMax_3          =   10
+            discInterval_3  =   1
+            ValueVarType_1  =   5
+            Value_Val_1     =   0.2
+            IncValueVarType_1=   5
+            IncValue_Val_1  =   0.05
+            AccelIncVarType_1=   5
+            AccelInc_Val_1  =   5
+            RangeMinVarType_1=   5
+            RangeMin_Val_1  =   0.1
+            RangeMaxVarType_1=   5
+            RangeMax_Val_1  =   10
+            ButtonStyle_1   =   0
+            Bindings_1      =   4
+            ClassName_4     =   "CCWBindingHolderArray"
+            Editor_4        =   5
+            ClassName_5     =   "CCWBindingHolderArrayEditor"
+            Owner_5         =   1
+         End
+         Begin CWUIControlsLib.CWButton cwButContinuesSend 
+            Height          =   510
+            Left            =   90
+            TabIndex        =   90
+            ToolTipText     =   "Initiates / stops continuous monitoring WITHOUT recording to the file"
+            Top             =   810
+            Width           =   1140
+            _Version        =   524288
+            _ExtentX        =   2011
+            _ExtentY        =   900
+            _StockProps     =   68
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   204
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Reset_0         =   0   'False
+            CompatibleVers_0=   524288
+            Boolean_0       =   1
+            ClassName_1     =   "CCWBoolean"
+            opts_1          =   2614
+            SclRef_1.l      =   2
+            SclRef_1.t      =   2
+            SclRef_1.r      =   63
+            SclRef_1.b      =   36
+            Scl_1.l         =   4
+            Scl_1.t         =   5
+            Scl_1.r         =   58
+            Scl_1.b         =   36
+            C[0]_1          =   12648447
+            Enum_1          =   2
+            ClassName_2     =   "CCWEnum"
+            Array_2         =   2
+            Editor_2        =   0
+            Array[0]_2      =   3
+            ClassName_3     =   "CCWEnumElt"
+            opts_3          =   1
+            Name_3          =   "Off"
+            frame_3         =   286
+            DrawList_3      =   4
+            ClassName_4     =   "CDrawList"
+            count_4         =   4
+            list[4]_4       =   5
+            ClassName_5     =   "CCWDrawObj"
+            opts_5          =   62
+            C[0]_5          =   0
+            C[1]_5          =   0
+            Image_5         =   6
+            ClassName_6     =   "CCWTextImage"
+            font_6          =   0
+            Animator_5      =   0
+            Blinker_5       =   0
+            list[3]_4       =   7
+            ClassName_7     =   "CCWDrawObj"
+            opts_7          =   52
+            SclRef_7.l      =   4
+            SclRef_7.t      =   5
+            SclRef_7.r      =   66
+            SclRef_7.b      =   36
+            Scl_7.l         =   19
+            Scl_7.t         =   11
+            Scl_7.r         =   54
+            Scl_7.b         =   27
+            C[0]_7          =   0
+            C[1]_7          =   0
+            Image_7         =   8
+            ClassName_8     =   "CCWTextImage"
+            szText_8        =   "STOP"
+            font_8          =   0
+            Animator_7      =   0
+            Blinker_7       =   0
+            list[2]_4       =   9
+            ClassName_9     =   "CCWDrawObj"
+            opts_9          =   54
+            SclRef_9.l      =   4
+            SclRef_9.t      =   5
+            SclRef_9.r      =   66
+            SclRef_9.b      =   36
+            Scl_9.l         =   16
+            Scl_9.t         =   15
+            Scl_9.r         =   57
+            Scl_9.b         =   31
+            C[0]_9          =   0
+            C[1]_9          =   0
+            Image_9         =   10
+            ClassName_10    =   "CCWTextImage"
+            szText_10       =   "START"
+            font_10         =   0
+            Animator_9      =   0
+            Blinker_9       =   0
+            list[1]_4       =   11
+            ClassName_11    =   "CCWDrawObj"
+            opts_11         =   54
+            SclRef_11.l     =   12
+            SclRef_11.t     =   15
+            SclRef_11.r     =   103
+            SclRef_11.b     =   43
+            Scl_11.l        =   13
+            Scl_11.t        =   15
+            Scl_11.r        =   104
+            Scl_11.b        =   39
+            C[0]_11         =   49152
+            C[1]_11         =   49152
+            Image_11        =   12
+            ClassName_12    =   "CCWPictImage"
+            opts_12         =   1280
+            Rows_12         =   1
+            Cols_12         =   1
+            Pict_12         =   44
+            F_12            =   49152
+            B_12            =   49152
+            ColorReplaceWith_12=   8421504
+            ColorReplace_12 =   8421504
+            Tolerance_12    =   2
+            Animator_11     =   0
+            Blinker_11      =   0
+            varVarType_3    =   5
+            Array[1]_2      =   13
+            ClassName_13    =   "CCWEnumElt"
+            opts_13         =   1
+            Name_13         =   "On"
+            frame_13        =   286
+            DrawList_13     =   14
+            ClassName_14    =   "CDrawList"
+            count_14        =   4
+            list[4]_14      =   15
+            ClassName_15    =   "CCWDrawObj"
+            opts_15         =   62
+            C[0]_15         =   0
+            C[1]_15         =   0
+            Image_15        =   6
+            Animator_15     =   0
+            Blinker_15      =   0
+            list[3]_14      =   16
+            ClassName_16    =   "CCWDrawObj"
+            opts_16         =   54
+            SclRef_16.l     =   4
+            SclRef_16.t     =   5
+            SclRef_16.r     =   66
+            SclRef_16.b     =   36
+            Scl_16.l        =   19
+            Scl_16.t        =   11
+            Scl_16.r        =   54
+            Scl_16.b        =   27
+            C[0]_16         =   0
+            C[1]_16         =   0
+            Image_16        =   8
+            Animator_16     =   0
+            Blinker_16      =   0
+            list[2]_14      =   17
+            ClassName_17    =   "CCWDrawObj"
+            opts_17         =   52
+            SclRef_17.l     =   4
+            SclRef_17.t     =   5
+            SclRef_17.r     =   66
+            SclRef_17.b     =   36
+            Scl_17.l        =   16
+            Scl_17.t        =   15
+            Scl_17.r        =   57
+            Scl_17.b        =   31
+            C[0]_17         =   0
+            C[1]_17         =   0
+            Image_17        =   10
+            Animator_17     =   0
+            Blinker_17      =   0
+            list[1]_14      =   18
+            ClassName_18    =   "CCWDrawObj"
+            opts_18         =   54
+            SclRef_18.l     =   12
+            SclRef_18.t     =   15
+            SclRef_18.r     =   103
+            SclRef_18.b     =   43
+            Scl_18.l        =   13
+            Scl_18.t        =   15
+            Scl_18.r        =   104
+            Scl_18.b        =   39
+            C[0]_18         =   6316287
+            C[1]_18         =   6316287
+            Image_18        =   19
+            ClassName_19    =   "CCWPictImage"
+            opts_19         =   1280
+            Rows_19         =   1
+            Cols_19         =   1
+            Pict_19         =   42
+            F_19            =   6316287
+            B_19            =   6316287
+            ColorReplaceWith_19=   8421504
+            ColorReplace_19 =   8421504
+            Tolerance_19    =   2
+            Animator_18     =   0
+            Blinker_18      =   0
+            varVarType_13   =   5
+            Bindings_1      =   20
+            ClassName_20    =   "CCWBindingHolderArray"
+            Editor_20       =   21
+            ClassName_21    =   "CCWBindingHolderArrayEditor"
+            Owner_21        =   1
+            Style_1         =   7
+            mechAction_1    =   1
+            BGImg_1         =   22
+            ClassName_22    =   "CCWDrawObj"
+            opts_22         =   54
+            SclRef_22.l     =   2
+            SclRef_22.t     =   2
+            SclRef_22.r     =   107
+            SclRef_22.b     =   43
+            Scl_22.l        =   11
+            Scl_22.t        =   2
+            Scl_22.r        =   101
+            Scl_22.b        =   40
+            Image_22        =   23
+            ClassName_23    =   "CCWPictImage"
+            opts_23         =   1280
+            Rows_23         =   1
+            Cols_23         =   1
+            Pict_23         =   286
+            F_23            =   -2147483633
+            B_23            =   -2147483633
+            ColorReplaceWith_23=   8421504
+            ColorReplace_23 =   8421504
+            Tolerance_23    =   2
+            Animator_22     =   0
+            Blinker_22      =   0
+            Array_1         =   6
+            Editor_1        =   0
+            Array[0]_1      =   11
+            Array[1]_1      =   18
+            Array[2]_1      =   0
+            Array[3]_1      =   0
+            Array[4]_1      =   24
+            ClassName_24    =   "CCWDrawObj"
+            opts_24         =   62
+            Image_24        =   8
+            Animator_24     =   0
+            Blinker_24      =   0
+            Array[5]_1      =   25
+            ClassName_25    =   "CCWDrawObj"
+            opts_25         =   62
+            Image_25        =   10
+            Animator_25     =   0
+            Blinker_25      =   0
+            Label_1         =   26
+            ClassName_26    =   "CCWDrawObj"
+            opts_26         =   62
+            C[0]_26         =   -2147483640
+            Image_26        =   6
+            Animator_26     =   0
+            Blinker_26      =   0
+         End
+         Begin VB.Label Label1 
+            BackColor       =   &H00C0FFFF&
+            Caption         =   "Interval, sec"
+            Height          =   255
+            Index           =   33
+            Left            =   135
+            TabIndex        =   91
+            Top             =   225
+            Width           =   915
+         End
+      End
+      Begin VB.Frame FrameTest 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "Recording to file"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   1365
+         Left            =   0
+         TabIndex        =   77
+         Top             =   90
+         Width           =   3795
          Begin VB.CommandButton cmdReadPositionFile 
             BackColor       =   &H00FFC0FF&
             Caption         =   "Read Test"
-            Height          =   375
-            Left            =   1215
+            Height          =   420
+            Left            =   135
             Style           =   1  'Graphical
-            TabIndex        =   87
+            TabIndex        =   79
             ToolTipText     =   "Reads saved position data and shows plots"
-            Top             =   1260
+            Top             =   855
             Width           =   915
+         End
+         Begin VB.CheckBox ChkUntilSTOP 
+            BackColor       =   &H00FF80FF&
+            Caption         =   "Saving Until Stop"
+            Height          =   315
+            Left            =   2070
+            TabIndex        =   78
+            ToolTipText     =   "If CHECKED, number of records is not limited"
+            Top             =   270
+            Value           =   1  'Checked
+            Width           =   1590
          End
          Begin CWUIControlsLib.CWButton cwSaveScan 
             Height          =   495
-            Left            =   225
-            TabIndex        =   106
+            Left            =   135
+            TabIndex        =   80
             ToolTipText     =   "If plots exist, saves plots into data file. If there is no plots, starts recording, plotting, and saving into file."
-            Top             =   585
+            Top             =   270
             Width           =   1860
-            _Version        =   196609
+            _Version        =   524288
             _ExtentX        =   3281
             _ExtentY        =   873
             _StockProps     =   68
@@ -109,7 +2514,7 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Reset_0         =   0   'False
-            CompatibleVers_0=   196609
+            CompatibleVers_0=   524288
             Boolean_0       =   1
             ClassName_1     =   "CCWBoolean"
             opts_1          =   2614
@@ -302,6 +2707,85 @@ Begin VB.Form frmMonitoring
             Animator_28     =   0
             Blinker_28      =   0
          End
+         Begin CWUIControlsLib.CWNumEdit cwNumFileRecords 
+            Height          =   360
+            Left            =   2600
+            TabIndex        =   81
+            ToolTipText     =   $"frmMonitoring.frx":33BBA
+            Top             =   900
+            Width           =   1110
+            _Version        =   524288
+            _ExtentX        =   1958
+            _ExtentY        =   635
+            _StockProps     =   4
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   12
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Reset_0         =   0   'False
+            CompatibleVers_0=   524288
+            NumEdit_0       =   1
+            ClassName_1     =   "CCWNumEdit"
+            opts_1          =   458814
+            C[0]_1          =   12648384
+            C[1]_1          =   0
+            BorderStyle_1   =   1
+            TextAlignment_1 =   1
+            Appearance_1    =   0
+            format_1        =   2
+            ClassName_2     =   "CCWFormat"
+            scale_1         =   3
+            ClassName_3     =   "CCWScale"
+            opts_3          =   65536
+            dMax_3          =   10
+            discInterval_3  =   1
+            ValueVarType_1  =   5
+            Value_Val_1     =   80320
+            IncValueVarType_1=   5
+            IncValue_Val_1  =   10
+            AccelIncVarType_1=   5
+            AccelInc_Val_1  =   60
+            RangeMinVarType_1=   5
+            RangeMaxVarType_1=   5
+            RangeMax_Val_1  =   100000
+            ButtonStyle_1   =   0
+            Bindings_1      =   4
+            ClassName_4     =   "CCWBindingHolderArray"
+            Editor_4        =   5
+            ClassName_5     =   "CCWBindingHolderArrayEditor"
+            Owner_5         =   1
+         End
+         Begin VB.Label Label1 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BackColor       =   &H00C0E0FF&
+            Caption         =   "missing"
+            ForeColor       =   &H80000008&
+            Height          =   195
+            Index           =   34
+            Left            =   1980
+            TabIndex        =   86
+            Top             =   750
+            Width           =   520
+         End
+         Begin VB.Label Label1 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BackColor       =   &H80000005&
+            Caption         =   "data line # "
+            ForeColor       =   &H80000008&
+            Height          =   255
+            Index           =   32
+            Left            =   1100
+            TabIndex        =   85
+            Top             =   750
+            Width           =   825
+         End
          Begin VB.Label lbLineNum 
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
@@ -319,159 +2803,446 @@ Begin VB.Form frmMonitoring
             EndProperty
             ForeColor       =   &H80000008&
             Height          =   285
-            Left            =   135
-            TabIndex        =   88
+            Left            =   1100
+            TabIndex        =   84
             ToolTipText     =   "current  line number of position data"
-            Top             =   1350
+            Top             =   975
             Width           =   825
          End
          Begin VB.Label Label1 
-            Alignment       =   2  'Center
-            Appearance      =   0  'Flat
+            Alignment       =   1  'Right Justify
             BackColor       =   &H00E0E0E0&
-            Caption         =   "data line # "
-            ForeColor       =   &H80000008&
+            Caption         =   "Samples num"
             Height          =   255
             Index           =   17
-            Left            =   135
-            TabIndex        =   89
-            Top             =   1125
-            Width           =   825
+            Left            =   2655
+            TabIndex        =   83
+            Top             =   675
+            Width           =   1005
          End
-      End
-      Begin VB.Frame framExitation 
-         BackColor       =   &H00E0E0E0&
-         Caption         =   "Exitation"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   1770
-         Left            =   6840
-         TabIndex        =   57
-         ToolTipText     =   $"frmMonitoring.frx":035C
-         Top             =   -45
-         Width           =   4650
-         Begin VB.CommandButton cmdPulse 
-            BackColor       =   &H0000FFFF&
-            Caption         =   "Apply Pulse"
+         Begin VB.Label lbMissingLines 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BackColor       =   &H00C0E0FF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "9999"
             BeginProperty Font 
                Name            =   "Arial"
-               Size            =   9
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   510
-            Left            =   1035
-            Style           =   1  'Graphical
-            TabIndex        =   61
-            ToolTipText     =   "Applies pulse to chosen axis (If excitation was ON, it is disabled after pulse)"
-            Top             =   1125
-            Width           =   870
-         End
-         Begin VB.OptionButton optExitation 
-            BackColor       =   &H00C0FFC0&
-            Caption         =   "Sine"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   9.75
-               Charset         =   204
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   300
-            Index           =   0
-            Left            =   1035
-            TabIndex        =   60
-            ToolTipText     =   "Enables Sine exitation (Frequency MUST BE NOT ZERO)"
-            Top             =   270
-            Value           =   -1  'True
-            Width           =   870
-         End
-         Begin VB.OptionButton optExitation 
-            BackColor       =   &H00FFC0FF&
-            Caption         =   "Noise"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   9.75
-               Charset         =   204
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   300
-            Index           =   1
-            Left            =   1035
-            TabIndex        =   59
-            ToolTipText     =   "Enables noise exitation (Frequency is set to 0 Hz means niose)"
-            Top             =   720
-            Width           =   870
-         End
-         Begin VB.ComboBox cmb_ExcitAxis 
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   9
+               Size            =   11.25
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Height          =   345
-            ItemData        =   "frmMonitoring.frx":03F9
-            Left            =   2655
-            List            =   "frmMonitoring.frx":044A
-            Style           =   2  'Dropdown List
-            TabIndex        =   58
-            ToolTipText     =   "Choose axis OUTPUT for excitation"
-            Top             =   225
-            Width           =   1875
+            ForeColor       =   &H80000008&
+            Height          =   285
+            Left            =   1980
+            TabIndex        =   82
+            ToolTipText     =   "Decrease sample interval or switch to Ethernet if lines are missing"
+            Top             =   975
+            Width           =   530
          End
-         Begin CWUIControlsLib.CWButton cwBut_Excitation 
-            Height          =   1245
+      End
+      Begin VB.CheckBox ChkExcelFriendly 
+         BackColor       =   &H00C0FFC0&
+         Caption         =   "Excel friendly"
+         Height          =   300
+         Left            =   13680
+         TabIndex        =   76
+         ToolTipText     =   $"frmMonitoring.frx":33C53
+         Top             =   45
+         Value           =   1  'Checked
+         Width           =   1605
+      End
+      Begin VB.Frame FramePlotScales 
+         BackColor       =   &H00FFFFFF&
+         Height          =   1500
+         Left            =   0
+         TabIndex        =   66
+         ToolTipText     =   "Plot controls"
+         Top             =   1995
+         Width           =   3525
+         Begin VB.CommandButton cmdZoom_05x 
+            BackColor       =   &H00C0FFC0&
+            Height          =   600
+            Left            =   765
+            Picture         =   "frmMonitoring.frx":33CE8
+            Style           =   1  'Graphical
+            TabIndex        =   71
+            ToolTipText     =   "When ""Y scale"" in ""Manual"" mode, Zoom OUT Y scale"
+            Top             =   765
+            Width           =   600
+         End
+         Begin VB.CommandButton cmdZoom2x 
+            Appearance      =   0  'Flat
+            Height          =   600
             Left            =   90
-            TabIndex        =   62
-            ToolTipText     =   "Enable / Disable excitation on chosen axis output"
-            Top             =   360
-            Width           =   870
-            _Version        =   196609
-            _ExtentX        =   1535
-            _ExtentY        =   2196
+            Picture         =   "frmMonitoring.frx":34D5A
+            Style           =   1  'Graphical
+            TabIndex        =   70
+            ToolTipText     =   "When ""Y scale"" in ""Manual"" mode, Zoom IN Y scale"
+            Top             =   765
+            Width           =   600
+         End
+         Begin VB.OptionButton OptGraphMode 
+            Height          =   600
+            Index           =   2
+            Left            =   2790
+            Picture         =   "frmMonitoring.frx":35DCC
+            Style           =   1  'Graphical
+            TabIndex        =   69
+            ToolTipText     =   "Zoom window"
+            Top             =   765
+            Width           =   600
+         End
+         Begin VB.OptionButton OptGraphMode 
+            Height          =   600
+            Index           =   1
+            Left            =   2115
+            Picture         =   "frmMonitoring.frx":36E3E
+            Style           =   1  'Graphical
+            TabIndex        =   68
+            ToolTipText     =   "Pan window"
+            Top             =   765
+            Width           =   600
+         End
+         Begin VB.OptionButton OptGraphMode 
+            Height          =   600
+            Index           =   0
+            Left            =   1440
+            Picture         =   "frmMonitoring.frx":37EB0
+            Style           =   1  'Graphical
+            TabIndex        =   67
+            ToolTipText     =   "Snap cursor to chosen plot"
+            Top             =   765
+            Width           =   600
+         End
+         Begin CWUIControlsLib.CWButton cwBut_Yautoscale 
+            Height          =   645
+            Left            =   0
+            TabIndex        =   72
+            ToolTipText     =   "Vertical Scale toggle"
+            Top             =   45
+            Width           =   900
+            _Version        =   524288
+            _ExtentX        =   1587
+            _ExtentY        =   1138
             _StockProps     =   68
             BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                Name            =   "Arial"
-               Size            =   9.75
+               Size            =   8.25
                Charset         =   204
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Reset_0         =   0   'False
+            CompatibleVers_0=   524288
+            Boolean_0       =   1
+            ClassName_1     =   "CCWBoolean"
+            opts_1          =   2614
+            SclRef_1.l      =   2
+            SclRef_1.t      =   2
+            SclRef_1.r      =   62
+            SclRef_1.b      =   45
+            Scl_1.l         =   7
+            Scl_1.t         =   18
+            Scl_1.r         =   57
+            Scl_1.b         =   45
+            C[0]_1          =   16777215
+            Enum_1          =   2
+            ClassName_2     =   "CCWEnum"
+            Array_2         =   2
+            Editor_2        =   0
+            Array[0]_2      =   3
+            ClassName_3     =   "CCWEnumElt"
+            opts_3          =   1
+            Name_3          =   "Off"
+            frame_3         =   286
+            DrawList_3      =   4
+            ClassName_4     =   "CDrawList"
+            count_4         =   4
+            list[4]_4       =   5
+            ClassName_5     =   "CCWDrawObj"
+            opts_5          =   54
+            SclRef_5.l      =   7
+            SclRef_5.t      =   18
+            SclRef_5.r      =   57
+            SclRef_5.b      =   43
+            Scl_5.l         =   6
+            Scl_5.r         =   58
+            Scl_5.b         =   16
+            C[0]_5          =   -2147483641
+            C[1]_5          =   -2147483641
+            Image_5         =   6
+            ClassName_6     =   "CCWTextImage"
+            szText_6        =   "Y scale"
+            font_6          =   7
+            ClassName_7     =   "CCWFont"
+            bFont_7         =   -1  'True
+            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "MS Sans Serif"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Animator_5      =   0
+            Blinker_5       =   0
+            list[3]_4       =   8
+            ClassName_8     =   "CCWDrawObj"
+            opts_8          =   60
+            C[0]_8          =   0
+            C[1]_8          =   0
+            Image_8         =   9
+            ClassName_9     =   "CCWTextImage"
+            szText_9        =   "Auto"
+            font_9          =   0
+            Animator_8      =   0
+            Blinker_8       =   0
+            list[2]_4       =   10
+            ClassName_10    =   "CCWDrawObj"
+            opts_10         =   54
+            SclRef_10.l     =   7
+            SclRef_10.t     =   8
+            SclRef_10.r     =   56
+            SclRef_10.b     =   39
+            Scl_10.l        =   15
+            Scl_10.t        =   20
+            Scl_10.r        =   49
+            Scl_10.b        =   34
+            C[0]_10         =   16777215
+            C[1]_10         =   16777215
+            Image_10        =   11
+            ClassName_11    =   "CCWTextImage"
+            szText_11       =   "Manual"
+            font_11         =   0
+            Animator_10     =   0
+            Blinker_10      =   0
+            list[1]_4       =   12
+            ClassName_12    =   "CCWDrawObj"
+            opts_12         =   62
+            C[0]_12         =   8388608
+            C[1]_12         =   8388608
+            Image_12        =   13
+            ClassName_13    =   "CCWPictImage"
+            opts_13         =   1280
+            Rows_13         =   1
+            Cols_13         =   1
+            Pict_13         =   44
+            F_13            =   8388608
+            B_13            =   8388608
+            ColorReplaceWith_13=   8421504
+            ColorReplace_13 =   8421504
+            Tolerance_13    =   2
+            Animator_12     =   0
+            Blinker_12      =   0
+            varVarType_3    =   5
+            Array[1]_2      =   14
+            ClassName_14    =   "CCWEnumElt"
+            opts_14         =   1
+            Name_14         =   "On"
+            frame_14        =   286
+            DrawList_14     =   15
+            ClassName_15    =   "CDrawList"
+            count_15        =   4
+            list[4]_15      =   16
+            ClassName_16    =   "CCWDrawObj"
+            opts_16         =   54
+            SclRef_16.l     =   7
+            SclRef_16.t     =   18
+            SclRef_16.r     =   57
+            SclRef_16.b     =   43
+            Scl_16.l        =   6
+            Scl_16.r        =   58
+            Scl_16.b        =   16
+            C[0]_16         =   -2147483641
+            C[1]_16         =   -2147483641
+            Image_16        =   6
+            Animator_16     =   0
+            Blinker_16      =   0
+            list[3]_15      =   17
+            ClassName_17    =   "CCWDrawObj"
+            opts_17         =   62
+            C[0]_17         =   0
+            C[1]_17         =   0
+            Image_17        =   9
+            Animator_17     =   0
+            Blinker_17      =   0
+            list[2]_15      =   18
+            ClassName_18    =   "CCWDrawObj"
+            opts_18         =   52
+            SclRef_18.l     =   7
+            SclRef_18.t     =   8
+            SclRef_18.r     =   56
+            SclRef_18.b     =   39
+            Scl_18.l        =   15
+            Scl_18.t        =   20
+            Scl_18.r        =   49
+            Scl_18.b        =   34
+            C[0]_18         =   16777215
+            C[1]_18         =   16777215
+            Image_18        =   11
+            Animator_18     =   0
+            Blinker_18      =   0
+            list[1]_15      =   19
+            ClassName_19    =   "CCWDrawObj"
+            opts_19         =   62
+            C[0]_19         =   65535
+            C[1]_19         =   65535
+            Image_19        =   20
+            ClassName_20    =   "CCWPictImage"
+            opts_20         =   1280
+            Rows_20         =   1
+            Cols_20         =   1
+            Pict_20         =   42
+            F_20            =   65535
+            B_20            =   65535
+            ColorReplaceWith_20=   8421504
+            ColorReplace_20 =   8421504
+            Tolerance_20    =   2
+            Animator_19     =   0
+            Blinker_19      =   0
+            varVarType_14   =   5
+            Bindings_1      =   21
+            ClassName_21    =   "CCWBindingHolderArray"
+            Editor_21       =   22
+            ClassName_22    =   "CCWBindingHolderArrayEditor"
+            Owner_22        =   1
+            Style_1         =   7
+            drawState_1     =   1
+            mechAction_1    =   1
+            BGImg_1         =   23
+            ClassName_23    =   "CCWDrawObj"
+            opts_23         =   62
+            Image_23        =   24
+            ClassName_24    =   "CCWPictImage"
+            opts_24         =   1280
+            Rows_24         =   1
+            Cols_24         =   1
+            Pict_24         =   286
+            F_24            =   -2147483633
+            B_24            =   -2147483633
+            ColorReplaceWith_24=   8421504
+            ColorReplace_24 =   8421504
+            Tolerance_24    =   2
+            Animator_23     =   0
+            Blinker_23      =   0
+            Array_1         =   6
+            Editor_1        =   0
+            Array[0]_1      =   12
+            Array[1]_1      =   19
+            Array[2]_1      =   0
+            Array[3]_1      =   0
+            Array[4]_1      =   25
+            ClassName_25    =   "CCWDrawObj"
+            opts_25         =   62
+            Image_25        =   9
+            Animator_25     =   0
+            Blinker_25      =   0
+            Array[5]_1      =   26
+            ClassName_26    =   "CCWDrawObj"
+            opts_26         =   62
+            Image_26        =   11
+            Animator_26     =   0
+            Blinker_26      =   0
+            Label_1         =   27
+            ClassName_27    =   "CCWDrawObj"
+            opts_27         =   62
+            C[0]_27         =   -2147483640
+            Image_27        =   6
+            Animator_27     =   0
+            Blinker_27      =   0
+         End
+         Begin CWUIControlsLib.CWNumEdit cwSpreadPlotsByY 
+            Height          =   390
+            Left            =   2250
+            TabIndex        =   73
+            ToolTipText     =   "When plotting relative format, traces spread vertically by this value"
+            Top             =   270
+            Width           =   1095
+            _Version        =   524288
+            _ExtentX        =   1931
+            _ExtentY        =   688
+            _StockProps     =   4
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "MS Sans Serif"
+               Size            =   12
+               Charset         =   0
                Weight          =   700
                Underline       =   0   'False
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
             Reset_0         =   0   'False
-            CompatibleVers_0=   196609
+            CompatibleVers_0=   524288
+            NumEdit_0       =   1
+            ClassName_1     =   "CCWNumEdit"
+            opts_1          =   458814
+            C[0]_1          =   16777215
+            C[1]_1          =   0
+            BorderStyle_1   =   1
+            TextAlignment_1 =   2
+            format_1        =   2
+            ClassName_2     =   "CCWFormat"
+            scale_1         =   3
+            ClassName_3     =   "CCWScale"
+            dMax_3          =   10
+            discInterval_3  =   100
+            ValueVarType_1  =   5
+            Value_Val_1     =   100
+            IncValueVarType_1=   5
+            IncValue_Val_1  =   100
+            AccelIncVarType_1=   5
+            AccelInc_Val_1  =   100
+            RangeMinVarType_1=   5
+            RangeMaxVarType_1=   5
+            RangeMax_Val_1  =   10000
+            ButtonStyle_1   =   0
+            Bindings_1      =   4
+            ClassName_4     =   "CCWBindingHolderArray"
+            Editor_4        =   5
+            ClassName_5     =   "CCWBindingHolderArrayEditor"
+            Owner_5         =   1
+         End
+         Begin CWUIControlsLib.CWButton cwRel_T_Abs_F_Position 
+            Height          =   645
+            Left            =   855
+            TabIndex        =   74
+            ToolTipText     =   "Remove Offset of the RAW signal - subtract the FIRST reading from each consecutive measurement"
+            Top             =   45
+            Width           =   1320
+            _Version        =   524288
+            _ExtentX        =   2328
+            _ExtentY        =   1138
+            _StockProps     =   68
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   204
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Reset_0         =   0   'False
+            CompatibleVers_0=   524288
             Boolean_0       =   1
             ClassName_1     =   "CCWBoolean"
             opts_1          =   2614
             SclRef_1.l      =   2
             SclRef_1.t      =   2
-            SclRef_1.r      =   60
-            SclRef_1.b      =   85
-            Scl_1.l         =   5
-            Scl_1.t         =   12
-            Scl_1.r         =   57
-            Scl_1.b         =   75
-            C[0]_1          =   8438015
+            SclRef_1.r      =   84
+            SclRef_1.b      =   45
+            Scl_1.l         =   4
+            Scl_1.t         =   15
+            Scl_1.r         =   83
+            Scl_1.b         =   43
+            C[0]_1          =   16777215
             Enum_1          =   2
             ClassName_2     =   "CCWEnum"
             Array_2         =   2
@@ -487,389 +3258,216 @@ Begin VB.Form frmMonitoring
             list[4]_4       =   5
             ClassName_5     =   "CCWDrawObj"
             opts_5          =   62
-            C[0]_5          =   -2147483640
-            C[1]_5          =   -2147483640
+            C[0]_5          =   0
+            C[1]_5          =   0
             Image_5         =   6
             ClassName_6     =   "CCWTextImage"
+            szText_6        =   "Plot Shown"
             font_6          =   0
             Animator_5      =   0
             Blinker_5       =   0
             list[3]_4       =   7
             ClassName_7     =   "CCWDrawObj"
-            opts_7          =   52
-            SclRef_7.l      =   7
-            SclRef_7.t      =   19
-            SclRef_7.r      =   66
-            SclRef_7.b      =   84
-            Scl_7.l         =   26
-            Scl_7.t         =   26
-            Scl_7.r         =   48
-            Scl_7.b         =   45
-            C[0]_7          =   -2147483640
-            C[1]_7          =   -2147483640
+            opts_7          =   60
+            C[0]_7          =   0
+            C[1]_7          =   0
             Image_7         =   8
             ClassName_8     =   "CCWTextImage"
-            font_8          =   9
-            ClassName_9     =   "CCWFont"
-            bFont_9         =   -1  'True
-            BeginProperty Font_9 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "Arial"
-               Size            =   12
-               Charset         =   204
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
+            szText_8        =   "RELATIVE"
+            font_8          =   0
             Animator_7      =   0
             Blinker_7       =   0
-            list[2]_4       =   10
-            ClassName_10    =   "CCWDrawObj"
-            opts_10         =   54
-            SclRef_10.l     =   7
-            SclRef_10.t     =   19
-            SclRef_10.r     =   66
-            SclRef_10.b     =   84
-            Scl_10.l        =   25
-            Scl_10.t        =   58
-            Scl_10.r        =   47
-            Scl_10.b        =   77
-            C[0]_10         =   -2147483640
-            C[1]_10         =   -2147483640
-            Image_10        =   11
-            ClassName_11    =   "CCWTextImage"
-            style_11        =   1076101120
-            font_11         =   12
-            ClassName_12    =   "CCWFont"
-            bFont_12        =   -1  'True
-            BeginProperty Font_12 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "Arial"
-               Size            =   12
-               Charset         =   204
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Animator_10     =   0
-            Blinker_10      =   0
-            list[1]_4       =   13
-            ClassName_13    =   "CCWDrawObj"
-            opts_13         =   62
-            C[0]_13         =   8454016
-            C[1]_13         =   8454016
-            Image_13        =   14
-            ClassName_14    =   "CCWPictImage"
-            opts_14         =   256
-            Rows_14         =   1
-            Cols_14         =   1
-            URL_14          =   "C:\in_out\Software\DC-2020_ED_Analyzer_VB6\Resources\SwitchOffGreen.bmp"
-            Pict_14         =   "frmMonitoring.frx":0573
-            ColorReplaceWith_14=   8421504
-            ColorReplace_14 =   8421504
-            Tolerance_14    =   2
-            Animator_13     =   0
-            Blinker_13      =   0
+            list[2]_4       =   9
+            ClassName_9     =   "CCWDrawObj"
+            opts_9          =   54
+            SclRef_9.l      =   4
+            SclRef_9.t      =   15
+            SclRef_9.r      =   83
+            SclRef_9.b      =   43
+            Scl_9.l         =   16
+            Scl_9.t         =   28
+            Scl_9.r         =   71
+            Scl_9.b         =   42
+            C[0]_9          =   0
+            C[1]_9          =   0
+            Image_9         =   10
+            ClassName_10    =   "CCWTextImage"
+            szText_10       =   "ABSOLUTE"
+            font_10         =   0
+            Animator_9      =   0
+            Blinker_9       =   0
+            list[1]_4       =   11
+            ClassName_11    =   "CCWDrawObj"
+            opts_11         =   54
+            SclRef_11.l     =   4
+            SclRef_11.t     =   15
+            SclRef_11.r     =   83
+            SclRef_11.b     =   43
+            Scl_11.l        =   7
+            Scl_11.t        =   15
+            Scl_11.r        =   80
+            Scl_11.b        =   43
+            C[0]_11         =   49344
+            C[1]_11         =   49344
+            Image_11        =   12
+            ClassName_12    =   "CCWPictImage"
+            opts_12         =   1280
+            Rows_12         =   1
+            Cols_12         =   1
+            Pict_12         =   44
+            F_12            =   49344
+            B_12            =   49344
+            ColorReplaceWith_12=   8421504
+            ColorReplace_12 =   8421504
+            Tolerance_12    =   2
+            Animator_11     =   0
+            Blinker_11      =   0
             varVarType_3    =   5
-            Array[1]_2      =   15
-            ClassName_15    =   "CCWEnumElt"
-            opts_15         =   1
-            Name_15         =   "On"
-            frame_15        =   286
-            DrawList_15     =   16
-            ClassName_16    =   "CDrawList"
-            count_16        =   4
-            list[4]_16      =   17
+            Array[1]_2      =   13
+            ClassName_13    =   "CCWEnumElt"
+            opts_13         =   1
+            Name_13         =   "On"
+            frame_13        =   286
+            DrawList_13     =   14
+            ClassName_14    =   "CDrawList"
+            count_14        =   4
+            list[4]_14      =   15
+            ClassName_15    =   "CCWDrawObj"
+            opts_15         =   62
+            C[0]_15         =   0
+            C[1]_15         =   0
+            Image_15        =   6
+            Animator_15     =   0
+            Blinker_15      =   0
+            list[3]_14      =   16
+            ClassName_16    =   "CCWDrawObj"
+            opts_16         =   62
+            C[0]_16         =   0
+            C[1]_16         =   0
+            Image_16        =   8
+            Animator_16     =   0
+            Blinker_16      =   0
+            list[2]_14      =   17
             ClassName_17    =   "CCWDrawObj"
-            opts_17         =   62
-            C[0]_17         =   -2147483640
-            C[1]_17         =   -2147483640
-            Image_17        =   6
+            opts_17         =   52
+            SclRef_17.l     =   4
+            SclRef_17.t     =   15
+            SclRef_17.r     =   83
+            SclRef_17.b     =   43
+            Scl_17.l        =   16
+            Scl_17.t        =   28
+            Scl_17.r        =   71
+            Scl_17.b        =   42
+            C[0]_17         =   0
+            C[1]_17         =   0
+            Image_17        =   10
             Animator_17     =   0
             Blinker_17      =   0
-            list[3]_16      =   18
+            list[1]_14      =   18
             ClassName_18    =   "CCWDrawObj"
             opts_18         =   54
-            SclRef_18.l     =   7
-            SclRef_18.t     =   19
-            SclRef_18.r     =   66
-            SclRef_18.b     =   84
-            Scl_18.l        =   26
-            Scl_18.t        =   26
-            Scl_18.r        =   48
-            Scl_18.b        =   45
-            C[0]_18         =   -2147483640
-            C[1]_18         =   -2147483640
-            Image_18        =   8
+            SclRef_18.l     =   4
+            SclRef_18.t     =   15
+            SclRef_18.r     =   83
+            SclRef_18.b     =   43
+            Scl_18.l        =   7
+            Scl_18.t        =   15
+            Scl_18.r        =   80
+            Scl_18.b        =   43
+            C[0]_18         =   65280
+            C[1]_18         =   65280
+            Image_18        =   19
+            ClassName_19    =   "CCWPictImage"
+            opts_19         =   1280
+            Rows_19         =   1
+            Cols_19         =   1
+            Pict_19         =   42
+            F_19            =   65280
+            B_19            =   65280
+            ColorReplaceWith_19=   8421504
+            ColorReplace_19 =   8421504
+            Tolerance_19    =   2
             Animator_18     =   0
             Blinker_18      =   0
-            list[2]_16      =   19
-            ClassName_19    =   "CCWDrawObj"
-            opts_19         =   52
-            SclRef_19.l     =   7
-            SclRef_19.t     =   19
-            SclRef_19.r     =   66
-            SclRef_19.b     =   84
-            Scl_19.l        =   25
-            Scl_19.t        =   58
-            Scl_19.r        =   47
-            Scl_19.b        =   77
-            C[0]_19         =   -2147483640
-            C[1]_19         =   -2147483640
-            Image_19        =   11
-            Animator_19     =   0
-            Blinker_19      =   0
-            list[1]_16      =   20
-            ClassName_20    =   "CCWDrawObj"
-            opts_20         =   62
-            C[0]_20         =   8421631
-            C[1]_20         =   8421631
-            Image_20        =   21
-            ClassName_21    =   "CCWPictImage"
-            opts_21         =   256
-            Rows_21         =   1
-            Cols_21         =   1
-            URL_21          =   "C:\in_out\Software\DC-2020_ED_Analyzer_VB6\Resources\SwitchOnYellow.bmp"
-            Pict_21         =   "frmMonitoring.frx":19CA5
-            ColorReplaceWith_21=   8421504
-            ColorReplace_21 =   8421504
-            Tolerance_21    =   2
-            Animator_20     =   0
-            Blinker_20      =   22
-            ClassName_22    =   "CCWBlinker"
-            Interval_22     =   600
-            EventID_22      =   7
-            Obj_22          =   20
-            varVarType_15   =   5
-            Bindings_1      =   23
-            ClassName_23    =   "CCWBindingHolderArray"
-            Editor_23       =   24
-            ClassName_24    =   "CCWBindingHolderArrayEditor"
-            Owner_24        =   1
+            varVarType_13   =   5
+            Bindings_1      =   20
+            ClassName_20    =   "CCWBindingHolderArray"
+            Editor_20       =   21
+            ClassName_21    =   "CCWBindingHolderArrayEditor"
+            Owner_21        =   1
+            Style_1         =   7
+            drawState_1     =   1
             mechAction_1    =   1
-            BGImg_1         =   25
-            ClassName_25    =   "CCWDrawObj"
-            opts_25         =   62
-            Image_25        =   26
-            ClassName_26    =   "CCWPictImage"
-            opts_26         =   1280
-            Rows_26         =   1
-            Cols_26         =   1
-            Pict_26         =   286
-            F_26            =   -2147483633
-            B_26            =   -2147483633
-            ColorReplaceWith_26=   8421504
-            ColorReplace_26 =   8421504
-            Tolerance_26    =   2
-            Animator_25     =   0
-            Blinker_25      =   0
+            BGImg_1         =   22
+            ClassName_22    =   "CCWDrawObj"
+            opts_22         =   62
+            Image_22        =   23
+            ClassName_23    =   "CCWPictImage"
+            opts_23         =   1280
+            Rows_23         =   1
+            Cols_23         =   1
+            Pict_23         =   286
+            F_23            =   -2147483633
+            B_23            =   -2147483633
+            ColorReplaceWith_23=   8421504
+            ColorReplace_23 =   8421504
+            Tolerance_23    =   2
+            Animator_22     =   0
+            Blinker_22      =   0
             Array_1         =   6
             Editor_1        =   0
-            Array[0]_1      =   13
-            Array[1]_1      =   20
+            Array[0]_1      =   11
+            Array[1]_1      =   18
             Array[2]_1      =   0
             Array[3]_1      =   0
-            Array[4]_1      =   27
-            ClassName_27    =   "CCWDrawObj"
-            opts_27         =   62
-            Image_27        =   8
-            Animator_27     =   0
-            Blinker_27      =   0
-            Array[5]_1      =   28
-            ClassName_28    =   "CCWDrawObj"
-            opts_28         =   62
-            Image_28        =   11
-            Animator_28     =   0
-            Blinker_28      =   0
-            Label_1         =   29
-            ClassName_29    =   "CCWDrawObj"
-            opts_29         =   62
-            C[0]_29         =   -2147483640
-            Image_29        =   6
-            Animator_29     =   0
-            Blinker_29      =   0
+            Array[4]_1      =   24
+            ClassName_24    =   "CCWDrawObj"
+            opts_24         =   62
+            Image_24        =   8
+            Animator_24     =   0
+            Blinker_24      =   0
+            Array[5]_1      =   25
+            ClassName_25    =   "CCWDrawObj"
+            opts_25         =   62
+            Image_25        =   10
+            Animator_25     =   0
+            Blinker_25      =   0
+            Label_1         =   26
+            ClassName_26    =   "CCWDrawObj"
+            opts_26         =   62
+            C[0]_26         =   -2147483640
+            Image_26        =   6
+            Animator_26     =   0
+            Blinker_26      =   0
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumExcitFreq 
-            Height          =   360
-            Left            =   3330
-            TabIndex        =   63
-            ToolTipText     =   "Driving frequency, Hz, 0.01...1000 Hz (default = 5 Hz)"
-            Top             =   720
-            Width           =   1200
-            _Version        =   196609
-            _ExtentX        =   2117
-            _ExtentY        =   635
-            _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "Arial"
-               Size            =   12
-               Charset         =   204
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Reset_0         =   0   'False
-            CompatibleVers_0=   196609
-            NumEdit_0       =   1
-            ClassName_1     =   "CCWNumEdit"
-            opts_1          =   458814
-            C[0]_1          =   12648384
-            C[1]_1          =   0
-            TextAlignment_1 =   2
-            format_1        =   2
-            ClassName_2     =   "CCWFormat"
-            Format_2        =   ".#0"
-            scale_1         =   3
-            ClassName_3     =   "CCWScale"
-            opts_3          =   65536
-            dMax_3          =   10
-            discInterval_3  =   1
-            ValueVarType_1  =   5
-            Value_Val_1     =   200
-            IncValueVarType_1=   5
-            IncValue_Val_1  =   1
-            AccelIncVarType_1=   5
-            AccelInc_Val_1  =   10
-            RangeMinVarType_1=   5
-            RangeMaxVarType_1=   5
-            RangeMax_Val_1  =   200
-            Bindings_1      =   4
-            ClassName_4     =   "CCWBindingHolderArray"
-            Editor_4        =   5
-            ClassName_5     =   "CCWBindingHolderArrayEditor"
-            Owner_5         =   1
-         End
-         Begin CWUIControlsLib.CWNumEdit cwNumExcitAmpl 
-            Height          =   360
-            Left            =   3195
-            TabIndex        =   64
-            ToolTipText     =   "Driving Amplitude, 0...30000 (default = 300)"
-            Top             =   1260
-            Width           =   1335
-            _Version        =   196609
-            _ExtentX        =   2355
-            _ExtentY        =   635
-            _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "Arial"
-               Size            =   12
-               Charset         =   204
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Reset_0         =   0   'False
-            CompatibleVers_0=   196609
-            NumEdit_0       =   1
-            ClassName_1     =   "CCWNumEdit"
-            opts_1          =   458814
-            C[0]_1          =   16777215
-            C[1]_1          =   0
-            TextAlignment_1 =   2
-            format_1        =   2
-            ClassName_2     =   "CCWFormat"
-            Format_2        =   ".###"
-            scale_1         =   3
-            ClassName_3     =   "CCWScale"
-            opts_3          =   65536
-            dMax_3          =   10
-            discInterval_3  =   1
-            ValueVarType_1  =   5
-            Value_Val_1     =   1000
-            IncValueVarType_1=   5
-            IncValue_Val_1  =   10
-            AccelIncVarType_1=   5
-            AccelInc_Val_1  =   10
-            RangeMinVarType_1=   5
-            RangeMin_Val_1  =   -30000
-            RangeMaxVarType_1=   5
-            RangeMax_Val_1  =   30000
-            Bindings_1      =   4
-            ClassName_4     =   "CCWBindingHolderArray"
-            Editor_4        =   5
-            ClassName_5     =   "CCWBindingHolderArrayEditor"
-            Owner_5         =   1
-         End
-         Begin VB.Label Label1 
+         Begin VB.Label lblSpreadPlots 
             Alignment       =   2  'Center
-            Appearance      =   0  'Flat
             BackColor       =   &H00FFFFFF&
-            Caption         =   "Output"
+            Caption         =   "        Spread plots by"
             BeginProperty Font 
                Name            =   "Arial"
-               Size            =   9.75
+               Size            =   8.25
                Charset         =   0
                Weight          =   400
                Underline       =   0   'False
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            ForeColor       =   &H80000008&
-            Height          =   285
-            Index           =   4
-            Left            =   1980
-            TabIndex        =   67
-            ToolTipText     =   "Choose axis OUTPUT for excitation"
-            Top             =   270
-            Width           =   690
-         End
-         Begin VB.Label Label1 
-            Alignment       =   2  'Center
-            Appearance      =   0  'Flat
-            BackColor       =   &H00FFFFFF&
-            Caption         =   "Amplitude"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H80000008&
-            Height          =   330
-            Index           =   5
-            Left            =   1980
-            TabIndex        =   66
-            ToolTipText     =   "Driving Amplitude, 0...30000 (default = 300)"
-            Top             =   1260
-            Width           =   1335
-         End
-         Begin VB.Label Label1 
-            Alignment       =   2  'Center
-            Appearance      =   0  'Flat
-            BackColor       =   &H00C0FFC0&
-            Caption         =   " Sine Freq, Hz"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H80000008&
-            Height          =   330
-            Index           =   6
-            Left            =   1980
-            TabIndex        =   65
-            ToolTipText     =   "Driving frequency, Hz, 0.01...1000 Hz (default = 5 Hz)"
-            Top             =   720
-            Width           =   1380
+            Height          =   645
+            Left            =   1800
+            TabIndex        =   75
+            Top             =   45
+            Width           =   1680
          End
       End
       Begin CWUIControlsLib.CWGraph cwGraphDataAcq 
          Height          =   4905
-         Left            =   2565
-         TabIndex        =   29
+         Left            =   3465
+         TabIndex        =   18
          ToolTipText     =   "Click - show cursor, dblClick - hide cursor"
          Top             =   1755
          Width           =   8925
-         _Version        =   196609
+         _Version        =   524288
          _ExtentX        =   15743
          _ExtentY        =   8652
          _StockProps     =   71
@@ -883,7 +3481,7 @@ Begin VB.Form frmMonitoring
             Strikethrough   =   0   'False
          EndProperty
          Reset_0         =   0   'False
-         CompatibleVers_0=   196609
+         CompatibleVers_0=   524288
          Graph_0         =   1
          ClassName_1     =   "CCWGraphFrame"
          opts_1          =   46
@@ -1254,13 +3852,77 @@ Begin VB.Form frmMonitoring
          Editor_43       =   44
          ClassName_44    =   "CCWBindingHolderArrayEditor"
          Owner_44        =   1
+         Annotations_1   =   45
+         ClassName_45    =   "CCWAnnotations"
+         Editor_45       =   46
+         ClassName_46    =   "CCWAnnotationArrayEditor"
+         Owner_46        =   1
+         AnnotationTemplate_1=   47
+         ClassName_47    =   "CCWAnnotation"
+         opts_47         =   63
+         Name_47         =   "[Template]"
+         Plot_47         =   33
+         Text_47         =   "[Template]"
+         TextXPoint_47   =   670
+         TextYPoint_47   =   670
+         TextColor_47    =   16777215
+         TextFont_47     =   48
+         ClassName_48    =   "CCWFont"
+         bFont_48        =   -1  'True
+         BeginProperty Font_48 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ShapeXPoints_47 =   49
+         ClassName_49    =   "CDataBuffer"
+         Type_49         =   5
+         m_cDims;_49     =   1
+         m_cElts_49      =   1
+         Element[0]_49   =   330
+         ShapeYPoints_47 =   50
+         ClassName_50    =   "CDataBuffer"
+         Type_50         =   5
+         m_cDims;_50     =   1
+         m_cElts_50      =   1
+         Element[0]_50   =   330
+         ShapeFillColor_47=   16777215
+         ShapeLineColor_47=   16777215
+         ShapeLineWidth_47=   1
+         ShapeLineStyle_47=   1
+         ShapePointStyle_47=   10
+         ShapeImage_47   =   51
+         ClassName_51    =   "CCWDrawObj"
+         opts_51         =   62
+         Image_51        =   52
+         ClassName_52    =   "CCWPictImage"
+         opts_52         =   1280
+         Rows_52         =   1
+         Cols_52         =   1
+         Pict_52         =   7
+         F_52            =   -2147483633
+         B_52            =   -2147483633
+         ColorReplaceWith_52=   8421504
+         ColorReplace_52 =   8421504
+         Tolerance_52    =   2
+         Animator_51     =   0
+         Blinker_51      =   0
+         ArrowVisible_47 =   -1  'True
+         ArrowColor_47   =   16777215
+         ArrowWidth_47   =   1
+         ArrowLineStyle_47=   1
+         ArrowHeadStyle_47=   1
       End
       Begin VB.Frame FrameTimeControl 
          BackColor       =   &H00D0D0D0&
          Height          =   1140
-         Left            =   2565
-         TabIndex        =   54
-         Top             =   6570
+         Left            =   3510
+         TabIndex        =   20
+         Top             =   6525
          Width           =   8945
          Begin VB.TextBox TextXunits 
             Appearance      =   0  'Flat
@@ -1277,7 +3939,7 @@ Begin VB.Form frmMonitoring
             EndProperty
             Height          =   240
             Left            =   1485
-            TabIndex        =   101
+            TabIndex        =   38
             Text            =   " sec"
             Top             =   810
             Width           =   1590
@@ -1293,11 +3955,11 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Height          =   345
-            ItemData        =   "frmMonitoring.frx":338F3
+            ItemData        =   "frmMonitoring.frx":3902A
             Left            =   45
-            List            =   "frmMonitoring.frx":33909
+            List            =   "frmMonitoring.frx":39040
             Style           =   2  'Dropdown List
-            TabIndex        =   100
+            TabIndex        =   37
             ToolTipText     =   "Choose X axis column and scale format"
             Top             =   720
             Width           =   1425
@@ -1305,11 +3967,11 @@ Begin VB.Form frmMonitoring
          Begin CWUIControlsLib.CWSlide cwSlideDynamicZoom 
             Height          =   900
             Left            =   1485
-            TabIndex        =   55
+            TabIndex        =   21
             ToolTipText     =   "When 'X scale' in 'Manual' state, adjust X coordinates to zoom in and out"
             Top             =   150
             Width           =   7320
-            _Version        =   196609
+            _Version        =   524288
             _ExtentX        =   12912
             _ExtentY        =   1587
             _StockProps     =   68
@@ -1324,7 +3986,7 @@ Begin VB.Form frmMonitoring
             EndProperty
             Enabled         =   0   'False
             Reset_0         =   0   'False
-            CompatibleVers_0=   196609
+            CompatibleVers_0=   524288
             Slider_0        =   1
             ClassName_1     =   "CCWSlider"
             opts_1          =   2102
@@ -1500,144 +4162,176 @@ Begin VB.Form frmMonitoring
             style_21        =   3
             Value_21        =   1
             FillStyle_21    =   3
-            list[9]_20      =   23
-            ClassName_23    =   "CCWThumb"
-            opts_23         =   1048631
-            Name_23         =   "Pointer-2"
-            SclRef_23.l     =   2
-            SclRef_23.t     =   15
-            SclRef_23.r     =   642
-            SclRef_23.b     =   72
-            Scl_23.l        =   318
-            Scl_23.t        =   22
-            Scl_23.r        =   338
-            Scl_23.b        =   47
-            C[0]_23         =   16711935
-            C[1]_23         =   16711935
-            C[2]_23         =   -2147483635
+            Fill_21         =   23
+            ClassName_23    =   "CCWDrawObj"
+            opts_23         =   62
             Image_23        =   24
             ClassName_24    =   "CCWPictImage"
             opts_24         =   1280
             Rows_24         =   1
             Cols_24         =   1
-            Pict_24         =   96
-            F_24            =   16711935
-            B_24            =   16711935
+            Pict_24         =   286
+            F_24            =   -2147483633
+            B_24            =   -2147483633
             ColorReplaceWith_24=   8421504
             ColorReplace_24 =   8421504
             Tolerance_24    =   2
             Animator_23     =   0
             Blinker_23      =   0
-            style_23        =   2
-            Value_23        =   5
-            FillStyle_23    =   4
-            list[8]_20      =   13
-            list[7]_20      =   6
-            list[6]_20      =   12
-            list[5]_20      =   4
-            list[4]_20      =   25
-            ClassName_25    =   "CCWDrawObj"
-            opts_25         =   54
-            SclRef_25.l     =   3
-            SclRef_25.t     =   7
-            SclRef_25.r     =   502
-            SclRef_25.b     =   63
-            Scl_25.l        =   18
-            Scl_25.t        =   23
-            Scl_25.r        =   487
-            Scl_25.b        =   43
-            C[0]_25         =   16777160
+            list[9]_20      =   25
+            ClassName_25    =   "CCWThumb"
+            opts_25         =   1048631
+            Name_25         =   "Pointer-2"
+            SclRef_25.l     =   2
+            SclRef_25.t     =   15
+            SclRef_25.r     =   642
+            SclRef_25.b     =   72
+            Scl_25.l        =   318
+            Scl_25.t        =   22
+            Scl_25.r        =   338
+            Scl_25.b        =   47
+            C[0]_25         =   16711935
+            C[1]_25         =   16711935
+            C[2]_25         =   -2147483635
             Image_25        =   26
             ClassName_26    =   "CCWPictImage"
             opts_26         =   1280
             Rows_26         =   1
             Cols_26         =   1
-            Pict_26         =   7
-            F_26            =   16777160
-            B_26            =   -2147483633
+            Pict_26         =   96
+            F_26            =   16711935
+            B_26            =   16711935
             ColorReplaceWith_26=   8421504
             ColorReplace_26 =   8421504
             Tolerance_26    =   2
             Animator_25     =   0
             Blinker_25      =   0
-            list[3]_20      =   27
+            style_25        =   2
+            Value_25        =   5
+            FillStyle_25    =   4
+            Fill_25         =   27
             ClassName_27    =   "CCWDrawObj"
-            opts_27         =   54
-            SclRef_27.l     =   3
-            SclRef_27.t     =   7
-            SclRef_27.r     =   508
-            SclRef_27.b     =   57
-            Scl_27.l        =   5
-            Scl_27.t        =   17
-            Scl_27.r        =   18
-            Scl_27.b        =   45
-            C[0]_27         =   16776960
+            opts_27         =   62
             Image_27        =   28
             ClassName_28    =   "CCWPictImage"
             opts_28         =   1280
             Rows_28         =   1
             Cols_28         =   1
-            Pict_28         =   93
-            F_28            =   16776960
+            Pict_28         =   286
+            F_28            =   -2147483633
             B_28            =   -2147483633
             ColorReplaceWith_28=   8421504
             ColorReplace_28 =   8421504
             Tolerance_28    =   2
             Animator_27     =   0
             Blinker_27      =   0
-            list[2]_20      =   29
+            list[8]_20      =   13
+            list[7]_20      =   6
+            list[6]_20      =   12
+            list[5]_20      =   4
+            list[4]_20      =   29
             ClassName_29    =   "CCWDrawObj"
             opts_29         =   54
             SclRef_29.l     =   3
             SclRef_29.t     =   7
-            SclRef_29.r     =   508
-            SclRef_29.b     =   57
-            Scl_29.l        =   493
-            Scl_29.t        =   17
-            Scl_29.r        =   507
-            Scl_29.b        =   47
-            C[0]_29         =   255
+            SclRef_29.r     =   502
+            SclRef_29.b     =   63
+            Scl_29.l        =   18
+            Scl_29.t        =   23
+            Scl_29.r        =   487
+            Scl_29.b        =   43
+            C[0]_29         =   16777160
             Image_29        =   30
             ClassName_30    =   "CCWPictImage"
             opts_30         =   1280
             Rows_30         =   1
             Cols_30         =   1
-            Pict_30         =   94
-            F_30            =   255
+            Pict_30         =   7
+            F_30            =   16777160
             B_30            =   -2147483633
             ColorReplaceWith_30=   8421504
             ColorReplace_30 =   8421504
             Tolerance_30    =   2
             Animator_29     =   0
             Blinker_29      =   0
+            list[3]_20      =   31
+            ClassName_31    =   "CCWDrawObj"
+            opts_31         =   54
+            SclRef_31.l     =   3
+            SclRef_31.t     =   7
+            SclRef_31.r     =   508
+            SclRef_31.b     =   57
+            Scl_31.l        =   5
+            Scl_31.t        =   17
+            Scl_31.r        =   18
+            Scl_31.b        =   45
+            C[0]_31         =   16776960
+            Image_31        =   32
+            ClassName_32    =   "CCWPictImage"
+            opts_32         =   1280
+            Rows_32         =   1
+            Cols_32         =   1
+            Pict_32         =   93
+            F_32            =   16776960
+            B_32            =   -2147483633
+            ColorReplaceWith_32=   8421504
+            ColorReplace_32 =   8421504
+            Tolerance_32    =   2
+            Animator_31     =   0
+            Blinker_31      =   0
+            list[2]_20      =   33
+            ClassName_33    =   "CCWDrawObj"
+            opts_33         =   54
+            SclRef_33.l     =   3
+            SclRef_33.t     =   7
+            SclRef_33.r     =   508
+            SclRef_33.b     =   57
+            Scl_33.l        =   493
+            Scl_33.t        =   17
+            Scl_33.r        =   507
+            Scl_33.b        =   47
+            C[0]_33         =   255
+            Image_33        =   34
+            ClassName_34    =   "CCWPictImage"
+            opts_34         =   1280
+            Rows_34         =   1
+            Cols_34         =   1
+            Pict_34         =   94
+            F_34            =   255
+            B_34            =   -2147483633
+            ColorReplaceWith_34=   8421504
+            ColorReplace_34 =   8421504
+            Tolerance_34    =   2
+            Animator_33     =   0
+            Blinker_33      =   0
             list[1]_20      =   2
-            Ptrs_1          =   31
-            ClassName_31    =   "CCWPointerArray"
-            Array_31        =   2
-            Editor_31       =   32
-            ClassName_32    =   "CCWPointerArrayEditor"
-            Owner_32        =   1
-            Array[0]_31     =   21
-            Array[1]_31     =   23
-            Bindings_1      =   33
-            ClassName_33    =   "CCWBindingHolderArray"
-            Editor_33       =   34
-            ClassName_34    =   "CCWBindingHolderArrayEditor"
-            Owner_34        =   1
-            Stats_1         =   35
-            ClassName_35    =   "CCWStats"
-            doInc_1         =   29
-            doDec_1         =   27
-            doFrame_1       =   25
+            Ptrs_1          =   35
+            ClassName_35    =   "CCWPointerArray"
+            Array_35        =   2
+            Editor_35       =   36
+            ClassName_36    =   "CCWPointerArrayEditor"
+            Owner_36        =   1
+            Array[0]_35     =   21
+            Array[1]_35     =   25
+            Bindings_1      =   37
+            ClassName_37    =   "CCWBindingHolderArray"
+            Editor_37       =   38
+            ClassName_38    =   "CCWBindingHolderArrayEditor"
+            Owner_38        =   1
+            Stats_1         =   39
+            ClassName_39    =   "CCWStats"
+            doInc_1         =   33
+            doDec_1         =   31
+            doFrame_1       =   29
          End
          Begin CWUIControlsLib.CWButton cwBut_Xautoscale 
             Height          =   615
             Left            =   45
-            TabIndex        =   56
+            TabIndex        =   22
             ToolTipText     =   "Horizontal Scale toggle"
             Top             =   135
             Width           =   1230
-            _Version        =   196609
+            _Version        =   524288
             _ExtentX        =   2170
             _ExtentY        =   1085
             _StockProps     =   68
@@ -1651,7 +4345,7 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Reset_0         =   0   'False
-            CompatibleVers_0=   196609
+            CompatibleVers_0=   524288
             Boolean_0       =   1
             ClassName_1     =   "CCWBoolean"
             opts_1          =   2614
@@ -1860,251 +4554,6 @@ Begin VB.Form frmMonitoring
             Blinker_26      =   0
          End
       End
-      Begin VB.OptionButton optChooseCh 
-         BackColor       =   &H00FF00FF&
-         Caption         =   "FF Yacc"
-         ForeColor       =   &H00FFFFFF&
-         Height          =   285
-         Index           =   10
-         Left            =   135
-         Style           =   1  'Graphical
-         TabIndex        =   53
-         ToolTipText     =   "Click to highlight this channel"
-         Top             =   7560
-         Width           =   800
-      End
-      Begin VB.OptionButton optChooseCh 
-         BackColor       =   &H00FF0000&
-         Caption         =   "FF Xacc"
-         ForeColor       =   &H00FFFFFF&
-         Height          =   285
-         Index           =   9
-         Left            =   135
-         Style           =   1  'Graphical
-         TabIndex        =   52
-         ToolTipText     =   "Click to highlight this channel"
-         Top             =   7200
-         Width           =   800
-      End
-      Begin VB.OptionButton optChooseCh 
-         BackColor       =   &H0000C000&
-         Caption         =   "FF Ypos"
-         ForeColor       =   &H00FFFFFF&
-         Height          =   285
-         Index           =   8
-         Left            =   135
-         Style           =   1  'Graphical
-         TabIndex        =   51
-         ToolTipText     =   "Click to highlight this channel"
-         Top             =   6840
-         Width           =   800
-      End
-      Begin VB.OptionButton optChooseCh 
-         BackColor       =   &H000000FF&
-         Caption         =   "FF Xpos"
-         ForeColor       =   &H00FFFFFF&
-         Height          =   285
-         Index           =   7
-         Left            =   135
-         Style           =   1  'Graphical
-         TabIndex        =   50
-         ToolTipText     =   "Click to highlight this channel"
-         Top             =   6480
-         Width           =   800
-      End
-      Begin VB.OptionButton optChooseCh 
-         BackColor       =   &H00FFFFC0&
-         Caption         =   "Prox V1"
-         Height          =   285
-         Index           =   1
-         Left            =   135
-         Style           =   1  'Graphical
-         TabIndex        =   49
-         ToolTipText     =   "Click to highlight this channel"
-         Top             =   4140
-         Value           =   -1  'True
-         Width           =   800
-      End
-      Begin VB.OptionButton optChooseCh 
-         BackColor       =   &H00C0FFC0&
-         Caption         =   "Prox V2"
-         Height          =   285
-         Index           =   2
-         Left            =   135
-         Style           =   1  'Graphical
-         TabIndex        =   48
-         ToolTipText     =   "Click to highlight this channel"
-         Top             =   4500
-         Width           =   800
-      End
-      Begin VB.OptionButton optChooseCh 
-         BackColor       =   &H000080FF&
-         Caption         =   "Prox V3"
-         Height          =   285
-         Index           =   3
-         Left            =   135
-         Style           =   1  'Graphical
-         TabIndex        =   47
-         ToolTipText     =   "Click to highlight this channel"
-         Top             =   4860
-         Width           =   800
-      End
-      Begin VB.OptionButton optChooseCh 
-         BackColor       =   &H0000C080&
-         Caption         =   "Prox H1"
-         Height          =   285
-         Index           =   4
-         Left            =   135
-         Style           =   1  'Graphical
-         TabIndex        =   46
-         ToolTipText     =   "Click to highlight this channel"
-         Top             =   5310
-         Width           =   800
-      End
-      Begin VB.OptionButton optChooseCh 
-         BackColor       =   &H00FFC0C0&
-         Caption         =   "Prox H2"
-         Height          =   285
-         Index           =   5
-         Left            =   135
-         Style           =   1  'Graphical
-         TabIndex        =   45
-         ToolTipText     =   "Click to highlight this channel"
-         Top             =   5670
-         Width           =   800
-      End
-      Begin VB.OptionButton optChooseCh 
-         BackColor       =   &H00FFC0FF&
-         Caption         =   "Prox H3"
-         Height          =   285
-         Index           =   6
-         Left            =   135
-         Style           =   1  'Graphical
-         TabIndex        =   44
-         ToolTipText     =   "Click to highlight this channel"
-         Top             =   6030
-         Width           =   800
-      End
-      Begin VB.CheckBox chkPOSvisible 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H00FFFFC0&
-         Height          =   285
-         Index           =   0
-         Left            =   855
-         TabIndex        =   28
-         ToolTipText     =   "Check to plot this sensor"
-         Top             =   4140
-         Value           =   1  'Checked
-         Width           =   535
-      End
-      Begin VB.CheckBox chkPOSvisible 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H00C0FFC0&
-         Height          =   285
-         Index           =   1
-         Left            =   855
-         TabIndex        =   27
-         ToolTipText     =   "Check to plot this sensor"
-         Top             =   4500
-         Value           =   1  'Checked
-         Width           =   435
-      End
-      Begin VB.CheckBox chkPOSvisible 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H000080FF&
-         Height          =   285
-         Index           =   2
-         Left            =   855
-         TabIndex        =   26
-         ToolTipText     =   "Check to plot this sensor"
-         Top             =   4860
-         Value           =   1  'Checked
-         Width           =   435
-      End
-      Begin VB.CheckBox chkPOSvisible 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H0000C080&
-         Height          =   285
-         Index           =   3
-         Left            =   855
-         TabIndex        =   25
-         ToolTipText     =   "Check to plot this sensor"
-         Top             =   5310
-         Value           =   1  'Checked
-         Width           =   435
-      End
-      Begin VB.CheckBox chkPOSvisible 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H00FFC0C0&
-         Height          =   285
-         Index           =   4
-         Left            =   855
-         TabIndex        =   24
-         ToolTipText     =   "Check to plot this sensor"
-         Top             =   5670
-         Value           =   1  'Checked
-         Width           =   435
-      End
-      Begin VB.CheckBox chkPOSvisible 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H00FFC0FF&
-         Height          =   285
-         Index           =   5
-         Left            =   855
-         TabIndex        =   23
-         ToolTipText     =   "Check to plot this sensor"
-         Top             =   6030
-         Value           =   1  'Checked
-         Width           =   435
-      End
-      Begin VB.CheckBox chkPOSvisible 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H000000FF&
-         Height          =   285
-         Index           =   6
-         Left            =   855
-         TabIndex        =   22
-         ToolTipText     =   "Check to plot this sensor"
-         Top             =   6480
-         Value           =   1  'Checked
-         Width           =   435
-      End
-      Begin VB.CheckBox chkPOSvisible 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H0000C000&
-         Height          =   285
-         Index           =   7
-         Left            =   855
-         TabIndex        =   21
-         ToolTipText     =   "Check to plot this sensor"
-         Top             =   6840
-         Value           =   1  'Checked
-         Width           =   435
-      End
-      Begin VB.CheckBox chkPOSvisible 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H00FF0000&
-         Height          =   285
-         Index           =   8
-         Left            =   855
-         TabIndex        =   20
-         ToolTipText     =   "Check to plot this sensor"
-         Top             =   7200
-         Value           =   1  'Checked
-         Width           =   435
-      End
-      Begin VB.CheckBox chkPOSvisible 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H00FF00FF&
-         Height          =   285
-         Index           =   9
-         Left            =   855
-         TabIndex        =   19
-         ToolTipText     =   "Check to plot this sensor"
-         Top             =   7560
-         Value           =   1  'Checked
-         Width           =   435
-      End
       Begin VB.PictureBox picStatistics 
          Appearance      =   0  'Flat
          BackColor       =   &H80000004&
@@ -2120,10 +4569,10 @@ Begin VB.Form frmMonitoring
          EndProperty
          ForeColor       =   &H80000008&
          Height          =   735
-         Left            =   2580
+         Left            =   3510
          ScaleHeight     =   705
          ScaleWidth      =   8910
-         TabIndex        =   2
+         TabIndex        =   1
          ToolTipText     =   "Calculated basic statistical results of the chosen channel"
          Top             =   7695
          Width           =   8945
@@ -2140,11 +4589,11 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Height          =   315
-            Left            =   7830
-            TabIndex        =   10
+            Left            =   5895
+            TabIndex        =   9
             Text            =   "N/A"
             ToolTipText     =   "= Max Value - Min Value"
-            Top             =   315
+            Top             =   540
             Width           =   1005
          End
          Begin VB.TextBox txtMinSignal 
@@ -2152,7 +4601,7 @@ Begin VB.Form frmMonitoring
             BackColor       =   &H00FFFFC0&
             Height          =   315
             Left            =   1080
-            TabIndex        =   9
+            TabIndex        =   8
             Text            =   "N/A"
             ToolTipText     =   "Minimum Value"
             Top             =   315
@@ -2163,7 +4612,7 @@ Begin VB.Form frmMonitoring
             BackColor       =   &H00C0C0FF&
             Height          =   315
             Left            =   3060
-            TabIndex        =   8
+            TabIndex        =   7
             Text            =   "N/A"
             ToolTipText     =   "Maximum Value"
             Top             =   315
@@ -2174,7 +4623,7 @@ Begin VB.Form frmMonitoring
             BackColor       =   &H00C0C0FF&
             Height          =   315
             Left            =   2115
-            TabIndex        =   7
+            TabIndex        =   6
             Text            =   "N/A"
             ToolTipText     =   "The Index of the maximum value in the chosen channel"
             Top             =   315
@@ -2185,7 +4634,7 @@ Begin VB.Form frmMonitoring
             BackColor       =   &H00FFFFC0&
             Height          =   315
             Left            =   135
-            TabIndex        =   6
+            TabIndex        =   5
             Text            =   "N/A"
             ToolTipText     =   "The Index of the minimum value in the chosen channel"
             Top             =   315
@@ -2205,7 +4654,7 @@ Begin VB.Form frmMonitoring
             EndProperty
             Height          =   315
             Left            =   4050
-            TabIndex        =   5
+            TabIndex        =   4
             Text            =   "N/A"
             ToolTipText     =   "The Average of the active channel"
             Top             =   315
@@ -2225,7 +4674,7 @@ Begin VB.Form frmMonitoring
             EndProperty
             Height          =   315
             Left            =   6570
-            TabIndex        =   4
+            TabIndex        =   3
             Text            =   "undefined"
             ToolTipText     =   "= Average / St.Dev."
             Top             =   315
@@ -2245,7 +4694,7 @@ Begin VB.Form frmMonitoring
             EndProperty
             Height          =   315
             Left            =   5310
-            TabIndex        =   3
+            TabIndex        =   2
             Text            =   "N/A"
             ToolTipText     =   "The Error (standard deviation) of the chosen channel"
             Top             =   315
@@ -2267,7 +4716,7 @@ Begin VB.Form frmMonitoring
             Height          =   255
             Index           =   24
             Left            =   7920
-            TabIndex        =   18
+            TabIndex        =   17
             ToolTipText     =   "= Max Value - Min Value"
             Top             =   90
             Width           =   855
@@ -2288,7 +4737,7 @@ Begin VB.Form frmMonitoring
             Height          =   255
             Index           =   11
             Left            =   1080
-            TabIndex        =   17
+            TabIndex        =   16
             ToolTipText     =   "Minimum Value"
             Top             =   45
             Width           =   795
@@ -2300,7 +4749,7 @@ Begin VB.Form frmMonitoring
             Height          =   255
             Index           =   7
             Left            =   2025
-            TabIndex        =   16
+            TabIndex        =   15
             ToolTipText     =   "The Index of the maximum value in the chosen channel"
             Top             =   45
             Width           =   930
@@ -2321,7 +4770,7 @@ Begin VB.Form frmMonitoring
             Height          =   255
             Index           =   20
             Left            =   3060
-            TabIndex        =   15
+            TabIndex        =   14
             ToolTipText     =   "Maximum Value"
             Top             =   45
             Width           =   795
@@ -2333,7 +4782,7 @@ Begin VB.Form frmMonitoring
             Height          =   255
             Index           =   8
             Left            =   45
-            TabIndex        =   14
+            TabIndex        =   13
             ToolTipText     =   "The Index of the minimum value in the chosen channel"
             Top             =   45
             Width           =   930
@@ -2354,7 +4803,7 @@ Begin VB.Form frmMonitoring
             Height          =   255
             Index           =   21
             Left            =   4230
-            TabIndex        =   13
+            TabIndex        =   12
             ToolTipText     =   "The Average of the active channel"
             Top             =   45
             Width           =   855
@@ -2375,7 +4824,7 @@ Begin VB.Form frmMonitoring
             Height          =   255
             Index           =   23
             Left            =   6705
-            TabIndex        =   12
+            TabIndex        =   11
             ToolTipText     =   "=Average/St.Dev."
             Top             =   45
             Width           =   855
@@ -2396,1086 +4845,10 @@ Begin VB.Form frmMonitoring
             Height          =   255
             Index           =   22
             Left            =   5490
-            TabIndex        =   11
+            TabIndex        =   10
             ToolTipText     =   "The Error (standard deviation) of the chosen channel"
             Top             =   45
             Width           =   855
-         End
-      End
-      Begin VB.CommandButton cmdGetCurrentPosition 
-         BackColor       =   &H0080FF80&
-         Caption         =   "Get current position once"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Left            =   120
-         Style           =   1  'Graphical
-         TabIndex        =   1
-         ToolTipText     =   "Reads momentary proximity sensors signals"
-         Top             =   7920
-         Width           =   2220
-      End
-      Begin VB.Frame Frame1 
-         BackColor       =   &H00D0D0D0&
-         Height          =   2175
-         Left            =   90
-         TabIndex        =   72
-         ToolTipText     =   "Plot controls"
-         Top             =   1755
-         Width           =   2895
-         Begin VB.OptionButton OptGraphMode 
-            Height          =   600
-            Index           =   0
-            Left            =   90
-            Picture         =   "frmMonitoring.frx":33950
-            Style           =   1  'Graphical
-            TabIndex        =   77
-            ToolTipText     =   "Snap cursor to chosen plot"
-            Top             =   1440
-            Width           =   600
-         End
-         Begin VB.OptionButton OptGraphMode 
-            Height          =   600
-            Index           =   1
-            Left            =   900
-            Picture         =   "frmMonitoring.frx":34ACA
-            Style           =   1  'Graphical
-            TabIndex        =   76
-            ToolTipText     =   "Pan window"
-            Top             =   1440
-            Width           =   600
-         End
-         Begin VB.OptionButton OptGraphMode 
-            Height          =   600
-            Index           =   2
-            Left            =   1710
-            Picture         =   "frmMonitoring.frx":35B3C
-            Style           =   1  'Graphical
-            TabIndex        =   75
-            ToolTipText     =   "Zoom window"
-            Top             =   1440
-            Width           =   600
-         End
-         Begin VB.CommandButton cmdZoom2x 
-            Appearance      =   0  'Flat
-            Height          =   600
-            Left            =   90
-            Picture         =   "frmMonitoring.frx":36BAE
-            Style           =   1  'Graphical
-            TabIndex        =   74
-            ToolTipText     =   "When ""Y scale"" in ""Manual"" mode, Zoom IN Y scale"
-            Top             =   765
-            Width           =   600
-         End
-         Begin VB.CommandButton cmdZoom_05x 
-            BackColor       =   &H00C0FFC0&
-            Height          =   600
-            Left            =   1710
-            Picture         =   "frmMonitoring.frx":37C20
-            Style           =   1  'Graphical
-            TabIndex        =   73
-            ToolTipText     =   "When ""Y scale"" in ""Manual"" mode, Zoom OUT Y scale"
-            Top             =   765
-            Width           =   600
-         End
-         Begin CWUIControlsLib.CWButton cwBut_Yautoscale 
-            Height          =   645
-            Left            =   765
-            TabIndex        =   78
-            ToolTipText     =   "Vertical Scale toggle"
-            Top             =   765
-            Width           =   900
-            _Version        =   196609
-            _ExtentX        =   1587
-            _ExtentY        =   1138
-            _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   204
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Reset_0         =   0   'False
-            CompatibleVers_0=   196609
-            Boolean_0       =   1
-            ClassName_1     =   "CCWBoolean"
-            opts_1          =   2614
-            SclRef_1.l      =   2
-            SclRef_1.t      =   2
-            SclRef_1.r      =   62
-            SclRef_1.b      =   45
-            Scl_1.l         =   7
-            Scl_1.t         =   18
-            Scl_1.r         =   57
-            Scl_1.b         =   45
-            C[0]_1          =   13684944
-            Enum_1          =   2
-            ClassName_2     =   "CCWEnum"
-            Array_2         =   2
-            Editor_2        =   0
-            Array[0]_2      =   3
-            ClassName_3     =   "CCWEnumElt"
-            opts_3          =   1
-            Name_3          =   "Off"
-            frame_3         =   286
-            DrawList_3      =   4
-            ClassName_4     =   "CDrawList"
-            count_4         =   4
-            list[4]_4       =   5
-            ClassName_5     =   "CCWDrawObj"
-            opts_5          =   54
-            SclRef_5.l      =   7
-            SclRef_5.t      =   18
-            SclRef_5.r      =   57
-            SclRef_5.b      =   43
-            Scl_5.l         =   6
-            Scl_5.r         =   58
-            Scl_5.b         =   16
-            C[0]_5          =   -2147483641
-            C[1]_5          =   -2147483641
-            Image_5         =   6
-            ClassName_6     =   "CCWTextImage"
-            szText_6        =   "Y scale"
-            font_6          =   7
-            ClassName_7     =   "CCWFont"
-            bFont_7         =   -1  'True
-            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Animator_5      =   0
-            Blinker_5       =   0
-            list[3]_4       =   8
-            ClassName_8     =   "CCWDrawObj"
-            opts_8          =   60
-            C[0]_8          =   0
-            C[1]_8          =   0
-            Image_8         =   9
-            ClassName_9     =   "CCWTextImage"
-            szText_9        =   "Auto"
-            font_9          =   0
-            Animator_8      =   0
-            Blinker_8       =   0
-            list[2]_4       =   10
-            ClassName_10    =   "CCWDrawObj"
-            opts_10         =   54
-            SclRef_10.l     =   7
-            SclRef_10.t     =   8
-            SclRef_10.r     =   56
-            SclRef_10.b     =   39
-            Scl_10.l        =   15
-            Scl_10.t        =   20
-            Scl_10.r        =   49
-            Scl_10.b        =   34
-            C[0]_10         =   16777215
-            C[1]_10         =   16777215
-            Image_10        =   11
-            ClassName_11    =   "CCWTextImage"
-            szText_11       =   "Manual"
-            font_11         =   0
-            Animator_10     =   0
-            Blinker_10      =   0
-            list[1]_4       =   12
-            ClassName_12    =   "CCWDrawObj"
-            opts_12         =   62
-            C[0]_12         =   8388608
-            C[1]_12         =   8388608
-            Image_12        =   13
-            ClassName_13    =   "CCWPictImage"
-            opts_13         =   1280
-            Rows_13         =   1
-            Cols_13         =   1
-            Pict_13         =   44
-            F_13            =   8388608
-            B_13            =   8388608
-            ColorReplaceWith_13=   8421504
-            ColorReplace_13 =   8421504
-            Tolerance_13    =   2
-            Animator_12     =   0
-            Blinker_12      =   0
-            varVarType_3    =   5
-            Array[1]_2      =   14
-            ClassName_14    =   "CCWEnumElt"
-            opts_14         =   1
-            Name_14         =   "On"
-            frame_14        =   286
-            DrawList_14     =   15
-            ClassName_15    =   "CDrawList"
-            count_15        =   4
-            list[4]_15      =   16
-            ClassName_16    =   "CCWDrawObj"
-            opts_16         =   54
-            SclRef_16.l     =   7
-            SclRef_16.t     =   18
-            SclRef_16.r     =   57
-            SclRef_16.b     =   43
-            Scl_16.l        =   6
-            Scl_16.r        =   58
-            Scl_16.b        =   16
-            C[0]_16         =   -2147483641
-            C[1]_16         =   -2147483641
-            Image_16        =   6
-            Animator_16     =   0
-            Blinker_16      =   0
-            list[3]_15      =   17
-            ClassName_17    =   "CCWDrawObj"
-            opts_17         =   62
-            C[0]_17         =   0
-            C[1]_17         =   0
-            Image_17        =   9
-            Animator_17     =   0
-            Blinker_17      =   0
-            list[2]_15      =   18
-            ClassName_18    =   "CCWDrawObj"
-            opts_18         =   52
-            SclRef_18.l     =   7
-            SclRef_18.t     =   8
-            SclRef_18.r     =   56
-            SclRef_18.b     =   39
-            Scl_18.l        =   15
-            Scl_18.t        =   20
-            Scl_18.r        =   49
-            Scl_18.b        =   34
-            C[0]_18         =   16777215
-            C[1]_18         =   16777215
-            Image_18        =   11
-            Animator_18     =   0
-            Blinker_18      =   0
-            list[1]_15      =   19
-            ClassName_19    =   "CCWDrawObj"
-            opts_19         =   62
-            C[0]_19         =   65535
-            C[1]_19         =   65535
-            Image_19        =   20
-            ClassName_20    =   "CCWPictImage"
-            opts_20         =   1280
-            Rows_20         =   1
-            Cols_20         =   1
-            Pict_20         =   42
-            F_20            =   65535
-            B_20            =   65535
-            ColorReplaceWith_20=   8421504
-            ColorReplace_20 =   8421504
-            Tolerance_20    =   2
-            Animator_19     =   0
-            Blinker_19      =   0
-            varVarType_14   =   5
-            Bindings_1      =   21
-            ClassName_21    =   "CCWBindingHolderArray"
-            Editor_21       =   22
-            ClassName_22    =   "CCWBindingHolderArrayEditor"
-            Owner_22        =   1
-            Style_1         =   7
-            drawState_1     =   1
-            mechAction_1    =   1
-            BGImg_1         =   23
-            ClassName_23    =   "CCWDrawObj"
-            opts_23         =   62
-            Image_23        =   24
-            ClassName_24    =   "CCWPictImage"
-            opts_24         =   1280
-            Rows_24         =   1
-            Cols_24         =   1
-            Pict_24         =   286
-            F_24            =   -2147483633
-            B_24            =   -2147483633
-            ColorReplaceWith_24=   8421504
-            ColorReplace_24 =   8421504
-            Tolerance_24    =   2
-            Animator_23     =   0
-            Blinker_23      =   0
-            Array_1         =   6
-            Editor_1        =   0
-            Array[0]_1      =   12
-            Array[1]_1      =   19
-            Array[2]_1      =   0
-            Array[3]_1      =   0
-            Array[4]_1      =   25
-            ClassName_25    =   "CCWDrawObj"
-            opts_25         =   62
-            Image_25        =   9
-            Animator_25     =   0
-            Blinker_25      =   0
-            Array[5]_1      =   26
-            ClassName_26    =   "CCWDrawObj"
-            opts_26         =   62
-            Image_26        =   11
-            Animator_26     =   0
-            Blinker_26      =   0
-            Label_1         =   27
-            ClassName_27    =   "CCWDrawObj"
-            opts_27         =   62
-            C[0]_27         =   -2147483640
-            Image_27        =   6
-            Animator_27     =   0
-            Blinker_27      =   0
-         End
-         Begin CWUIControlsLib.CWNumEdit cwSpreadPlotsByY 
-            Height          =   390
-            Left            =   1350
-            TabIndex        =   80
-            ToolTipText     =   "When plotting relative format, traces spread vertically by this value"
-            Top             =   225
-            Width           =   1005
-            _Version        =   196609
-            _ExtentX        =   1773
-            _ExtentY        =   688
-            _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "MS Sans Serif"
-               Size            =   12
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Reset_0         =   0   'False
-            CompatibleVers_0=   196609
-            NumEdit_0       =   1
-            ClassName_1     =   "CCWNumEdit"
-            opts_1          =   458814
-            C[0]_1          =   16777215
-            C[1]_1          =   0
-            TextAlignment_1 =   2
-            format_1        =   2
-            ClassName_2     =   "CCWFormat"
-            scale_1         =   3
-            ClassName_3     =   "CCWScale"
-            dMax_3          =   10
-            discInterval_3  =   100
-            ValueVarType_1  =   5
-            Value_Val_1     =   100
-            IncValueVarType_1=   5
-            IncValue_Val_1  =   100
-            AccelIncVarType_1=   5
-            AccelInc_Val_1  =   100
-            RangeMinVarType_1=   5
-            RangeMaxVarType_1=   5
-            RangeMax_Val_1  =   10000
-            Bindings_1      =   4
-            ClassName_4     =   "CCWBindingHolderArray"
-            Editor_4        =   5
-            ClassName_5     =   "CCWBindingHolderArrayEditor"
-            Owner_5         =   1
-         End
-         Begin CWUIControlsLib.CWButton cwRelAbsPosition 
-            Height          =   645
-            Left            =   45
-            TabIndex        =   79
-            ToolTipText     =   "Remove Offset of the RAW signal - subtract the FIRST reading from each consecutive measurement"
-            Top             =   0
-            Width           =   1230
-            _Version        =   196609
-            _ExtentX        =   2170
-            _ExtentY        =   1138
-            _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   204
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Reset_0         =   0   'False
-            CompatibleVers_0=   196609
-            Boolean_0       =   1
-            ClassName_1     =   "CCWBoolean"
-            opts_1          =   2614
-            SclRef_1.l      =   2
-            SclRef_1.t      =   2
-            SclRef_1.r      =   84
-            SclRef_1.b      =   45
-            Scl_1.l         =   4
-            Scl_1.t         =   15
-            Scl_1.r         =   83
-            Scl_1.b         =   43
-            C[0]_1          =   16777215
-            Enum_1          =   2
-            ClassName_2     =   "CCWEnum"
-            Array_2         =   2
-            Editor_2        =   0
-            Array[0]_2      =   3
-            ClassName_3     =   "CCWEnumElt"
-            opts_3          =   1
-            Name_3          =   "Off"
-            frame_3         =   286
-            DrawList_3      =   4
-            ClassName_4     =   "CDrawList"
-            count_4         =   4
-            list[4]_4       =   5
-            ClassName_5     =   "CCWDrawObj"
-            opts_5          =   62
-            C[0]_5          =   0
-            C[1]_5          =   0
-            Image_5         =   6
-            ClassName_6     =   "CCWTextImage"
-            szText_6        =   "Plot Shown"
-            font_6          =   0
-            Animator_5      =   0
-            Blinker_5       =   0
-            list[3]_4       =   7
-            ClassName_7     =   "CCWDrawObj"
-            opts_7          =   60
-            C[0]_7          =   0
-            C[1]_7          =   0
-            Image_7         =   8
-            ClassName_8     =   "CCWTextImage"
-            szText_8        =   "RELATIVE"
-            font_8          =   0
-            Animator_7      =   0
-            Blinker_7       =   0
-            list[2]_4       =   9
-            ClassName_9     =   "CCWDrawObj"
-            opts_9          =   54
-            SclRef_9.l      =   4
-            SclRef_9.t      =   15
-            SclRef_9.r      =   83
-            SclRef_9.b      =   43
-            Scl_9.l         =   16
-            Scl_9.t         =   28
-            Scl_9.r         =   71
-            Scl_9.b         =   42
-            C[0]_9          =   0
-            C[1]_9          =   0
-            Image_9         =   10
-            ClassName_10    =   "CCWTextImage"
-            szText_10       =   "ABSOLUTE"
-            font_10         =   0
-            Animator_9      =   0
-            Blinker_9       =   0
-            list[1]_4       =   11
-            ClassName_11    =   "CCWDrawObj"
-            opts_11         =   54
-            SclRef_11.l     =   4
-            SclRef_11.t     =   15
-            SclRef_11.r     =   83
-            SclRef_11.b     =   43
-            Scl_11.l        =   7
-            Scl_11.t        =   15
-            Scl_11.r        =   80
-            Scl_11.b        =   43
-            C[0]_11         =   49344
-            C[1]_11         =   49344
-            Image_11        =   12
-            ClassName_12    =   "CCWPictImage"
-            opts_12         =   1280
-            Rows_12         =   1
-            Cols_12         =   1
-            Pict_12         =   44
-            F_12            =   49344
-            B_12            =   49344
-            ColorReplaceWith_12=   8421504
-            ColorReplace_12 =   8421504
-            Tolerance_12    =   2
-            Animator_11     =   0
-            Blinker_11      =   0
-            varVarType_3    =   5
-            Array[1]_2      =   13
-            ClassName_13    =   "CCWEnumElt"
-            opts_13         =   1
-            Name_13         =   "On"
-            frame_13        =   286
-            DrawList_13     =   14
-            ClassName_14    =   "CDrawList"
-            count_14        =   4
-            list[4]_14      =   15
-            ClassName_15    =   "CCWDrawObj"
-            opts_15         =   62
-            C[0]_15         =   0
-            C[1]_15         =   0
-            Image_15        =   6
-            Animator_15     =   0
-            Blinker_15      =   0
-            list[3]_14      =   16
-            ClassName_16    =   "CCWDrawObj"
-            opts_16         =   62
-            C[0]_16         =   0
-            C[1]_16         =   0
-            Image_16        =   8
-            Animator_16     =   0
-            Blinker_16      =   0
-            list[2]_14      =   17
-            ClassName_17    =   "CCWDrawObj"
-            opts_17         =   52
-            SclRef_17.l     =   4
-            SclRef_17.t     =   15
-            SclRef_17.r     =   83
-            SclRef_17.b     =   43
-            Scl_17.l        =   16
-            Scl_17.t        =   28
-            Scl_17.r        =   71
-            Scl_17.b        =   42
-            C[0]_17         =   0
-            C[1]_17         =   0
-            Image_17        =   10
-            Animator_17     =   0
-            Blinker_17      =   0
-            list[1]_14      =   18
-            ClassName_18    =   "CCWDrawObj"
-            opts_18         =   54
-            SclRef_18.l     =   4
-            SclRef_18.t     =   15
-            SclRef_18.r     =   83
-            SclRef_18.b     =   43
-            Scl_18.l        =   7
-            Scl_18.t        =   15
-            Scl_18.r        =   80
-            Scl_18.b        =   43
-            C[0]_18         =   65280
-            C[1]_18         =   65280
-            Image_18        =   19
-            ClassName_19    =   "CCWPictImage"
-            opts_19         =   1280
-            Rows_19         =   1
-            Cols_19         =   1
-            Pict_19         =   42
-            F_19            =   65280
-            B_19            =   65280
-            ColorReplaceWith_19=   8421504
-            ColorReplace_19 =   8421504
-            Tolerance_19    =   2
-            Animator_18     =   0
-            Blinker_18      =   0
-            varVarType_13   =   5
-            Bindings_1      =   20
-            ClassName_20    =   "CCWBindingHolderArray"
-            Editor_20       =   21
-            ClassName_21    =   "CCWBindingHolderArrayEditor"
-            Owner_21        =   1
-            Style_1         =   7
-            drawState_1     =   1
-            mechAction_1    =   1
-            BGImg_1         =   22
-            ClassName_22    =   "CCWDrawObj"
-            opts_22         =   62
-            Image_22        =   23
-            ClassName_23    =   "CCWPictImage"
-            opts_23         =   1280
-            Rows_23         =   1
-            Cols_23         =   1
-            Pict_23         =   286
-            F_23            =   -2147483633
-            B_23            =   -2147483633
-            ColorReplaceWith_23=   8421504
-            ColorReplace_23 =   8421504
-            Tolerance_23    =   2
-            Animator_22     =   0
-            Blinker_22      =   0
-            Array_1         =   6
-            Editor_1        =   0
-            Array[0]_1      =   11
-            Array[1]_1      =   18
-            Array[2]_1      =   0
-            Array[3]_1      =   0
-            Array[4]_1      =   24
-            ClassName_24    =   "CCWDrawObj"
-            opts_24         =   62
-            Image_24        =   8
-            Animator_24     =   0
-            Blinker_24      =   0
-            Array[5]_1      =   25
-            ClassName_25    =   "CCWDrawObj"
-            opts_25         =   62
-            Image_25        =   10
-            Animator_25     =   0
-            Blinker_25      =   0
-            Label_1         =   26
-            ClassName_26    =   "CCWDrawObj"
-            opts_26         =   62
-            C[0]_26         =   -2147483640
-            Image_26        =   6
-            Animator_26     =   0
-            Blinker_26      =   0
-         End
-         Begin VB.Label lblSpreadPlots 
-            Alignment       =   2  'Center
-            BackColor       =   &H00FFFFFF&
-            Caption         =   "Spread plots by"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   645
-            Left            =   1215
-            TabIndex        =   81
-            Top             =   0
-            Width           =   1365
-         End
-      End
-      Begin VB.Frame frameMonitoring 
-         BackColor       =   &H00C0FFFF&
-         Caption         =   "Monitoring"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   1770
-         Left            =   2565
-         TabIndex        =   68
-         ToolTipText     =   "Position recording can be internal, by controller, up to 10 sec, and external, by PC, up to 1000 lines (100 - 1000 sec)"
-         Top             =   -45
-         Width           =   4245
-         Begin VB.CheckBox ChkUntilSTOP 
-            BackColor       =   &H00FF80FF&
-            Caption         =   "Saving Until Stop"
-            Height          =   315
-            Left            =   1350
-            TabIndex        =   104
-            ToolTipText     =   "If CHECKED, number of records is not limited"
-            Top             =   1170
-            Value           =   1  'Checked
-            Width           =   1590
-         End
-         Begin VB.CheckBox ChkExcelFriendly 
-            BackColor       =   &H00C0FFC0&
-            Caption         =   "Excel friendly"
-            Height          =   300
-            Left            =   1350
-            TabIndex        =   103
-            ToolTipText     =   $"frmMonitoring.frx":38C92
-            Top             =   720
-            Value           =   1  'Checked
-            Width           =   1605
-         End
-         Begin CWUIControlsLib.CWNumEdit cwContCMDperiod 
-            Height          =   360
-            Left            =   135
-            TabIndex        =   69
-            ToolTipText     =   "Wait interval between repeated position requests, sec, 0.1-10"
-            Top             =   585
-            Width           =   990
-            _Version        =   196609
-            _ExtentX        =   1746
-            _ExtentY        =   635
-            _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "Arial"
-               Size            =   12
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Reset_0         =   0   'False
-            CompatibleVers_0=   196609
-            NumEdit_0       =   1
-            ClassName_1     =   "CCWNumEdit"
-            opts_1          =   458814
-            C[0]_1          =   16777215
-            C[1]_1          =   0
-            TextAlignment_1 =   1
-            Appearance_1    =   0
-            format_1        =   2
-            ClassName_2     =   "CCWFormat"
-            Format_2        =   ".00"
-            scale_1         =   3
-            ClassName_3     =   "CCWScale"
-            opts_3          =   65536
-            dMax_3          =   10
-            discInterval_3  =   1
-            ValueVarType_1  =   5
-            Value_Val_1     =   0.2
-            IncValueVarType_1=   5
-            IncValue_Val_1  =   0.05
-            AccelIncVarType_1=   5
-            AccelInc_Val_1  =   5
-            RangeMinVarType_1=   5
-            RangeMin_Val_1  =   0.1
-            RangeMaxVarType_1=   5
-            RangeMax_Val_1  =   10
-            Bindings_1      =   4
-            ClassName_4     =   "CCWBindingHolderArray"
-            Editor_4        =   5
-            ClassName_5     =   "CCWBindingHolderArrayEditor"
-            Owner_5         =   1
-         End
-         Begin CWUIControlsLib.CWButton cwButContinuesSend 
-            Height          =   555
-            Left            =   90
-            TabIndex        =   70
-            ToolTipText     =   "Initiates / stops continuous position monitoring"
-            Top             =   1035
-            Width           =   1140
-            _Version        =   196609
-            _ExtentX        =   2011
-            _ExtentY        =   979
-            _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "Arial"
-               Size            =   9.75
-               Charset         =   204
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Reset_0         =   0   'False
-            CompatibleVers_0=   196609
-            Boolean_0       =   1
-            ClassName_1     =   "CCWBoolean"
-            opts_1          =   2614
-            SclRef_1.l      =   2
-            SclRef_1.t      =   2
-            SclRef_1.r      =   63
-            SclRef_1.b      =   36
-            Scl_1.l         =   4
-            Scl_1.t         =   5
-            Scl_1.r         =   58
-            Scl_1.b         =   36
-            C[0]_1          =   12648447
-            Enum_1          =   2
-            ClassName_2     =   "CCWEnum"
-            Array_2         =   2
-            Editor_2        =   0
-            Array[0]_2      =   3
-            ClassName_3     =   "CCWEnumElt"
-            opts_3          =   1
-            Name_3          =   "Off"
-            frame_3         =   286
-            DrawList_3      =   4
-            ClassName_4     =   "CDrawList"
-            count_4         =   4
-            list[4]_4       =   5
-            ClassName_5     =   "CCWDrawObj"
-            opts_5          =   62
-            C[0]_5          =   0
-            C[1]_5          =   0
-            Image_5         =   6
-            ClassName_6     =   "CCWTextImage"
-            font_6          =   0
-            Animator_5      =   0
-            Blinker_5       =   0
-            list[3]_4       =   7
-            ClassName_7     =   "CCWDrawObj"
-            opts_7          =   52
-            SclRef_7.l      =   4
-            SclRef_7.t      =   5
-            SclRef_7.r      =   66
-            SclRef_7.b      =   36
-            Scl_7.l         =   19
-            Scl_7.t         =   11
-            Scl_7.r         =   54
-            Scl_7.b         =   27
-            C[0]_7          =   0
-            C[1]_7          =   0
-            Image_7         =   8
-            ClassName_8     =   "CCWTextImage"
-            szText_8        =   "STOP"
-            font_8          =   0
-            Animator_7      =   0
-            Blinker_7       =   0
-            list[2]_4       =   9
-            ClassName_9     =   "CCWDrawObj"
-            opts_9          =   54
-            SclRef_9.l      =   4
-            SclRef_9.t      =   5
-            SclRef_9.r      =   66
-            SclRef_9.b      =   36
-            Scl_9.l         =   16
-            Scl_9.t         =   15
-            Scl_9.r         =   57
-            Scl_9.b         =   31
-            C[0]_9          =   0
-            C[1]_9          =   0
-            Image_9         =   10
-            ClassName_10    =   "CCWTextImage"
-            szText_10       =   "START"
-            font_10         =   0
-            Animator_9      =   0
-            Blinker_9       =   0
-            list[1]_4       =   11
-            ClassName_11    =   "CCWDrawObj"
-            opts_11         =   54
-            SclRef_11.l     =   12
-            SclRef_11.t     =   15
-            SclRef_11.r     =   103
-            SclRef_11.b     =   43
-            Scl_11.l        =   13
-            Scl_11.t        =   15
-            Scl_11.r        =   104
-            Scl_11.b        =   39
-            C[0]_11         =   49152
-            C[1]_11         =   49152
-            Image_11        =   12
-            ClassName_12    =   "CCWPictImage"
-            opts_12         =   1280
-            Rows_12         =   1
-            Cols_12         =   1
-            Pict_12         =   44
-            F_12            =   49152
-            B_12            =   49152
-            ColorReplaceWith_12=   8421504
-            ColorReplace_12 =   8421504
-            Tolerance_12    =   2
-            Animator_11     =   0
-            Blinker_11      =   0
-            varVarType_3    =   5
-            Array[1]_2      =   13
-            ClassName_13    =   "CCWEnumElt"
-            opts_13         =   1
-            Name_13         =   "On"
-            frame_13        =   286
-            DrawList_13     =   14
-            ClassName_14    =   "CDrawList"
-            count_14        =   4
-            list[4]_14      =   15
-            ClassName_15    =   "CCWDrawObj"
-            opts_15         =   62
-            C[0]_15         =   0
-            C[1]_15         =   0
-            Image_15        =   6
-            Animator_15     =   0
-            Blinker_15      =   0
-            list[3]_14      =   16
-            ClassName_16    =   "CCWDrawObj"
-            opts_16         =   54
-            SclRef_16.l     =   4
-            SclRef_16.t     =   5
-            SclRef_16.r     =   66
-            SclRef_16.b     =   36
-            Scl_16.l        =   19
-            Scl_16.t        =   11
-            Scl_16.r        =   54
-            Scl_16.b        =   27
-            C[0]_16         =   0
-            C[1]_16         =   0
-            Image_16        =   8
-            Animator_16     =   0
-            Blinker_16      =   0
-            list[2]_14      =   17
-            ClassName_17    =   "CCWDrawObj"
-            opts_17         =   52
-            SclRef_17.l     =   4
-            SclRef_17.t     =   5
-            SclRef_17.r     =   66
-            SclRef_17.b     =   36
-            Scl_17.l        =   16
-            Scl_17.t        =   15
-            Scl_17.r        =   57
-            Scl_17.b        =   31
-            C[0]_17         =   0
-            C[1]_17         =   0
-            Image_17        =   10
-            Animator_17     =   0
-            Blinker_17      =   0
-            list[1]_14      =   18
-            ClassName_18    =   "CCWDrawObj"
-            opts_18         =   54
-            SclRef_18.l     =   12
-            SclRef_18.t     =   15
-            SclRef_18.r     =   103
-            SclRef_18.b     =   43
-            Scl_18.l        =   13
-            Scl_18.t        =   15
-            Scl_18.r        =   104
-            Scl_18.b        =   39
-            C[0]_18         =   6316287
-            C[1]_18         =   6316287
-            Image_18        =   19
-            ClassName_19    =   "CCWPictImage"
-            opts_19         =   1280
-            Rows_19         =   1
-            Cols_19         =   1
-            Pict_19         =   42
-            F_19            =   6316287
-            B_19            =   6316287
-            ColorReplaceWith_19=   8421504
-            ColorReplace_19 =   8421504
-            Tolerance_19    =   2
-            Animator_18     =   0
-            Blinker_18      =   0
-            varVarType_13   =   5
-            Bindings_1      =   20
-            ClassName_20    =   "CCWBindingHolderArray"
-            Editor_20       =   21
-            ClassName_21    =   "CCWBindingHolderArrayEditor"
-            Owner_21        =   1
-            Style_1         =   7
-            mechAction_1    =   1
-            BGImg_1         =   22
-            ClassName_22    =   "CCWDrawObj"
-            opts_22         =   54
-            SclRef_22.l     =   2
-            SclRef_22.t     =   2
-            SclRef_22.r     =   107
-            SclRef_22.b     =   43
-            Scl_22.l        =   11
-            Scl_22.t        =   2
-            Scl_22.r        =   101
-            Scl_22.b        =   40
-            Image_22        =   23
-            ClassName_23    =   "CCWPictImage"
-            opts_23         =   1280
-            Rows_23         =   1
-            Cols_23         =   1
-            Pict_23         =   286
-            F_23            =   -2147483633
-            B_23            =   -2147483633
-            ColorReplaceWith_23=   8421504
-            ColorReplace_23 =   8421504
-            Tolerance_23    =   2
-            Animator_22     =   0
-            Blinker_22      =   0
-            Array_1         =   6
-            Editor_1        =   0
-            Array[0]_1      =   11
-            Array[1]_1      =   18
-            Array[2]_1      =   0
-            Array[3]_1      =   0
-            Array[4]_1      =   24
-            ClassName_24    =   "CCWDrawObj"
-            opts_24         =   62
-            Image_24        =   8
-            Animator_24     =   0
-            Blinker_24      =   0
-            Array[5]_1      =   25
-            ClassName_25    =   "CCWDrawObj"
-            opts_25         =   62
-            Image_25        =   10
-            Animator_25     =   0
-            Blinker_25      =   0
-            Label_1         =   26
-            ClassName_26    =   "CCWDrawObj"
-            opts_26         =   62
-            C[0]_26         =   -2147483640
-            Image_26        =   6
-            Animator_26     =   0
-            Blinker_26      =   0
-         End
-         Begin CWUIControlsLib.CWNumEdit cwNumFileRecords 
-            Height          =   360
-            Left            =   1755
-            TabIndex        =   108
-            ToolTipText     =   $"frmMonitoring.frx":38D27
-            Top             =   270
-            Width           =   1200
-            _Version        =   196609
-            _ExtentX        =   2117
-            _ExtentY        =   635
-            _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "Arial"
-               Size            =   12
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Reset_0         =   0   'False
-            CompatibleVers_0=   196609
-            NumEdit_0       =   1
-            ClassName_1     =   "CCWNumEdit"
-            opts_1          =   458814
-            C[0]_1          =   12648384
-            C[1]_1          =   0
-            TextAlignment_1 =   1
-            Appearance_1    =   0
-            format_1        =   2
-            ClassName_2     =   "CCWFormat"
-            scale_1         =   3
-            ClassName_3     =   "CCWScale"
-            opts_3          =   65536
-            dMax_3          =   10
-            discInterval_3  =   1
-            ValueVarType_1  =   5
-            Value_Val_1     =   80320
-            IncValueVarType_1=   5
-            IncValue_Val_1  =   10
-            AccelIncVarType_1=   5
-            AccelInc_Val_1  =   60
-            RangeMinVarType_1=   5
-            RangeMaxVarType_1=   5
-            RangeMax_Val_1  =   100000
-            Bindings_1      =   4
-            ClassName_4     =   "CCWBindingHolderArray"
-            Editor_4        =   5
-            ClassName_5     =   "CCWBindingHolderArrayEditor"
-            Owner_5         =   1
-         End
-         Begin VB.Label lbMissingLines 
-            Alignment       =   2  'Center
-            Appearance      =   0  'Flat
-            BackColor       =   &H00C0E0FF&
-            BorderStyle     =   1  'Fixed Single
-            Caption         =   "0"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   11.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H80000008&
-            Height          =   285
-            Left            =   3105
-            TabIndex        =   136
-            ToolTipText     =   "Decrease sample interval or switch to Ethernet if lines are missing"
-            Top             =   1170
-            Width           =   915
-         End
-         Begin VB.Label Label1 
-            Alignment       =   2  'Center
-            Appearance      =   0  'Flat
-            BackColor       =   &H00C0E0FF&
-            Caption         =   "missing lines"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   9
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H80000008&
-            Height          =   450
-            Index           =   32
-            Left            =   3105
-            TabIndex        =   135
-            Top             =   720
-            Width           =   915
-         End
-         Begin VB.Label Label1 
-            BackColor       =   &H00C0FFFF&
-            Caption         =   "Interval, sec"
-            Height          =   255
-            Index           =   33
-            Left            =   135
-            TabIndex        =   71
-            Top             =   270
-            Width           =   915
          End
       End
       Begin VB.Frame FrameInternalRecording 
@@ -3491,9 +4864,9 @@ Begin VB.Form frmMonitoring
             Strikethrough   =   0   'False
          EndProperty
          Height          =   1635
-         Left            =   2565
-         TabIndex        =   83
-         Top             =   -45
+         Left            =   12420
+         TabIndex        =   24
+         Top             =   1170
          Width           =   4245
          Begin VB.CommandButton cmdStartMotorTest 
             BackColor       =   &H008080FF&
@@ -3510,7 +4883,7 @@ Begin VB.Form frmMonitoring
             Height          =   555
             Left            =   3060
             Style           =   1  'Graphical
-            TabIndex        =   102
+            TabIndex        =   39
             ToolTipText     =   "Initiates position recording into Controller and sends motor test command"
             Top             =   585
             Width           =   1005
@@ -3530,7 +4903,7 @@ Begin VB.Form frmMonitoring
             Height          =   555
             Left            =   1620
             Style           =   1  'Graphical
-            TabIndex        =   85
+            TabIndex        =   26
             ToolTipText     =   "Retrieves Position monitoring data from controller (up to 200 lines)"
             Top             =   585
             Width           =   1005
@@ -3550,7 +4923,7 @@ Begin VB.Form frmMonitoring
             Height          =   555
             Left            =   135
             Style           =   1  'Graphical
-            TabIndex        =   84
+            TabIndex        =   25
             ToolTipText     =   "Initiates position recording into Controller (up to 2 seconds)"
             Top             =   585
             Width           =   1005
@@ -3569,16 +4942,16 @@ Begin VB.Form frmMonitoring
             Strikethrough   =   0   'False
          EndProperty
          Height          =   1770
-         Left            =   2565
-         TabIndex        =   90
+         Left            =   4500
+         TabIndex        =   27
          ToolTipText     =   "Driving current is incremented, pressure is recorded. Need input pressure ans closed volumes!"
-         Top             =   -45
+         Top             =   0
          Visible         =   0   'False
          Width           =   8925
          Begin VB.TextBox txtV4sn 
             Height          =   285
             Left            =   3600
-            TabIndex        =   125
+            TabIndex        =   44
             Text            =   "4444"
             ToolTipText     =   "Enter Valve 4 Serial  Number"
             Top             =   1395
@@ -3587,7 +4960,7 @@ Begin VB.Form frmMonitoring
          Begin VB.TextBox txtV3sn 
             Height          =   285
             Left            =   3600
-            TabIndex        =   124
+            TabIndex        =   43
             Text            =   "3333"
             ToolTipText     =   "Enter Valve 3 Serial  Number"
             Top             =   990
@@ -3596,7 +4969,7 @@ Begin VB.Form frmMonitoring
          Begin VB.TextBox txtV2sn 
             Height          =   285
             Left            =   3600
-            TabIndex        =   123
+            TabIndex        =   42
             Text            =   "2222"
             ToolTipText     =   "Enter Valve 2 Serial  Number"
             Top             =   585
@@ -3605,7 +4978,7 @@ Begin VB.Form frmMonitoring
          Begin VB.TextBox txtV1sn 
             Height          =   285
             Left            =   3600
-            TabIndex        =   122
+            TabIndex        =   41
             Text            =   "1111"
             ToolTipText     =   "Enter Valve 1 Serial  Number"
             Top             =   180
@@ -3615,18 +4988,18 @@ Begin VB.Form frmMonitoring
             Caption         =   "Show Valves Performance Window"
             Height          =   735
             Left            =   90
-            TabIndex        =   121
+            TabIndex        =   40
             Top             =   945
             Width           =   1140
          End
          Begin CWUIControlsLib.CWButton cwButValveTest 
             Height          =   510
             Left            =   135
-            TabIndex        =   91
+            TabIndex        =   28
             ToolTipText     =   "Initiates / stops valve test: Driving current is incremented, pressure is recorded. Need input pressure ans closed volumes!"
             Top             =   270
             Width           =   1050
-            _Version        =   196609
+            _Version        =   524288
             _ExtentX        =   1852
             _ExtentY        =   900
             _StockProps     =   68
@@ -3640,7 +5013,7 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Reset_0         =   0   'False
-            CompatibleVers_0=   196609
+            CompatibleVers_0=   524288
             Boolean_0       =   1
             ClassName_1     =   "CCWBoolean"
             opts_1          =   2614
@@ -3875,11 +5248,11 @@ Begin VB.Form frmMonitoring
          Begin CWUIControlsLib.CWNumEdit cwValveMeasTime 
             Height          =   300
             Left            =   2070
-            TabIndex        =   92
+            TabIndex        =   29
             ToolTipText     =   "Wait interval to let pressure stabilize, sec, 0.2-2"
             Top             =   990
             Width           =   900
-            _Version        =   196609
+            _Version        =   524288
             _ExtentX        =   1587
             _ExtentY        =   529
             _StockProps     =   4
@@ -3893,12 +5266,13 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Reset_0         =   0   'False
-            CompatibleVers_0=   196609
+            CompatibleVers_0=   524288
             NumEdit_0       =   1
             ClassName_1     =   "CCWNumEdit"
             opts_1          =   458814
             C[0]_1          =   16777215
             C[1]_1          =   0
+            BorderStyle_1   =   1
             TextAlignment_1 =   1
             Appearance_1    =   0
             format_1        =   2
@@ -3919,6 +5293,7 @@ Begin VB.Form frmMonitoring
             RangeMin_Val_1  =   0.2
             RangeMaxVarType_1=   5
             RangeMax_Val_1  =   5
+            ButtonStyle_1   =   0
             Bindings_1      =   4
             ClassName_4     =   "CCWBindingHolderArray"
             Editor_4        =   5
@@ -3928,11 +5303,11 @@ Begin VB.Form frmMonitoring
          Begin CWUIControlsLib.CWNumEdit cwValveStartCurrent 
             Height          =   300
             Left            =   1935
-            TabIndex        =   93
+            TabIndex        =   30
             ToolTipText     =   "Starting driving mA, default 70"
             Top             =   180
             Width           =   1035
-            _Version        =   196609
+            _Version        =   524288
             _ExtentX        =   1826
             _ExtentY        =   529
             _StockProps     =   4
@@ -3946,12 +5321,13 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Reset_0         =   0   'False
-            CompatibleVers_0=   196609
+            CompatibleVers_0=   524288
             NumEdit_0       =   1
             ClassName_1     =   "CCWNumEdit"
             opts_1          =   458814
             C[0]_1          =   16777215
             C[1]_1          =   0
+            BorderStyle_1   =   1
             TextAlignment_1 =   1
             Appearance_1    =   0
             format_1        =   2
@@ -3971,6 +5347,7 @@ Begin VB.Form frmMonitoring
             RangeMinVarType_1=   5
             RangeMaxVarType_1=   5
             RangeMax_Val_1  =   100
+            ButtonStyle_1   =   0
             Bindings_1      =   4
             ClassName_4     =   "CCWBindingHolderArray"
             Editor_4        =   5
@@ -3980,11 +5357,11 @@ Begin VB.Form frmMonitoring
          Begin CWUIControlsLib.CWNumEdit cwValveEndCurrent 
             Height          =   300
             Left            =   1935
-            TabIndex        =   94
+            TabIndex        =   31
             ToolTipText     =   "Driving mA to stop, default +120"
             Top             =   1395
             Width           =   1035
-            _Version        =   196609
+            _Version        =   524288
             _ExtentX        =   1826
             _ExtentY        =   529
             _StockProps     =   4
@@ -3998,12 +5375,13 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Reset_0         =   0   'False
-            CompatibleVers_0=   196609
+            CompatibleVers_0=   524288
             NumEdit_0       =   1
             ClassName_1     =   "CCWNumEdit"
             opts_1          =   458814
             C[0]_1          =   16777215
             C[1]_1          =   0
+            BorderStyle_1   =   1
             TextAlignment_1 =   1
             Appearance_1    =   0
             format_1        =   2
@@ -4023,6 +5401,7 @@ Begin VB.Form frmMonitoring
             RangeMinVarType_1=   5
             RangeMaxVarType_1=   5
             RangeMax_Val_1  =   150
+            ButtonStyle_1   =   0
             Bindings_1      =   4
             ClassName_4     =   "CCWBindingHolderArray"
             Editor_4        =   5
@@ -4032,11 +5411,11 @@ Begin VB.Form frmMonitoring
          Begin CWUIControlsLib.CWNumEdit cwValveIncrementCurrent 
             Height          =   300
             Left            =   2070
-            TabIndex        =   95
+            TabIndex        =   32
             ToolTipText     =   "Increment mA, default 0.5"
             Top             =   585
             Width           =   900
-            _Version        =   196609
+            _Version        =   524288
             _ExtentX        =   1587
             _ExtentY        =   529
             _StockProps     =   4
@@ -4050,12 +5429,13 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Reset_0         =   0   'False
-            CompatibleVers_0=   196609
+            CompatibleVers_0=   524288
             NumEdit_0       =   1
             ClassName_1     =   "CCWNumEdit"
             opts_1          =   458814
             C[0]_1          =   16777215
             C[1]_1          =   0
+            BorderStyle_1   =   1
             TextAlignment_1 =   1
             Appearance_1    =   0
             format_1        =   2
@@ -4075,6 +5455,7 @@ Begin VB.Form frmMonitoring
             RangeMinVarType_1=   5
             RangeMaxVarType_1=   5
             RangeMax_Val_1  =   2
+            ButtonStyle_1   =   0
             Bindings_1      =   4
             ClassName_4     =   "CCWBindingHolderArray"
             Editor_4        =   5
@@ -4084,11 +5465,11 @@ Begin VB.Form frmMonitoring
          Begin CWUIControlsLib.CWNumEdit CwUpperPSIthreshold 
             Height          =   300
             Left            =   4500
-            TabIndex        =   130
+            TabIndex        =   49
             ToolTipText     =   "Upper pressure threshold to calculate slope psi. Default 40 psi"
             Top             =   630
             Width           =   900
-            _Version        =   196609
+            _Version        =   524288
             _ExtentX        =   1587
             _ExtentY        =   529
             _StockProps     =   4
@@ -4102,12 +5483,13 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Reset_0         =   0   'False
-            CompatibleVers_0=   196609
+            CompatibleVers_0=   524288
             NumEdit_0       =   1
             ClassName_1     =   "CCWNumEdit"
             opts_1          =   458814
             C[0]_1          =   16777215
             C[1]_1          =   0
+            BorderStyle_1   =   1
             TextAlignment_1 =   1
             Appearance_1    =   0
             format_1        =   2
@@ -4128,6 +5510,7 @@ Begin VB.Form frmMonitoring
             RangeMin_Val_1  =   10
             RangeMaxVarType_1=   5
             RangeMax_Val_1  =   60
+            ButtonStyle_1   =   0
             Bindings_1      =   4
             ClassName_4     =   "CCWBindingHolderArray"
             Editor_4        =   5
@@ -4137,11 +5520,11 @@ Begin VB.Form frmMonitoring
          Begin CWUIControlsLib.CWNumEdit CwLowerPSIthreshold 
             Height          =   300
             Left            =   4500
-            TabIndex        =   132
+            TabIndex        =   51
             ToolTipText     =   "Lower pressure threshold to calculate slope, psi. Default 20 psi"
             Top             =   1350
             Width           =   900
-            _Version        =   196609
+            _Version        =   524288
             _ExtentX        =   1587
             _ExtentY        =   529
             _StockProps     =   4
@@ -4155,12 +5538,13 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Reset_0         =   0   'False
-            CompatibleVers_0=   196609
+            CompatibleVers_0=   524288
             NumEdit_0       =   1
             ClassName_1     =   "CCWNumEdit"
             opts_1          =   458814
             C[0]_1          =   16777215
             C[1]_1          =   0
+            BorderStyle_1   =   1
             TextAlignment_1 =   1
             Appearance_1    =   0
             format_1        =   2
@@ -4181,6 +5565,7 @@ Begin VB.Form frmMonitoring
             RangeMin_Val_1  =   5
             RangeMaxVarType_1=   5
             RangeMax_Val_1  =   40
+            ButtonStyle_1   =   0
             Bindings_1      =   4
             ClassName_4     =   "CCWBindingHolderArray"
             Editor_4        =   5
@@ -4195,7 +5580,7 @@ Begin VB.Form frmMonitoring
             Height          =   210
             Index           =   31
             Left            =   4500
-            TabIndex        =   134
+            TabIndex        =   53
             Top             =   405
             Width           =   915
          End
@@ -4207,7 +5592,7 @@ Begin VB.Form frmMonitoring
             Height          =   210
             Index           =   30
             Left            =   4500
-            TabIndex        =   133
+            TabIndex        =   52
             Top             =   1125
             Width           =   915
          End
@@ -4228,7 +5613,7 @@ Begin VB.Form frmMonitoring
             Height          =   210
             Index           =   29
             Left            =   4230
-            TabIndex        =   131
+            TabIndex        =   50
             Top             =   180
             Width           =   1365
          End
@@ -4240,7 +5625,7 @@ Begin VB.Form frmMonitoring
             Height          =   210
             Index           =   28
             Left            =   3015
-            TabIndex        =   129
+            TabIndex        =   48
             Top             =   1440
             Width           =   555
          End
@@ -4252,7 +5637,7 @@ Begin VB.Form frmMonitoring
             Height          =   210
             Index           =   27
             Left            =   3015
-            TabIndex        =   128
+            TabIndex        =   47
             Top             =   1035
             Width           =   555
          End
@@ -4264,7 +5649,7 @@ Begin VB.Form frmMonitoring
             Height          =   210
             Index           =   26
             Left            =   3015
-            TabIndex        =   127
+            TabIndex        =   46
             Top             =   630
             Width           =   555
          End
@@ -4276,7 +5661,7 @@ Begin VB.Form frmMonitoring
             Height          =   210
             Index           =   25
             Left            =   3015
-            TabIndex        =   126
+            TabIndex        =   45
             Top             =   225
             Width           =   555
          End
@@ -4286,7 +5671,7 @@ Begin VB.Form frmMonitoring
             Height          =   255
             Index           =   2
             Left            =   1305
-            TabIndex        =   99
+            TabIndex        =   36
             ToolTipText     =   "Settling time before measuring pressure"
             Top             =   990
             Width           =   735
@@ -4298,7 +5683,7 @@ Begin VB.Form frmMonitoring
             Height          =   255
             Index           =   3
             Left            =   1215
-            TabIndex        =   98
+            TabIndex        =   35
             Top             =   225
             Width           =   690
          End
@@ -4309,7 +5694,7 @@ Begin VB.Form frmMonitoring
             Height          =   255
             Index           =   9
             Left            =   1260
-            TabIndex        =   97
+            TabIndex        =   34
             Top             =   630
             Width           =   735
          End
@@ -4320,283 +5705,10 @@ Begin VB.Form frmMonitoring
             Height          =   255
             Index           =   10
             Left            =   1170
-            TabIndex        =   96
+            TabIndex        =   33
             Top             =   1440
             Width           =   735
          End
-      End
-      Begin VB.Label lbPosition 
-         Alignment       =   1  'Right Justify
-         Appearance      =   0  'Flat
-         BackColor       =   &H00FFFFFF&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "65000"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   11.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H000000C0&
-         Height          =   285
-         Index           =   6
-         Left            =   1575
-         TabIndex        =   42
-         ToolTipText     =   "Measured Stage Feed Forward X-position Signal"
-         Top             =   6480
-         Width           =   780
-      End
-      Begin VB.Label lbPosition 
-         Alignment       =   1  'Right Justify
-         Appearance      =   0  'Flat
-         BackColor       =   &H00FFFFFF&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "65000"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   11.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00008000&
-         Height          =   285
-         Index           =   7
-         Left            =   1575
-         TabIndex        =   41
-         ToolTipText     =   "Measured Stage Feed Forward Y-position Signal"
-         Top             =   6840
-         Width           =   780
-      End
-      Begin VB.Label lbPosition 
-         Alignment       =   1  'Right Justify
-         Appearance      =   0  'Flat
-         BackColor       =   &H00FFFFFF&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "65000"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   11.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00C00000&
-         Height          =   285
-         Index           =   8
-         Left            =   1575
-         TabIndex        =   40
-         ToolTipText     =   "Measured Stage Feed Forward X-acceleration Signal"
-         Top             =   7200
-         Width           =   780
-      End
-      Begin VB.Label lbPosition 
-         Alignment       =   1  'Right Justify
-         Appearance      =   0  'Flat
-         BackColor       =   &H00FFFFFF&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "65000"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   11.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00C000C0&
-         Height          =   285
-         Index           =   9
-         Left            =   1575
-         TabIndex        =   39
-         ToolTipText     =   "Measured Stage Feed Forward Y-acceleration Signal"
-         Top             =   7560
-         Width           =   780
-      End
-      Begin VB.Label lbPosition 
-         Alignment       =   1  'Right Justify
-         Appearance      =   0  'Flat
-         BackColor       =   &H00FFC0FF&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "65000"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   11.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   285
-         Index           =   5
-         Left            =   1575
-         TabIndex        =   38
-         ToolTipText     =   "Measured Horizontal #3 Prox Sensor Raw Signal"
-         Top             =   6030
-         Width           =   780
-      End
-      Begin VB.Label lbPosition 
-         Alignment       =   1  'Right Justify
-         Appearance      =   0  'Flat
-         BackColor       =   &H00FFC0C0&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "65000"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   11.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   285
-         Index           =   4
-         Left            =   1575
-         TabIndex        =   37
-         ToolTipText     =   "Measured Horizontal #2 Prox Sensor Raw Signal"
-         Top             =   5670
-         Width           =   780
-      End
-      Begin VB.Label lbPosition 
-         Alignment       =   1  'Right Justify
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0FF&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "65000"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   11.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   285
-         Index           =   3
-         Left            =   1575
-         TabIndex        =   36
-         ToolTipText     =   "Measured Horizontal #1 Prox Sensor Raw Signal"
-         Top             =   5310
-         Width           =   780
-      End
-      Begin VB.Label lbPosition 
-         Alignment       =   1  'Right Justify
-         Appearance      =   0  'Flat
-         BackColor       =   &H0080C0FF&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "65000"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   11.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   285
-         Index           =   2
-         Left            =   1575
-         TabIndex        =   35
-         ToolTipText     =   "Measured Vertical #3 Prox Sensor Raw Signal"
-         Top             =   4860
-         Width           =   780
-      End
-      Begin VB.Label lbPosition 
-         Alignment       =   1  'Right Justify
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0FFC0&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "65000"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   11.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   285
-         Index           =   1
-         Left            =   1575
-         TabIndex        =   34
-         ToolTipText     =   "Measured Vertical #2 Prox Sensor Raw Signal"
-         Top             =   4500
-         Width           =   780
-      End
-      Begin VB.Label lbPosition 
-         Alignment       =   1  'Right Justify
-         Appearance      =   0  'Flat
-         BackColor       =   &H00FFFFC0&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "65000"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   11.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   285
-         Index           =   0
-         Left            =   1575
-         TabIndex        =   33
-         ToolTipText     =   "Measured Vertical #1 Prox Sensor Raw Signal"
-         Top             =   4140
-         Width           =   780
-      End
-      Begin VB.Label Label1 
-         Alignment       =   2  'Center
-         BackColor       =   &H00FFFFFF&
-         Caption         =   "Data"
-         Height          =   240
-         Index           =   0
-         Left            =   1575
-         TabIndex        =   32
-         Top             =   3915
-         Width           =   780
-      End
-      Begin VB.Label Label1 
-         Alignment       =   2  'Center
-         BackColor       =   &H00FFFFFF&
-         Caption         =   "Signal"
-         Height          =   240
-         Index           =   18
-         Left            =   135
-         TabIndex        =   31
-         Top             =   3915
-         Width           =   690
-      End
-      Begin VB.Label Label1 
-         Alignment       =   2  'Center
-         BackColor       =   &H00FFFFFF&
-         Caption         =   "Plot?"
-         Height          =   240
-         Index           =   1
-         Left            =   900
-         TabIndex        =   30
-         Top             =   3915
-         Width           =   420
       End
    End
    Begin MSComDlg.CommonDialog dlgCommonDialog 
@@ -4606,1377 +5718,6 @@ Begin VB.Form frmMonitoring
       _ExtentY        =   847
       _Version        =   393216
       CancelError     =   -1  'True
-   End
-   Begin CWUIControlsLib.CWSlide cwBNC0channel 
-      Height          =   9195
-      Left            =   11745
-      TabIndex        =   107
-      ToolTipText     =   "change channel to see signal description"
-      Top             =   0
-      Width           =   1590
-      _Version        =   196609
-      _ExtentX        =   2805
-      _ExtentY        =   16219
-      _StockProps     =   68
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
-         Size            =   9.75
-         Charset         =   204
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Reset_0         =   0   'False
-      CompatibleVers_0=   196609
-      Slider_0        =   1
-      ClassName_1     =   "CCWSlider"
-      opts_1          =   2102
-      SclRef_1.l      =   2
-      SclRef_1.t      =   2
-      SclRef_1.r      =   144
-      SclRef_1.b      =   555
-      Scl_1.l         =   2
-      Scl_1.t         =   9
-      Scl_1.r         =   144
-      Scl_1.b         =   545
-      C[0]_1          =   16777215
-      BGImg_1         =   2
-      ClassName_2     =   "CCWDrawObj"
-      opts_2          =   62
-      Image_2         =   3
-      ClassName_3     =   "CCWPictImage"
-      opts_3          =   1280
-      Rows_3          =   1
-      Cols_3          =   1
-      Pict_3          =   286
-      F_3             =   -2147483633
-      B_3             =   -2147483633
-      ColorReplaceWith_3=   8421504
-      ColorReplace_3  =   8421504
-      Tolerance_3     =   2
-      Animator_2      =   0
-      Blinker_2       =   0
-      BFImg_1         =   4
-      ClassName_4     =   "CCWDrawObj"
-      opts_4          =   54
-      SclRef_4.l      =   24
-      SclRef_4.t      =   28
-      SclRef_4.r      =   52
-      SclRef_4.b      =   550
-      Scl_4.l         =   24
-      Scl_4.t         =   28
-      Scl_4.r         =   52
-      Scl_4.b         =   540
-      Image_4         =   5
-      ClassName_5     =   "CCWPictImage"
-      opts_5          =   1280
-      Rows_5          =   1
-      Cols_5          =   1
-      Pict_5          =   286
-      F_5             =   -2147483633
-      B_5             =   -2147483633
-      ColorReplaceWith_5=   8421504
-      ColorReplace_5  =   8421504
-      Tolerance_5     =   2
-      Animator_4      =   0
-      Blinker_4       =   0
-      style_1         =   4
-      Label_1         =   6
-      ClassName_6     =   "CCWDrawObj"
-      opts_6          =   54
-      SclRef_6.l      =   2
-      SclRef_6.t      =   2
-      SclRef_6.r      =   108
-      SclRef_6.b      =   612
-      Scl_6.l         =   20
-      Scl_6.t         =   2
-      Scl_6.r         =   61
-      Scl_6.b         =   18
-      C[0]_6          =   -2147483640
-      Image_6         =   7
-      ClassName_7     =   "CCWTextImage"
-      szText_7        =   "BNC_0"
-      font_7          =   0
-      Animator_6      =   0
-      Blinker_6       =   0
-      Border_1        =   8
-      ClassName_8     =   "CCWDrawObj"
-      opts_8          =   60
-      Image_8         =   9
-      ClassName_9     =   "CCWPictImage"
-      opts_9          =   1280
-      Rows_9          =   1
-      Cols_9          =   1
-      Pict_9          =   25
-      F_9             =   -2147483633
-      B_9             =   -2147483633
-      ColorReplaceWith_9=   8421504
-      ColorReplace_9  =   8421504
-      Tolerance_9     =   2
-      Animator_8      =   0
-      Blinker_8       =   0
-      FillBound_1     =   10
-      ClassName_10    =   "CCWGuiObject"
-      opts_10         =   60
-      FillTok_1       =   11
-      ClassName_11    =   "CCWGuiObject"
-      opts_11         =   62
-      Axis_1          =   12
-      ClassName_12    =   "CCWAxis"
-      opts_12         =   1079
-      Name_12         =   "Axis"
-      SclRef_12.l     =   2
-      SclRef_12.t     =   9
-      SclRef_12.r     =   108
-      SclRef_12.b     =   545
-      Scl_12.l        =   2
-      Scl_12.t        =   24
-      Scl_12.r        =   100
-      Scl_12.b        =   538
-      Orientation_12  =   133172
-      format_12       =   13
-      ClassName_13    =   "CCWFormat"
-      Scale_12        =   14
-      ClassName_14    =   "CCWScale"
-      opts_14         =   24576
-      rMin_14         =   25
-      rMax_14         =   594
-      dMin_14         =   1
-      dMax_14         =   32
-      discInterval_14 =   1
-      Radial_12       =   0
-      Enum_12         =   15
-      ClassName_15    =   "CCWEnum"
-      Array_15        =   32
-      Editor_15       =   16
-      ClassName_16    =   "CCWEnumArrayEditor"
-      Owner_16        =   12
-      Array[0]_15     =   17
-      ClassName_17    =   "CCWEnumElt"
-      opts_17         =   1
-      Name_17         =   "ADC0"
-      DrawList_17     =   0
-      varVarType_17   =   5
-      Array[1]_15     =   18
-      ClassName_18    =   "CCWEnumElt"
-      opts_18         =   1
-      Name_18         =   "ADC1"
-      DrawList_18     =   0
-      varVarType_18   =   2
-      var_Val_18      =   1
-      Array[2]_15     =   19
-      ClassName_19    =   "CCWEnumElt"
-      opts_19         =   1
-      Name_19         =   "ADC2"
-      DrawList_19     =   0
-      varVarType_19   =   2
-      var_Val_19      =   2
-      Array[3]_15     =   20
-      ClassName_20    =   "CCWEnumElt"
-      opts_20         =   1
-      Name_20         =   "ADC3"
-      DrawList_20     =   0
-      varVarType_20   =   2
-      var_Val_20      =   3
-      Array[4]_15     =   21
-      ClassName_21    =   "CCWEnumElt"
-      opts_21         =   1
-      Name_21         =   "ADC4"
-      DrawList_21     =   0
-      varVarType_21   =   2
-      var_Val_21      =   4
-      Array[5]_15     =   22
-      ClassName_22    =   "CCWEnumElt"
-      opts_22         =   1
-      Name_22         =   "ADC5"
-      DrawList_22     =   0
-      varVarType_22   =   2
-      var_Val_22      =   5
-      Array[6]_15     =   23
-      ClassName_23    =   "CCWEnumElt"
-      opts_23         =   1
-      Name_23         =   "ADC6"
-      DrawList_23     =   0
-      varVarType_23   =   2
-      var_Val_23      =   6
-      Array[7]_15     =   24
-      ClassName_24    =   "CCWEnumElt"
-      opts_24         =   1
-      Name_24         =   "ADC7"
-      DrawList_24     =   0
-      varVarType_24   =   2
-      var_Val_24      =   7
-      Array[8]_15     =   25
-      ClassName_25    =   "CCWEnumElt"
-      opts_25         =   1
-      Name_25         =   "ADC8"
-      DrawList_25     =   0
-      varVarType_25   =   2
-      var_Val_25      =   8
-      Array[9]_15     =   26
-      ClassName_26    =   "CCWEnumElt"
-      opts_26         =   1
-      Name_26         =   "ADC9"
-      DrawList_26     =   0
-      varVarType_26   =   2
-      var_Val_26      =   9
-      Array[10]_15    =   27
-      ClassName_27    =   "CCWEnumElt"
-      opts_27         =   1
-      Name_27         =   "ADC10"
-      DrawList_27     =   0
-      varVarType_27   =   2
-      var_Val_27      =   10
-      Array[11]_15    =   28
-      ClassName_28    =   "CCWEnumElt"
-      opts_28         =   1
-      Name_28         =   "ADC11"
-      DrawList_28     =   0
-      varVarType_28   =   2
-      var_Val_28      =   11
-      Array[12]_15    =   29
-      ClassName_29    =   "CCWEnumElt"
-      opts_29         =   1
-      Name_29         =   "ADC12"
-      DrawList_29     =   0
-      varVarType_29   =   2
-      var_Val_29      =   12
-      Array[13]_15    =   30
-      ClassName_30    =   "CCWEnumElt"
-      opts_30         =   1
-      Name_30         =   "ADC13"
-      DrawList_30     =   0
-      varVarType_30   =   2
-      var_Val_30      =   13
-      Array[14]_15    =   31
-      ClassName_31    =   "CCWEnumElt"
-      opts_31         =   1
-      Name_31         =   "ADC14"
-      DrawList_31     =   0
-      varVarType_31   =   2
-      var_Val_31      =   14
-      Array[15]_15    =   32
-      ClassName_32    =   "CCWEnumElt"
-      opts_32         =   1
-      Name_32         =   "ADC15"
-      DrawList_32     =   0
-      varVarType_32   =   2
-      var_Val_32      =   15
-      Array[16]_15    =   33
-      ClassName_33    =   "CCWEnumElt"
-      opts_33         =   1
-      Name_33         =   "ADC16"
-      DrawList_33     =   0
-      varVarType_33   =   2
-      var_Val_33      =   16
-      Array[17]_15    =   34
-      ClassName_34    =   "CCWEnumElt"
-      opts_34         =   1
-      Name_34         =   "ADC17"
-      DrawList_34     =   0
-      varVarType_34   =   2
-      var_Val_34      =   17
-      Array[18]_15    =   35
-      ClassName_35    =   "CCWEnumElt"
-      opts_35         =   1
-      Name_35         =   "ADC18"
-      DrawList_35     =   0
-      varVarType_35   =   2
-      var_Val_35      =   18
-      Array[19]_15    =   36
-      ClassName_36    =   "CCWEnumElt"
-      opts_36         =   1
-      Name_36         =   "ADC19"
-      DrawList_36     =   0
-      varVarType_36   =   2
-      var_Val_36      =   19
-      Array[20]_15    =   37
-      ClassName_37    =   "CCWEnumElt"
-      opts_37         =   1
-      Name_37         =   "ADC20"
-      DrawList_37     =   0
-      varVarType_37   =   2
-      var_Val_37      =   20
-      Array[21]_15    =   38
-      ClassName_38    =   "CCWEnumElt"
-      opts_38         =   1
-      Name_38         =   "ADC21"
-      DrawList_38     =   0
-      varVarType_38   =   2
-      var_Val_38      =   21
-      Array[22]_15    =   39
-      ClassName_39    =   "CCWEnumElt"
-      opts_39         =   1
-      Name_39         =   "ADC22"
-      DrawList_39     =   0
-      varVarType_39   =   2
-      var_Val_39      =   22
-      Array[23]_15    =   40
-      ClassName_40    =   "CCWEnumElt"
-      opts_40         =   1
-      Name_40         =   "ADC23"
-      DrawList_40     =   0
-      varVarType_40   =   2
-      var_Val_40      =   23
-      Array[24]_15    =   41
-      ClassName_41    =   "CCWEnumElt"
-      opts_41         =   1
-      Name_41         =   "ADC24"
-      DrawList_41     =   0
-      varVarType_41   =   2
-      var_Val_41      =   24
-      Array[25]_15    =   42
-      ClassName_42    =   "CCWEnumElt"
-      opts_42         =   1
-      Name_42         =   "ADC25"
-      DrawList_42     =   0
-      varVarType_42   =   2
-      var_Val_42      =   25
-      Array[26]_15    =   43
-      ClassName_43    =   "CCWEnumElt"
-      opts_43         =   1
-      Name_43         =   "ADC26"
-      DrawList_43     =   0
-      varVarType_43   =   2
-      var_Val_43      =   26
-      Array[27]_15    =   44
-      ClassName_44    =   "CCWEnumElt"
-      opts_44         =   1
-      Name_44         =   "ADC27"
-      DrawList_44     =   0
-      varVarType_44   =   2
-      var_Val_44      =   27
-      Array[28]_15    =   45
-      ClassName_45    =   "CCWEnumElt"
-      opts_45         =   1
-      Name_45         =   "ADC28"
-      DrawList_45     =   0
-      varVarType_45   =   2
-      var_Val_45      =   28
-      Array[29]_15    =   46
-      ClassName_46    =   "CCWEnumElt"
-      opts_46         =   1
-      Name_46         =   "ADC29"
-      DrawList_46     =   0
-      varVarType_46   =   2
-      var_Val_46      =   29
-      Array[30]_15    =   47
-      ClassName_47    =   "CCWEnumElt"
-      opts_47         =   1
-      Name_47         =   "ADC30"
-      DrawList_47     =   0
-      varVarType_47   =   2
-      var_Val_47      =   30
-      Array[31]_15    =   48
-      ClassName_48    =   "CCWEnumElt"
-      opts_48         =   1
-      Name_48         =   "ADC31"
-      DrawList_48     =   0
-      varVarType_48   =   2
-      var_Val_48      =   31
-      Font_12         =   0
-      tickopts_12     =   2962
-      Caption_12      =   49
-      ClassName_49    =   "CCWDrawObj"
-      opts_49         =   62
-      C[0]_49         =   -2147483640
-      Image_49        =   50
-      ClassName_50    =   "CCWTextImage"
-      font_50         =   0
-      Animator_49     =   0
-      Blinker_49      =   0
-      DrawLst_1       =   51
-      ClassName_51    =   "CDrawList"
-      count_51        =   10
-      list[10]_51     =   8
-      list[9]_51      =   52
-      ClassName_52    =   "CCWThumb"
-      opts_52         =   1048631
-      Name_52         =   "Pointer-1"
-      SclRef_52.l     =   2
-      SclRef_52.t     =   9
-      SclRef_52.r     =   108
-      SclRef_52.b     =   545
-      Scl_52.l        =   15
-      Scl_52.t        =   48
-      Scl_52.r        =   55
-      Scl_52.b        =   67
-      C[0]_52         =   255
-      C[2]_52         =   -2147483635
-      Image_52        =   53
-      ClassName_53    =   "CCWPictImage"
-      opts_53         =   1280
-      Rows_53         =   1
-      Cols_53         =   1
-      Pict_53         =   94
-      F_53            =   255
-      B_53            =   -2147483633
-      ColorReplaceWith_53=   8421504
-      ColorReplace_53 =   8421504
-      Tolerance_53    =   2
-      Animator_52     =   0
-      Blinker_52      =   0
-      style_52        =   3
-      Value_52        =   3
-      list[8]_51      =   12
-      list[7]_51      =   6
-      list[6]_51      =   11
-      list[5]_51      =   4
-      list[4]_51      =   54
-      ClassName_54    =   "CCWDrawObj"
-      opts_54         =   54
-      SclRef_54.l     =   2
-      SclRef_54.t     =   10
-      SclRef_54.r     =   108
-      SclRef_54.b     =   601
-      Scl_54.l        =   17
-      Scl_54.t        =   29
-      Scl_54.r        =   49
-      Scl_54.b        =   594
-      C[0]_54         =   12632256
-      C[1]_54         =   12632256
-      Image_54        =   55
-      ClassName_55    =   "CCWPictImage"
-      opts_55         =   1280
-      Rows_55         =   1
-      Cols_55         =   1
-      Pict_55         =   7
-      F_55            =   12632256
-      B_55            =   12632256
-      ColorReplaceWith_55=   8421504
-      ColorReplace_55 =   8421504
-      Tolerance_55    =   2
-      Animator_54     =   0
-      Blinker_54      =   0
-      list[3]_51      =   56
-      ClassName_56    =   "CCWDrawObj"
-      opts_56         =   54
-      SclRef_56.l     =   2
-      SclRef_56.t     =   10
-      SclRef_56.r     =   108
-      SclRef_56.b     =   601
-      Scl_56.l        =   12
-      Scl_56.t        =   596
-      Scl_56.r        =   55
-      Scl_56.b        =   611
-      C[0]_56         =   16776960
-      C[1]_56         =   12632256
-      Image_56        =   57
-      ClassName_57    =   "CCWPictImage"
-      opts_57         =   1280
-      Rows_57         =   1
-      Cols_57         =   1
-      Pict_57         =   96
-      F_57            =   16776960
-      B_57            =   12632256
-      ColorReplaceWith_57=   8421504
-      ColorReplace_57 =   8421504
-      Tolerance_57    =   2
-      Animator_56     =   0
-      Blinker_56      =   0
-      list[2]_51      =   58
-      ClassName_58    =   "CCWDrawObj"
-      opts_58         =   54
-      SclRef_58.l     =   2
-      SclRef_58.t     =   10
-      SclRef_58.r     =   108
-      SclRef_58.b     =   601
-      Scl_58.l        =   11
-      Scl_58.t        =   16
-      Scl_58.r        =   53
-      Scl_58.b        =   28
-      C[0]_58         =   16711935
-      C[1]_58         =   12632256
-      Image_58        =   59
-      ClassName_59    =   "CCWPictImage"
-      opts_59         =   1280
-      Rows_59         =   1
-      Cols_59         =   1
-      Pict_59         =   95
-      F_59            =   16711935
-      B_59            =   12632256
-      ColorReplaceWith_59=   8421504
-      ColorReplace_59 =   8421504
-      Tolerance_59    =   2
-      Animator_58     =   0
-      Blinker_58      =   0
-      list[1]_51      =   2
-      Ptrs_1          =   60
-      ClassName_60    =   "CCWPointerArray"
-      Array_60        =   1
-      Editor_60       =   61
-      ClassName_61    =   "CCWPointerArrayEditor"
-      Owner_61        =   1
-      Array[0]_60     =   52
-      Bindings_1      =   62
-      ClassName_62    =   "CCWBindingHolderArray"
-      Editor_62       =   63
-      ClassName_63    =   "CCWBindingHolderArrayEditor"
-      Owner_63        =   1
-      Stats_1         =   64
-      ClassName_64    =   "CCWStats"
-      doInc_1         =   58
-      doDec_1         =   56
-      doFrame_1       =   54
-   End
-   Begin CWUIControlsLib.CWSlide cwBNC1channel 
-      Height          =   9195
-      Left            =   13365
-      TabIndex        =   109
-      ToolTipText     =   "change channel to see signal description"
-      Top             =   0
-      Width           =   1950
-      _Version        =   196609
-      _ExtentX        =   3440
-      _ExtentY        =   16219
-      _StockProps     =   68
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
-         Size            =   9.75
-         Charset         =   204
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Reset_0         =   0   'False
-      CompatibleVers_0=   196609
-      Slider_0        =   1
-      ClassName_1     =   "CCWSlider"
-      opts_1          =   2102
-      SclRef_1.l      =   2
-      SclRef_1.t      =   2
-      SclRef_1.r      =   144
-      SclRef_1.b      =   555
-      Scl_1.l         =   2
-      Scl_1.t         =   9
-      Scl_1.r         =   144
-      Scl_1.b         =   545
-      C[0]_1          =   16777215
-      BGImg_1         =   2
-      ClassName_2     =   "CCWDrawObj"
-      opts_2          =   62
-      Image_2         =   3
-      ClassName_3     =   "CCWPictImage"
-      opts_3          =   1280
-      Rows_3          =   1
-      Cols_3          =   1
-      Pict_3          =   286
-      F_3             =   -2147483633
-      B_3             =   -2147483633
-      ColorReplaceWith_3=   8421504
-      ColorReplace_3  =   8421504
-      Tolerance_3     =   2
-      Animator_2      =   0
-      Blinker_2       =   0
-      BFImg_1         =   4
-      ClassName_4     =   "CCWDrawObj"
-      opts_4          =   54
-      SclRef_4.l      =   24
-      SclRef_4.t      =   28
-      SclRef_4.r      =   52
-      SclRef_4.b      =   550
-      Scl_4.l         =   24
-      Scl_4.t         =   28
-      Scl_4.r         =   52
-      Scl_4.b         =   540
-      Image_4         =   5
-      ClassName_5     =   "CCWPictImage"
-      opts_5          =   1280
-      Rows_5          =   1
-      Cols_5          =   1
-      Pict_5          =   286
-      F_5             =   -2147483633
-      B_5             =   -2147483633
-      ColorReplaceWith_5=   8421504
-      ColorReplace_5  =   8421504
-      Tolerance_5     =   2
-      Animator_4      =   0
-      Blinker_4       =   0
-      style_1         =   4
-      Label_1         =   6
-      ClassName_6     =   "CCWDrawObj"
-      opts_6          =   54
-      SclRef_6.l      =   2
-      SclRef_6.t      =   2
-      SclRef_6.r      =   132
-      SclRef_6.b      =   612
-      Scl_6.l         =   73
-      Scl_6.t         =   1
-      Scl_6.r         =   114
-      Scl_6.b         =   17
-      C[0]_6          =   -2147483640
-      Image_6         =   7
-      ClassName_7     =   "CCWTextImage"
-      szText_7        =   "BNC_1"
-      font_7          =   0
-      Animator_6      =   0
-      Blinker_6       =   0
-      Border_1        =   8
-      ClassName_8     =   "CCWDrawObj"
-      opts_8          =   60
-      Image_8         =   9
-      ClassName_9     =   "CCWPictImage"
-      opts_9          =   1280
-      Rows_9          =   1
-      Cols_9          =   1
-      Pict_9          =   25
-      F_9             =   -2147483633
-      B_9             =   -2147483633
-      ColorReplaceWith_9=   8421504
-      ColorReplace_9  =   8421504
-      Tolerance_9     =   2
-      Animator_8      =   0
-      Blinker_8       =   0
-      FillBound_1     =   10
-      ClassName_10    =   "CCWGuiObject"
-      opts_10         =   60
-      FillTok_1       =   11
-      ClassName_11    =   "CCWGuiObject"
-      opts_11         =   62
-      Axis_1          =   12
-      ClassName_12    =   "CCWAxis"
-      opts_12         =   1079
-      Name_12         =   "Axis"
-      SclRef_12.l     =   2
-      SclRef_12.t     =   9
-      SclRef_12.r     =   108
-      SclRef_12.b     =   545
-      Scl_12.l        =   2
-      Scl_12.t        =   24
-      Scl_12.r        =   100
-      Scl_12.b        =   538
-      Orientation_12  =   133265
-      format_12       =   13
-      ClassName_13    =   "CCWFormat"
-      Scale_12        =   14
-      ClassName_14    =   "CCWScale"
-      opts_14         =   24576
-      rMin_14         =   25
-      rMax_14         =   594
-      dMin_14         =   1
-      dMax_14         =   32
-      discInterval_14 =   1
-      Radial_12       =   0
-      Enum_12         =   15
-      ClassName_15    =   "CCWEnum"
-      Array_15        =   32
-      Editor_15       =   16
-      ClassName_16    =   "CCWEnumArrayEditor"
-      Owner_16        =   12
-      Array[0]_15     =   17
-      ClassName_17    =   "CCWEnumElt"
-      opts_17         =   1
-      Name_17         =   "=Geo_3Z=="
-      DrawList_17     =   0
-      varVarType_17   =   5
-      Array[1]_15     =   18
-      ClassName_18    =   "CCWEnumElt"
-      opts_18         =   1
-      Name_18         =   "=Geo_3H=="
-      DrawList_18     =   0
-      varVarType_18   =   2
-      var_Val_18      =   1
-      Array[2]_15     =   19
-      ClassName_19    =   "CCWEnumElt"
-      opts_19         =   1
-      Name_19         =   "=Prx1H-lega"
-      DrawList_19     =   0
-      varVarType_19   =   2
-      var_Val_19      =   2
-      Array[3]_15     =   20
-      ClassName_20    =   "CCWEnumElt"
-      opts_20         =   1
-      Name_20         =   "=Prx2H-lega"
-      DrawList_20     =   0
-      varVarType_20   =   2
-      var_Val_20      =   3
-      Array[4]_15     =   21
-      ClassName_21    =   "CCWEnumElt"
-      opts_21         =   1
-      Name_21         =   "=BNC0_inp="
-      DrawList_21     =   0
-      varVarType_21   =   2
-      var_Val_21      =   4
-      Array[5]_15     =   22
-      ClassName_22    =   "CCWEnumElt"
-      opts_22         =   1
-      Name_22         =   "===ADC_5=="
-      DrawList_22     =   0
-      varVarType_22   =   2
-      var_Val_22      =   5
-      Array[6]_15     =   23
-      ClassName_23    =   "CCWEnumElt"
-      opts_23         =   1
-      Name_23         =   "===ADC_6=="
-      DrawList_23     =   0
-      varVarType_23   =   2
-      var_Val_23      =   6
-      Array[7]_15     =   24
-      ClassName_24    =   "CCWEnumElt"
-      opts_24         =   1
-      Name_24         =   "=Prx3H-lega"
-      DrawList_24     =   0
-      varVarType_24   =   2
-      var_Val_24      =   7
-      Array[8]_15     =   25
-      ClassName_25    =   "CCWEnumElt"
-      opts_25         =   1
-      Name_25         =   "=Geo_1Z=="
-      DrawList_25     =   0
-      varVarType_25   =   2
-      var_Val_25      =   8
-      Array[9]_15     =   26
-      ClassName_26    =   "CCWEnumElt"
-      opts_26         =   1
-      Name_26         =   "=Geo_1H=="
-      DrawList_26     =   0
-      varVarType_26   =   2
-      var_Val_26      =   9
-      Array[10]_15    =   27
-      ClassName_27    =   "CCWEnumElt"
-      opts_27         =   1
-      Name_27         =   "=Geo_2Z=="
-      DrawList_27     =   0
-      varVarType_27   =   2
-      var_Val_27      =   10
-      Array[11]_15    =   28
-      ClassName_28    =   "CCWEnumElt"
-      opts_28         =   1
-      Name_28         =   "=Geo_2H=="
-      DrawList_28     =   0
-      varVarType_28   =   2
-      var_Val_28      =   11
-      Array[12]_15    =   29
-      ClassName_29    =   "CCWEnumElt"
-      opts_29         =   1
-      Name_29         =   "=Prx1Z-lega"
-      DrawList_29     =   0
-      varVarType_29   =   2
-      var_Val_29      =   12
-      Array[13]_15    =   30
-      ClassName_30    =   "CCWEnumElt"
-      opts_30         =   1
-      Name_30         =   "=Prx2Z-lega"
-      DrawList_30     =   0
-      varVarType_30   =   2
-      var_Val_30      =   13
-      Array[14]_15    =   31
-      ClassName_31    =   "CCWEnumElt"
-      opts_31         =   1
-      Name_31         =   "=Prx3Z-lega"
-      DrawList_31     =   0
-      varVarType_31   =   2
-      var_Val_31      =   14
-      Array[15]_15    =   32
-      ClassName_32    =   "CCWEnumElt"
-      opts_32         =   1
-      Name_32         =   "=BNC_1_inp"
-      DrawList_32     =   0
-      varVarType_32   =   2
-      var_Val_32      =   15
-      Array[16]_15    =   33
-      ClassName_33    =   "CCWEnumElt"
-      opts_33         =   1
-      Name_33         =   "=StFF-XAcc"
-      DrawList_33     =   0
-      varVarType_33   =   2
-      var_Val_33      =   16
-      Array[17]_15    =   34
-      ClassName_34    =   "CCWEnumElt"
-      opts_34         =   1
-      Name_34         =   "=StFF-YAcc"
-      DrawList_34     =   0
-      varVarType_34   =   2
-      var_Val_34      =   17
-      Array[18]_15    =   35
-      ClassName_35    =   "CCWEnumElt"
-      opts_35         =   1
-      Name_35         =   "=StFF-XPos"
-      DrawList_35     =   0
-      varVarType_35   =   2
-      var_Val_35      =   18
-      Array[19]_15    =   36
-      ClassName_36    =   "CCWEnumElt"
-      opts_36         =   1
-      Name_36         =   "=StFF-YPos"
-      DrawList_36     =   0
-      varVarType_36   =   2
-      var_Val_36      =   19
-      Array[20]_15    =   37
-      ClassName_37    =   "CCWEnumElt"
-      opts_37         =   1
-      Name_37         =   "=Pressure_1"
-      DrawList_37     =   0
-      varVarType_37   =   2
-      var_Val_37      =   20
-      Array[21]_15    =   38
-      ClassName_38    =   "CCWEnumElt"
-      opts_38         =   1
-      Name_38         =   "=Pressure_2"
-      DrawList_38     =   0
-      varVarType_38   =   2
-      var_Val_38      =   21
-      Array[22]_15    =   39
-      ClassName_39    =   "CCWEnumElt"
-      opts_39         =   1
-      Name_39         =   "=Pressure_3"
-      DrawList_39     =   0
-      varVarType_39   =   2
-      var_Val_39      =   22
-      Array[23]_15    =   40
-      ClassName_40    =   "CCWEnumElt"
-      opts_40         =   1
-      Name_40         =   "=Pressure_4"
-      DrawList_40     =   0
-      varVarType_40   =   2
-      var_Val_40      =   23
-      Array[24]_15    =   41
-      ClassName_41    =   "CCWEnumElt"
-      opts_41         =   1
-      Name_41         =   "=In-Pressure"
-      DrawList_41     =   0
-      varVarType_41   =   2
-      var_Val_41      =   24
-      Array[25]_15    =   42
-      ClassName_42    =   "CCWEnumElt"
-      opts_42         =   1
-      Name_42         =   "Temperature"
-      DrawList_42     =   0
-      varVarType_42   =   2
-      var_Val_42      =   25
-      Array[26]_15    =   43
-      ClassName_43    =   "CCWEnumElt"
-      opts_43         =   1
-      Name_43         =   "=Prox_3Z=="
-      DrawList_43     =   0
-      varVarType_43   =   2
-      var_Val_43      =   26
-      Array[27]_15    =   44
-      ClassName_44    =   "CCWEnumElt"
-      opts_44         =   1
-      Name_44         =   "=Prox_2Z=="
-      DrawList_44     =   0
-      varVarType_44   =   2
-      var_Val_44      =   27
-      Array[28]_15    =   45
-      ClassName_45    =   "CCWEnumElt"
-      opts_45         =   1
-      Name_45         =   "=Prox_1Z=="
-      DrawList_45     =   0
-      varVarType_45   =   2
-      var_Val_45      =   28
-      Array[29]_15    =   46
-      ClassName_46    =   "CCWEnumElt"
-      opts_46         =   1
-      Name_46         =   "=Prox_1H=="
-      DrawList_46     =   0
-      varVarType_46   =   2
-      var_Val_46      =   29
-      Array[30]_15    =   47
-      ClassName_47    =   "CCWEnumElt"
-      opts_47         =   1
-      Name_47         =   "=Prox_2H=="
-      DrawList_47     =   0
-      varVarType_47   =   2
-      var_Val_47      =   30
-      Array[31]_15    =   48
-      ClassName_48    =   "CCWEnumElt"
-      opts_48         =   1
-      Name_48         =   "=Prox_2H=="
-      DrawList_48     =   0
-      varVarType_48   =   2
-      var_Val_48      =   31
-      Font_12         =   0
-      tickopts_12     =   2962
-      Caption_12      =   49
-      ClassName_49    =   "CCWDrawObj"
-      opts_49         =   62
-      C[0]_49         =   -2147483640
-      Image_49        =   50
-      ClassName_50    =   "CCWTextImage"
-      font_50         =   0
-      Animator_49     =   0
-      Blinker_49      =   0
-      DrawLst_1       =   51
-      ClassName_51    =   "CDrawList"
-      count_51        =   10
-      list[10]_51     =   8
-      list[9]_51      =   52
-      ClassName_52    =   "CCWThumb"
-      opts_52         =   1048631
-      Name_52         =   "Pointer-1"
-      SclRef_52.l     =   2
-      SclRef_52.t     =   10
-      SclRef_52.r     =   132
-      SclRef_52.b     =   601
-      Scl_52.l        =   88
-      Scl_52.t        =   71
-      Scl_52.r        =   128
-      Scl_52.b        =   93
-      C[0]_52         =   255
-      C[2]_52         =   -2147483635
-      Image_52        =   53
-      ClassName_53    =   "CCWPictImage"
-      opts_53         =   1280
-      Rows_53         =   1
-      Cols_53         =   1
-      Pict_53         =   93
-      F_53            =   255
-      B_53            =   -2147483633
-      ColorReplaceWith_53=   8421504
-      ColorReplace_53 =   8421504
-      Tolerance_53    =   2
-      Animator_52     =   0
-      Blinker_52      =   0
-      style_52        =   2
-      Value_52        =   9
-      list[8]_51      =   12
-      list[7]_51      =   6
-      list[6]_51      =   11
-      list[5]_51      =   4
-      list[4]_51      =   54
-      ClassName_54    =   "CCWDrawObj"
-      opts_54         =   54
-      SclRef_54.l     =   2
-      SclRef_54.t     =   10
-      SclRef_54.r     =   132
-      SclRef_54.b     =   601
-      Scl_54.l        =   92
-      Scl_54.t        =   29
-      Scl_54.r        =   124
-      Scl_54.b        =   594
-      C[0]_54         =   12632256
-      C[1]_54         =   12632256
-      Image_54        =   55
-      ClassName_55    =   "CCWPictImage"
-      opts_55         =   1280
-      Rows_55         =   1
-      Cols_55         =   1
-      Pict_55         =   7
-      F_55            =   12632256
-      B_55            =   12632256
-      ColorReplaceWith_55=   8421504
-      ColorReplace_55 =   8421504
-      Tolerance_55    =   2
-      Animator_54     =   0
-      Blinker_54      =   0
-      list[3]_51      =   56
-      ClassName_56    =   "CCWDrawObj"
-      opts_56         =   54
-      SclRef_56.l     =   2
-      SclRef_56.t     =   10
-      SclRef_56.r     =   132
-      SclRef_56.b     =   601
-      Scl_56.l        =   85
-      Scl_56.t        =   597
-      Scl_56.r        =   131
-      Scl_56.b        =   612
-      C[0]_56         =   16776960
-      C[1]_56         =   12632256
-      Image_56        =   57
-      ClassName_57    =   "CCWPictImage"
-      opts_57         =   1280
-      Rows_57         =   1
-      Cols_57         =   1
-      Pict_57         =   96
-      F_57            =   16776960
-      B_57            =   12632256
-      ColorReplaceWith_57=   8421504
-      ColorReplace_57 =   8421504
-      Tolerance_57    =   2
-      Animator_56     =   0
-      Blinker_56      =   0
-      list[2]_51      =   58
-      ClassName_58    =   "CCWDrawObj"
-      opts_58         =   54
-      SclRef_58.l     =   2
-      SclRef_58.t     =   10
-      SclRef_58.r     =   132
-      SclRef_58.b     =   601
-      Scl_58.l        =   83
-      Scl_58.t        =   15
-      Scl_58.r        =   130
-      Scl_58.b        =   28
-      C[0]_58         =   16711935
-      C[1]_58         =   12632256
-      Image_58        =   59
-      ClassName_59    =   "CCWPictImage"
-      opts_59         =   1280
-      Rows_59         =   1
-      Cols_59         =   1
-      Pict_59         =   95
-      F_59            =   16711935
-      B_59            =   12632256
-      ColorReplaceWith_59=   8421504
-      ColorReplace_59 =   8421504
-      Tolerance_59    =   2
-      Animator_58     =   0
-      Blinker_58      =   0
-      list[1]_51      =   2
-      Ptrs_1          =   60
-      ClassName_60    =   "CCWPointerArray"
-      Array_60        =   1
-      Editor_60       =   61
-      ClassName_61    =   "CCWPointerArrayEditor"
-      Owner_61        =   1
-      Array[0]_60     =   52
-      Bindings_1      =   62
-      ClassName_62    =   "CCWBindingHolderArray"
-      Editor_62       =   63
-      ClassName_63    =   "CCWBindingHolderArrayEditor"
-      Owner_63        =   1
-      Stats_1         =   64
-      ClassName_64    =   "CCWStats"
-      doInc_1         =   58
-      doDec_1         =   56
-      doFrame_1       =   54
-   End
-   Begin CWUIControlsLib.CWNumEdit cwValveHoldCurrent 
-      Height          =   300
-      Left            =   15975
-      TabIndex        =   110
-      ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-      Top             =   5310
-      Width           =   945
-      _Version        =   196609
-      _ExtentX        =   1667
-      _ExtentY        =   529
-      _StockProps     =   4
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
-         Size            =   12
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Reset_0         =   0   'False
-      CompatibleVers_0=   196609
-      NumEdit_0       =   1
-      ClassName_1     =   "CCWNumEdit"
-      opts_1          =   458814
-      C[0]_1          =   16777215
-      C[1]_1          =   0
-      TextAlignment_1 =   1
-      Appearance_1    =   0
-      format_1        =   2
-      ClassName_2     =   "CCWFormat"
-      Format_2        =   ".0"
-      scale_1         =   3
-      ClassName_3     =   "CCWScale"
-      opts_3          =   65536
-      dMax_3          =   10
-      discInterval_3  =   1
-      ValueVarType_1  =   5
-      Value_Val_1     =   60
-      IncValueVarType_1=   5
-      IncValue_Val_1  =   1
-      AccelIncVarType_1=   5
-      AccelInc_Val_1  =   5
-      RangeMinVarType_1=   5
-      RangeMaxVarType_1=   5
-      RangeMax_Val_1  =   150
-      Bindings_1      =   4
-      ClassName_4     =   "CCWBindingHolderArray"
-      Editor_4        =   5
-      ClassName_5     =   "CCWBindingHolderArrayEditor"
-      Owner_5         =   1
-   End
-   Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
-      Height          =   300
-      Index           =   0
-      Left            =   16020
-      TabIndex        =   111
-      ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-      Top             =   3915
-      Visible         =   0   'False
-      Width           =   855
-      _Version        =   196609
-      _ExtentX        =   1508
-      _ExtentY        =   529
-      _StockProps     =   4
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
-         Size            =   11.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Reset_0         =   0   'False
-      CompatibleVers_0=   196609
-      NumEdit_0       =   1
-      ClassName_1     =   "CCWNumEdit"
-      opts_1          =   196670
-      C[0]_1          =   16777215
-      C[1]_1          =   0
-      TextAlignment_1 =   1
-      Appearance_1    =   0
-      format_1        =   2
-      ClassName_2     =   "CCWFormat"
-      Format_2        =   ".#0"
-      scale_1         =   3
-      ClassName_3     =   "CCWScale"
-      opts_3          =   65536
-      dMax_3          =   10
-      discInterval_3  =   1
-      ValueVarType_1  =   5
-      Value_Val_1     =   60
-      IncValueVarType_1=   5
-      IncValue_Val_1  =   1
-      AccelIncVarType_1=   5
-      AccelInc_Val_1  =   5
-      RangeMinVarType_1=   5
-      RangeMaxVarType_1=   5
-      RangeMax_Val_1  =   150
-      Bindings_1      =   4
-      ClassName_4     =   "CCWBindingHolderArray"
-      Editor_4        =   5
-      ClassName_5     =   "CCWBindingHolderArrayEditor"
-      Owner_5         =   1
-   End
-   Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
-      Height          =   300
-      Index           =   1
-      Left            =   16020
-      TabIndex        =   112
-      ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-      Top             =   4230
-      Visible         =   0   'False
-      Width           =   855
-      _Version        =   196609
-      _ExtentX        =   1508
-      _ExtentY        =   529
-      _StockProps     =   4
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
-         Size            =   11.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Reset_0         =   0   'False
-      CompatibleVers_0=   196609
-      NumEdit_0       =   1
-      ClassName_1     =   "CCWNumEdit"
-      opts_1          =   196670
-      C[0]_1          =   16777215
-      C[1]_1          =   0
-      TextAlignment_1 =   1
-      Appearance_1    =   0
-      format_1        =   2
-      ClassName_2     =   "CCWFormat"
-      Format_2        =   ".#0"
-      scale_1         =   3
-      ClassName_3     =   "CCWScale"
-      opts_3          =   65536
-      dMax_3          =   10
-      discInterval_3  =   1
-      ValueVarType_1  =   5
-      Value_Val_1     =   60
-      IncValueVarType_1=   5
-      IncValue_Val_1  =   1
-      AccelIncVarType_1=   5
-      AccelInc_Val_1  =   5
-      RangeMinVarType_1=   5
-      RangeMaxVarType_1=   5
-      RangeMax_Val_1  =   150
-      Bindings_1      =   4
-      ClassName_4     =   "CCWBindingHolderArray"
-      Editor_4        =   5
-      ClassName_5     =   "CCWBindingHolderArrayEditor"
-      Owner_5         =   1
-   End
-   Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
-      Height          =   300
-      Index           =   2
-      Left            =   16020
-      TabIndex        =   113
-      ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-      Top             =   4590
-      Visible         =   0   'False
-      Width           =   855
-      _Version        =   196609
-      _ExtentX        =   1508
-      _ExtentY        =   529
-      _StockProps     =   4
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
-         Size            =   11.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Reset_0         =   0   'False
-      CompatibleVers_0=   196609
-      NumEdit_0       =   1
-      ClassName_1     =   "CCWNumEdit"
-      opts_1          =   196670
-      C[0]_1          =   16777215
-      C[1]_1          =   0
-      TextAlignment_1 =   1
-      Appearance_1    =   0
-      format_1        =   2
-      ClassName_2     =   "CCWFormat"
-      Format_2        =   ".#0"
-      scale_1         =   3
-      ClassName_3     =   "CCWScale"
-      opts_3          =   65536
-      dMax_3          =   10
-      discInterval_3  =   1
-      ValueVarType_1  =   5
-      Value_Val_1     =   60
-      IncValueVarType_1=   5
-      IncValue_Val_1  =   1
-      AccelIncVarType_1=   5
-      AccelInc_Val_1  =   5
-      RangeMinVarType_1=   5
-      RangeMaxVarType_1=   5
-      RangeMax_Val_1  =   150
-      Bindings_1      =   4
-      ClassName_4     =   "CCWBindingHolderArray"
-      Editor_4        =   5
-      ClassName_5     =   "CCWBindingHolderArrayEditor"
-      Owner_5         =   1
-   End
-   Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
-      Height          =   300
-      Index           =   3
-      Left            =   16020
-      TabIndex        =   114
-      ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-      Top             =   4950
-      Visible         =   0   'False
-      Width           =   855
-      _Version        =   196609
-      _ExtentX        =   1508
-      _ExtentY        =   529
-      _StockProps     =   4
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
-         Size            =   11.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Reset_0         =   0   'False
-      CompatibleVers_0=   196609
-      NumEdit_0       =   1
-      ClassName_1     =   "CCWNumEdit"
-      opts_1          =   196670
-      C[0]_1          =   16777215
-      C[1]_1          =   0
-      TextAlignment_1 =   1
-      Appearance_1    =   0
-      format_1        =   2
-      ClassName_2     =   "CCWFormat"
-      Format_2        =   ".#0"
-      scale_1         =   3
-      ClassName_3     =   "CCWScale"
-      opts_3          =   65536
-      dMax_3          =   10
-      discInterval_3  =   1
-      ValueVarType_1  =   5
-      Value_Val_1     =   60
-      IncValueVarType_1=   5
-      IncValue_Val_1  =   1
-      AccelIncVarType_1=   5
-      AccelInc_Val_1  =   5
-      RangeMinVarType_1=   5
-      RangeMaxVarType_1=   5
-      RangeMax_Val_1  =   150
-      Bindings_1      =   4
-      ClassName_4     =   "CCWBindingHolderArray"
-      Editor_4        =   5
-      ClassName_5     =   "CCWBindingHolderArrayEditor"
-      Owner_5         =   1
-   End
-   Begin VB.Label Label1 
-      Alignment       =   1  'Right Justify
-      BackColor       =   &H00FFFFC0&
-      Caption         =   "Hold mA"
-      Height          =   255
-      Index           =   12
-      Left            =   15210
-      TabIndex        =   120
-      ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-      Top             =   5310
-      Width           =   735
-   End
-   Begin VB.Label Label1 
-      Alignment       =   1  'Right Justify
-      BackColor       =   &H00FFFFC0&
-      Caption         =   "Deflate Offset mA"
-      Height          =   255
-      Index           =   13
-      Left            =   15525
-      TabIndex        =   119
-      ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-      Top             =   3645
-      Visible         =   0   'False
-      Width           =   1320
-   End
-   Begin VB.Label Label1 
-      Alignment       =   1  'Right Justify
-      BackColor       =   &H00FFFFC0&
-      Caption         =   "V1set"
-      Height          =   210
-      Index           =   14
-      Left            =   15345
-      TabIndex        =   118
-      ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-      Top             =   3915
-      Visible         =   0   'False
-      Width           =   645
-   End
-   Begin VB.Label Label1 
-      Alignment       =   1  'Right Justify
-      BackColor       =   &H00FFFFC0&
-      Caption         =   "V2set"
-      Height          =   210
-      Index           =   15
-      Left            =   15345
-      TabIndex        =   117
-      ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-      Top             =   4275
-      Visible         =   0   'False
-      Width           =   645
-   End
-   Begin VB.Label Label1 
-      Alignment       =   1  'Right Justify
-      BackColor       =   &H00FFFFC0&
-      Caption         =   "V3set"
-      Height          =   210
-      Index           =   16
-      Left            =   15345
-      TabIndex        =   116
-      ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-      Top             =   4635
-      Visible         =   0   'False
-      Width           =   645
-   End
-   Begin VB.Label Label1 
-      Alignment       =   1  'Right Justify
-      BackColor       =   &H00FFFFC0&
-      Caption         =   "V4set"
-      Height          =   210
-      Index           =   19
-      Left            =   15345
-      TabIndex        =   115
-      ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-      Top             =   4995
-      Visible         =   0   'False
-      Width           =   645
    End
    Begin VB.Label lblRawResponse 
       BackColor       =   &H00FFFFFF&
@@ -5993,7 +5734,7 @@ Begin VB.Form frmMonitoring
       EndProperty
       Height          =   330
       Left            =   0
-      TabIndex        =   43
+      TabIndex        =   19
       ToolTipText     =   "The last controller's response"
       Top             =   8865
       Width           =   11640
@@ -6005,10 +5746,11 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
+#Const DEBUG_MODE = True
     Const EXCEL_SCAN_ARRAY_SIZE = 60000 'Excel can open only 65535 lines
 '    Const MAX_BUFFER_ARRAY_SIZE As Long = 202
     Const MAX_SCAN_ARRAY_SIZE As Long = 100000 '86400 for 1 day, 2678400 for 31 days
-    Const MAX_CH As Long = 9
+    Const MAX_CH As Long = 16
     Const DataAcq_file As Long = 3
     Const PositionMonitoring_file As Long = 2
     Const end_of_ScanString_token As String = "%" & vbCrLf ' position monitoring scan data
@@ -6039,6 +5781,7 @@ Option Explicit
     Dim OneScanValues(MAX_CH)    '  channel values decoded from record
     Private ScanValues(MAX_CH, MAX_SCAN_ARRAY_SIZE) As Single           ' 100000 scan lines, 10 channels array
     Dim Recorded_SCAN_ARRAY_SIZE As Long
+    Dim ch_plot_index(MAX_CH - 1) As Long 'keeps index of the variable for each channel
     Private ScanTimeStamps(MAX_SCAN_ARRAY_SIZE) As Double     ' 100000 scan lines, time
     Private ScanSTARTtimeStamp As Double   ' start time of the scan, to show X TIME of the plot starting from zero
     Private MaxScanTimeStamp As Double     ' maximum duration (time) of the scan, to properly set X scale of the plot and X scale slider
@@ -6091,7 +5834,8 @@ Option Explicit
 Public Enum TestType
     Monitor_Pos = 0
     Monitor_Pressure = 1
-    Valves_2020 = 2
+    valves_2020 = 2
+    Any_Variable = 3
 '    Valve_box = 3
 '    Buffer_rec = 4
 End Enum
@@ -6131,11 +5875,89 @@ End Function
 
 
 Private Sub cmb_TestType_Click()
-    MonitoringTestType = cmb_TestType.ListIndex
+    MonitoringTestType = cmb_TestType.ListIndex 'IK20260916 added "Any Variable Selection"
     ChangeTestType (MonitoringTestType)
 End Sub
 
+Private Sub cmbSelData_Click(Index As Integer) ' it goes here 12 times during initialization
+    Call UpdatePlotWhenIndexChanges(Index)
+    Call Update_labels
+End Sub
 
+Sub UpdatePlotWhenIndexChanges(Index As Integer) ' it goes here 12 times during initialization
+' order of channels:
+' p_rtZ1,X1,Y1, ... Z4,X4,p_rtY4,
+' pRmsZ1,X1,Y1, ... Z4,X4,pRmsY4,
+' g_rtZ1,X1,Y1, ... Z4,X4,g_rtY4,
+' gRmsZ1,X1,Y1, ... Z4,X4,gRmsY4
+    On Error Resume Next
+    Dim plotType As Integer
+    Dim k As Long
+    Dim x_time_size As Long
+    Dim oneDataPoint As Single
+    Dim StartDataPoint As Single
+    Dim plot_1D_array(MAX_SCAN_ARRAY_SIZE) As Single
+    x_time_size = UBound(plt_X_coord) ' if dynamic array plt_X_coord() is not resized yet, gives <subscript out of range>
+    ' here it might have error because dynamic array plt_X_coord is not resized yet, gives <subscript out of range>
+    plotType = cmbSelData(Index).ListIndex ' between 0 and 255
+    ch_plot_index(Index) = plotType
+#If DEBUG_MODE = False Then
+    If ((plotType >= 0) And (plotType < MAX_CH)) Then 'piezo real time
+        If cwRel_T_Abs_F_Position.Value = True Then 'relative
+            StartDataPoint = p_RT_ScanValues(plotType, 0) - cwSpreadPlotsByY.Value * (6 - Index)
+        Else ' absolute
+            StartDataPoint = 0
+        End If
+        For k = 0 To x_time_size
+            oneDataPoint = p_RT_ScanValues(plotType, k) - StartDataPoint
+            ScanValuesToPlot(Index, k) = oneDataPoint ' p_rtZ1,X1,Y1, ... Z4,X4,p_rtY4,
+            plot_1D_array(k) = oneDataPoint ' p_rtZ1,X1,Y1, ... Z4,X4,p_rtY4,
+        Next k
+    End If
+    If ((plotType >= MAX_CH) And (plotType < 2 * MAX_CH)) Then 'prms
+        plotType = plotType - MAX_CH
+        If cwRel_T_Abs_F_Position.Value = True Then 'relative
+            StartDataPoint = pRMS_ScanValues(plotType, 0) - cwSpreadPlotsByY.Value * (6 - Index)
+        Else ' absolute
+            StartDataPoint = 0
+        End If
+        For k = 0 To x_time_size
+            oneDataPoint = pRMS_ScanValues(plotType, k) + StartDataPoint
+            ScanValuesToPlot(Index, k) = oneDataPoint
+            plot_1D_array(k) = oneDataPoint
+        Next k
+    End If
+    If ((plotType >= 2 * MAX_CH) And (plotType < 3 * MAX_CH)) Then 'g_rt
+        plotType = plotType - 2 * MAX_CH
+        If cwRel_T_Abs_F_Position.Value = True Then 'relative
+            StartDataPoint = g_RT_ScanValues(plotType, 0) - cwSpreadPlotsByY.Value * (6 - Index)
+        Else ' absolute
+            StartDataPoint = 0
+        End If
+        For k = 0 To x_time_size
+            oneDataPoint = g_RT_ScanValues(plotType, k) + StartDataPoint
+            ScanValuesToPlot(Index, k) = oneDataPoint
+            plot_1D_array(k) = oneDataPoint
+        Next k
+    End If
+    If ((plotType >= 3 * MAX_CH) And (plotType < 4 * MAX_CH)) Then 'grms
+        plotType = plotType - 3 * MAX_CH
+        If cwRel_T_Abs_F_Position.Value = True Then 'relative
+            StartDataPoint = gRMS_ScanValues(plotType, 0) - cwSpreadPlotsByY.Value * (6 - Index)
+        Else ' absolute
+            StartDataPoint = 0
+        End If
+        For k = 0 To x_time_size
+            oneDataPoint = gRMS_ScanValues(plotType, k) + StartDataPoint
+            ScanValuesToPlot(Index, k) = oneDataPoint
+            plot_1D_array(k) = oneDataPoint
+        Next k
+    End If
+#End If
+    'cwGraphDataAcq.Plots.Item(Index + 1).PlotXvsY plt_X_coord, plot_1D_array ' plt_X_coord is dynamic array
+    'cwGraphDataAcq.Plots.Item(Index + 1).PlotY plot_1D_array  ' plot this channel, but it does not correctly X-scale it, it uses X with intevals of one
+    UpdatePositionPlot (-1) ' repaint all plots
+End Sub
 Private Sub Cmb_X_scale_Change()
     'Line Number
     'Time
@@ -6229,19 +6051,6 @@ Dim TipText As String
 End Function
 
 
-Private Sub cwBNC0channel_PointerValueChanged(ByVal Pointer As Long, Value As Variant)
-   Dim cmd As String
-   cwBNC0channel.ToolTipText = ADC_help(Value)
-   cmd = "bnc0=adc" & Value
-   Call Analyzer.GetSend(cmd, True)
-End Sub
-
-Private Sub cwBNC1channel_PointerValueChanged(ByVal Pointer As Long, Value As Variant)
-   Dim cmd As String
-   cwBNC1channel.ToolTipText = ADC_help(Value)
-   cmd = "bnc1=adc" & Value
-   Call Analyzer.GetSend(cmd, True)
-End Sub
 
 Private Sub cwButValveTest_ValueChanged(ByVal Value As Boolean)
     Dim command As String
@@ -6267,8 +6076,8 @@ Private Sub cwButValveTest_ValueChanged(ByVal Value As Boolean)
         cmdReadPositionFile.Enabled = False
 
         Call prepare_for_plotting
-        cwRelAbsPosition.Value = False 'absolute position for valve test
-        If (MonitoringTestType = Valves_2020) Then 'DC2020 valve test
+        cwRel_T_Abs_F_Position.Value = False 'absolute position for valve test
+        If (MonitoringTestType = valves_2020) Then 'DC2020 valve test
              command = "vtst " & CStr(cwValveStartCurrent.Value) & " " & CStr(cwValveIncrementCurrent.Value) _
              & " " & CStr(cwValveEndCurrent.Value) & " " & CStr(cwValveMeasTime.Value) & " " & CStr(cwValveHoldCurrent.Value) _
              & " " & CStr(CwLowerPSIthreshold.Value) & " " & CStr(CwUpperPSIthreshold.Value)
@@ -6367,6 +6176,8 @@ Private Sub cwValveMeasTime_ValueChanged(Value As Variant, PreviousValue As Vari
 End Sub
 
 Private Sub Form_Load()
+    Dim ch As Long
+    Dim V As Long
     Init_sys_data = True
     User_has_been_Warned = False
     XminScale = 0
@@ -6417,6 +6228,12 @@ Private Sub Form_Load()
         End If
 '    End If
     cwNumFileRecords.Value = Recorded_SCAN_ARRAY_SIZE
+    For ch = 0 To 11 'UBound(cmbSelData)
+      cmbSelData(ch).Clear
+      For V = 0 To 255
+        cmbSelData(ch).AddItem (ChName(V))
+      Next V
+    Next ch
 End Sub
 
 Private Sub Form_Resize()
@@ -6635,12 +6452,13 @@ Private Sub OptGraphMode_Click(Index As Integer)
 End Sub
 
 Private Sub ChangeTestType(Index As Integer)
-    If Index = Monitor_Pressure Or Index = Valves_2020 Then  '1, 2
+    If Index = Monitor_Pressure Or Index = valves_2020 Then  '1, 2
 '0 Monitor Pos
 '1 Monitor Pressure
 '2 2020 valves
 'removed 3 Buffer Rec
 'removed 4 Valve Box
+'IK20260916 added "Any Variable Selection"
 
 ' hide save and read buttons until test is done
 '        If ScanNumber < 1 Then
@@ -6849,7 +6667,7 @@ On Error GoTo format_error
                         tmp_time = ScanTimeStamps(scan_num - 1) + CMDperiod
                     Else
                         If scan_num = 3 Then
-                            If MonitoringTestType = Valves_2020 Then
+                            If MonitoringTestType = valves_2020 Then
                                 CMDperiod = cwValveMeasTime.Value
                             Else
                                 CMDperiod = ScanTimeStamps(2) - ScanTimeStamps(1) ' =cwContCMDperiod.Value
@@ -6866,7 +6684,7 @@ On Error GoTo format_error
                 End If
                 If (scan_num = 0) Then ScanSTARTtimeStamp = (tmp_time) ' start time of the scan, to show X TIME of the plot starting from zero
                 ScanTimeStamps(scan_num) = tmp_time
-                If MonitoringTestType = Valves_2020 Then ' Or MonitoringTestType = Valve_box Then ' valve test
+                If MonitoringTestType = valves_2020 Then ' Or MonitoringTestType = Valve_box Then ' valve test
                     If (ScanSTARTtimeStamp = 0) And (scan_num > 0) Then
                         ScanTimeStamps(scan_num) = ScanTimeStamps(scan_num - 1) + CMDperiod
                     End If
@@ -7087,7 +6905,7 @@ Public Function GetPosScan(cmd As String, WaitingTime As Single) As Long
 '        scan_buf = Analyzer.GetSend(cmd, True)
     Call Send_GUI_command(cmd & vbCr)
     StartTime = Timer
-    If (MonitoringTestType = Valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
+    If (MonitoringTestType = valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
       txtStatus.Text = "Testing valve board...."
       cwGraphDataAcq.Caption = "Iso Pressure vs. Valve Current"
       StartTime = StartTime + 1.2
@@ -7101,6 +6919,11 @@ Public Function GetPosScan(cmd As String, WaitingTime As Single) As Long
     If (MonitoringTestType = Monitor_Pos) Then
       cwGraphDataAcq.Caption = "Position Readings"
       txtStatus.Text = "Getting position monitoring data from controller...."
+      StartTime = StartTime + 0.2
+    End If
+    If (MonitoringTestType = Any_Variable) Then
+      cwGraphDataAcq.Caption = "Selected Variables Readings"
+      txtStatus.Text = "Getting selected variables data from controller...."
       StartTime = StartTime + 0.2
     End If
 '    End If
@@ -7248,7 +7071,7 @@ show_plot:
           ScanNumber = line_counter ' because UpdatePositionPlot(-1) checks If SaveExsistingData = False and assigns to max points ScanNumber
           Call UpdatePositionPlot(-1) ' -1 means update whole plot, not a particular point
 
-          If (MonitoringTestType = Valves_2020) Then
+          If (MonitoringTestType = valves_2020) Then
             Call Analyze_Valve_plot
           Else
             For ch = 0 To MAX_CH
@@ -7289,7 +7112,7 @@ Sub UpdatePositionPlot(Optional scan_num As Long = -2) 'minus 2 when parameter o
   Dim j As Long
   Dim smpl As Long
 '-!-  Dim temp_array_Y() As Double
-  If MonitoringTestType = Valves_2020 Then ' Or MonitoringTestType = Valve_box Then ' valve test
+  If MonitoringTestType = valves_2020 Then ' Or MonitoringTestType = Valve_box Then ' valve test
 '"line#,DrvCnt,Curr_mA1,_mA2,_mA3,_mA4, PSI_1,PSI_2,PSI_3,PSI_4,PSI_in,Hold_mA\r\n"
 '0019 ,  -500, 90.7, 90.7, 90.7, 90.7, 0.2,  0.1, -0.1, -0.0, -0.1, 77.00%
 '0020 ,    +0, 90.7, 90.7, 90.7, 90.7, 0.1, -0.0, -0.1, -0.0, -0.1, 77.00%
@@ -7353,7 +7176,7 @@ Sub UpdatePositionPlot(Optional scan_num As Long = -2) 'minus 2 when parameter o
                     plt_X_coord(j) = ScanTimeStamps(j) - ScanTimeStamps(0)  'create X time scale: subtract first time stamp
                 End If
                 For i = 0 To MAX_CH - 4 'add one measurement
-                    If cwRelAbsPosition.Value = True Then 'relative
+                    If cwRel_T_Abs_F_Position.Value = True Then 'relative
                         ScanValuesToPlot(i, smpl) = RelativeScanValues(i + 4, smpl) 'add one (latest) measurement
                     Else ' absolute
                         ScanValuesToPlot(i, smpl) = ScanValues(i + 4, smpl) 'add one (latest) measurement
@@ -7363,7 +7186,7 @@ Sub UpdatePositionPlot(Optional scan_num As Long = -2) 'minus 2 when parameter o
         Else 'scan_num > -1, do not recalculate whole array
             plt_X_coord(j) = ScanTimeStamps(j) - ScanTimeStamps(0)  'create X time scale: subtract first time stamp
             For i = 0 To MAX_CH - 4 'add one (latest) measurement
-                If cwRelAbsPosition.Value = True Then 'relative
+                If cwRel_T_Abs_F_Position.Value = True Then 'relative
                     ScanValuesToPlot(i, j) = RelativeScanValues(i + 4, j) 'add one (latest) measurement
                 Else ' absolute
                     ScanValuesToPlot(i, j) = ScanValues(i + 4, j) 'add one (latest) measurement
@@ -7383,7 +7206,7 @@ Sub UpdatePositionPlot(Optional scan_num As Long = -2) 'minus 2 when parameter o
                 plt_X_coord(smpl) = ScanValues(2, smpl) 'create X axis in mA:
 
                 For i = 0 To MAX_CH - 4 'add one measurement
-                    If cwRelAbsPosition.Value = True Then 'relative
+                    If cwRel_T_Abs_F_Position.Value = True Then 'relative
                         ScanValuesToPlot(i, smpl) = RelativeScanValues(i + 4, smpl) 'add one (latest) measurement
                     Else ' absolute
                         ScanValuesToPlot(i, smpl) = ScanValues(i + 4, smpl) 'add one (latest) measurement
@@ -7393,7 +7216,7 @@ Sub UpdatePositionPlot(Optional scan_num As Long = -2) 'minus 2 when parameter o
         Else 'scan_num > -1, do not recalculate whole array
             plt_X_coord(j) = ScanValues(2, j) 'create X axis in mA:
             For i = 0 To MAX_CH - 4 'add one (latest) measurement
-                If cwRelAbsPosition.Value = True Then 'relative
+                If cwRel_T_Abs_F_Position.Value = True Then 'relative
                     ScanValuesToPlot(i, j) = RelativeScanValues(i + 4, j) 'add one (latest) measurement
                 Else ' absolute
                     ScanValuesToPlot(i, j) = ScanValues(i + 4, j) 'add one (latest) measurement
@@ -7408,9 +7231,10 @@ Sub UpdatePositionPlot(Optional scan_num As Long = -2) 'minus 2 when parameter o
     End If
 
   Else 'position test
-    If (MonitoringTestType = Monitor_Pos) Or (MonitoringTestType = Monitor_Pressure) Then
-    ' continuous monitoring position or pressure
-      If (MonitoringTestType = Monitor_Pos) Then cwGraphDataAcq.Axes.Item(2).Caption = "counts"
+    'If (MonitoringTestType <> valves_2020) Then
+    If (MonitoringTestType = Monitor_Pos) Or (MonitoringTestType = Monitor_Pressure) Or (MonitoringTestType = Any_Variable) Then
+    ' continuous monitoring position or pressure or any variable
+      If (MonitoringTestType = Monitor_Pos) Or (MonitoringTestType = Any_Variable) Then cwGraphDataAcq.Axes.Item(2).Caption = "counts"
       If (MonitoringTestType = Monitor_Pressure) Then cwGraphDataAcq.Axes.Item(2).Caption = "PSI"
       Call update_Graph_time_scale
     End If
@@ -7421,7 +7245,7 @@ Sub UpdatePositionPlot(Optional scan_num As Long = -2) 'minus 2 when parameter o
 '        cwSlideDynamicZoom.Axis.Maximum = line_counter
 '        cwGraphDataAcq.Axes.Item(1).FormatString = ""
 '        cwGraphDataAcq.Axes.Item(1).SetMinMax 0, line_counter
-'        If cwRelAbsPosition.Value = True Then 'relative
+'        If cwRel_T_Abs_F_Position.Value = True Then 'relative
 '            cwGraphDataAcq.PlotY RelativeScanValues
 '        Else ' absolute
 '            cwGraphDataAcq.PlotY ScanValues
@@ -7464,7 +7288,7 @@ Sub UpdatePositionPlot(Optional scan_num As Long = -2) 'minus 2 when parameter o
                 MaxScanTimeStamp = plt_X_coord(smpl) ' save max time - duration of the scan
 
                 For i = 0 To MAX_CH - 1 'add one (latest) measurement
-                    If cwRelAbsPosition.Value = True Then 'relative
+                    If cwRel_T_Abs_F_Position.Value = True Then 'relative
                         ScanValuesToPlot(i, smpl) = RelativeScanValues(i, smpl)  'add one (latest) measurement
                     Else ' absolute
                         ScanValuesToPlot(i, smpl) = ScanValues(i, smpl)  'add one (latest) measurement
@@ -7478,7 +7302,7 @@ Sub UpdatePositionPlot(Optional scan_num As Long = -2) 'minus 2 when parameter o
             cwGraphDataAcq.Axes.Item(2).AutoScaleNow
         Else 'scan_num > -1, do not recalculate whole array
             For i = 0 To MAX_CH - 1 'add one (latest) measurement
-                If cwRelAbsPosition.Value = True Then 'relative
+                If cwRel_T_Abs_F_Position.Value = True Then 'relative
                     ScanValuesToPlot(i, j) = RelativeScanValues(i, j)  'add one (latest) measurement
                 Else ' absolute
                     ScanValuesToPlot(i, j) = ScanValues(i, j)  'add one (latest) measurement
@@ -7640,12 +7464,12 @@ End Sub
 '    End If
 '
 'End Sub
-Private Sub cwRelAbsPosition_ValueChanged(ByVal Value As Boolean)
-    If MonitoringTestType = Valves_2020 Then 'Or MonitoringTestType = Valve_box Then ' valve test
+Private Sub cwRel_T_Abs_F_Position_ValueChanged(ByVal Value As Boolean)
+    If MonitoringTestType = valves_2020 Then 'Or MonitoringTestType = Valve_box Then ' valve test
         cwSpreadPlotsByY.Visible = False
         lblSpreadPlots.Caption = ""
     Else '''''''''''''''''  positon test
-        If cwRelAbsPosition.Value = True Then 'relative
+        If cwRel_T_Abs_F_Position.Value = True Then 'relative
             cwSpreadPlotsByY.Visible = True
             lblSpreadPlots.Caption = "Spread plots by"
 '            cwGraphDataAcq.PlotY RelativeScanValues
@@ -7678,7 +7502,7 @@ End Sub
 Private Sub cwSpreadPlotsByY_ValueChanged(Value As Variant, PreviousValue As Variant, ByVal OutOfRange As Boolean)
     Call recalculate_Rel_plot
     Call UpdatePositionPlot(-1) ' -1 means update whole plot, not a particular point
-'    If cwRelAbsPosition.Value = True Then 'relative
+'    If cwRel_T_Abs_F_Position.Value = True Then 'relative
 '        cwGraphDataAcq.PlotY RelativeScanValues
 '    Else ' absolute
 '        cwGraphDataAcq.PlotY ScanValues 'SHOWN_values
@@ -7694,7 +7518,7 @@ Sub Update_labels()
     Dim data_string As String
 
 ' update graph label and channel readings
-    If MonitoringTestType = Valves_2020 Then ' valve test
+    If MonitoringTestType = valves_2020 Then ' valve test
         array_index = cwGraphDataAcq.Cursors(1).PointIndex ' this is the index
         X = cwGraphDataAcq.Cursors(1).XPosition ' X is the mA, NOT INDEX
         Y = ScanValuesToPlot(ChosenCh - 1, array_index)
@@ -7704,7 +7528,7 @@ Sub Update_labels()
         Y = ScanValues(ChosenCh - 1, array_index)
     End If
     If cwButContinuesSend.Value = False Then
-      If MonitoringTestType = Valves_2020 Then ' valve test
+      If MonitoringTestType = valves_2020 Then ' valve test
         If (Abs(Y) > 100) Then
             data_string = " Pressuse " & Left(optChooseCh(ChosenCh).Caption, 4) & "=" & Format(Y, "#0.0") & "psi @ Current=" & Format(X, "#0.00") & "mA"
         Else 'less than 100
@@ -7753,7 +7577,7 @@ Sub HighlightChannel(Value As Variant, PreviousValue As Variant)
 '    Y = cwGraphDataAcq.Cursors(1).YPosition
 '    cwGraphDataAcq.Cursors.Item(1).SnapMode = cwCSnapFloating
 '
-'    If cwRelAbsPosition = True Then
+'    If cwRel_T_Abs_F_Position = True Then
 '        cwGraphDataAcq.Cursors(1).YPosition = RelativeScanValues((Value - 1), X)
 '    Else
 '        cwGraphDataAcq.Cursors(1).YPosition = SHOWN_values((Value - 1), X)
@@ -7899,6 +7723,9 @@ Private Sub aTimerContMonitoring_Timer()
 
     If (MonitoringTestType = Monitor_Pos) Then '0 => position recording
         command = "b" '"j"
+    End If
+    If (MonitoringTestType = Any_Variable) Then '2 => any variable recording
+        command = "b" '-!- IK20260916 need real command!
     End If
 '    If (MonitoringTestType = Valves_2020) Then '2=> DC2020 valve test
 '        command = "vtst " & CStr(cwValveStartCurrent.Value) & " " & CStr(cwValveIncrementCurrent.Value) _
@@ -8063,7 +7890,7 @@ Private Sub cwButContinuesSend_ValueChanged(ByVal Value As Boolean)
         cmdReadPositionFile.Enabled = False
 
         If MonitoringTestType = Monitor_Pressure Then ''pressure monitoring
-            cwRelAbsPosition.Value = False
+            cwRel_T_Abs_F_Position.Value = False
         End If
         aTimerContMonitoring.Enabled = True
         cwContCMDperiod.Enabled = False
@@ -8118,7 +7945,7 @@ End Sub
 Sub Show_Scan_raw_values(indx As Variant)
     Dim Y As Variant, ch As Long
 '    lbLineNum.Caption = Format(indx, "0000")
-    If MonitoringTestType = Valves_2020 Then  ' valve test
+    If MonitoringTestType = valves_2020 Then  ' valve test
       For ch = 0 To MAX_CH - 2 'show current values
         Y = ScanValuesToPlot(ch, indx)
         If (Abs(Y) > 100) Then
@@ -8266,7 +8093,10 @@ Function SaveDataAcqFile(Next_Multiple_file As Boolean) As Long
     If MonitoringTestType = Monitor_Pressure Then ' pressure vs time test
         DefaultFilename = Date$ & "_" & Left$(Time$, 2) & "-" & Mid$(Time$, 4, 2) & " Pressure_vs_time.csv"
     End If
-    If MonitoringTestType = Valves_2020 Then ' valve test
+    If MonitoringTestType = Any_Variable Then '  variable vs time test
+        DefaultFilename = Date$ & "_" & Left$(Time$, 2) & "-" & Mid$(Time$, 4, 2) & " Var_Real_time.csv"
+    End If
+    If MonitoringTestType = valves_2020 Then ' valve test
         DefaultFilename = Date$ & "_" & Left$(Time$, 2) & "-" & Mid$(Time$, 4, 2) & " Test_VlvBrd"
         If (txtV1sn.Text <> "") Then
             DefaultFilename = DefaultFilename & ",v1-" & Trim(txtV1sn.Text)
@@ -8344,7 +8174,7 @@ Function SaveDataAcqFile(Next_Multiple_file As Boolean) As Long
         Print #PositionMonitoring_file, ",Date,"; Date$
         start_saving_time = Time$
         Print #PositionMonitoring_file, ",Time,"; start_saving_time
-        If (MonitoringTestType = Valves_2020) Then
+        If (MonitoringTestType = valves_2020) Then
             m_p = cwValveMeasTime.Value
         Else ' position or pressure vs time
             m_p = cwContCMDperiod.Value
@@ -8352,7 +8182,7 @@ Function SaveDataAcqFile(Next_Multiple_file As Boolean) As Long
         CMDperiod = cwContCMDperiod.Value
         'If PC_RealTime = True Then 'if True saved time is PC time. If False time is (usually) 10 ms increments from controller acquisituin buffer
 
-            If (MonitoringTestType = Valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
+            If (MonitoringTestType = valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
                 Print #PositionMonitoring_file, "Scan Type:, Valve Test"
                 Print #PositionMonitoring_file, "command:,";
                 Print #PositionMonitoring_file, "vtst ";
@@ -8370,6 +8200,10 @@ Function SaveDataAcqFile(Next_Multiple_file As Boolean) As Long
                 Print #PositionMonitoring_file, "Scan Type:, Position vs time"
                 Print #PositionMonitoring_file, "request period, "; m_p; ",<<<" 'the token of quasi-real measurement is 'request period'
             End If
+            If MonitoringTestType = Any_Variable Then ' position vs time test
+                Print #PositionMonitoring_file, "Scan Type:, Variables vs time"
+                Print #PositionMonitoring_file, "request period, "; m_p; ",<<<" 'the token of quasi-real measurement is 'request period'
+            End If
         'End If
         If SaveExsistingData = False Then ' starting new recording
             line_counter = 0
@@ -8378,7 +8212,7 @@ Function SaveDataAcqFile(Next_Multiple_file As Boolean) As Long
             Print #PositionMonitoring_file, " lines:, "; ScanNumber;
         End If
 
-        If (MonitoringTestType = Valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
+        If (MonitoringTestType = valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
            Print #PositionMonitoring_file, ",,Valve Serial Number,,"; txtV1sn.Text; ","; txtV2sn.Text; ","; txtV3sn.Text; ","; txtV4sn.Text
            Print #PositionMonitoring_file, " line#,InfCnt,EhxCnt, Inflat_mA,Exhaust_mA, PSI_1,PSI_2,PSI_3,PSI_4,PSI_in, time"
         End If
@@ -8412,7 +8246,7 @@ Function SaveDataAcqFile(Next_Multiple_file As Boolean) As Long
 '            cwSavingRecords.Enabled = True
             cwSaveScan.Value = False 'it will Close #PositionMonitoring_file
         Else ' acquiring and saving
-            If (MonitoringTestType = Valves_2020) Then ' script works inside DC-2020 and sends information, we capture it in the while loop
+            If (MonitoringTestType = valves_2020) Then ' script works inside DC-2020 and sends information, we capture it in the while loop
                 cwButValveTest.Value = True
             Else ' periodic retrieval by timer
                 Call CalcNumber_ofRecords
@@ -8430,7 +8264,13 @@ Sub write_one_line(i As Long) '-!-
     t_str = "'" & ConvertSnglToTime(ScanTimeStamps(i))
 
     If MonitoringTestType = Monitor_Pos Then ' position vs time test
-        active_channels = MAX_CH
+        active_channels = 9
+        'If SaveExsistingData = False Then ' NOT saving existing data
+            Print #PositionMonitoring_file, t_str; ","; ' print time stamp
+        'End If
+    End If
+    If MonitoringTestType = Any_Variable Then ' position vs time test
+        active_channels = 12
         'If SaveExsistingData = False Then ' NOT saving existing data
             Print #PositionMonitoring_file, t_str; ","; ' print time stamp
         'End If
@@ -8444,7 +8284,7 @@ Sub write_one_line(i As Long) '-!-
 '        End If
     End If
 
-    If (MonitoringTestType = Valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
+    If (MonitoringTestType = valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
         Print #PositionMonitoring_file, i; ",";
         active_channels = MAX_CH - 1
     End If
@@ -8453,7 +8293,7 @@ Sub write_one_line(i As Long) '-!-
         Print #PositionMonitoring_file, ScanValues(ch, i); ",";
     Next ch
 
-    If (MonitoringTestType = Valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
+    If (MonitoringTestType = valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
         Print #PositionMonitoring_file, t_str; ","; ' print time stamp at the end
     End If
     Print #PositionMonitoring_file, "%"    'end of line
@@ -8483,7 +8323,7 @@ End Sub
 Private Sub cmdReadPositionFile_Click()
    Call ReadDataAcqFile
    Call UpdatePositionPlot(-1) ' -1 means update whole plot, not a particular point
-   If MonitoringTestType = Valves_2020 Then ' Or MonitoringTestType = Valve_box Then ' valve test
+   If MonitoringTestType = valves_2020 Then ' Or MonitoringTestType = Valve_box Then ' valve test
         Call Analyze_Valve_plot
    End If
 End Sub
@@ -8583,7 +8423,7 @@ read_again:
             If sep_pos <> 0 Then
                 sep_pos = InStr(temp_str, "Valve Test") 'catch type of file
                 If sep_pos > 6 Then
-                    ChangeMonitoringTestType (Valves_2020)
+                    ChangeMonitoringTestType (valves_2020)
                     Cmb_X_scale.ListIndex = 2 '2nd column == current mA
                 Else ' not valve test, position or pressure vs time
                     Cmb_X_scale.ListIndex = 1 '1st column == time
@@ -8600,7 +8440,7 @@ read_again:
             If sep_pos <> 0 Then
                 sep_pos = InStr(temp_str, "vtst") 'catch DC2020 valve test
                 If sep_pos > 6 Then
-                    ChangeMonitoringTestType (Valves_2020)
+                    ChangeMonitoringTestType (valves_2020)
                     PC_RealTime = True
                 Else
 '                    sep_pos = InStr(temp_str, "vbxt") 'catch valveBOX test
@@ -8653,7 +8493,7 @@ read_again:
                 Exit Sub
             End If
 
-            If (MonitoringTestType = Valves_2020) Then 'Or MonitoringTestType = Valve_box) Then
+            If (MonitoringTestType = valves_2020) Then 'Or MonitoringTestType = Valve_box) Then
 ' valve test >>>>>>>vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
             '" lines:,160,space, space,Valve SN, 11111,22222,33333,44444"
                 sep_pos = InStr(temp_str, "lines:") 'catch header
@@ -8829,7 +8669,7 @@ read_data_line:
 
 '    cwGraphDataAcq.ClearData
 '''========= POSITION =====================================================
-    If MonitoringTestType = Monitor_Pos Then 'prox sensors vs time plot
+    If (MonitoringTestType = Monitor_Pos) Or (MonitoringTestType = Any_Variable) Then 'prox sensors or variable vs time plot
         XminScale = 0
         XmaxScale = CSng(ScanTimeStamps(ScanNumber - 1) - ScanTimeStamps(0))
         cwSlideDynamicZoom.Pointers(1).Value = 0
@@ -8845,14 +8685,14 @@ read_data_line:
         XmaxScale = CSng((ScanNumber - 1) - ScanTimeStamps(0))
         cwSlideDynamicZoom.Pointers(1).Value = ScanNumber * 0.25
         cwSlideDynamicZoom.Pointers(2).Value = ScanNumber * 0.75
-        cwRelAbsPosition.Value = False ' this will call UpdatePositionPlot(-1) if relative values are shown
+        cwRel_T_Abs_F_Position.Value = False ' this will call UpdatePositionPlot(-1) if relative values are shown
         TextXunits.Text = "sec"
         cwSlideDynamicZoom.Caption = "Time, sec"
 '        Call update_Graph_time_scale
     End If
 
 '''========= VALVES =====================================================
-    If MonitoringTestType = Valves_2020 Then 'valve plot
+    If MonitoringTestType = valves_2020 Then 'valve plot
         XminScale = ScanValues(2, 0)
         XmaxScale = ScanValues(2, ScanNumber - 1)
         If (XminScale > XmaxScale) Then ''reverse
@@ -8867,14 +8707,14 @@ read_data_line:
         TextXunits.Text = "mA"
         cwSlideDynamicZoom.Caption = "Valve current, mA"
         cwGraphDataAcq.Axes.Item(1).FormatString = ""
-        cwRelAbsPosition.Value = False
+        cwRel_T_Abs_F_Position.Value = False
     End If
     line_counter = ScanNumber
 '    cwGraphDataAcq.Axes.Item(2).AutoScaleNow
 '    cwGraphDataAcq.Axes.Item(1).SetMinMax XminScale, XmaxScale
 
     If PC_RealTime = True Then
-      If MonitoringTestType = Valves_2020 Then 'valve plot
+      If MonitoringTestType = valves_2020 Then 'valve plot
         temp_str = "recorded by Analyzer each " & cwValveMeasTime.Text & " sec"
       Else
         temp_str = "recorded by Analyzer each " & cwContCMDperiod.Text & " sec"
@@ -8896,11 +8736,13 @@ Sub ChangeMonitoringTestType(test_type As Integer)
 'line#,InfCnt,EhxCnt, Inflat_mA,Exhaust_mA, PSI_1,PSI_2,PSI_3,PSI_4,PSI_in,
     MonitoringTestType = test_type
     cmb_TestType.ListIndex = test_type
-    If MonitoringTestType = Monitor_Pos Then Cmb_X_scale.ListIndex = 1    '1st column == time
+    If MonitoringTestType = valves_2020 Then
+        Cmb_X_scale.ListIndex = 4    'show plot versus Inflation mA '4th column == current mA'= 2
+    Else
+        Cmb_X_scale.ListIndex = 1    '1st column == time
+    End If
 '    If MonitoringTestType = Buffer_rec Then Cmb_X_scale.ListIndex = 0     'line number
-    If MonitoringTestType = Valves_2020 Then Cmb_X_scale.ListIndex = 4    'show plot versus Inflation mA '4th column == current mA'= 2
 '    If MonitoringTestType = Valve_box Then Cmb_X_scale.ListIndex = 2      '2nd column == current mA'= 3
-    If MonitoringTestType = Monitor_Pressure Then Cmb_X_scale.ListIndex = 1 '1st column == time
 End Sub
 
 Sub Calc_SlopeCorrection()
