@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{D940E4E4-6079-11CE-88CB-0020AF6845F6}#1.6#0"; "cwui.ocx"
 Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "comdlg32.ocx"
-Begin VB.Form Analyzer 
+Begin VB.Form Analyzer
    AutoRedraw      =   -1  'True
    BackColor       =   &H00E0E0E0&
    Caption         =   "TMC Analyzer"
@@ -14,10 +14,10 @@ Begin VB.Form Analyzer
    ScaleHeight     =   12720.88
    ScaleMode       =   0  'User
    ScaleWidth      =   15518.83
-   Begin VB.Frame FramePerformance 
+   Begin VB.Frame FramePerformance
       BackColor       =   &H00FFFFC0&
       Caption         =   "Performance"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   11.25
          Charset         =   0
@@ -31,7 +31,7 @@ Begin VB.Form Analyzer
       TabIndex        =   152
       Top             =   0
       Width           =   11760
-      Begin VB.CheckBox ChkUseAsStartTFfreq 
+      Begin VB.CheckBox ChkUseAsStartTFfreq
          Caption         =   "TF start"
          Height          =   285
          Left            =   9600
@@ -40,7 +40,7 @@ Begin VB.Form Analyzer
          Top             =   4200
          Width           =   915
       End
-      Begin CWUIControlsLib.CWNumEdit cwNumMaxFreq 
+      Begin CWUIControlsLib.CWNumEdit cwNumMaxFreq
          Height          =   360
          Left            =   10530
          TabIndex        =   196
@@ -51,7 +51,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   1958
          _ExtentY        =   635
          _StockProps     =   4
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   12
             Charset         =   204
@@ -94,7 +94,7 @@ Begin VB.Form Analyzer
          ClassName_5     =   "CCWBindingHolderArrayEditor"
          Owner_5         =   1
       End
-      Begin CWUIControlsLib.CWNumEdit cwMin_dB 
+      Begin CWUIControlsLib.CWNumEdit cwMin_dB
          Height          =   300
          Left            =   2610
          TabIndex        =   187
@@ -105,7 +105,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   1199
          _ExtentY        =   529
          _StockProps     =   4
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Microsoft Sans Serif"
             Size            =   9.75
             Charset         =   0
@@ -149,7 +149,7 @@ Begin VB.Form Analyzer
          ClassName_5     =   "CCWBindingHolderArrayEditor"
          Owner_5         =   1
       End
-      Begin CWUIControlsLib.CWNumEdit cwMax_dB 
+      Begin CWUIControlsLib.CWNumEdit cwMax_dB
          Height          =   300
          Left            =   2610
          TabIndex        =   188
@@ -160,7 +160,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   1235
          _ExtentY        =   529
          _StockProps     =   4
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "MS Sans Serif"
             Size            =   9.75
             Charset         =   0
@@ -204,10 +204,10 @@ Begin VB.Form Analyzer
          ClassName_5     =   "CCWBindingHolderArrayEditor"
          Owner_5         =   1
       End
-      Begin VB.Frame frameAxis 
+      Begin VB.Frame frameAxis
          BackColor       =   &H00E0E0E0&
          Caption         =   "Transfer Function"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -221,7 +221,7 @@ Begin VB.Form Analyzer
          TabIndex        =   159
          Top             =   930
          Width           =   2460
-         Begin VB.CommandButton cmdChooseExcitation 
+         Begin VB.CommandButton cmdChooseExcitation
             BackColor       =   &H00C0C0FF&
             Caption         =   "Choose Output"
             Height          =   465
@@ -232,7 +232,7 @@ Begin VB.Form Analyzer
             Top             =   1845
             Width           =   2265
          End
-         Begin VB.Frame FrameLTF 
+         Begin VB.Frame FrameLTF
             BackColor       =   &H00E0E0E0&
             BorderStyle     =   0  'None
             Height          =   4450
@@ -240,7 +240,7 @@ Begin VB.Form Analyzer
             TabIndex        =   168
             Top             =   2835
             Width           =   2355
-            Begin VB.CommandButton CmdClearPlots 
+            Begin VB.CommandButton CmdClearPlots
                BackColor       =   &H0000FFFF&
                Caption         =   "Clear"
                Height          =   300
@@ -253,7 +253,7 @@ Begin VB.Form Analyzer
                UseMaskColor    =   -1  'True
                Width           =   645
             End
-            Begin VB.CommandButton CmdReadScan 
+            Begin VB.CommandButton CmdReadScan
                BackColor       =   &H00C0C000&
                Caption         =   "Read Test"
                Height          =   310
@@ -266,7 +266,7 @@ Begin VB.Form Analyzer
                UseMaskColor    =   -1  'True
                Width           =   1050
             End
-            Begin VB.CommandButton CmdPlotReference 
+            Begin VB.CommandButton CmdPlotReference
                BackColor       =   &H0060B0FF&
                Caption         =   "Get Ref Plot"
                Height          =   310
@@ -279,7 +279,7 @@ Begin VB.Form Analyzer
                UseMaskColor    =   -1  'True
                Width           =   1050
             End
-            Begin VB.CommandButton CmdReadLimits 
+            Begin VB.CommandButton CmdReadLimits
                BackColor       =   &H00C0C0C0&
                Caption         =   "Get Limits"
                Height          =   310
@@ -292,7 +292,7 @@ Begin VB.Form Analyzer
                UseMaskColor    =   -1  'True
                Width           =   1050
             End
-            Begin VB.CommandButton cmdPrint 
+            Begin VB.CommandButton cmdPrint
                BackColor       =   &H0000E000&
                Caption         =   "Print Test"
                Height          =   310
@@ -305,7 +305,7 @@ Begin VB.Form Analyzer
                UseMaskColor    =   -1  'True
                Width           =   1050
             End
-            Begin VB.CheckBox ChkShowLimits 
+            Begin VB.CheckBox ChkShowLimits
                BackColor       =   &H00808080&
                Caption         =   "Limits"
                ForeColor       =   &H00FFFFFF&
@@ -316,7 +316,7 @@ Begin VB.Form Analyzer
                Top             =   2320
                Width           =   1120
             End
-            Begin VB.CheckBox ChkShowRefPlot 
+            Begin VB.CheckBox ChkShowRefPlot
                BackColor       =   &H0060B0FF&
                Caption         =   "Reference"
                Height          =   270
@@ -327,7 +327,7 @@ Begin VB.Form Analyzer
                Value           =   1  'Checked
                Width           =   1120
             End
-            Begin VB.CheckBox ChkShowPrevPlot 
+            Begin VB.CheckBox ChkShowPrevPlot
                BackColor       =   &H0000C000&
                Caption         =   "Previous"
                Height          =   270
@@ -338,7 +338,7 @@ Begin VB.Form Analyzer
                Value           =   1  'Checked
                Width           =   1120
             End
-            Begin VB.CheckBox ChkShowPredictionPlot 
+            Begin VB.CheckBox ChkShowPredictionPlot
                BackColor       =   &H00FFA0A0&
                Caption         =   "Prediction"
                Height          =   270
@@ -348,7 +348,7 @@ Begin VB.Form Analyzer
                Top             =   2700
                Width           =   1120
             End
-            Begin VB.CheckBox ChkShowCurrentPlot 
+            Begin VB.CheckBox ChkShowCurrentPlot
                BackColor       =   &H00FF0000&
                Caption         =   "Current"
                ForeColor       =   &H00FFFFFF&
@@ -360,10 +360,10 @@ Begin VB.Form Analyzer
                Value           =   1  'Checked
                Width           =   1120
             End
-            Begin VB.CheckBox ChkShowCoherencePlot 
+            Begin VB.CheckBox ChkShowCoherencePlot
                BackColor       =   &H008080FF&
                Caption         =   "Coherence"
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "Arial"
                   Size            =   8.25
                   Charset         =   0
@@ -380,7 +380,7 @@ Begin VB.Form Analyzer
                Value           =   1  'Checked
                Width           =   1120
             End
-            Begin VB.CommandButton Cmd_SavePrediction 
+            Begin VB.CommandButton Cmd_SavePrediction
                BackColor       =   &H00FFA0A0&
                Caption         =   "Save Predict"
                Height          =   310
@@ -393,14 +393,14 @@ Begin VB.Form Analyzer
                UseMaskColor    =   -1  'True
                Width           =   1140
             End
-            Begin VB.Frame Frame5 
+            Begin VB.Frame Frame5
                Caption         =   "Cursor  Pan    Zoom   Scale "
                Height          =   730
                Left            =   0
                TabIndex        =   197
                Top             =   0
                Width           =   2350
-               Begin VB.OptionButton OptGraphMode 
+               Begin VB.OptionButton OptGraphMode
                   Height          =   450
                   Index           =   0
                   Left            =   60
@@ -411,7 +411,7 @@ Begin VB.Form Analyzer
                   Top             =   210
                   Width           =   450
                End
-               Begin VB.OptionButton OptGraphMode 
+               Begin VB.OptionButton OptGraphMode
                   Height          =   450
                   Index           =   1
                   Left            =   585
@@ -422,7 +422,7 @@ Begin VB.Form Analyzer
                   Top             =   210
                   Width           =   450
                End
-               Begin VB.OptionButton OptGraphMode 
+               Begin VB.OptionButton OptGraphMode
                   Height          =   450
                   Index           =   2
                   Left            =   1100
@@ -433,7 +433,7 @@ Begin VB.Form Analyzer
                   Top             =   210
                   Width           =   450
                End
-               Begin CWUIControlsLib.CWButton cwAutoscale 
+               Begin CWUIControlsLib.CWButton cwAutoscale
                   Height          =   450
                   Left            =   1610
                   TabIndex        =   201
@@ -444,7 +444,7 @@ Begin VB.Form Analyzer
                   _ExtentX        =   1138
                   _ExtentY        =   794
                   _StockProps     =   68
-                  BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                  BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                      Name            =   "Arial"
                      Size            =   9.01
                      Charset         =   204
@@ -680,7 +680,7 @@ Begin VB.Form Analyzer
                   Blinker_26      =   0
                End
             End
-            Begin CWUIControlsLib.CWSlide cwSldProgress 
+            Begin CWUIControlsLib.CWSlide cwSldProgress
                Height          =   510
                Left            =   0
                TabIndex        =   169
@@ -691,7 +691,7 @@ Begin VB.Form Analyzer
                _ExtentX        =   4154
                _ExtentY        =   900
                _StockProps     =   68
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   8.25
                   Charset         =   204
@@ -981,7 +981,7 @@ Begin VB.Form Analyzer
                doDec_1         =   26
                doFrame_1       =   24
             End
-            Begin CWUIControlsLib.CWButton cwButStartStopLTF 
+            Begin CWUIControlsLib.CWButton cwButStartStopLTF
                Height          =   690
                Left            =   1245
                TabIndex        =   203
@@ -992,7 +992,7 @@ Begin VB.Form Analyzer
                _ExtentX        =   1852
                _ExtentY        =   1217
                _StockProps     =   68
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   11.25
                   Charset         =   204
@@ -1038,7 +1038,7 @@ Begin VB.Form Analyzer
                font_6          =   7
                ClassName_7     =   "CCWFont"
                bFont_7         =   -1  'True
-               BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   9.75
                   Charset         =   204
@@ -1060,7 +1060,7 @@ Begin VB.Form Analyzer
                font_9          =   10
                ClassName_10    =   "CCWFont"
                bFont_10        =   -1  'True
-               BeginProperty Font_10 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font_10 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   9.75
                   Charset         =   204
@@ -1090,7 +1090,7 @@ Begin VB.Form Analyzer
                font_12         =   13
                ClassName_13    =   "CCWFont"
                bFont_13        =   -1  'True
-               BeginProperty Font_13 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font_13 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   9.75
                   Charset         =   204
@@ -1236,7 +1236,7 @@ Begin VB.Form Analyzer
                Animator_29     =   0
                Blinker_29      =   0
             End
-            Begin CWUIControlsLib.CWButton cwSaveScan 
+            Begin CWUIControlsLib.CWButton cwSaveScan
                Height          =   330
                Left            =   1260
                TabIndex        =   211
@@ -1247,7 +1247,7 @@ Begin VB.Form Analyzer
                _ExtentX        =   1852
                _ExtentY        =   582
                _StockProps     =   68
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   8.25
                   Charset         =   204
@@ -1427,7 +1427,7 @@ Begin VB.Form Analyzer
                Animator_26     =   0
                Blinker_26      =   0
             End
-            Begin CWUIControlsLib.CWButton CWButton1 
+            Begin CWUIControlsLib.CWButton CWButton1
                Height          =   375
                Left            =   0
                TabIndex        =   214
@@ -1438,7 +1438,7 @@ Begin VB.Form Analyzer
                _ExtentX        =   1852
                _ExtentY        =   661
                _StockProps     =   68
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   8.24
                   Charset         =   204
@@ -1618,7 +1618,7 @@ Begin VB.Form Analyzer
                Animator_26     =   0
                Blinker_26      =   0
             End
-            Begin CWUIControlsLib.CWButton cwReadScan 
+            Begin CWUIControlsLib.CWButton cwReadScan
                Height          =   330
                Left            =   1260
                TabIndex        =   218
@@ -1629,7 +1629,7 @@ Begin VB.Form Analyzer
                _ExtentX        =   1852
                _ExtentY        =   582
                _StockProps     =   68
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   8.25
                   Charset         =   204
@@ -1809,7 +1809,7 @@ Begin VB.Form Analyzer
                Animator_26     =   0
                Blinker_26      =   0
             End
-            Begin VB.Label LabelCurrentLTFline 
+            Begin VB.Label LabelCurrentLTFline
                BackColor       =   &H00FFFFFF&
                Caption         =   "975,-37.6, +166#"
                Height          =   240
@@ -1818,13 +1818,13 @@ Begin VB.Form Analyzer
                Top             =   4230
                Width           =   2250
             End
-            Begin VB.Label lblTestTime 
+            Begin VB.Label lblTestTime
                Alignment       =   2  'Center
                Appearance      =   0  'Flat
                BackColor       =   &H00FFFFFF&
                BorderStyle     =   1  'Fixed Single
                Caption         =   "226"
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "Arial"
                   Size            =   11.25
                   Charset         =   0
@@ -1841,11 +1841,11 @@ Begin VB.Form Analyzer
                Top             =   3420
                Width           =   600
             End
-            Begin VB.Label Label1 
+            Begin VB.Label Label1
                Alignment       =   1  'Right Justify
                BackColor       =   &H00E0E0E0&
                Caption         =   "Elapsed s"
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "Arial"
                   Size            =   9.75
                   Charset         =   0
@@ -1862,10 +1862,10 @@ Begin VB.Form Analyzer
                Width           =   915
             End
          End
-         Begin VB.Frame FrameChooseTestType 
+         Begin VB.Frame FrameChooseTestType
             BackColor       =   &H00C0C0C0&
             Caption         =   "Choose Test Type"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   0
@@ -1879,10 +1879,10 @@ Begin VB.Form Analyzer
             TabIndex        =   161
             Top             =   240
             Width           =   2265
-            Begin VB.OptionButton optTestInput 
+            Begin VB.OptionButton optTestInput
                BackColor       =   &H00C0FFFF&
                Caption         =   "Freq Sweep OLTF"
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "Arial"
                   Size            =   8.25
                   Charset         =   204
@@ -1901,10 +1901,10 @@ Begin VB.Form Analyzer
                Value           =   -1  'True
                Width           =   2055
             End
-            Begin VB.OptionButton optTestInput 
+            Begin VB.OptionButton optTestInput
                BackColor       =   &H00FFFFC0&
                Caption         =   "Freq Sweep Plant"
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "Arial"
                   Size            =   8.25
                   Charset         =   204
@@ -1922,10 +1922,10 @@ Begin VB.Form Analyzer
                Top             =   270
                Width           =   2055
             End
-            Begin VB.OptionButton optTestInput 
+            Begin VB.OptionButton optTestInput
                BackColor       =   &H0080C0FF&
                Caption         =   "Measure at one freq"
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "Arial"
                   Size            =   8.25
                   Charset         =   204
@@ -1943,7 +1943,7 @@ Begin VB.Form Analyzer
                Top             =   900
                Width           =   2055
             End
-            Begin VB.CheckBox ChkAdvTF 
+            Begin VB.CheckBox ChkAdvTF
                BackColor       =   &H00FFC0FF&
                Caption         =   "Advanced TF sweep"
                Height          =   270
@@ -1954,7 +1954,7 @@ Begin VB.Form Analyzer
                Width           =   2040
             End
          End
-         Begin VB.CommandButton CmdChoose2ndInputSignal 
+         Begin VB.CommandButton CmdChoose2ndInputSignal
             BackColor       =   &H00FFFFC0&
             Caption         =   "Choose Inp2"
             Height          =   465
@@ -1966,7 +1966,7 @@ Begin VB.Form Analyzer
             Visible         =   0   'False
             Width           =   1095
          End
-         Begin VB.CommandButton CmdChooseInputSignal 
+         Begin VB.CommandButton CmdChooseInputSignal
             BackColor       =   &H00C0FFC0&
             Caption         =   "Choose Input"
             Height          =   465
@@ -1977,7 +1977,7 @@ Begin VB.Form Analyzer
             Top             =   2385
             Width           =   2265
          End
-         Begin VB.Frame FrameMeasureAtFreq 
+         Begin VB.Frame FrameMeasureAtFreq
             BackColor       =   &H0080C0FF&
             BorderStyle     =   0  'None
             Height          =   4300
@@ -1985,9 +1985,9 @@ Begin VB.Form Analyzer
             TabIndex        =   172
             Top             =   2880
             Width           =   2175
-            Begin VB.TextBox txtMag 
+            Begin VB.TextBox txtMag
                Alignment       =   2  'Center
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "MS Sans Serif"
                   Size            =   12
                   Charset         =   0
@@ -2004,9 +2004,9 @@ Begin VB.Form Analyzer
                Top             =   2970
                Width           =   1365
             End
-            Begin VB.TextBox txtPhase 
+            Begin VB.TextBox txtPhase
                Alignment       =   2  'Center
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "MS Sans Serif"
                   Size            =   12
                   Charset         =   0
@@ -2023,7 +2023,7 @@ Begin VB.Form Analyzer
                Top             =   3780
                Width           =   1365
             End
-            Begin CWUIControlsLib.CWButton cwButStartStopMotSenTest 
+            Begin CWUIControlsLib.CWButton cwButStartStopMotSenTest
                Height          =   915
                Left            =   405
                TabIndex        =   175
@@ -2034,7 +2034,7 @@ Begin VB.Form Analyzer
                _ExtentX        =   2487
                _ExtentY        =   1614
                _StockProps     =   68
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   11.25
                   Charset         =   204
@@ -2080,7 +2080,7 @@ Begin VB.Form Analyzer
                font_6          =   7
                ClassName_7     =   "CCWFont"
                bFont_7         =   -1  'True
-               BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   9.75
                   Charset         =   204
@@ -2233,7 +2233,7 @@ Begin VB.Form Analyzer
                Animator_27     =   0
                Blinker_27      =   0
             End
-            Begin CWUIControlsLib.CWNumEdit cwNumExcitFreq 
+            Begin CWUIControlsLib.CWNumEdit cwNumExcitFreq
                Height          =   360
                Index           =   0
                Left            =   405
@@ -2245,7 +2245,7 @@ Begin VB.Form Analyzer
                _ExtentX        =   2434
                _ExtentY        =   635
                _StockProps     =   4
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   12
                   Charset         =   204
@@ -2287,7 +2287,7 @@ Begin VB.Form Analyzer
                ClassName_5     =   "CCWBindingHolderArrayEditor"
                Owner_5         =   1
             End
-            Begin CWUIControlsLib.CWNumEdit cwNumExcitAmpl 
+            Begin CWUIControlsLib.CWNumEdit cwNumExcitAmpl
                Height          =   360
                Index           =   0
                Left            =   405
@@ -2299,7 +2299,7 @@ Begin VB.Form Analyzer
                _ExtentX        =   2434
                _ExtentY        =   635
                _StockProps     =   4
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   12
                   Charset         =   204
@@ -2341,12 +2341,12 @@ Begin VB.Form Analyzer
                ClassName_5     =   "CCWBindingHolderArrayEditor"
                Owner_5         =   1
             End
-            Begin VB.Label Label1 
+            Begin VB.Label Label1
                Alignment       =   2  'Center
                Appearance      =   0  'Flat
                BackColor       =   &H00C0FFC0&
                Caption         =   " Sine Freq, Hz"
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "Arial"
                   Size            =   9
                   Charset         =   204
@@ -2364,12 +2364,12 @@ Begin VB.Form Analyzer
                Top             =   135
                Width           =   1380
             End
-            Begin VB.Label Label1 
+            Begin VB.Label Label1
                Alignment       =   2  'Center
                Appearance      =   0  'Flat
                BackColor       =   &H00C0FFFF&
                Caption         =   "Amplitude"
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "Arial"
                   Size            =   9
                   Charset         =   204
@@ -2387,12 +2387,12 @@ Begin VB.Form Analyzer
                Top             =   855
                Width           =   1380
             End
-            Begin VB.Label Label1 
+            Begin VB.Label Label1
                Alignment       =   2  'Center
                Appearance      =   0  'Flat
                BackColor       =   &H00FFFFFF&
                Caption         =   "Phase deg"
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "Arial"
                   Size            =   9
                   Charset         =   204
@@ -2410,12 +2410,12 @@ Begin VB.Form Analyzer
                Top             =   3510
                Width           =   1380
             End
-            Begin VB.Label Label1 
+            Begin VB.Label Label1
                Alignment       =   2  'Center
                Appearance      =   0  'Flat
                BackColor       =   &H00C0FFC0&
                Caption         =   "Magnitude DB"
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "Arial"
                   Size            =   9
                   Charset         =   204
@@ -2434,14 +2434,14 @@ Begin VB.Form Analyzer
                Width           =   1365
             End
          End
-         Begin VB.Frame FrameLTFaveraging 
+         Begin VB.Frame FrameLTFaveraging
             BorderStyle     =   0  'None
             Height          =   600
             Left            =   1170
             TabIndex        =   182
             Top             =   1755
             Width           =   1230
-            Begin CWUIControlsLib.CWNumEdit cwLTF_time_scale 
+            Begin CWUIControlsLib.CWNumEdit cwLTF_time_scale
                Height          =   285
                Left            =   90
                TabIndex        =   183
@@ -2452,7 +2452,7 @@ Begin VB.Form Analyzer
                _ExtentX        =   661
                _ExtentY        =   503
                _StockProps     =   4
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "MS Sans Serif"
                   Size            =   9.76
                   Charset         =   0
@@ -2491,10 +2491,10 @@ Begin VB.Form Analyzer
                ClassName_5     =   "CCWBindingHolderArrayEditor"
                Owner_5         =   1
             End
-            Begin VB.Label Label1 
+            Begin VB.Label Label1
                Alignment       =   2  'Center
                Caption         =   "TF averaging"
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "Arial"
                   Size            =   8.25
                   Charset         =   0
@@ -2512,12 +2512,12 @@ Begin VB.Form Analyzer
             End
          End
       End
-      Begin VB.TextBox TextXunits 
+      Begin VB.TextBox TextXunits
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00D2E6E6&
          BorderStyle     =   0  'None
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9
             Charset         =   0
@@ -2534,12 +2534,12 @@ Begin VB.Form Analyzer
          Top             =   3870
          Width           =   960
       End
-      Begin VB.TextBox TextXunits 
+      Begin VB.TextBox TextXunits
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00D2E6E6&
          BorderStyle     =   0  'None
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9
             Charset         =   0
@@ -2556,7 +2556,7 @@ Begin VB.Form Analyzer
          Top             =   7965
          Width           =   960
       End
-      Begin VB.CheckBox ChkReversePhase 
+      Begin VB.CheckBox ChkReversePhase
          BackColor       =   &H008080FF&
          Caption         =   "Reverse Phase"
          Height          =   285
@@ -2566,7 +2566,7 @@ Begin VB.Form Analyzer
          Top             =   4275
          Width           =   1545
       End
-      Begin VB.Frame FrameCallTuning 
+      Begin VB.Frame FrameCallTuning
          BackColor       =   &H00FFFFC0&
          BorderStyle     =   0  'None
          Height          =   600
@@ -2574,10 +2574,10 @@ Begin VB.Form Analyzer
          TabIndex        =   153
          Top             =   315
          Width           =   1590
-         Begin VB.CommandButton CmdFilters 
+         Begin VB.CommandButton CmdFilters
             BackColor       =   &H00C0C0C0&
             Caption         =   "Tuning"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Tahoma"
                Size            =   9.75
                Charset         =   0
@@ -2595,7 +2595,7 @@ Begin VB.Form Analyzer
             Top             =   45
             Width           =   915
          End
-         Begin VB.Image ImageTuning 
+         Begin VB.Image ImageTuning
             Height          =   465
             Left            =   990
             Picture         =   "Analyzer.frx":1DB2
@@ -2604,7 +2604,7 @@ Begin VB.Form Analyzer
             Top             =   45
             Width           =   465
          End
-         Begin VB.Label LblTuning 
+         Begin VB.Label LblTuning
             BackColor       =   &H00C0C0C0&
             Height          =   555
             Left            =   0
@@ -2613,7 +2613,7 @@ Begin VB.Form Analyzer
             Width           =   1500
          End
       End
-      Begin CWUIControlsLib.CWGraph CWGraph 
+      Begin CWUIControlsLib.CWGraph CWGraph
          Height          =   4000
          Left            =   2700
          TabIndex        =   185
@@ -2625,7 +2625,7 @@ Begin VB.Form Analyzer
          _ExtentY        =   7056
          _StockProps     =   71
          BackColor       =   -2147483633
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.24
             Charset         =   204
@@ -2977,7 +2977,7 @@ Begin VB.Form Analyzer
          TextFont_43     =   44
          ClassName_44    =   "CCWFont"
          bFont_44        =   -1  'True
-         BeginProperty Font_44 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font_44 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   204
@@ -3025,7 +3025,7 @@ Begin VB.Form Analyzer
          ArrowLineStyle_43=   1
          ArrowHeadStyle_43=   1
       End
-      Begin CWUIControlsLib.CWGraph CWGraphPhase 
+      Begin CWUIControlsLib.CWGraph CWGraphPhase
          Height          =   4000
          Left            =   2700
          TabIndex        =   219
@@ -3037,7 +3037,7 @@ Begin VB.Form Analyzer
          _ExtentY        =   7056
          _StockProps     =   71
          BackColor       =   -2147483633
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.24
             Charset         =   204
@@ -3415,7 +3415,7 @@ Begin VB.Form Analyzer
          TextFont_45     =   46
          ClassName_46    =   "CCWFont"
          bFont_46        =   -1  'True
-         BeginProperty Font_46 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font_46 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   204
@@ -3463,7 +3463,7 @@ Begin VB.Form Analyzer
          ArrowLineStyle_45=   1
          ArrowHeadStyle_45=   1
       End
-      Begin VB.Image ImagePerformance 
+      Begin VB.Image ImagePerformance
          Height          =   600
          Left            =   135
          Picture         =   "Analyzer.frx":165F4
@@ -3472,10 +3472,10 @@ Begin VB.Form Analyzer
          Width           =   600
       End
    End
-   Begin VB.CommandButton CmdScope 
+   Begin VB.CommandButton CmdScope
       BackColor       =   &H00E0FFE0&
       Caption         =   "Scope"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Arial"
          Size            =   9.75
          Charset         =   0
@@ -3491,10 +3491,10 @@ Begin VB.Form Analyzer
       Top             =   5625
       Width           =   1600
    End
-   Begin VB.Frame frameAccessWindow 
+   Begin VB.Frame frameAccessWindow
       BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Courier New"
          Size            =   9.75
          Charset         =   0
@@ -3508,10 +3508,10 @@ Begin VB.Form Analyzer
       TabIndex        =   38
       Top             =   2475
       Width           =   2785
-      Begin VB.OptionButton optDialogWindow 
+      Begin VB.OptionButton optDialogWindow
          BackColor       =   &H00FFFFC0&
          Caption         =   "Performance"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -3529,10 +3529,10 @@ Begin VB.Form Analyzer
          Top             =   1305
          Width           =   2000
       End
-      Begin VB.OptionButton optDialogWindow 
+      Begin VB.OptionButton optDialogWindow
          BackColor       =   &H008080FF&
          Caption         =   "Alarms"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -3552,10 +3552,10 @@ Begin VB.Form Analyzer
          Visible         =   0   'False
          Width           =   2000
       End
-      Begin VB.OptionButton optDialogWindow 
+      Begin VB.OptionButton optDialogWindow
          BackColor       =   &H0080FFFF&
          Caption         =   "System Control"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -3574,10 +3574,10 @@ Begin VB.Form Analyzer
          Value           =   -1  'True
          Width           =   2000
       End
-      Begin VB.OptionButton optDialogWindow 
+      Begin VB.OptionButton optDialogWindow
          BackColor       =   &H00FFB0B0&
          Caption         =   "Diagnostic-tuning"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -3595,10 +3595,10 @@ Begin VB.Form Analyzer
          Top             =   1875
          Width           =   2000
       End
-      Begin VB.OptionButton optDialogWindow 
+      Begin VB.OptionButton optDialogWindow
          BackColor       =   &H0070D0FF&
          Caption         =   "Firmware Params"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -3617,10 +3617,10 @@ Begin VB.Form Analyzer
          Top             =   2460
          Width           =   2000
       End
-      Begin VB.OptionButton optDialogWindow 
+      Begin VB.OptionButton optDialogWindow
          BackColor       =   &H0080FF80&
          Caption         =   "Communication"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -3639,7 +3639,7 @@ Begin VB.Form Analyzer
          Top             =   135
          Width           =   2000
       End
-      Begin VB.Image ImagePictogram 
+      Begin VB.Image ImagePictogram
          Height          =   495
          Index           =   0
          Left            =   60
@@ -3648,7 +3648,7 @@ Begin VB.Form Analyzer
          Top             =   60
          Width           =   555
       End
-      Begin VB.Image ImagePictogram 
+      Begin VB.Image ImagePictogram
          Height          =   495
          Index           =   1
          Left            =   60
@@ -3657,7 +3657,7 @@ Begin VB.Form Analyzer
          Top             =   660
          Width           =   495
       End
-      Begin VB.Image ImagePictogram 
+      Begin VB.Image ImagePictogram
          Height          =   495
          Index           =   4
          Left            =   60
@@ -3666,7 +3666,7 @@ Begin VB.Form Analyzer
          Top             =   2415
          Width           =   495
       End
-      Begin VB.Image ImagePictogram 
+      Begin VB.Image ImagePictogram
          Height          =   495
          Index           =   5
          Left            =   60
@@ -3676,7 +3676,7 @@ Begin VB.Form Analyzer
          Visible         =   0   'False
          Width           =   495
       End
-      Begin VB.Image ImagePictogram 
+      Begin VB.Image ImagePictogram
          Height          =   495
          Index           =   2
          Left            =   60
@@ -3685,7 +3685,7 @@ Begin VB.Form Analyzer
          Top             =   1245
          Width           =   495
       End
-      Begin VB.Image ImagePictogram 
+      Begin VB.Image ImagePictogram
          Height          =   495
          Index           =   3
          Left            =   60
@@ -3694,7 +3694,7 @@ Begin VB.Form Analyzer
          Top             =   1830
          Width           =   495
       End
-      Begin VB.Label LabelTabSelect 
+      Begin VB.Label LabelTabSelect
          Appearance      =   0  'Flat
          BackColor       =   &H00C0FFC0&
          BorderStyle     =   1  'Fixed Single
@@ -3706,7 +3706,7 @@ Begin VB.Form Analyzer
          Top             =   45
          Width           =   2805
       End
-      Begin VB.Label LabelTabSelect 
+      Begin VB.Label LabelTabSelect
          Appearance      =   0  'Flat
          BackColor       =   &H0080E0FF&
          BorderStyle     =   1  'Fixed Single
@@ -3719,7 +3719,7 @@ Begin VB.Form Analyzer
          Visible         =   0   'False
          Width           =   2805
       End
-      Begin VB.Label LabelTabSelect 
+      Begin VB.Label LabelTabSelect
          Appearance      =   0  'Flat
          BackColor       =   &H00FFE0E0&
          BorderStyle     =   1  'Fixed Single
@@ -3732,7 +3732,7 @@ Begin VB.Form Analyzer
          Visible         =   0   'False
          Width           =   2805
       End
-      Begin VB.Label LabelTabSelect 
+      Begin VB.Label LabelTabSelect
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFC0&
          BorderStyle     =   1  'Fixed Single
@@ -3745,7 +3745,7 @@ Begin VB.Form Analyzer
          Visible         =   0   'False
          Width           =   2805
       End
-      Begin VB.Label LabelTabSelect 
+      Begin VB.Label LabelTabSelect
          Appearance      =   0  'Flat
          BackColor       =   &H00C0C0FF&
          BorderStyle     =   1  'Fixed Single
@@ -3758,7 +3758,7 @@ Begin VB.Form Analyzer
          Visible         =   0   'False
          Width           =   2805
       End
-      Begin VB.Label LabelTabSelect 
+      Begin VB.Label LabelTabSelect
          Appearance      =   0  'Flat
          BackColor       =   &H00C0FFFF&
          BorderStyle     =   1  'Fixed Single
@@ -3772,17 +3772,17 @@ Begin VB.Form Analyzer
          Width           =   2805
       End
    End
-   Begin VB.Timer timeTimer 
+   Begin VB.Timer timeTimer
       Interval        =   100
       Left            =   630
       Top             =   450
    End
-   Begin VB.Timer TimerTestProgram 
+   Begin VB.Timer TimerTestProgram
       Interval        =   100
       Left            =   1890
       Top             =   450
    End
-   Begin MSComDlg.CommonDialog dlgCommonDialog 
+   Begin MSComDlg.CommonDialog dlgCommonDialog
       Left            =   45
       Top             =   405
       _ExtentX        =   847
@@ -3790,9 +3790,9 @@ Begin VB.Form Analyzer
       _Version        =   393216
       CancelError     =   -1  'True
    End
-   Begin VB.Frame FrameDiagnosticExcitation 
+   Begin VB.Frame FrameDiagnosticExcitation
       BackColor       =   &H00FFFFFF&
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Arial"
          Size            =   13.5
          Charset         =   204
@@ -3808,10 +3808,10 @@ Begin VB.Form Analyzer
       Top             =   6795
       Visible         =   0   'False
       Width           =   2580
-      Begin VB.CommandButton cmdSetControllerTime 
+      Begin VB.CommandButton cmdSetControllerTime
          BackColor       =   &H00E0E0E0&
          Caption         =   "Set Controller Time from PC time"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -3828,13 +3828,13 @@ Begin VB.Form Analyzer
          Top             =   945
          Width           =   2310
       End
-      Begin VB.Label LblTemperature 
+      Begin VB.Label LblTemperature
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "+28"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   10.5
             Charset         =   0
@@ -3851,10 +3851,10 @@ Begin VB.Form Analyzer
          Top             =   585
          Width           =   600
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          BackColor       =   &H00F0F0F0&
          Caption         =   "T_controller, degC"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9
             Charset         =   0
@@ -3870,13 +3870,13 @@ Begin VB.Form Analyzer
          Top             =   585
          Width           =   1680
       End
-      Begin VB.Label Label3 
+      Begin VB.Label Label3
          Alignment       =   1  'Right Justify
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "?0.025"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   10.5
             Charset         =   0
@@ -3893,10 +3893,10 @@ Begin VB.Form Analyzer
          Top             =   270
          Width           =   870
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          BackColor       =   &H00F0F0F0&
          Caption         =   "cmd exec. time"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9
             Charset         =   0
@@ -3912,12 +3912,12 @@ Begin VB.Form Analyzer
          Top             =   270
          Width           =   1365
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFFF&
          Caption         =   "miscellaneous"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   12
             Charset         =   0
@@ -3936,7 +3936,7 @@ Begin VB.Form Analyzer
          Width           =   1785
       End
    End
-   Begin VB.Frame FrameButtons 
+   Begin VB.Frame FrameButtons
       BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
       Height          =   735
@@ -3944,10 +3944,10 @@ Begin VB.Form Analyzer
       TabIndex        =   118
       Top             =   7614
       Width           =   11805
-      Begin VB.CommandButton CmdRestorefromFlash 
+      Begin VB.CommandButton CmdRestorefromFlash
          BackColor       =   &H00C0FFC0&
          Caption         =   "Restore Params from FLASH"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -3964,10 +3964,10 @@ Begin VB.Form Analyzer
          Top             =   90
          Width           =   1665
       End
-      Begin VB.CommandButton cmdLoadDefaults 
+      Begin VB.CommandButton cmdLoadDefaults
          BackColor       =   &H0080C0FF&
          Caption         =   "Load Default Parameters"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -3985,10 +3985,10 @@ Begin VB.Form Analyzer
          Top             =   90
          Width           =   1665
       End
-      Begin VB.CommandButton cmdSaveParamsIntoFLASH 
+      Begin VB.CommandButton cmdSaveParamsIntoFLASH
          BackColor       =   &H00FFFF80&
          Caption         =   "Save Parameters into FLASH"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9
             Charset         =   0
@@ -4006,7 +4006,7 @@ Begin VB.Form Analyzer
          Top             =   90
          Width           =   1665
       End
-      Begin CWUIControlsLib.CWButton cwBut_FF_ALL 
+      Begin CWUIControlsLib.CWButton cwBut_FF_ALL
          Height          =   600
          Left            =   4005
          TabIndex        =   144
@@ -4018,7 +4018,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   3519
          _ExtentY        =   1058
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -4229,7 +4229,7 @@ Begin VB.Form Analyzer
          Animator_26     =   0
          Blinker_26      =   0
       End
-      Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator 
+      Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator
          Height          =   645
          Index           =   1
          Left            =   0
@@ -4241,7 +4241,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   1720
          _ExtentY        =   1138
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   204
@@ -4424,7 +4424,7 @@ Begin VB.Form Analyzer
          Animator_27     =   0
          Blinker_27      =   0
       End
-      Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator 
+      Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator
          Height          =   645
          Index           =   2
          Left            =   1350
@@ -4436,7 +4436,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   1720
          _ExtentY        =   1138
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   204
@@ -4615,7 +4615,7 @@ Begin VB.Form Analyzer
          Animator_26     =   0
          Blinker_26      =   0
       End
-      Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator 
+      Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator
          Height          =   645
          Index           =   6
          Left            =   2700
@@ -4627,7 +4627,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   1720
          _ExtentY        =   1138
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   204
@@ -4811,14 +4811,14 @@ Begin VB.Form Analyzer
          Blinker_27      =   0
       End
    End
-   Begin VB.Frame FrameRTmon 
+   Begin VB.Frame FrameRTmon
       BackColor       =   &H00404040&
       Height          =   1725
       Left            =   2745
       TabIndex        =   70
       Top             =   -62
       Width           =   11760
-      Begin VB.Frame Frame_RT_Mag_Ph 
+      Begin VB.Frame Frame_RT_Mag_Ph
          BackColor       =   &H00404040&
          BorderStyle     =   0  'None
          Height          =   1095
@@ -4827,7 +4827,7 @@ Begin VB.Form Analyzer
          Top             =   540
          Visible         =   0   'False
          Width           =   4380
-         Begin CWUIControlsLib.CWButton cw_Excitation_is_On 
+         Begin CWUIControlsLib.CWButton cw_Excitation_is_On
             Height          =   375
             Left            =   45
             TabIndex        =   133
@@ -4838,7 +4838,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   3598
             _ExtentY        =   661
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   9.74
                Charset         =   204
@@ -5017,13 +5017,13 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin VB.Label lbl_BNC_0 
+         Begin VB.Label lbl_BNC_0
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H00E0FFFF&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Zpos_mm"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -5040,13 +5040,13 @@ Begin VB.Form Analyzer
             Top             =   45
             Width           =   1860
          End
-         Begin VB.Label lbl_BNC_1 
+         Begin VB.Label lbl_BNC_1
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H00E0FFFF&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Excitation"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -5063,13 +5063,13 @@ Begin VB.Form Analyzer
             Top             =   45
             Width           =   1860
          End
-         Begin VB.Label lbl_Mag_dB 
+         Begin VB.Label lbl_Mag_dB
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H00FFFFC0&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "88.8"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -5086,13 +5086,13 @@ Begin VB.Form Analyzer
             Top             =   405
             Width           =   870
          End
-         Begin VB.Label lbl_Phase_diff 
+         Begin VB.Label lbl_Phase_diff
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H00FFFFC0&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "88.8"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -5109,13 +5109,13 @@ Begin VB.Form Analyzer
             Top             =   765
             Width           =   870
          End
-         Begin VB.Label lbValveNum 
+         Begin VB.Label lbValveNum
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "vs."
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -5132,13 +5132,13 @@ Begin VB.Form Analyzer
             Top             =   90
             Width           =   645
          End
-         Begin VB.Label lbValveNum 
+         Begin VB.Label lbValveNum
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Relative dB"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -5155,13 +5155,13 @@ Begin VB.Form Analyzer
             Top             =   405
             Width           =   1590
          End
-         Begin VB.Label lbValveNum 
+         Begin VB.Label lbValveNum
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Relative degrees"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -5179,8 +5179,8 @@ Begin VB.Form Analyzer
             Width           =   2040
          End
       End
-      Begin VB.TextBox txtManualCMD 
-         BeginProperty Font 
+      Begin VB.TextBox txtManualCMD
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   8.25
             Charset         =   0
@@ -5196,7 +5196,7 @@ Begin VB.Form Analyzer
          Top             =   180
          Width           =   1860
       End
-      Begin VB.Frame FrameBNCs 
+      Begin VB.Frame FrameBNCs
          BackColor       =   &H00808080&
          BorderStyle     =   0  'None
          Caption         =   "Frame1"
@@ -5205,8 +5205,8 @@ Begin VB.Form Analyzer
          TabIndex        =   125
          Top             =   1180
          Width           =   7225
-         Begin VB.ComboBox CmbBNC0 
-            BeginProperty Font 
+         Begin VB.ComboBox CmbBNC0
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9
                Charset         =   0
@@ -5226,8 +5226,8 @@ Begin VB.Form Analyzer
             Top             =   45
             Width           =   1890
          End
-         Begin VB.ComboBox CmbBNC1 
-            BeginProperty Font 
+         Begin VB.ComboBox CmbBNC1
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9
                Charset         =   0
@@ -5247,7 +5247,7 @@ Begin VB.Form Analyzer
             Top             =   45
             Width           =   1890
          End
-         Begin CWUIControlsLib.CWButton cwBNCsliders 
+         Begin CWUIControlsLib.CWButton cwBNCsliders
             Height          =   450
             Left            =   2610
             TabIndex        =   128
@@ -5258,7 +5258,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   3519
             _ExtentY        =   794
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "MS Sans Serif"
                Size            =   8.25
                Charset         =   0
@@ -5323,7 +5323,7 @@ Begin VB.Form Analyzer
             font_8          =   9
             ClassName_9     =   "CCWFont"
             bFont_9         =   -1  'True
-            BeginProperty Font_9 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font_9 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "MS Sans Serif"
                Size            =   8.25
                Charset         =   0
@@ -5472,13 +5472,13 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin VB.Label lbl 
+         Begin VB.Label lbl
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Diag.0"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -5495,13 +5495,13 @@ Begin VB.Form Analyzer
             Top             =   90
             Width           =   600
          End
-         Begin VB.Label lbl 
+         Begin VB.Label lbl
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Diag.1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -5519,12 +5519,12 @@ Begin VB.Form Analyzer
             Width           =   645
          End
       End
-      Begin VB.Timer aTimerMonitoring 
+      Begin VB.Timer aTimerMonitoring
          Interval        =   1000
          Left            =   3150
          Top             =   90
       End
-      Begin CWUIControlsLib.CWButton cwBut_RT_Monitoring 
+      Begin CWUIControlsLib.CWButton cwBut_RT_Monitoring
          Height          =   855
          Left            =   90
          TabIndex        =   71
@@ -5535,7 +5535,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   1508
          _ExtentY        =   1508
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   9
             Charset         =   204
@@ -5739,7 +5739,7 @@ Begin VB.Form Analyzer
          Animator_26     =   0
          Blinker_26      =   0
       End
-      Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator 
+      Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator
          Height          =   285
          Index           =   3
          Left            =   3870
@@ -5751,7 +5751,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   2963
          _ExtentY        =   503
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   204
@@ -5931,7 +5931,7 @@ Begin VB.Form Analyzer
          Animator_26     =   0
          Blinker_26      =   0
       End
-      Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator 
+      Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator
          Height          =   285
          Index           =   7
          Left            =   3870
@@ -5943,7 +5943,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   1940
          _ExtentY        =   503
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   204
@@ -6122,7 +6122,7 @@ Begin VB.Form Analyzer
          Animator_26     =   0
          Blinker_26      =   0
       End
-      Begin CWUIControlsLib.CWButton cwAxisFBstatus 
+      Begin CWUIControlsLib.CWButton cwAxisFBstatus
          Height          =   285
          Index           =   0
          Left            =   3870
@@ -6134,7 +6134,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   891
          _ExtentY        =   503
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   204
@@ -6329,7 +6329,7 @@ Begin VB.Form Analyzer
          Animator_26     =   0
          Blinker_26      =   0
       End
-      Begin CWUIControlsLib.CWButton cwAxisFBstatus 
+      Begin CWUIControlsLib.CWButton cwAxisFBstatus
          Height          =   285
          Index           =   1
          Left            =   4455
@@ -6341,7 +6341,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   891
          _ExtentY        =   503
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   204
@@ -6536,7 +6536,7 @@ Begin VB.Form Analyzer
          Animator_26     =   0
          Blinker_26      =   0
       End
-      Begin CWUIControlsLib.CWButton cwAxisFBstatus 
+      Begin CWUIControlsLib.CWButton cwAxisFBstatus
          Height          =   285
          Index           =   2
          Left            =   5040
@@ -6548,7 +6548,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   891
          _ExtentY        =   503
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   204
@@ -6743,7 +6743,7 @@ Begin VB.Form Analyzer
          Animator_26     =   0
          Blinker_26      =   0
       End
-      Begin CWUIControlsLib.CWButton cwAxisFBstatus 
+      Begin CWUIControlsLib.CWButton cwAxisFBstatus
          Height          =   285
          Index           =   3
          Left            =   5622
@@ -6755,7 +6755,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   891
          _ExtentY        =   503
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   204
@@ -6950,7 +6950,7 @@ Begin VB.Form Analyzer
          Animator_26     =   0
          Blinker_26      =   0
       End
-      Begin CWUIControlsLib.CWButton cwAxisFBstatus 
+      Begin CWUIControlsLib.CWButton cwAxisFBstatus
          Height          =   285
          Index           =   4
          Left            =   6208
@@ -6962,7 +6962,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   891
          _ExtentY        =   503
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   204
@@ -7157,7 +7157,7 @@ Begin VB.Form Analyzer
          Animator_26     =   0
          Blinker_26      =   0
       End
-      Begin CWUIControlsLib.CWButton cwAxisFBstatus 
+      Begin CWUIControlsLib.CWButton cwAxisFBstatus
          Height          =   285
          Index           =   5
          Left            =   6790
@@ -7169,7 +7169,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   891
          _ExtentY        =   503
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   204
@@ -7364,13 +7364,13 @@ Begin VB.Form Analyzer
          Animator_26     =   0
          Blinker_26      =   0
       End
-      Begin VB.Label lbl_RTstatus 
+      Begin VB.Label lbl_RTstatus
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00E0FFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "TooLowInpPSI"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9
             Charset         =   204
@@ -7386,7 +7386,7 @@ Begin VB.Form Analyzer
          Top             =   155
          Width           =   1680
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          BackColor       =   &H00C0FFFF&
          Caption         =   "cmd      exec.time, s  "
          Height          =   245
@@ -7396,13 +7396,13 @@ Begin VB.Form Analyzer
          Top             =   225
          Width           =   1455
       End
-      Begin VB.Label lblCMDtime 
+      Begin VB.Label lblCMDtime
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00C0FFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "?11.33"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -7419,13 +7419,13 @@ Begin VB.Form Analyzer
          Top             =   210
          Width           =   780
       End
-      Begin VB.Label lblAxis 
+      Begin VB.Label lblAxis
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00404040&
          BackStyle       =   0  'Transparent
          Caption         =   "RT Monitoring"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -7443,13 +7443,13 @@ Begin VB.Form Analyzer
          Top             =   100
          Width           =   1560
       End
-      Begin VB.Label lbl 
+      Begin VB.Label lbl
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Motor Power"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -7466,13 +7466,13 @@ Begin VB.Form Analyzer
          Top             =   855
          Width           =   1365
       End
-      Begin VB.Label lbl_MotPower 
+      Begin VB.Label lbl_MotPower
          Alignment       =   1  'Right Justify
          Appearance      =   0  'Flat
          BackColor       =   &H00E0FFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "88%"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -7489,13 +7489,13 @@ Begin VB.Form Analyzer
          Top             =   855
          Width           =   700
       End
-      Begin VB.Label lbl_ValveCurrent 
+      Begin VB.Label lbl_ValveCurrent
          Alignment       =   1  'Right Justify
          Appearance      =   0  'Flat
          BackColor       =   &H00E0FFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "122.2"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -7513,13 +7513,13 @@ Begin VB.Form Analyzer
          Top             =   1260
          Width           =   645
       End
-      Begin VB.Label lbl_ValveCurrent 
+      Begin VB.Label lbl_ValveCurrent
          Alignment       =   1  'Right Justify
          Appearance      =   0  'Flat
          BackColor       =   &H00E0FFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "111.0"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -7537,13 +7537,13 @@ Begin VB.Form Analyzer
          Top             =   1260
          Width           =   645
       End
-      Begin VB.Label lbl_ValveCurrent 
+      Begin VB.Label lbl_ValveCurrent
          Alignment       =   1  'Right Justify
          Appearance      =   0  'Flat
          BackColor       =   &H00E0FFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "99.9"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -7561,13 +7561,13 @@ Begin VB.Form Analyzer
          Top             =   1260
          Width           =   645
       End
-      Begin VB.Label lbl_ValveCurrent 
+      Begin VB.Label lbl_ValveCurrent
          Alignment       =   1  'Right Justify
          Appearance      =   0  'Flat
          BackColor       =   &H00E0FFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "88.8"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -7585,13 +7585,13 @@ Begin VB.Form Analyzer
          Top             =   1260
          Width           =   645
       End
-      Begin VB.Label lbl_IsoPressure 
+      Begin VB.Label lbl_IsoPressure
          Alignment       =   1  'Right Justify
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFC0&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "77.77"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -7609,13 +7609,13 @@ Begin VB.Form Analyzer
          Top             =   855
          Width           =   690
       End
-      Begin VB.Label lbl_IsoPressure 
+      Begin VB.Label lbl_IsoPressure
          Alignment       =   1  'Right Justify
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFC0&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "44.44"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -7633,13 +7633,13 @@ Begin VB.Form Analyzer
          Top             =   855
          Width           =   645
       End
-      Begin VB.Label lbl_IsoPressure 
+      Begin VB.Label lbl_IsoPressure
          Alignment       =   1  'Right Justify
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFC0&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "33.33"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -7657,13 +7657,13 @@ Begin VB.Form Analyzer
          Top             =   855
          Width           =   645
       End
-      Begin VB.Label lbl_IsoPressure 
+      Begin VB.Label lbl_IsoPressure
          Alignment       =   1  'Right Justify
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFC0&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "22.22"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -7681,13 +7681,13 @@ Begin VB.Form Analyzer
          Top             =   855
          Width           =   645
       End
-      Begin VB.Label lbl_IsoPressure 
+      Begin VB.Label lbl_IsoPressure
          Alignment       =   1  'Right Justify
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFC0&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "12.34"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -7705,13 +7705,13 @@ Begin VB.Form Analyzer
          Top             =   855
          Width           =   645
       End
-      Begin VB.Label lbl_mA 
+      Begin VB.Label lbl_mA
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00E0FFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "mA"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -7727,13 +7727,13 @@ Begin VB.Form Analyzer
          Top             =   1260
          Width           =   465
       End
-      Begin VB.Label lbl_PSI 
+      Begin VB.Label lbl_PSI
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFC0&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "PSI"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -7749,13 +7749,13 @@ Begin VB.Form Analyzer
          Top             =   855
          Width           =   465
       End
-      Begin VB.Label lbValveNum 
+      Begin VB.Label lbValveNum
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Input"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -7772,13 +7772,13 @@ Begin VB.Form Analyzer
          Top             =   540
          Width           =   645
       End
-      Begin VB.Label lbValveNum 
+      Begin VB.Label lbValveNum
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Iso 4"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -7795,13 +7795,13 @@ Begin VB.Form Analyzer
          Top             =   540
          Width           =   645
       End
-      Begin VB.Label lbValveNum 
+      Begin VB.Label lbValveNum
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Iso 3"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -7818,13 +7818,13 @@ Begin VB.Form Analyzer
          Top             =   540
          Width           =   645
       End
-      Begin VB.Label lbValveNum 
+      Begin VB.Label lbValveNum
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Iso 2"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -7841,13 +7841,13 @@ Begin VB.Form Analyzer
          Top             =   540
          Width           =   645
       End
-      Begin VB.Label lbValveNum 
+      Begin VB.Label lbValveNum
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Iso 1"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -7864,13 +7864,13 @@ Begin VB.Form Analyzer
          Top             =   540
          Width           =   645
       End
-      Begin VB.Label lbl_ProxSensor 
+      Begin VB.Label lbl_ProxSensor
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H0080FFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "-1200"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -7888,13 +7888,13 @@ Begin VB.Form Analyzer
          Top             =   495
          Width           =   645
       End
-      Begin VB.Label lbIsoNum 
+      Begin VB.Label lbIsoNum
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Prox 1"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -7911,13 +7911,13 @@ Begin VB.Form Analyzer
          Top             =   225
          Width           =   690
       End
-      Begin VB.Label lbl_ProxSensor 
+      Begin VB.Label lbl_ProxSensor
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H0080FFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "-6789"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -7935,13 +7935,13 @@ Begin VB.Form Analyzer
          Top             =   495
          Width           =   645
       End
-      Begin VB.Label lbIsoNum 
+      Begin VB.Label lbIsoNum
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Prox 2"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -7958,13 +7958,13 @@ Begin VB.Form Analyzer
          Top             =   225
          Width           =   690
       End
-      Begin VB.Label lbl_ProxSensor 
+      Begin VB.Label lbl_ProxSensor
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H0080FFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "-6789"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -7982,13 +7982,13 @@ Begin VB.Form Analyzer
          Top             =   495
          Width           =   645
       End
-      Begin VB.Label lbIsoNum 
+      Begin VB.Label lbIsoNum
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Prox 3"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -8005,13 +8005,13 @@ Begin VB.Form Analyzer
          Top             =   225
          Width           =   690
       End
-      Begin VB.Label lbl_ProxSensor 
+      Begin VB.Label lbl_ProxSensor
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H0080FFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "1234"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -8029,13 +8029,13 @@ Begin VB.Form Analyzer
          Top             =   855
          Width           =   645
       End
-      Begin VB.Label lbl_RTM 
+      Begin VB.Label lbl_RTM
          Alignment       =   1  'Right Justify
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Vert"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -8052,13 +8052,13 @@ Begin VB.Form Analyzer
          Top             =   540
          Width           =   600
       End
-      Begin VB.Label lbl_RTM 
+      Begin VB.Label lbl_RTM
          Alignment       =   1  'Right Justify
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Horiz"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -8075,13 +8075,13 @@ Begin VB.Form Analyzer
          Top             =   900
          Width           =   600
       End
-      Begin VB.Label lbl_ProxSensor 
+      Begin VB.Label lbl_ProxSensor
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H0080FFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "1234"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -8099,13 +8099,13 @@ Begin VB.Form Analyzer
          Top             =   855
          Width           =   645
       End
-      Begin VB.Label lbl_ProxSensor 
+      Begin VB.Label lbl_ProxSensor
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H0080FFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "1234"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   11.25
             Charset         =   0
@@ -8124,9 +8124,9 @@ Begin VB.Form Analyzer
          Width           =   645
       End
    End
-   Begin VB.TextBox txtStatus 
+   Begin VB.TextBox txtStatus
       BackColor       =   &H00FFFFC0&
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   8.25
          Charset         =   0
@@ -8142,7 +8142,7 @@ Begin VB.Form Analyzer
       Top             =   8415
       Width           =   9375
    End
-   Begin VB.Frame FrameBNC0 
+   Begin VB.Frame FrameBNC0
       BorderStyle     =   0  'None
       Height          =   7575
       Left            =   2835
@@ -8150,7 +8150,7 @@ Begin VB.Form Analyzer
       Top             =   1170
       Visible         =   0   'False
       Width           =   1930
-      Begin CWUIControlsLib.CWSlide cwBNC0select 
+      Begin CWUIControlsLib.CWSlide cwBNC0select
          Height          =   7530
          Left            =   10
          TabIndex        =   121
@@ -8161,7 +8161,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   3307
          _ExtentY        =   13282
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -8564,7 +8564,7 @@ Begin VB.Form Analyzer
          Font_12         =   55
          ClassName_55    =   "CCWFont"
          bFont_55        =   -1  'True
-         BeginProperty Font_55 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font_55 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   9
             Charset         =   204
@@ -8733,7 +8733,7 @@ Begin VB.Form Analyzer
          doDec_1         =   65
          doFrame_1       =   63
       End
-      Begin VB.Label LabelBNCframe 
+      Begin VB.Label LabelBNCframe
          Appearance      =   0  'Flat
          BackColor       =   &H00FFE0E0&
          BorderStyle     =   1  'Fixed Single
@@ -8746,7 +8746,7 @@ Begin VB.Form Analyzer
          Width           =   1905
       End
    End
-   Begin VB.Frame FrameBNC1 
+   Begin VB.Frame FrameBNC1
       BorderStyle     =   0  'None
       Height          =   7575
       Left            =   8100
@@ -8754,7 +8754,7 @@ Begin VB.Form Analyzer
       Top             =   1125
       Visible         =   0   'False
       Width           =   1930
-      Begin CWUIControlsLib.CWSlide cwBNC1select 
+      Begin CWUIControlsLib.CWSlide cwBNC1select
          Height          =   7530
          Left            =   10
          TabIndex        =   123
@@ -8765,7 +8765,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   3307
          _ExtentY        =   13282
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -9168,7 +9168,7 @@ Begin VB.Form Analyzer
          Font_12         =   55
          ClassName_55    =   "CCWFont"
          bFont_55        =   -1  'True
-         BeginProperty Font_55 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font_55 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   9
             Charset         =   204
@@ -9337,7 +9337,7 @@ Begin VB.Form Analyzer
          doDec_1         =   65
          doFrame_1       =   63
       End
-      Begin VB.Label LabelBNCframe 
+      Begin VB.Label LabelBNCframe
          Appearance      =   0  'Flat
          BackColor       =   &H00FFE0E0&
          BorderStyle     =   1  'Fixed Single
@@ -9350,10 +9350,10 @@ Begin VB.Form Analyzer
          Width           =   1905
       End
    End
-   Begin VB.Frame FrameSystem 
+   Begin VB.Frame FrameSystem
       BackColor       =   &H00C0FFFF&
       Caption         =   "System Control"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   11.25
          Charset         =   0
@@ -9367,10 +9367,10 @@ Begin VB.Form Analyzer
       TabIndex        =   3
       Top             =   1661
       Width           =   11756
-      Begin VB.CheckBox ChkAirIsolatorsPresent 
+      Begin VB.CheckBox ChkAirIsolatorsPresent
          BackColor       =   &H000080FF&
          Caption         =   "NO Air Isolators"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   0
@@ -9388,14 +9388,14 @@ Begin VB.Form Analyzer
          Value           =   1  'Checked
          Width           =   1410
       End
-      Begin VB.Frame FramePneumFB 
+      Begin VB.Frame FramePneumFB
          BackColor       =   &H00E0E0E0&
          Height          =   4635
          Left            =   7290
          TabIndex        =   276
          Top             =   1170
          Width           =   4350
-         Begin VB.CommandButton CmdSetPressurePoints 
+         Begin VB.CommandButton CmdSetPressurePoints
             BackColor       =   &H0000FFFF&
             Caption         =   "Update Setpoints"
             Height          =   330
@@ -9407,7 +9407,7 @@ Begin VB.Form Analyzer
             Top             =   1440
             Width           =   1455
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   3
             Left            =   630
@@ -9420,7 +9420,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1940
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -9462,7 +9462,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWButton cwBut_AuxDamping 
+         Begin CWUIControlsLib.CWButton cwBut_AuxDamping
             Height          =   450
             Left            =   45
             TabIndex        =   279
@@ -9474,7 +9474,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   5106
             _ExtentY        =   785
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "MS Sans Serif"
                Size            =   8.16
                Charset         =   0
@@ -9528,7 +9528,7 @@ Begin VB.Form Analyzer
             font_6          =   7
             ClassName_7     =   "CCWFont"
             bFont_7         =   -1  'True
-            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.13
                Charset         =   0
@@ -9684,7 +9684,7 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   4
             Left            =   630
@@ -9697,7 +9697,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1940
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -9739,7 +9739,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   5
             Left            =   630
@@ -9752,7 +9752,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1940
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -9794,7 +9794,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   12
             Left            =   1845
@@ -9807,7 +9807,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1940
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -9849,7 +9849,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   13
             Left            =   1845
@@ -9862,7 +9862,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1940
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -9904,7 +9904,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   14
             Left            =   1845
@@ -9917,7 +9917,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1940
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -9959,7 +9959,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator 
+         Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator
             Height          =   420
             Index           =   0
             Left            =   2250
@@ -9971,7 +9971,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1640
             _ExtentY        =   741
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   8.25
                Charset         =   204
@@ -10161,7 +10161,7 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator 
+         Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator
             Height          =   420
             Index           =   4
             Left            =   2250
@@ -10173,7 +10173,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1640
             _ExtentY        =   741
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   8.25
                Charset         =   204
@@ -10379,7 +10379,7 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin CWUIControlsLib.CWButton cwBut_BasicCMD 
+         Begin CWUIControlsLib.CWButton cwBut_BasicCMD
             Height          =   420
             Index           =   4
             Left            =   45
@@ -10391,7 +10391,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   3916
             _ExtentY        =   741
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "MS Sans Serif"
                Size            =   8.25
                Charset         =   0
@@ -10445,7 +10445,7 @@ Begin VB.Form Analyzer
             font_6          =   7
             ClassName_7     =   "CCWFont"
             bFont_7         =   -1  'True
-            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   0
@@ -10636,7 +10636,7 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin CWUIControlsLib.CWButton cwBut_BasicCMD 
+         Begin CWUIControlsLib.CWButton cwBut_BasicCMD
             Height          =   420
             Index           =   0
             Left            =   45
@@ -10648,7 +10648,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   3916
             _ExtentY        =   741
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "MS Sans Serif"
                Size            =   8.25
                Charset         =   0
@@ -10702,7 +10702,7 @@ Begin VB.Form Analyzer
             font_6          =   7
             ClassName_7     =   "CCWFont"
             bFont_7         =   -1  'True
-            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.26
                Charset         =   0
@@ -10893,7 +10893,7 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin CWUIControlsLib.CWNumEdit cwNum_PressureSetPoint 
+         Begin CWUIControlsLib.CWNumEdit cwNum_PressureSetPoint
             Height          =   360
             Index           =   0
             Left            =   75
@@ -10906,7 +10906,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1799
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -10947,7 +10947,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNum_PressureSetPoint 
+         Begin CWUIControlsLib.CWNumEdit cwNum_PressureSetPoint
             Height          =   360
             Index           =   1
             Left            =   1140
@@ -10960,7 +10960,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1799
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -11001,7 +11001,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNum_PressureSetPoint 
+         Begin CWUIControlsLib.CWNumEdit cwNum_PressureSetPoint
             Height          =   360
             Index           =   2
             Left            =   2205
@@ -11014,7 +11014,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1799
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -11055,7 +11055,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNum_PressureSetPoint 
+         Begin CWUIControlsLib.CWNumEdit cwNum_PressureSetPoint
             Height          =   360
             Index           =   3
             Left            =   3270
@@ -11068,7 +11068,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1799
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -11109,7 +11109,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNum_DockedPos 
+         Begin CWUIControlsLib.CWNumEdit cwNum_DockedPos
             Height          =   360
             Left            =   3285
             TabIndex        =   293
@@ -11121,7 +11121,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1720
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -11161,7 +11161,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   15
             Left            =   3150
@@ -11174,7 +11174,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1940
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -11216,7 +11216,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   16
             Left            =   3150
@@ -11229,7 +11229,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1940
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -11271,7 +11271,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   17
             Left            =   3150
@@ -11284,7 +11284,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1940
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -11326,7 +11326,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   18
             Left            =   3150
@@ -11339,7 +11339,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1940
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -11381,11 +11381,11 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Appearance      =   0  'Flat
             BackColor       =   &H00FFFFC0&
             Caption         =   " Floating pressures, psi"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -11403,12 +11403,12 @@ Begin VB.Form Analyzer
             Top             =   1395
             Width           =   4265
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H00FFFFC0&
             Caption         =   "Damping"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -11425,11 +11425,11 @@ Begin VB.Form Analyzer
             Top             =   3030
             Width           =   1095
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00FFFFFF&
             Caption         =   "tY"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -11445,11 +11445,11 @@ Begin VB.Form Analyzer
             Top             =   4230
             Width           =   630
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00FFFFFF&
             Caption         =   "tX"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -11465,11 +11465,11 @@ Begin VB.Form Analyzer
             Top             =   3780
             Width           =   630
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00FFFFFF&
             Caption         =   "Z"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -11485,12 +11485,12 @@ Begin VB.Form Analyzer
             Top             =   3330
             Width           =   630
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "FB gain"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -11507,13 +11507,13 @@ Begin VB.Form Analyzer
             Top             =   3015
             Width           =   900
          End
-         Begin VB.Label lblAxis 
+         Begin VB.Label lblAxis
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H00E0E0E0&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Pneumatic"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -11531,12 +11531,12 @@ Begin VB.Form Analyzer
             Top             =   0
             Width           =   4335
          End
-         Begin VB.Label lbValveNum 
+         Begin VB.Label lbValveNum
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H00FFFFC0&
             Caption         =   "Iso 1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -11553,12 +11553,12 @@ Begin VB.Form Analyzer
             Top             =   1710
             Width           =   645
          End
-         Begin VB.Label lbValveNum 
+         Begin VB.Label lbValveNum
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H00FFFFC0&
             Caption         =   "Iso 2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -11575,12 +11575,12 @@ Begin VB.Form Analyzer
             Top             =   1710
             Width           =   645
          End
-         Begin VB.Label lbValveNum 
+         Begin VB.Label lbValveNum
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H00FFFFC0&
             Caption         =   "Iso 3"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -11597,12 +11597,12 @@ Begin VB.Form Analyzer
             Top             =   1710
             Width           =   645
          End
-         Begin VB.Label lbValveNum 
+         Begin VB.Label lbValveNum
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H00FFFFC0&
             Caption         =   "Iso 4"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -11619,12 +11619,12 @@ Begin VB.Form Analyzer
             Top             =   1710
             Width           =   645
          End
-         Begin VB.Label lbValveNum 
+         Begin VB.Label lbValveNum
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H00FFFFFF&
             Caption         =   "Docked Pos"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -11642,11 +11642,11 @@ Begin VB.Form Analyzer
             Top             =   405
             Width           =   960
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Appearance      =   0  'Flat
             BackColor       =   &H0080C0FF&
             Caption         =   "FF boost"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -11663,13 +11663,13 @@ Begin VB.Form Analyzer
             Top             =   3060
             Width           =   1080
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H00C0FFC0&
             BackStyle       =   0  'Transparent
             Caption         =   "LM on boost"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   0
@@ -11687,17 +11687,17 @@ Begin VB.Form Analyzer
             Width           =   1305
          End
       End
-      Begin VB.Frame FrameVelocityFB 
+      Begin VB.Frame FrameVelocityFB
          BackColor       =   &H00E0E0E0&
          Height          =   4635
          Left            =   4005
          TabIndex        =   259
          Top             =   1170
          Width           =   3135
-         Begin VB.CommandButton CmdResetGeoOffsets 
+         Begin VB.CommandButton CmdResetGeoOffsets
             BackColor       =   &H0080C0FF&
             Caption         =   "Reset Input offsets"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9
                Charset         =   204
@@ -11714,7 +11714,7 @@ Begin VB.Form Analyzer
             Top             =   30
             Width           =   1995
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   8
             Left            =   1755
@@ -11727,7 +11727,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   2117
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -11769,7 +11769,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   6
             Left            =   1755
@@ -11782,7 +11782,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   2117
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -11824,7 +11824,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   7
             Left            =   1755
@@ -11837,7 +11837,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   2117
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -11879,7 +11879,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWButton cwBut_AxisEn 
+         Begin CWUIControlsLib.CWButton cwBut_AxisEn
             Height          =   360
             Index           =   2
             Left            =   180
@@ -11892,7 +11892,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   2566
             _ExtentY        =   635
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "MS Sans Serif"
                Size            =   8.25
                Charset         =   0
@@ -11946,7 +11946,7 @@ Begin VB.Form Analyzer
             font_6          =   7
             ClassName_7     =   "CCWFont"
             bFont_7         =   -1  'True
-            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -12102,7 +12102,7 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin CWUIControlsLib.CWButton cwBut_AxisEn 
+         Begin CWUIControlsLib.CWButton cwBut_AxisEn
             Height          =   360
             Index           =   3
             Left            =   180
@@ -12115,7 +12115,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   2566
             _ExtentY        =   635
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "MS Sans Serif"
                Size            =   8.25
                Charset         =   0
@@ -12169,7 +12169,7 @@ Begin VB.Form Analyzer
             font_6          =   7
             ClassName_7     =   "CCWFont"
             bFont_7         =   -1  'True
-            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -12326,7 +12326,7 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin CWUIControlsLib.CWButton cwBut_AxisEn 
+         Begin CWUIControlsLib.CWButton cwBut_AxisEn
             Height          =   360
             Index           =   1
             Left            =   180
@@ -12339,7 +12339,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   2566
             _ExtentY        =   635
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "MS Sans Serif"
                Size            =   8.25
                Charset         =   0
@@ -12393,7 +12393,7 @@ Begin VB.Form Analyzer
             font_6          =   7
             ClassName_7     =   "CCWFont"
             bFont_7         =   -1  'True
-            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -12549,7 +12549,7 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   9
             Left            =   1755
@@ -12562,7 +12562,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   2117
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -12604,7 +12604,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWButton cwBut_AxisEn 
+         Begin CWUIControlsLib.CWButton cwBut_AxisEn
             Height          =   360
             Index           =   4
             Left            =   180
@@ -12617,7 +12617,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   2566
             _ExtentY        =   635
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "MS Sans Serif"
                Size            =   8.25
                Charset         =   0
@@ -12671,7 +12671,7 @@ Begin VB.Form Analyzer
             font_6          =   7
             ClassName_7     =   "CCWFont"
             bFont_7         =   -1  'True
-            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -12827,7 +12827,7 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   10
             Left            =   1755
@@ -12840,7 +12840,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   2117
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -12882,7 +12882,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWButton cwBut_AxisEn 
+         Begin CWUIControlsLib.CWButton cwBut_AxisEn
             Height          =   360
             Index           =   5
             Left            =   180
@@ -12895,7 +12895,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   2566
             _ExtentY        =   635
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "MS Sans Serif"
                Size            =   8.25
                Charset         =   0
@@ -12949,7 +12949,7 @@ Begin VB.Form Analyzer
             font_6          =   7
             ClassName_7     =   "CCWFont"
             bFont_7         =   -1  'True
-            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -13105,7 +13105,7 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   11
             Left            =   1755
@@ -13118,7 +13118,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   2117
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   204
@@ -13160,7 +13160,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWButton cwBut_AxisEn 
+         Begin CWUIControlsLib.CWButton cwBut_AxisEn
             Height          =   360
             Index           =   6
             Left            =   180
@@ -13173,7 +13173,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   2566
             _ExtentY        =   635
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "MS Sans Serif"
                Size            =   8.25
                Charset         =   0
@@ -13227,7 +13227,7 @@ Begin VB.Form Analyzer
             font_6          =   7
             ClassName_7     =   "CCWFont"
             bFont_7         =   -1  'True
-            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -13383,7 +13383,7 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin CWUIControlsLib.CWButton cwBut_AxisEn 
+         Begin CWUIControlsLib.CWButton cwBut_AxisEn
             Height          =   600
             Index           =   0
             Left            =   180
@@ -13396,7 +13396,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   4075
             _ExtentY        =   1058
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -13607,12 +13607,12 @@ Begin VB.Form Analyzer
             Animator_26     =   0
             Blinker_26      =   0
          End
-         Begin VB.Label lblAxis 
+         Begin VB.Label lblAxis
             Appearance      =   0  'Flat
             BackColor       =   &H00E0E0E0&
             BorderStyle     =   1  'Fixed Single
             Caption         =   " Velocity"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -13630,12 +13630,12 @@ Begin VB.Form Analyzer
             Top             =   0
             Width           =   3120
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Status                  Gain"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -13652,13 +13652,13 @@ Begin VB.Form Analyzer
             Top             =   1350
             Width           =   2610
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Feedback Loops"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -13676,17 +13676,17 @@ Begin VB.Form Analyzer
             Width           =   2610
          End
       End
-      Begin VB.Frame FramePositionFeedBack 
+      Begin VB.Frame FramePositionFeedBack
          BackColor       =   &H00E0E0E0&
          Height          =   4635
          Left            =   90
          TabIndex        =   224
          Top             =   1170
          Width           =   3765
-         Begin VB.CommandButton CmdZeroHorizProx 
+         Begin VB.CommandButton CmdZeroHorizProx
             BackColor       =   &H0080C0FF&
             Caption         =   "Reset Horiz Pos"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -13703,7 +13703,7 @@ Begin VB.Form Analyzer
             Top             =   45
             Width           =   1680
          End
-         Begin VB.Frame FrmVertPosToMotGains 
+         Begin VB.Frame FrmVertPosToMotGains
             BackColor       =   &H00FFC0FF&
             BorderStyle     =   0  'None
             Height          =   700
@@ -13712,7 +13712,7 @@ Begin VB.Form Analyzer
             Top             =   1935
             Visible         =   0   'False
             Width           =   3660
-            Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+            Begin CWUIControlsLib.CWNumEdit cwNumFBgain
                Height          =   360
                Index           =   19
                Left            =   45
@@ -13725,7 +13725,7 @@ Begin VB.Form Analyzer
                _ExtentX        =   1958
                _ExtentY        =   635
                _StockProps     =   4
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   11.25
                   Charset         =   204
@@ -13768,7 +13768,7 @@ Begin VB.Form Analyzer
                ClassName_5     =   "CCWBindingHolderArrayEditor"
                Owner_5         =   1
             End
-            Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+            Begin CWUIControlsLib.CWNumEdit cwNumFBgain
                Height          =   360
                Index           =   20
                Left            =   1260
@@ -13781,7 +13781,7 @@ Begin VB.Form Analyzer
                _ExtentX        =   1958
                _ExtentY        =   635
                _StockProps     =   4
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   11.25
                   Charset         =   204
@@ -13824,7 +13824,7 @@ Begin VB.Form Analyzer
                ClassName_5     =   "CCWBindingHolderArrayEditor"
                Owner_5         =   1
             End
-            Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+            Begin CWUIControlsLib.CWNumEdit cwNumFBgain
                Height          =   360
                Index           =   21
                Left            =   2475
@@ -13837,7 +13837,7 @@ Begin VB.Form Analyzer
                _ExtentX        =   1958
                _ExtentY        =   635
                _StockProps     =   4
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   11.25
                   Charset         =   204
@@ -13880,12 +13880,12 @@ Begin VB.Form Analyzer
                ClassName_5     =   "CCWBindingHolderArrayEditor"
                Owner_5         =   1
             End
-            Begin VB.Label Label1 
+            Begin VB.Label Label1
                Alignment       =   2  'Center
                BackColor       =   &H00E0E0E0&
                BackStyle       =   0  'Transparent
                Caption         =   "Z"
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "Arial"
                   Size            =   9.75
                   Charset         =   204
@@ -13901,12 +13901,12 @@ Begin VB.Form Analyzer
                Top             =   45
                Width           =   720
             End
-            Begin VB.Label Label1 
+            Begin VB.Label Label1
                Alignment       =   2  'Center
                BackColor       =   &H00E0E0E0&
                BackStyle       =   0  'Transparent
                Caption         =   "tX"
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "Arial"
                   Size            =   9.75
                   Charset         =   204
@@ -13922,12 +13922,12 @@ Begin VB.Form Analyzer
                Top             =   45
                Width           =   720
             End
-            Begin VB.Label Label1 
+            Begin VB.Label Label1
                Alignment       =   2  'Center
                BackColor       =   &H00E0E0E0&
                BackStyle       =   0  'Transparent
                Caption         =   "tY"
-               BeginProperty Font 
+               BeginProperty Font
                   Name            =   "Arial"
                   Size            =   9.75
                   Charset         =   204
@@ -13944,7 +13944,7 @@ Begin VB.Form Analyzer
                Width           =   720
             End
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   0
             Left            =   90
@@ -13957,7 +13957,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1958
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -14000,7 +14000,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   1
             Left            =   1305
@@ -14013,7 +14013,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1958
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -14056,7 +14056,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFBgain 
+         Begin CWUIControlsLib.CWNumEdit cwNumFBgain
             Height          =   360
             Index           =   2
             Left            =   2520
@@ -14069,7 +14069,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1958
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -14112,7 +14112,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator 
+         Begin CWUIControlsLib.CWButton cw_Status_Bit_Indicator
             Height          =   600
             Index           =   5
             Left            =   2700
@@ -14124,7 +14124,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1720
             _ExtentY        =   1058
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   8.25
                Charset         =   204
@@ -14307,7 +14307,7 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin CWUIControlsLib.CWButton cwBut_SoftDock 
+         Begin CWUIControlsLib.CWButton cwBut_SoftDock
             Height          =   600
             Left            =   45
             TabIndex        =   237
@@ -14319,7 +14319,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   4233
             _ExtentY        =   1058
             _StockProps     =   68
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Tahoma"
                Size            =   8.25
                Charset         =   0
@@ -14373,7 +14373,7 @@ Begin VB.Form Analyzer
             font_6          =   7
             ClassName_7     =   "CCWFont"
             bFont_7         =   -1  'True
-            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -14574,7 +14574,7 @@ Begin VB.Form Analyzer
             Animator_27     =   0
             Blinker_27      =   0
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumHeightAdj 
+         Begin CWUIControlsLib.CWNumEdit cwNumHeightAdj
             Height          =   360
             Index           =   0
             Left            =   135
@@ -14587,7 +14587,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1799
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -14629,7 +14629,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumHeightAdj 
+         Begin CWUIControlsLib.CWNumEdit cwNumHeightAdj
             Height          =   360
             Index           =   1
             Left            =   1305
@@ -14642,7 +14642,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1799
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -14683,7 +14683,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumHeightAdj 
+         Begin CWUIControlsLib.CWNumEdit cwNumHeightAdj
             Height          =   360
             Index           =   2
             Left            =   2475
@@ -14696,7 +14696,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1799
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -14738,7 +14738,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNum_Go_NoGO_window 
+         Begin CWUIControlsLib.CWNumEdit cwNum_Go_NoGO_window
             Height          =   360
             Index           =   0
             Left            =   75
@@ -14751,7 +14751,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1561
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -14791,7 +14791,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNum_Go_NoGO_window 
+         Begin CWUIControlsLib.CWNumEdit cwNum_Go_NoGO_window
             Height          =   360
             Index           =   1
             Left            =   990
@@ -14804,7 +14804,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1561
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -14844,7 +14844,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNum_Go_NoGO_window 
+         Begin CWUIControlsLib.CWNumEdit cwNum_Go_NoGO_window
             Height          =   360
             Index           =   2
             Left            =   1905
@@ -14857,7 +14857,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1561
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -14897,7 +14897,7 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin CWUIControlsLib.CWNumEdit cwNum_Go_NoGO_window 
+         Begin CWUIControlsLib.CWNumEdit cwNum_Go_NoGO_window
             Height          =   360
             Index           =   3
             Left            =   2820
@@ -14910,7 +14910,7 @@ Begin VB.Form Analyzer
             _ExtentX        =   1561
             _ExtentY        =   635
             _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -14950,12 +14950,12 @@ Begin VB.Form Analyzer
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "tZ"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -14971,12 +14971,12 @@ Begin VB.Form Analyzer
             Top             =   1305
             Width           =   720
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "Y"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -14992,12 +14992,12 @@ Begin VB.Form Analyzer
             Top             =   1305
             Width           =   720
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "X"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -15013,12 +15013,12 @@ Begin VB.Form Analyzer
             Top             =   1305
             Width           =   720
          End
-         Begin VB.Label lblAxis 
+         Begin VB.Label lblAxis
             Appearance      =   0  'Flat
             BackColor       =   &H00E0E0E0&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "         Position"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -15035,12 +15035,12 @@ Begin VB.Form Analyzer
             Top             =   0
             Width           =   3750
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "Isolators Vertical offset, um"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -15056,12 +15056,12 @@ Begin VB.Form Analyzer
             Top             =   3645
             Width           =   3600
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "Iso 1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -15077,12 +15077,12 @@ Begin VB.Form Analyzer
             Top             =   3915
             Width           =   720
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "Iso 2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -15098,12 +15098,12 @@ Begin VB.Form Analyzer
             Top             =   3915
             Width           =   720
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "Iso 3"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -15119,11 +15119,11 @@ Begin VB.Form Analyzer
             Top             =   3915
             Width           =   720
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00C0FFC0&
             Caption         =   "Go-NoGo window"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -15139,12 +15139,12 @@ Begin VB.Form Analyzer
             Top             =   2700
             Width           =   3675
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "X um"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -15160,12 +15160,12 @@ Begin VB.Form Analyzer
             Top             =   2925
             Width           =   720
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "Y um"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -15181,12 +15181,12 @@ Begin VB.Form Analyzer
             Top             =   2925
             Width           =   720
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "Z um"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -15202,12 +15202,12 @@ Begin VB.Form Analyzer
             Top             =   2925
             Width           =   720
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "Time s"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -15223,11 +15223,11 @@ Begin VB.Form Analyzer
             Top             =   2925
             Width           =   720
          End
-         Begin VB.Label Label1 
+         Begin VB.Label Label1
             Alignment       =   2  'Center
             BackColor       =   &H00FFC0FF&
             Caption         =   "Soft Dock Gains"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   204
@@ -15244,10 +15244,10 @@ Begin VB.Form Analyzer
             Width           =   3645
          End
       End
-      Begin VB.TextBox txtBootLoader_Rev 
+      Begin VB.TextBox txtBootLoader_Rev
          Appearance      =   0  'Flat
          BackColor       =   &H00E0FFFF&
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9
             Charset         =   0
@@ -15265,8 +15265,8 @@ Begin VB.Form Analyzer
          Top             =   705
          Width           =   1410
       End
-      Begin VB.TextBox TxtSystemID 
-         BeginProperty Font 
+      Begin VB.TextBox TxtSystemID
+         BeginProperty Font
             Name            =   "Courier New"
             Size            =   11.25
             Charset         =   0
@@ -15282,7 +15282,7 @@ Begin VB.Form Analyzer
          Top             =   675
          Width           =   3180
       End
-      Begin VB.CommandButton CmdUpdateSysID 
+      Begin VB.CommandButton CmdUpdateSysID
          BackColor       =   &H00C0FFC0&
          Caption         =   "Update System ID"
          Height          =   355
@@ -15293,11 +15293,11 @@ Begin VB.Form Analyzer
          Top             =   675
          Width           =   1500
       End
-      Begin VB.TextBox txtFW_Version 
+      Begin VB.TextBox txtFW_Version
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00E0FFFF&
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -15315,10 +15315,10 @@ Begin VB.Form Analyzer
          Top             =   270
          Width           =   8625
       End
-      Begin VB.CommandButton cmdRefresh 
+      Begin VB.CommandButton cmdRefresh
          BackColor       =   &H00FF80FF&
          Caption         =   "REFRESH"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -15334,11 +15334,11 @@ Begin VB.Form Analyzer
          Top             =   270
          Width           =   1100
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   1  'Right Justify
          BackColor       =   &H00E0FFFF&
          Caption         =   "System Identifier"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -15354,10 +15354,10 @@ Begin VB.Form Analyzer
          Top             =   720
          Width           =   1740
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          BackColor       =   &H00E0FFFF&
          Caption         =   "Bootloader Rev"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9
             Charset         =   0
@@ -15373,7 +15373,7 @@ Begin VB.Form Analyzer
          Top             =   720
          Width           =   1380
       End
-      Begin VB.Image ImageSettings 
+      Begin VB.Image ImageSettings
          Height          =   600
          Left            =   120
          Picture         =   "Analyzer.frx":168FFE
@@ -15381,10 +15381,10 @@ Begin VB.Form Analyzer
          Top             =   315
          Width           =   600
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          BackColor       =   &H00E0FFFF&
          Caption         =   "FW version"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -15401,10 +15401,10 @@ Begin VB.Form Analyzer
          Width           =   1155
       End
    End
-   Begin VB.Frame FrmConnection 
+   Begin VB.Frame FrmConnection
       BackColor       =   &H00C0FFC0&
       Caption         =   "Communication"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   11.25
          Charset         =   0
@@ -15418,7 +15418,7 @@ Begin VB.Form Analyzer
       TabIndex        =   2
       Top             =   1661
       Width           =   11756
-      Begin VB.CheckBox ChkCommIssues 
+      Begin VB.CheckBox ChkCommIssues
          Caption         =   "Show Comm Issues"
          Height          =   600
          Left            =   135
@@ -15428,8 +15428,8 @@ Begin VB.Form Analyzer
          Top             =   3015
          Width           =   1335
       End
-      Begin VB.ListBox ListCommIssues 
-         BeginProperty Font 
+      Begin VB.ListBox ListCommIssues
+         BeginProperty Font
             Name            =   "Courier New"
             Size            =   9
             Charset         =   0
@@ -15448,7 +15448,7 @@ Begin VB.Form Analyzer
          Visible         =   0   'False
          Width           =   11520
       End
-      Begin VB.CommandButton cmdCommSETUP 
+      Begin VB.CommandButton cmdCommSETUP
          BackColor       =   &H00C0E0FF&
          Caption         =   "Serial port setup"
          Height          =   600
@@ -15459,7 +15459,7 @@ Begin VB.Form Analyzer
          Top             =   2115
          Width           =   1335
       End
-      Begin CWUIControlsLib.CWButton cwCOMdisconnect 
+      Begin CWUIControlsLib.CWButton cwCOMdisconnect
          Height          =   660
          Left            =   135
          TabIndex        =   18
@@ -15470,7 +15470,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   2328
          _ExtentY        =   1164
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   204
@@ -15689,10 +15689,10 @@ Begin VB.Form Analyzer
          Animator_26     =   0
          Blinker_26      =   0
       End
-      Begin VB.Frame frameDebug 
+      Begin VB.Frame frameDebug
          BackColor       =   &H00C0E0FF&
          Caption         =   "Communication History"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -15706,10 +15706,10 @@ Begin VB.Form Analyzer
          TabIndex        =   20
          Top             =   225
          Width           =   9885
-         Begin VB.CommandButton CmdCopyClipboard 
+         Begin VB.CommandButton CmdCopyClipboard
             BackColor       =   &H00C0FFC0&
             Caption         =   "Copy Ctrl-C"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9
                Charset         =   0
@@ -15726,9 +15726,9 @@ Begin VB.Form Analyzer
             Top             =   315
             Width           =   1110
          End
-         Begin VB.CommandButton CmdSaveResponsesToPC 
+         Begin VB.CommandButton CmdSaveResponsesToPC
             Caption         =   "Save to PC"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9
                Charset         =   0
@@ -15744,10 +15744,10 @@ Begin VB.Form Analyzer
             Top             =   315
             Width           =   1065
          End
-         Begin VB.CommandButton cmdClearTerminal 
+         Begin VB.CommandButton cmdClearTerminal
             BackColor       =   &H00C0C0FF&
             Caption         =   "Clear History"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9
                Charset         =   0
@@ -15764,7 +15764,7 @@ Begin VB.Form Analyzer
             Top             =   315
             Width           =   1200
          End
-         Begin VB.CheckBox Chk_AutoClear 
+         Begin VB.CheckBox Chk_AutoClear
             BackColor       =   &H0080FFFF&
             Caption         =   "Auto clear each 2000 lines"
             Height          =   285
@@ -15775,8 +15775,8 @@ Begin VB.Form Analyzer
             Value           =   1  'Checked
             Width           =   2265
          End
-         Begin VB.ListBox lstResponse 
-            BeginProperty Font 
+         Begin VB.ListBox lstResponse
+            BeginProperty Font
                Name            =   "Courier New"
                Size            =   9
                Charset         =   0
@@ -15794,7 +15794,7 @@ Begin VB.Form Analyzer
             Width           =   9540
          End
       End
-      Begin VB.Image ImageConnection 
+      Begin VB.Image ImageConnection
          Height          =   600
          Left            =   135
          Picture         =   "Analyzer.frx":18B488
@@ -15803,10 +15803,10 @@ Begin VB.Form Analyzer
          Width           =   705
       End
    End
-   Begin VB.Frame FrameAlarms 
+   Begin VB.Frame FrameAlarms
       BackColor       =   &H00C0C0FF&
       Caption         =   "Alarm Log"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   11.25
          Charset         =   0
@@ -15821,10 +15821,10 @@ Begin VB.Form Analyzer
       Top             =   1661
       Visible         =   0   'False
       Width           =   11756
-      Begin VB.CommandButton cmdClearErrorLog 
+      Begin VB.CommandButton cmdClearErrorLog
          BackColor       =   &H00C0E0FF&
          Caption         =   "Clear Alarm List (in this session)"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -15841,9 +15841,9 @@ Begin VB.Form Analyzer
          Top             =   810
          Width           =   3300
       End
-      Begin VB.TextBox txtAlarmListPath 
+      Begin VB.TextBox txtAlarmListPath
          BackColor       =   &H00FFFFC0&
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -15861,10 +15861,10 @@ Begin VB.Form Analyzer
          Top             =   315
          Width           =   10455
       End
-      Begin VB.CommandButton cmdCloseAlarmLog 
+      Begin VB.CommandButton cmdCloseAlarmLog
          BackColor       =   &H00C0FFFF&
          Caption         =   "Close Alarm Log File"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -15881,10 +15881,10 @@ Begin VB.Form Analyzer
          Top             =   810
          Width           =   3300
       End
-      Begin VB.CommandButton cmdViewAlarmLog 
+      Begin VB.CommandButton cmdViewAlarmLog
          BackColor       =   &H00C0FFC0&
          Caption         =   "View Alarm Log File"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -15901,8 +15901,8 @@ Begin VB.Form Analyzer
          Top             =   810
          Width           =   2805
       End
-      Begin VB.ListBox lstAlarms 
-         BeginProperty Font 
+      Begin VB.ListBox lstAlarms
+         BeginProperty Font
             Name            =   "Courier New"
             Size            =   8.25
             Charset         =   0
@@ -15920,9 +15920,9 @@ Begin VB.Form Analyzer
          Top             =   1395
          Width           =   11235
       End
-      Begin VB.ListBox lstAlarmFile 
+      Begin VB.ListBox lstAlarmFile
          BackColor       =   &H00C0FFFF&
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Courier New"
             Size            =   8.25
             Charset         =   0
@@ -15941,7 +15941,7 @@ Begin VB.Form Analyzer
          Visible         =   0   'False
          Width           =   11235
       End
-      Begin VB.Image ImageAlarm 
+      Begin VB.Image ImageAlarm
          Height          =   600
          Left            =   180
          Picture         =   "Analyzer.frx":19F539
@@ -15950,11 +15950,11 @@ Begin VB.Form Analyzer
          Width           =   600
       End
    End
-   Begin VB.Frame frmFWupgrade 
+   Begin VB.Frame frmFWupgrade
       BackColor       =   &H0080E0FF&
       Caption         =   "Firmware Parameters"
       Enabled         =   0   'False
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   11.25
          Charset         =   0
@@ -15969,10 +15969,10 @@ Begin VB.Form Analyzer
       Top             =   1627
       Visible         =   0   'False
       Width           =   11756
-      Begin VB.CommandButton cmdRestoreParameters 
+      Begin VB.CommandButton cmdRestoreParameters
          BackColor       =   &H00C0FFC0&
          Caption         =   "Read && Restore Parameters"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9
             Charset         =   0
@@ -15989,9 +15989,9 @@ Begin VB.Form Analyzer
          Top             =   3780
          Width           =   1665
       End
-      Begin VB.CommandButton CmdSaveParamList 
+      Begin VB.CommandButton CmdSaveParamList
          Caption         =   "Save Shown Params to PC"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9
             Charset         =   0
@@ -16007,17 +16007,17 @@ Begin VB.Form Analyzer
          Top             =   5310
          Width           =   1650
       End
-      Begin VB.Frame FrameSaveParamsIntoFile 
+      Begin VB.Frame FrameSaveParamsIntoFile
          BackColor       =   &H0080E0FF&
          Height          =   1680
          Left            =   90
          TabIndex        =   28
          Top             =   900
          Width           =   1860
-         Begin VB.CommandButton cmdSaveParameters 
+         Begin VB.CommandButton cmdSaveParameters
             BackColor       =   &H00FFFFC0&
             Caption         =   "Retrieve && Save Parameters"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9
                Charset         =   0
@@ -16034,7 +16034,7 @@ Begin VB.Form Analyzer
             Top             =   180
             Width           =   1665
          End
-         Begin VB.CheckBox ChkVerboseParams 
+         Begin VB.CheckBox ChkVerboseParams
             BackColor       =   &H00FFFFC0&
             Caption         =   "Include Comments"
             Height          =   375
@@ -16045,10 +16045,10 @@ Begin VB.Form Analyzer
             Value           =   1  'Checked
             Width           =   1680
          End
-         Begin VB.OptionButton Opt_ALL_params_or_Essential 
+         Begin VB.OptionButton Opt_ALL_params_or_Essential
             BackColor       =   &H00C0C0FF&
             Caption         =   "ALL"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   8.25
                Charset         =   0
@@ -16065,10 +16065,10 @@ Begin VB.Form Analyzer
             Top             =   810
             Width           =   620
          End
-         Begin VB.OptionButton Opt_ALL_params_or_Essential 
+         Begin VB.OptionButton Opt_ALL_params_or_Essential
             BackColor       =   &H00C0FFC0&
             Caption         =   "Essential"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   8.25
                Charset         =   0
@@ -16087,8 +16087,8 @@ Begin VB.Form Analyzer
             Width           =   980
          End
       End
-      Begin VB.ListBox ListParamsErrors 
-         BeginProperty Font 
+      Begin VB.ListBox ListParamsErrors
+         BeginProperty Font
             Name            =   "Courier New"
             Size            =   8.25
             Charset         =   0
@@ -16105,10 +16105,10 @@ Begin VB.Form Analyzer
          Top             =   4095
          Width           =   9630
       End
-      Begin VB.CommandButton cmdUpdateFirmware 
+      Begin VB.CommandButton cmdUpdateFirmware
          BackColor       =   &H00C0C0FF&
          Caption         =   "Update Firmware"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9
             Charset         =   0
@@ -16125,9 +16125,9 @@ Begin VB.Form Analyzer
          Top             =   4545
          Width           =   1650
       End
-      Begin VB.CommandButton CmdClearParamList 
+      Begin VB.CommandButton CmdClearParamList
          Caption         =   "Clear Screen"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9
             Charset         =   0
@@ -16143,7 +16143,7 @@ Begin VB.Form Analyzer
          Top             =   315
          Width           =   930
       End
-      Begin CWUIControlsLib.CWButton cwLabelAction 
+      Begin CWUIControlsLib.CWButton cwLabelAction
          Height          =   405
          Left            =   225
          TabIndex        =   37
@@ -16154,7 +16154,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   2796
          _ExtentY        =   714
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   9.74
             Charset         =   0
@@ -16359,8 +16359,8 @@ Begin VB.Form Analyzer
          Animator_30     =   0
          Blinker_30      =   0
       End
-      Begin VB.ListBox ListParams 
-         BeginProperty Font 
+      Begin VB.ListBox ListParams
+         BeginProperty Font
             Name            =   "Courier New"
             Size            =   8.25
             Charset         =   0
@@ -16377,9 +16377,9 @@ Begin VB.Form Analyzer
          Top             =   270
          Width           =   9630
       End
-      Begin VB.ListBox ListShadow 
+      Begin VB.ListBox ListShadow
          Enabled         =   0   'False
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Courier New"
             Size            =   8.25
             Charset         =   0
@@ -16396,13 +16396,13 @@ Begin VB.Form Analyzer
          Top             =   270
          Width           =   9630
       End
-      Begin VB.Label LabelParamLines 
+      Begin VB.Label LabelParamLines
          Alignment       =   1  'Right Justify
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "1024"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   14.25
             Charset         =   0
@@ -16418,11 +16418,11 @@ Begin VB.Form Analyzer
          Top             =   3195
          Width           =   870
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          BackColor       =   &H0080E0FF&
          Caption         =   "Param count"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -16438,7 +16438,7 @@ Begin VB.Form Analyzer
          Top             =   3105
          Width           =   825
       End
-      Begin VB.Image ImageParam 
+      Begin VB.Image ImageParam
          Height          =   600
          Left            =   180
          Picture         =   "Analyzer.frx":1A75F1
@@ -16447,11 +16447,11 @@ Begin VB.Form Analyzer
          Width           =   600
       End
    End
-   Begin VB.Frame frmDiagnostic 
+   Begin VB.Frame frmDiagnostic
       BackColor       =   &H00FFE0E0&
       Caption         =   "Diagnostic && tuning"
       Enabled         =   0   'False
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   11.25
          Charset         =   0
@@ -16466,10 +16466,10 @@ Begin VB.Form Analyzer
       Top             =   1661
       Visible         =   0   'False
       Width           =   11756
-      Begin VB.CommandButton CommandDiagRefresh 
+      Begin VB.CommandButton CommandDiagRefresh
          BackColor       =   &H00FF80FF&
          Caption         =   "REFRESH"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -16485,10 +16485,10 @@ Begin VB.Form Analyzer
          Top             =   360
          Width           =   1050
       End
-      Begin VB.CommandButton cmdPulse 
+      Begin VB.CommandButton cmdPulse
          BackColor       =   &H0080FFFF&
          Caption         =   "Apply Pulse"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9
             Charset         =   0
@@ -16506,10 +16506,10 @@ Begin VB.Form Analyzer
          Top             =   270
          Width           =   1095
       End
-      Begin VB.OptionButton optExitation 
+      Begin VB.OptionButton optExitation
          BackColor       =   &H00C0FFC0&
          Caption         =   "Sine"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -16528,10 +16528,10 @@ Begin VB.Form Analyzer
          Visible         =   0   'False
          Width           =   870
       End
-      Begin VB.OptionButton optExitation 
+      Begin VB.OptionButton optExitation
          BackColor       =   &H00FFC0FF&
          Caption         =   "Noise"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -16549,8 +16549,8 @@ Begin VB.Form Analyzer
          Visible         =   0   'False
          Width           =   870
       End
-      Begin VB.ComboBox cmb_ExcitAxis 
-         BeginProperty Font 
+      Begin VB.ComboBox cmb_ExcitAxis
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9
             Charset         =   0
@@ -16569,7 +16569,7 @@ Begin VB.Form Analyzer
          Top             =   270
          Width           =   2055
       End
-      Begin CWUIControlsLib.CWButton cwBut_Excitation 
+      Begin CWUIControlsLib.CWButton cwBut_Excitation
          Height          =   930
          Left            =   6120
          TabIndex        =   59
@@ -16580,7 +16580,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   1614
          _ExtentY        =   1640
          _StockProps     =   68
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -16633,7 +16633,7 @@ Begin VB.Form Analyzer
          font_6          =   7
          ClassName_7     =   "CCWFont"
          bFont_7         =   -1  'True
-         BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font_7 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Tahoma"
             Size            =   9
             Charset         =   0
@@ -16654,7 +16654,7 @@ Begin VB.Form Analyzer
          font_9          =   10
          ClassName_10    =   "CCWFont"
          bFont_10        =   -1  'True
-         BeginProperty Font_10 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font_10 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   12
             Charset         =   204
@@ -16676,7 +16676,7 @@ Begin VB.Form Analyzer
          font_12         =   13
          ClassName_13    =   "CCWFont"
          bFont_13        =   -1  'True
-         BeginProperty Font_13 {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font_13 {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   12
             Charset         =   204
@@ -16814,7 +16814,7 @@ Begin VB.Form Analyzer
          Animator_30     =   0
          Blinker_30      =   0
       End
-      Begin CWUIControlsLib.CWNumEdit cwNumExcitFreq 
+      Begin CWUIControlsLib.CWNumEdit cwNumExcitFreq
          Height          =   360
          Index           =   1
          Left            =   8595
@@ -16827,7 +16827,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   1958
          _ExtentY        =   635
          _StockProps     =   4
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   12
             Charset         =   204
@@ -16869,7 +16869,7 @@ Begin VB.Form Analyzer
          ClassName_5     =   "CCWBindingHolderArrayEditor"
          Owner_5         =   1
       End
-      Begin CWUIControlsLib.CWNumEdit cwNumExcitAmpl 
+      Begin CWUIControlsLib.CWNumEdit cwNumExcitAmpl
          Height          =   360
          Index           =   1
          Left            =   10395
@@ -16882,7 +16882,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   2117
          _ExtentY        =   635
          _StockProps     =   4
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   12
             Charset         =   204
@@ -16925,7 +16925,7 @@ Begin VB.Form Analyzer
          ClassName_5     =   "CCWBindingHolderArrayEditor"
          Owner_5         =   1
       End
-      Begin CWUIControlsLib.CWNumEdit cwNumPulsePosSlope 
+      Begin CWUIControlsLib.CWNumEdit cwNumPulsePosSlope
          Height          =   360
          Left            =   3780
          TabIndex        =   62
@@ -16937,7 +16937,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   1799
          _ExtentY        =   635
          _StockProps     =   4
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   12
             Charset         =   204
@@ -16980,7 +16980,7 @@ Begin VB.Form Analyzer
          ClassName_5     =   "CCWBindingHolderArrayEditor"
          Owner_5         =   1
       End
-      Begin CWUIControlsLib.CWNumEdit cwNumPulseNegSlope 
+      Begin CWUIControlsLib.CWNumEdit cwNumPulseNegSlope
          Height          =   360
          Left            =   3780
          TabIndex        =   63
@@ -16992,7 +16992,7 @@ Begin VB.Form Analyzer
          _ExtentX        =   1799
          _ExtentY        =   635
          _StockProps     =   4
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   12
             Charset         =   204
@@ -17035,12 +17035,12 @@ Begin VB.Form Analyzer
          ClassName_5     =   "CCWBindingHolderArrayEditor"
          Owner_5         =   1
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFFF&
          Caption         =   "Excitation output"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -17058,12 +17058,12 @@ Begin VB.Form Analyzer
          Top             =   285
          Width           =   1545
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00C0FFFF&
          Caption         =   "Ampl"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -17081,12 +17081,12 @@ Begin VB.Form Analyzer
          Top             =   720
          Width           =   600
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00C0FFC0&
          Caption         =   "Freq"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -17104,12 +17104,12 @@ Begin VB.Form Analyzer
          Top             =   735
          Width           =   555
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00C0C0FF&
          Caption         =   "pulse '/' slope"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -17127,12 +17127,12 @@ Begin VB.Form Analyzer
          Top             =   285
          Width           =   1215
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFC0&
          Caption         =   "pulse '\' slope"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -17150,7 +17150,7 @@ Begin VB.Form Analyzer
          Top             =   720
          Width           =   1215
       End
-      Begin VB.Image ImageDiagTuning 
+      Begin VB.Image ImageDiagTuning
          Height          =   600
          Index           =   1
          Left            =   720
@@ -17159,7 +17159,7 @@ Begin VB.Form Analyzer
          Top             =   360
          Width           =   600
       End
-      Begin VB.Image ImageDiagTuning 
+      Begin VB.Image ImageDiagTuning
          Height          =   600
          Index           =   0
          Left            =   135
@@ -17169,11 +17169,11 @@ Begin VB.Form Analyzer
          Width           =   600
       End
    End
-   Begin VB.Label LblFB_FF_Gains 
+   Begin VB.Label LblFB_FF_Gains
       BackColor       =   &H00C0E0FF&
       BackStyle       =   0  'Transparent
       Caption         =   "FB && FF Gains"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   9
          Charset         =   0
@@ -17189,11 +17189,11 @@ Begin VB.Form Analyzer
       Top             =   7965
       Width           =   1600
    End
-   Begin VB.Label LblFilters 
+   Begin VB.Label LblFilters
       BackColor       =   &H00C0E0FF&
       BackStyle       =   0  'Transparent
       Caption         =   "Filters"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   9
          Charset         =   0
@@ -17209,7 +17209,7 @@ Begin VB.Form Analyzer
       Top             =   7380
       Width           =   1605
    End
-   Begin VB.Image ImageFilters 
+   Begin VB.Image ImageFilters
       Height          =   485
       Left            =   45
       Picture         =   "Analyzer.frx":230E77
@@ -17217,11 +17217,11 @@ Begin VB.Form Analyzer
       Top             =   7268
       Width           =   540
    End
-   Begin VB.Label lbl_Version_Date 
+   Begin VB.Label lbl_Version_Date
       Alignment       =   2  'Center
       BackColor       =   &H00FFFFFF&
-      Caption         =   "V1.5.5 @ 12-18-2025"
-      BeginProperty Font 
+      Caption         =   "V1.5.6 @ 01-05-2026"
+      BeginProperty Font
          Name            =   "Arial"
          Size            =   9.75
          Charset         =   204
@@ -17237,14 +17237,14 @@ Begin VB.Form Analyzer
       Top             =   2229
       Width           =   2715
    End
-   Begin VB.Image Image1 
+   Begin VB.Image Image1
       Height          =   2025
       Left            =   0
       Picture         =   "Analyzer.frx":2326F9
       Top             =   0
       Width           =   2715
    End
-   Begin VB.Image ImageScope 
+   Begin VB.Image ImageScope
       Height          =   480
       Left            =   45
       Picture         =   "Analyzer.frx":24461B
@@ -17252,11 +17252,11 @@ Begin VB.Form Analyzer
       Top             =   5610
       Width           =   540
    End
-   Begin VB.Label lbl_Part_Number 
+   Begin VB.Label lbl_Part_Number
       Alignment       =   2  'Center
       BackColor       =   &H00FFFFFF&
       Caption         =   "PN 95-38961-02 rev.G"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Arial"
          Size            =   9.75
          Charset         =   204
@@ -17272,7 +17272,7 @@ Begin VB.Form Analyzer
       Top             =   1993
       Width           =   2715
    End
-   Begin VB.Image ImageMonitoring 
+   Begin VB.Image ImageMonitoring
       Height          =   480
       Left            =   45
       Picture         =   "Analyzer.frx":254A5D
@@ -17280,7 +17280,7 @@ Begin VB.Form Analyzer
       Top             =   6165
       Width           =   540
    End
-   Begin VB.Image ImageTerminal 
+   Begin VB.Image ImageTerminal
       Height          =   485
       Left            =   45
       Picture         =   "Analyzer.frx":274ADF
@@ -17288,7 +17288,7 @@ Begin VB.Form Analyzer
       Top             =   6705
       Width           =   540
    End
-   Begin VB.Image ImageGains 
+   Begin VB.Image ImageGains
       Height          =   485
       Left            =   45
       Picture         =   "Analyzer.frx":294B61
@@ -17296,11 +17296,11 @@ Begin VB.Form Analyzer
       Top             =   7830
       Width           =   540
    End
-   Begin VB.Label LblCONNparams 
+   Begin VB.Label LblCONNparams
       BackColor       =   &H00FFFFFF&
       BorderStyle     =   1  'Fixed Single
       Caption         =   " COM15 closed"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   8.25
          Charset         =   0
@@ -17315,7 +17315,7 @@ Begin VB.Form Analyzer
       Top             =   8415
       Width           =   1860
    End
-   Begin VB.Image ImageDisconnected 
+   Begin VB.Image ImageDisconnected
       BorderStyle     =   1  'Fixed Single
       Height          =   360
       Left            =   90
@@ -17324,7 +17324,7 @@ Begin VB.Form Analyzer
       Top             =   8370
       Width           =   660
    End
-   Begin VB.Image ImageConnected 
+   Begin VB.Image ImageConnected
       BorderStyle     =   1  'Fixed Single
       Height          =   360
       Left            =   90
@@ -17333,12 +17333,12 @@ Begin VB.Form Analyzer
       Top             =   8370
       Width           =   660
    End
-   Begin VB.Label lblSystemDate 
+   Begin VB.Label lblSystemDate
       Alignment       =   2  'Center
       BackColor       =   &H00FFFFFF&
       BorderStyle     =   1  'Fixed Single
       Caption         =   "MM/DD/YYYY"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   9
          Charset         =   0
@@ -17354,11 +17354,11 @@ Begin VB.Form Analyzer
       Top             =   8415
       Width           =   1350
    End
-   Begin VB.Label LblTerminalWindow 
+   Begin VB.Label LblTerminalWindow
       BackColor       =   &H00FFFFFF&
       BackStyle       =   0  'Transparent
       Caption         =   "Terminal"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   9
          Charset         =   0
@@ -17374,11 +17374,11 @@ Begin VB.Form Analyzer
       Top             =   6795
       Width           =   1600
    End
-   Begin VB.Label LblPOSmonitoring 
+   Begin VB.Label LblPOSmonitoring
       BackColor       =   &H00C0FFC0&
       BackStyle       =   0  'Transparent
       Caption         =   "Test && Recording"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   9
          Charset         =   0
@@ -17394,11 +17394,11 @@ Begin VB.Form Analyzer
       Top             =   6255
       Width           =   2040
    End
-   Begin VB.Label LblScope 
+   Begin VB.Label LblScope
       BackColor       =   &H00FFC0FF&
       BackStyle       =   0  'Transparent
       Caption         =   "Scope"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   9
          Charset         =   0
@@ -17415,12 +17415,12 @@ Begin VB.Form Analyzer
       Visible         =   0   'False
       Width           =   1605
    End
-   Begin VB.Label lblSystemTime 
+   Begin VB.Label lblSystemTime
       Alignment       =   2  'Center
       BackColor       =   &H80000005&
       BorderStyle     =   1  'Fixed Single
       Caption         =   "01:00:00"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   9
          Charset         =   0
@@ -20292,7 +20292,9 @@ Sub Calc_prediction()
     Next freq_pt
     freq_pt = freq_pt - 1
     If freq_sum_for_test = 0 Then
-        retVal = MsgBox("Need reference for prediction" + vbCrLf + "Please load Reference Transfer Function" + vbCrLf + "Use 'Get Ref Plot' button", vbOKOnly + vbExclamation, "Reference plot not loaded")
+        If (ChkShowRefPlot.Value = Checked) Then
+            retVal = MsgBox("Need reference for prediction" + vbCrLf + "Please load Reference Transfer Function" + vbCrLf + "Use 'Get Ref Plot' button", vbOKOnly + vbExclamation, "Reference plot not loaded")
+        End If
         Exit Sub
     End If
     ' recalculate axis TF based on real frequecy points
@@ -20301,7 +20303,7 @@ Sub Calc_prediction()
     ' this is reference plot * Axis_Mag
     ' IK20251218 added experimantal prediction correction for floor FF
         Predicted_Mag(freq_pt) = frmFilters.PredictionCorrectionFloorFF(Reference_Gain_data(freq_pt) + Axis_Mag(freq_pt)) 'in dB already
-        
+
         Predicted_Phase(freq_pt) = frmFilters.Phase_Limit_TF_plus_minus_180(Reference_Phase_data(freq_pt) + Axis_Phase(freq_pt))
     Next freq_pt
     freq_pt = freq_pt - 1 '

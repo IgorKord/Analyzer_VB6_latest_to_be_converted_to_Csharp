@@ -219,7 +219,7 @@ Const PID_P_gain As Long = FilterGain
 Const PID_I_gain As Long = freq_1
 Const PID_D_gain As Long = freq_2
 
-Const POSITIVE_NEAR_ZERO_FLOATING_NUMBER As Single = (0.000001)
+Const POSITIVE_NEAR_ZERO_FLOATING_NUMBER As Single = (0.0000001)
 
 Enum filt_types
     GAIN_ONLY = 0

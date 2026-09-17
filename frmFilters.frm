@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{D940E4E4-6079-11CE-88CB-0020AF6845F6}#1.6#0"; "cwui.ocx"
-Begin VB.Form frmFilters 
+Begin VB.Form frmFilters
    Caption         =   "Filters Tuning"
    ClientHeight    =   4260
    ClientLeft      =   60
@@ -11,17 +11,17 @@ Begin VB.Form frmFilters
    ScaleHeight     =   4260
    ScaleWidth      =   13665
    StartUpPosition =   3  'Windows Default
-   Begin VB.Frame FramePneumatic 
+   Begin VB.Frame FramePneumatic
       Caption         =   "Air Isolators"
       Height          =   1995
       Left            =   11835
       TabIndex        =   100
       Top             =   1035
       Width           =   1815
-      Begin VB.CheckBox CheckPneumFilters 
+      Begin VB.CheckBox CheckPneumFilters
          BackColor       =   &H00FFFFC0&
          Caption         =   "Pneumatic filters"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   0
@@ -38,11 +38,11 @@ Begin VB.Form frmFilters
          Value           =   1  'Checked
          Width           =   1590
       End
-      Begin VB.CheckBox ChkAuxDamping 
+      Begin VB.CheckBox ChkAuxDamping
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFF80&
          Caption         =   "Aux Damping"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   0
@@ -60,7 +60,7 @@ Begin VB.Form frmFilters
          Top             =   1485
          Width           =   1635
       End
-      Begin CWUIControlsLib.CWNumEdit cwAuxDampGain 
+      Begin CWUIControlsLib.CWNumEdit cwAuxDampGain
          Height          =   360
          Left            =   585
          TabIndex        =   103
@@ -72,7 +72,7 @@ Begin VB.Form frmFilters
          _ExtentX        =   1940
          _ExtentY        =   635
          _StockProps     =   4
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   12
             Charset         =   204
@@ -114,12 +114,12 @@ Begin VB.Form frmFilters
          ClassName_5     =   "CCWBindingHolderArrayEditor"
          Owner_5         =   1
       End
-      Begin VB.Label LblDampGain 
+      Begin VB.Label LblDampGain
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFC0&
          Caption         =   "Damping Gain"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -136,10 +136,10 @@ Begin VB.Form frmFilters
          Width           =   1590
       End
    End
-   Begin VB.CommandButton cmdClearFilterHistory 
+   Begin VB.CommandButton cmdClearFilterHistory
       BackColor       =   &H008080FF&
       Caption         =   "Clear Filters History"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Arial"
          Size            =   9.75
          Charset         =   204
@@ -156,10 +156,10 @@ Begin VB.Form frmFilters
       Top             =   180
       Width           =   1410
    End
-   Begin VB.Frame FrameFiltCoefficients 
+   Begin VB.Frame FrameFiltCoefficients
       BackColor       =   &H00E0E0E0&
       Caption         =   "Filter Coefficients"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Arial"
          Size            =   11.25
          Charset         =   0
@@ -173,10 +173,10 @@ Begin VB.Form frmFilters
       TabIndex        =   67
       Top             =   4230
       Width           =   11760
-      Begin VB.CommandButton CmdCalcMagPhaseNOW 
+      Begin VB.CommandButton CmdCalcMagPhaseNOW
          BackColor       =   &H00C0FFC0&
          Caption         =   "Calculate Mag-Phase"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "MS Sans Serif"
             Size            =   8.25
             Charset         =   0
@@ -193,10 +193,10 @@ Begin VB.Form frmFilters
          Top             =   225
          Width           =   1185
       End
-      Begin VB.TextBox TxtFreq 
+      Begin VB.TextBox TxtFreq
          Alignment       =   2  'Center
          BackColor       =   &H00C0FFC0&
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -213,12 +213,12 @@ Begin VB.Form frmFilters
          Top             =   450
          Width           =   780
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFE0&
          Caption         =   "Difference PPM"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   8.25
             Charset         =   0
@@ -236,13 +236,13 @@ Begin VB.Form frmFilters
          Top             =   850
          Width           =   1365
       End
-      Begin VB.Label Lbl_a1_diff 
+      Begin VB.Label Lbl_a1_diff
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFE0&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "a1"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -258,13 +258,13 @@ Begin VB.Form frmFilters
          Top             =   820
          Width           =   1500
       End
-      Begin VB.Label Lbl_a2_diff 
+      Begin VB.Label Lbl_a2_diff
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFE0&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "a2"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -280,13 +280,13 @@ Begin VB.Form frmFilters
          Top             =   820
          Width           =   1500
       End
-      Begin VB.Label Lbl_b0_diff 
+      Begin VB.Label Lbl_b0_diff
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFE0&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "b0"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -302,13 +302,13 @@ Begin VB.Form frmFilters
          Top             =   820
          Width           =   1500
       End
-      Begin VB.Label Lbl_b1_diff 
+      Begin VB.Label Lbl_b1_diff
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFE0&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "b1"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -324,13 +324,13 @@ Begin VB.Form frmFilters
          Top             =   820
          Width           =   1500
       End
-      Begin VB.Label Lbl_b2_diff 
+      Begin VB.Label Lbl_b2_diff
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFE0&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "b2"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -346,13 +346,13 @@ Begin VB.Form frmFilters
          Top             =   820
          Width           =   1500
       End
-      Begin VB.Label LblPhase 
+      Begin VB.Label LblPhase
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFC0&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "phase"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -369,13 +369,13 @@ Begin VB.Form frmFilters
          Top             =   1140
          Width           =   1005
       End
-      Begin VB.Label LblMag 
+      Begin VB.Label LblMag
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFC0&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "mag"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -392,12 +392,12 @@ Begin VB.Form frmFilters
          Top             =   1140
          Width           =   1005
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00C0FFC0&
          Caption         =   "Freq"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -415,12 +415,12 @@ Begin VB.Form frmFilters
          Top             =   225
          Width           =   780
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFC0&
          Caption         =   "Phase"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -438,12 +438,12 @@ Begin VB.Form frmFilters
          Top             =   890
          Width           =   1005
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFC0&
          Caption         =   "Mag"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -461,12 +461,12 @@ Begin VB.Form frmFilters
          Top             =   890
          Width           =   1005
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          Caption         =   "b2"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -483,13 +483,13 @@ Begin VB.Form frmFilters
          Top             =   225
          Width           =   690
       End
-      Begin VB.Label Lbl_b2 
+      Begin VB.Label Lbl_b2
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "b2"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -505,12 +505,12 @@ Begin VB.Form frmFilters
          Top             =   495
          Width           =   1500
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          Caption         =   "b1"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -527,13 +527,13 @@ Begin VB.Form frmFilters
          Top             =   225
          Width           =   690
       End
-      Begin VB.Label Lbl_b1 
+      Begin VB.Label Lbl_b1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "b1"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -549,12 +549,12 @@ Begin VB.Form frmFilters
          Top             =   495
          Width           =   1500
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          Caption         =   "b0"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -571,13 +571,13 @@ Begin VB.Form frmFilters
          Top             =   225
          Width           =   690
       End
-      Begin VB.Label Lbl_b0 
+      Begin VB.Label Lbl_b0
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "b0"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -593,12 +593,12 @@ Begin VB.Form frmFilters
          Top             =   495
          Width           =   1500
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          Caption         =   "a2"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -615,13 +615,13 @@ Begin VB.Form frmFilters
          Top             =   225
          Width           =   690
       End
-      Begin VB.Label Lbl_a2 
+      Begin VB.Label Lbl_a2
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "a2"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -637,12 +637,12 @@ Begin VB.Form frmFilters
          Top             =   495
          Width           =   1500
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          Caption         =   "a1"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -659,13 +659,13 @@ Begin VB.Form frmFilters
          Top             =   225
          Width           =   690
       End
-      Begin VB.Label Lbl_a1 
+      Begin VB.Label Lbl_a1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "a1"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -681,12 +681,12 @@ Begin VB.Form frmFilters
          Top             =   495
          Width           =   1500
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          Caption         =   "From Controller"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -703,12 +703,12 @@ Begin VB.Form frmFilters
          Top             =   270
          Width           =   1365
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          Caption         =   "PC calculated"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -725,13 +725,13 @@ Begin VB.Form frmFilters
          Top             =   1160
          Width           =   1365
       End
-      Begin VB.Label Lbl_PC_a1 
+      Begin VB.Label Lbl_PC_a1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "a1"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -748,13 +748,13 @@ Begin VB.Form frmFilters
          Top             =   1160
          Width           =   1500
       End
-      Begin VB.Label Lbl_PC_a2 
+      Begin VB.Label Lbl_PC_a2
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "a2"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -771,13 +771,13 @@ Begin VB.Form frmFilters
          Top             =   1160
          Width           =   1500
       End
-      Begin VB.Label Lbl_PC_b0 
+      Begin VB.Label Lbl_PC_b0
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "b0"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -794,13 +794,13 @@ Begin VB.Form frmFilters
          Top             =   1160
          Width           =   1500
       End
-      Begin VB.Label Lbl_PC_b1 
+      Begin VB.Label Lbl_PC_b1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "b1"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -817,13 +817,13 @@ Begin VB.Form frmFilters
          Top             =   1160
          Width           =   1500
       End
-      Begin VB.Label Lbl_PC_b2 
+      Begin VB.Label Lbl_PC_b2
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFFF&
          BorderStyle     =   1  'Fixed Single
          Caption         =   "b2"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Tahoma"
             Size            =   9.75
             Charset         =   0
@@ -841,9 +841,9 @@ Begin VB.Form frmFilters
          Width           =   1500
       End
    End
-   Begin VB.Frame FrameTuning 
+   Begin VB.Frame FrameTuning
       BackColor       =   &H00E0E0E0&
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Tahoma"
          Size            =   11.25
          Charset         =   0
@@ -858,10 +858,10 @@ Begin VB.Form frmFilters
       ToolTipText     =   "After changing axis, filters are NOT updated and must be red if needed. This allows to copy filter table to the OTHER axis"
       Top             =   0
       Width           =   11756
-      Begin VB.CheckBox ChkRealTimeUpdateTF 
+      Begin VB.CheckBox ChkRealTimeUpdateTF
          BackColor       =   &H00FFFF80&
          Caption         =   "Predict TF instant update"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   0
@@ -877,10 +877,10 @@ Begin VB.Form frmFilters
          Top             =   720
          Width           =   2310
       End
-      Begin VB.OptionButton Opt_ALLfilters_or_ChangedOnly 
+      Begin VB.OptionButton Opt_ALLfilters_or_ChangedOnly
          BackColor       =   &H00C0C0FF&
          Caption         =   "Changed"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   0
@@ -897,10 +897,10 @@ Begin VB.Form frmFilters
          Value           =   -1  'True
          Width           =   1005
       End
-      Begin VB.OptionButton Opt_ALLfilters_or_ChangedOnly 
+      Begin VB.OptionButton Opt_ALLfilters_or_ChangedOnly
          BackColor       =   &H00C0FFFF&
          Caption         =   "ALL"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   0
@@ -916,10 +916,10 @@ Begin VB.Form frmFilters
          Top             =   720
          Width           =   690
       End
-      Begin VB.CommandButton CmdFilterRefresh 
+      Begin VB.CommandButton CmdFilterRefresh
          BackColor       =   &H00FF80FF&
          Caption         =   "Read Axis Filters"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -936,10 +936,10 @@ Begin VB.Form frmFilters
          Top             =   270
          Width           =   1860
       End
-      Begin VB.CommandButton cmdSaveParamsIntoFLASH 
+      Begin VB.CommandButton cmdSaveParamsIntoFLASH
          BackColor       =   &H00FFFF80&
          Caption         =   "Save Params into FLASH"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -957,10 +957,10 @@ Begin VB.Form frmFilters
          Top             =   270
          Width           =   1410
       End
-      Begin VB.CommandButton cmdLoadDefaults 
+      Begin VB.CommandButton cmdLoadDefaults
          BackColor       =   &H0080C0FF&
          Caption         =   "Load Default Parameters"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -978,10 +978,10 @@ Begin VB.Form frmFilters
          Top             =   270
          Width           =   1410
       End
-      Begin VB.CommandButton CmdUpdateFilter 
+      Begin VB.CommandButton CmdUpdateFilter
          BackColor       =   &H00C0FFC0&
          Caption         =   "Update Filters"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   204
@@ -998,10 +998,10 @@ Begin VB.Form frmFilters
          Top             =   270
          Width           =   1725
       End
-      Begin VB.CheckBox ChkShowOneFilterTF 
+      Begin VB.CheckBox ChkShowOneFilterTF
          BackColor       =   &H0000C000&
          Caption         =   "Show Filter TF"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   0
@@ -1018,10 +1018,10 @@ Begin VB.Form frmFilters
          Value           =   1  'Checked
          Width           =   1410
       End
-      Begin VB.CheckBox ChkShowAxisTF 
+      Begin VB.CheckBox ChkShowAxisTF
          BackColor       =   &H000080FF&
          Caption         =   "Show Axis TF"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   8.25
             Charset         =   0
@@ -1038,8 +1038,8 @@ Begin VB.Form frmFilters
          Value           =   1  'Checked
          Width           =   1410
       End
-      Begin VB.ComboBox ComboFilterAxis 
-         BeginProperty Font 
+      Begin VB.ComboBox ComboFilterAxis
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -1058,17 +1058,17 @@ Begin VB.Form frmFilters
          Top             =   270
          Width           =   1470
       End
-      Begin VB.Frame Frame5 
+      Begin VB.Frame Frame5
          BackColor       =   &H00C0FFFF&
          Height          =   2985
          Left            =   135
          TabIndex        =   2
          Top             =   1125
          Width           =   11490
-         Begin VB.CommandButton CmdCopyFilters 
+         Begin VB.CommandButton CmdCopyFilters
             BackColor       =   &H008080FF&
             Caption         =   "Set all 4 axes"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   9.75
                Charset         =   204
@@ -1086,7 +1086,7 @@ Begin VB.Form frmFilters
             Visible         =   0   'False
             Width           =   1545
          End
-         Begin VB.Frame FrameFilter 
+         Begin VB.Frame FrameFilter
             BackColor       =   &H00C0FFC0&
             BorderStyle     =   0  'None
             Height          =   420
@@ -1094,8 +1094,8 @@ Begin VB.Form frmFilters
             TabIndex        =   3
             Top             =   450
             Width           =   10845
-            Begin VB.ComboBox ComboFilterTYPE 
-               BeginProperty Font 
+            Begin VB.ComboBox ComboFilterTYPE
+               BeginProperty Font
                   Name            =   "Tahoma"
                   Size            =   9.75
                   Charset         =   0
@@ -1114,7 +1114,7 @@ Begin VB.Form frmFilters
                Top             =   30
                Width           =   3090
             End
-            Begin CWUIControlsLib.CWNumEdit cwNumFilterParam 
+            Begin CWUIControlsLib.CWNumEdit cwNumFilterParam
                Height          =   360
                Index           =   1
                Left            =   3330
@@ -1126,7 +1126,7 @@ Begin VB.Form frmFilters
                _ExtentX        =   2469
                _ExtentY        =   635
                _StockProps     =   4
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   11.25
                   Charset         =   204
@@ -1169,7 +1169,7 @@ Begin VB.Form frmFilters
                ClassName_5     =   "CCWBindingHolderArrayEditor"
                Owner_5         =   1
             End
-            Begin CWUIControlsLib.CWNumEdit cwNumFilterParam 
+            Begin CWUIControlsLib.CWNumEdit cwNumFilterParam
                Height          =   360
                Index           =   3
                Left            =   4950
@@ -1181,7 +1181,7 @@ Begin VB.Form frmFilters
                _ExtentX        =   2249
                _ExtentY        =   635
                _StockProps     =   4
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   11.25
                   Charset         =   204
@@ -1224,7 +1224,7 @@ Begin VB.Form frmFilters
                ClassName_5     =   "CCWBindingHolderArrayEditor"
                Owner_5         =   1
             End
-            Begin CWUIControlsLib.CWNumEdit cwNumFilterParam 
+            Begin CWUIControlsLib.CWNumEdit cwNumFilterParam
                Height          =   360
                Index           =   2
                Left            =   6435
@@ -1236,7 +1236,7 @@ Begin VB.Form frmFilters
                _ExtentX        =   2469
                _ExtentY        =   635
                _StockProps     =   4
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   11.25
                   Charset         =   204
@@ -1279,7 +1279,7 @@ Begin VB.Form frmFilters
                ClassName_5     =   "CCWBindingHolderArrayEditor"
                Owner_5         =   1
             End
-            Begin CWUIControlsLib.CWNumEdit cwNumFilterParam 
+            Begin CWUIControlsLib.CWNumEdit cwNumFilterParam
                Height          =   360
                Index           =   4
                Left            =   8055
@@ -1291,7 +1291,7 @@ Begin VB.Form frmFilters
                _ExtentX        =   2249
                _ExtentY        =   635
                _StockProps     =   4
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   11.25
                   Charset         =   204
@@ -1334,7 +1334,7 @@ Begin VB.Form frmFilters
                ClassName_5     =   "CCWBindingHolderArrayEditor"
                Owner_5         =   1
             End
-            Begin CWUIControlsLib.CWNumEdit cwNumFilterParam 
+            Begin CWUIControlsLib.CWNumEdit cwNumFilterParam
                Height          =   360
                Index           =   0
                Left            =   9540
@@ -1346,7 +1346,7 @@ Begin VB.Form frmFilters
                _ExtentX        =   2249
                _ExtentY        =   635
                _StockProps     =   4
-               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
                   Name            =   "Arial"
                   Size            =   11.25
                   Charset         =   204
@@ -1390,13 +1390,13 @@ Begin VB.Form frmFilters
                Owner_5         =   1
             End
          End
-         Begin VB.Label LblFilter 
+         Begin VB.Label LblFilter
             Appearance      =   0  'Flat
             BackColor       =   &H008080FF&
             BackStyle       =   0  'Transparent
             BorderStyle     =   1  'Fixed Single
             Caption         =   "  1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Tahoma"
                Size            =   14.25
                Charset         =   0
@@ -1414,13 +1414,13 @@ Begin VB.Form frmFilters
             Top             =   450
             Width           =   11445
          End
-         Begin VB.Label LblFilter 
+         Begin VB.Label LblFilter
             Appearance      =   0  'Flat
             BackColor       =   &H008080FF&
             BackStyle       =   0  'Transparent
             BorderStyle     =   1  'Fixed Single
             Caption         =   "  2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Tahoma"
                Size            =   14.25
                Charset         =   0
@@ -1438,13 +1438,13 @@ Begin VB.Form frmFilters
             Top             =   855
             Width           =   11445
          End
-         Begin VB.Label LblFilter 
+         Begin VB.Label LblFilter
             Appearance      =   0  'Flat
             BackColor       =   &H008080FF&
             BackStyle       =   0  'Transparent
             BorderStyle     =   1  'Fixed Single
             Caption         =   "  3"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Tahoma"
                Size            =   14.25
                Charset         =   0
@@ -1462,13 +1462,13 @@ Begin VB.Form frmFilters
             Top             =   1260
             Width           =   11445
          End
-         Begin VB.Label LblFilter 
+         Begin VB.Label LblFilter
             Appearance      =   0  'Flat
             BackColor       =   &H008080FF&
             BackStyle       =   0  'Transparent
             BorderStyle     =   1  'Fixed Single
             Caption         =   "  4"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Tahoma"
                Size            =   14.25
                Charset         =   0
@@ -1486,13 +1486,13 @@ Begin VB.Form frmFilters
             Top             =   1665
             Width           =   11445
          End
-         Begin VB.Label LblFilter 
+         Begin VB.Label LblFilter
             Appearance      =   0  'Flat
             BackColor       =   &H008080FF&
             BackStyle       =   0  'Transparent
             BorderStyle     =   1  'Fixed Single
             Caption         =   "  5"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Tahoma"
                Size            =   14.25
                Charset         =   0
@@ -1510,13 +1510,13 @@ Begin VB.Form frmFilters
             Top             =   2070
             Width           =   11445
          End
-         Begin VB.Label LblFilter 
+         Begin VB.Label LblFilter
             Appearance      =   0  'Flat
             BackColor       =   &H0080C0FF&
             BackStyle       =   0  'Transparent
             BorderStyle     =   1  'Fixed Single
             Caption         =   "  6"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Tahoma"
                Size            =   14.25
                Charset         =   0
@@ -1534,13 +1534,13 @@ Begin VB.Form frmFilters
             Top             =   2475
             Width           =   11445
          End
-         Begin VB.Label Lbl_FilterGain 
+         Begin VB.Label Lbl_FilterGain
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Gain"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1558,13 +1558,13 @@ Begin VB.Form frmFilters
             Top             =   495
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterQ2 
+         Begin VB.Label Lbl_FilterQ2
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Q_2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1582,13 +1582,13 @@ Begin VB.Form frmFilters
             Top             =   495
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterQ1 
+         Begin VB.Label Lbl_FilterQ1
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Q_1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1605,13 +1605,13 @@ Begin VB.Form frmFilters
             Top             =   495
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterFreq2 
+         Begin VB.Label Lbl_FilterFreq2
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Freq_2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1629,13 +1629,13 @@ Begin VB.Form frmFilters
             Top             =   495
             Width           =   1155
          End
-         Begin VB.Label Lbl_FilterFreq1 
+         Begin VB.Label Lbl_FilterFreq1
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Freq_1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1653,13 +1653,13 @@ Begin VB.Form frmFilters
             Top             =   495
             Width           =   1150
          End
-         Begin VB.Label Lbl_FilterType 
+         Begin VB.Label Lbl_FilterType
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Filter Type"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Tahoma"
                Size            =   9.75
                Charset         =   0
@@ -1676,13 +1676,13 @@ Begin VB.Form frmFilters
             Top             =   495
             Width           =   2850
          End
-         Begin VB.Label Lbl_FilterGain 
+         Begin VB.Label Lbl_FilterGain
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Gain"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1700,13 +1700,13 @@ Begin VB.Form frmFilters
             Top             =   2520
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterQ2 
+         Begin VB.Label Lbl_FilterQ2
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Q_2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1724,13 +1724,13 @@ Begin VB.Form frmFilters
             Top             =   2520
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterQ1 
+         Begin VB.Label Lbl_FilterQ1
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Q_1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1747,13 +1747,13 @@ Begin VB.Form frmFilters
             Top             =   2520
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterFreq2 
+         Begin VB.Label Lbl_FilterFreq2
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Freq_2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1771,13 +1771,13 @@ Begin VB.Form frmFilters
             Top             =   2520
             Width           =   1155
          End
-         Begin VB.Label Lbl_FilterGain 
+         Begin VB.Label Lbl_FilterGain
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Gain"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1795,13 +1795,13 @@ Begin VB.Form frmFilters
             Top             =   2115
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterQ2 
+         Begin VB.Label Lbl_FilterQ2
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Q_2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1819,13 +1819,13 @@ Begin VB.Form frmFilters
             Top             =   2115
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterQ1 
+         Begin VB.Label Lbl_FilterQ1
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Q_1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1842,13 +1842,13 @@ Begin VB.Form frmFilters
             Top             =   2115
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterFreq2 
+         Begin VB.Label Lbl_FilterFreq2
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Freq_2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1866,13 +1866,13 @@ Begin VB.Form frmFilters
             Top             =   2115
             Width           =   1155
          End
-         Begin VB.Label Lbl_FilterFreq1 
+         Begin VB.Label Lbl_FilterFreq1
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Freq_1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1890,13 +1890,13 @@ Begin VB.Form frmFilters
             Top             =   2115
             Width           =   1150
          End
-         Begin VB.Label Lbl_FilterType 
+         Begin VB.Label Lbl_FilterType
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Filter Type"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Tahoma"
                Size            =   9.75
                Charset         =   0
@@ -1913,13 +1913,13 @@ Begin VB.Form frmFilters
             Top             =   2115
             Width           =   2850
          End
-         Begin VB.Label Lbl_FilterGain 
+         Begin VB.Label Lbl_FilterGain
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Gain"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1937,13 +1937,13 @@ Begin VB.Form frmFilters
             Top             =   1710
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterQ2 
+         Begin VB.Label Lbl_FilterQ2
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Q_2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1961,13 +1961,13 @@ Begin VB.Form frmFilters
             Top             =   1710
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterQ1 
+         Begin VB.Label Lbl_FilterQ1
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Q_1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -1984,13 +1984,13 @@ Begin VB.Form frmFilters
             Top             =   1710
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterFreq2 
+         Begin VB.Label Lbl_FilterFreq2
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Freq_2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -2008,13 +2008,13 @@ Begin VB.Form frmFilters
             Top             =   1710
             Width           =   1155
          End
-         Begin VB.Label Lbl_FilterFreq1 
+         Begin VB.Label Lbl_FilterFreq1
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Freq_1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -2032,13 +2032,13 @@ Begin VB.Form frmFilters
             Top             =   1710
             Width           =   1150
          End
-         Begin VB.Label Lbl_FilterType 
+         Begin VB.Label Lbl_FilterType
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Filter Type"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Tahoma"
                Size            =   9.75
                Charset         =   0
@@ -2055,13 +2055,13 @@ Begin VB.Form frmFilters
             Top             =   1710
             Width           =   2850
          End
-         Begin VB.Label Lbl_FilterGain 
+         Begin VB.Label Lbl_FilterGain
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Gain"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -2079,13 +2079,13 @@ Begin VB.Form frmFilters
             Top             =   1305
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterQ2 
+         Begin VB.Label Lbl_FilterQ2
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Q_2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -2103,13 +2103,13 @@ Begin VB.Form frmFilters
             Top             =   1305
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterQ1 
+         Begin VB.Label Lbl_FilterQ1
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Q_1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -2126,13 +2126,13 @@ Begin VB.Form frmFilters
             Top             =   1305
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterFreq2 
+         Begin VB.Label Lbl_FilterFreq2
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Freq_2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -2150,13 +2150,13 @@ Begin VB.Form frmFilters
             Top             =   1305
             Width           =   1155
          End
-         Begin VB.Label Lbl_FilterFreq1 
+         Begin VB.Label Lbl_FilterFreq1
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Freq_1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -2174,13 +2174,13 @@ Begin VB.Form frmFilters
             Top             =   1305
             Width           =   1150
          End
-         Begin VB.Label Lbl_FilterType 
+         Begin VB.Label Lbl_FilterType
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Filter Type"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Tahoma"
                Size            =   9.75
                Charset         =   0
@@ -2197,13 +2197,13 @@ Begin VB.Form frmFilters
             Top             =   1305
             Width           =   2850
          End
-         Begin VB.Label Lbl_FilterGain 
+         Begin VB.Label Lbl_FilterGain
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Gain"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -2221,13 +2221,13 @@ Begin VB.Form frmFilters
             Top             =   900
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterQ2 
+         Begin VB.Label Lbl_FilterQ2
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Q_2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -2245,13 +2245,13 @@ Begin VB.Form frmFilters
             Top             =   900
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterQ1 
+         Begin VB.Label Lbl_FilterQ1
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Q_1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -2268,13 +2268,13 @@ Begin VB.Form frmFilters
             Top             =   900
             Width           =   1005
          End
-         Begin VB.Label Lbl_FilterFreq2 
+         Begin VB.Label Lbl_FilterFreq2
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Freq_2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -2292,13 +2292,13 @@ Begin VB.Form frmFilters
             Top             =   900
             Width           =   1155
          End
-         Begin VB.Label Lbl_FilterType 
+         Begin VB.Label Lbl_FilterType
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Filter Type"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Tahoma"
                Size            =   9.75
                Charset         =   0
@@ -2315,12 +2315,12 @@ Begin VB.Form frmFilters
             Top             =   900
             Width           =   2850
          End
-         Begin VB.Label Lbl_FiltType 
+         Begin VB.Label Lbl_FiltType
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "F#    Filter Type"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -2336,12 +2336,12 @@ Begin VB.Form frmFilters
             Top             =   135
             Width           =   2850
          End
-         Begin VB.Label Lbl_FiltGain 
+         Begin VB.Label Lbl_FiltGain
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Filter Gain"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -2358,12 +2358,12 @@ Begin VB.Form frmFilters
             Top             =   135
             Width           =   1185
          End
-         Begin VB.Label Lbl_F2_Q2 
+         Begin VB.Label Lbl_F2_Q2
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Frequency 2    Q-factor 2"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -2379,12 +2379,12 @@ Begin VB.Form frmFilters
             Top             =   135
             Width           =   2895
          End
-         Begin VB.Label Lbl_F1_Q1 
+         Begin VB.Label Lbl_F1_Q1
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Frequency 1    Q-factor 1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   11.25
                Charset         =   0
@@ -2400,13 +2400,13 @@ Begin VB.Form frmFilters
             Top             =   135
             Width           =   3210
          End
-         Begin VB.Label Lbl_FilterFreq1 
+         Begin VB.Label Lbl_FilterFreq1
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Freq_1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -2424,13 +2424,13 @@ Begin VB.Form frmFilters
             Top             =   2520
             Width           =   1150
          End
-         Begin VB.Label Lbl_FilterType 
+         Begin VB.Label Lbl_FilterType
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Filter Type"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Tahoma"
                Size            =   9.75
                Charset         =   0
@@ -2447,13 +2447,13 @@ Begin VB.Form frmFilters
             Top             =   2520
             Width           =   2850
          End
-         Begin VB.Label Lbl_FilterFreq1 
+         Begin VB.Label Lbl_FilterFreq1
             Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
             BackColor       =   &H80000005&
             BorderStyle     =   1  'Fixed Single
             Caption         =   "Freq_1"
-            BeginProperty Font 
+            BeginProperty Font
                Name            =   "Arial"
                Size            =   12
                Charset         =   0
@@ -2472,7 +2472,7 @@ Begin VB.Form frmFilters
             Width           =   1150
          End
       End
-      Begin CWUIControlsLib.CWNumEdit cwNumAxisGain 
+      Begin CWUIControlsLib.CWNumEdit cwNumAxisGain
          Height          =   360
          Left            =   1575
          TabIndex        =   65
@@ -2484,7 +2484,7 @@ Begin VB.Form frmFilters
          _ExtentX        =   1852
          _ExtentY        =   635
          _StockProps     =   4
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
             Name            =   "Arial"
             Size            =   10.5
             Charset         =   204
@@ -2529,12 +2529,12 @@ Begin VB.Form frmFilters
          ClassName_5     =   "CCWBindingHolderArrayEditor"
          Owner_5         =   1
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          Caption         =   "Gain"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -2552,12 +2552,12 @@ Begin VB.Form frmFilters
          Top             =   675
          Width           =   600
       End
-      Begin VB.Label Label1 
+      Begin VB.Label Label1
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
          Caption         =   "AXIS"
-         BeginProperty Font 
+         BeginProperty Font
             Name            =   "Arial"
             Size            =   9.75
             Charset         =   0
@@ -2575,7 +2575,7 @@ Begin VB.Form frmFilters
          Top             =   270
          Width           =   600
       End
-      Begin VB.Image ImagePictogram 
+      Begin VB.Image ImagePictogram
          Height          =   735
          Index           =   13
          Left            =   135
@@ -2585,7 +2585,7 @@ Begin VB.Form frmFilters
          Width           =   735
       End
    End
-   Begin CWUIControlsLib.CWNumEdit cwNumExperimentalFFscale 
+   Begin CWUIControlsLib.CWNumEdit cwNumExperimentalFFscale
       Height          =   360
       Left            =   12060
       TabIndex        =   105
@@ -2597,7 +2597,7 @@ Begin VB.Form frmFilters
       _ExtentX        =   1852
       _ExtentY        =   635
       _StockProps     =   4
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
          Name            =   "Arial"
          Size            =   10.5
          Charset         =   204
@@ -2642,12 +2642,12 @@ Begin VB.Form frmFilters
       ClassName_5     =   "CCWBindingHolderArrayEditor"
       Owner_5         =   1
    End
-   Begin VB.Label Label1 
+   Begin VB.Label Label1
       Alignment       =   2  'Center
       Appearance      =   0  'Flat
       BackColor       =   &H80000005&
       Caption         =   "Experimental FF scale"
-      BeginProperty Font 
+      BeginProperty Font
          Name            =   "Arial"
          Size            =   9
          Charset         =   0
@@ -2901,7 +2901,7 @@ Sub CalculateFilterTF(Filt_num As Long)
     Dim t_float As Double
     Call set_filt_params_from_user_input(Filt_num)
     ThisFilterCoeff.ftyp = CHANGED_FilterParamArray(Filt_num, 0) 'IK 20210425 fixed, need this or ftyp is always 0
-    
+
     ThisFilterCoeff.b2 = CHANGED_FilterParamArray(Filt_num, 6)
     ThisFilterCoeff.b1 = CHANGED_FilterParamArray(Filt_num, 7)
     ThisFilterCoeff.b0 = CHANGED_FilterParamArray(Filt_num, 8)
@@ -3039,7 +3039,7 @@ Sub set_filt_params_from_user_input(Filt_Number As Long) 'FilterParams As float_
         If FilterParams.par(param) <> 0 Then testVar = testVar + 1
     Next param
     If (testVar = 0) Then Exit Sub 'all params are zero, not initiated yet. it will cause 'dived by zero' exception
-    
+
     If ChkRealTimeUpdateTF.Value = Checked Then
         Call set_float_iir(FilterParams)  'this recalculates a, b coefficients
         ' update coefficients so we can re-cal axis TF and re-plot
@@ -3107,7 +3107,7 @@ Public Sub CalculateAxis_TF(Optional reverse_Ph As Boolean = False)
     Else
         phase_reversal = 0
     End If
-    
+
 'initial conditions
     For i = 0 To TEST_LTF_ARRAY_LENGTH ' 0 to 200
         TmpFiltPlot_Phase(i) = 0
@@ -3417,15 +3417,15 @@ Private Sub CmdFilterRefresh_Click()
     'pressure V4  = 19 <<< NAME changed to "UnusedV3" during Form_load() if use FFF. //-!- IK20251208 SHOULD BE "if no air isolators"
     'pressure Bal = 20 <<< NAME changed to "UnusedBal" during Form_load() if use FFF. //-!- IK20251208 SHOULD BE "if no air isolators"
     'Aux Filters  = 21
-    
+
     ' Read axis gain:
-    
+
     'gain$#, $=0,1,2,3, "0=Axes, 1=Test_gains, 2=Test_phases, 3=Pressure, 4=PneumGainBoost"
     ' if $=0:
     ' #=0-F:  XpLM,  YpLM,  tZpLM, Zpos,  tXpos, tYpos, Xvel,  Yvel,  tZv ,  Zvel,  tXv,   tYv,   Zp_aux, tXp_aux, tYp_aux, diag balance
     ' first 3 gains for soft dock: pos to LinMotors, 3 pneumatic gains, 6 velocity gains, 3 auxilary pneum damping, last - pneumatic diagonal balancing
     ' cputs("Xp=0,Yp=1,tZp=2,Zp=3,tXp=4,tYp=5,Xv=6,Yv=7,tZv=8,Zv=9,tXv=A,tYv=B,Zd=C,tXd=D,tYd=E, bd=F\r\n");
-    
+
     ' IK20251208 up to SysData.gain[11] old way, with FB axes
     ' /***************************************************************************************************
     ' for Stage or Floor FF, the syntax changes from"gain$#=XXX" to "g_FF#$@&=GGG.GGG" Set/get Feed Forward gain and attributes.
@@ -3445,7 +3445,7 @@ Private Sub CmdFilterRefresh_Click()
     '    Parameter "$" : feed forward output channel : Z_fff = 0; X_fff = 1; Y_fff = 2;
     '    Parameter "@": feed forward gain attribute : either "W" (Working gain) or "P" (Passive, not working)
     '    Parameter "&" : feed forward adaptive attribute : either "A" (Adaptive gain) or "N" (Not Adaptive)
-    '    Value "ggg.ggg" = can be in regular or scientific notation "±m.mmE±pp"; valid range : ±100.0
+    '    Value "ggg.ggg" = can be in regular or scientific notation "+/-m.mmE+/-pp"; valid range : +/-100.0
     '
     '    Get gain "g_FFF#?" : returns gain and attributes : ? "g_FFF#WA=ggg.gg" or "g_FFF#WN=ggg.gg" or "g_FFF#PN=ggg.gg" or "g_FFF#PA=ggg.gg"
     '    g_FF40xx = Linear Motor Adaptive Rate       SysData.FloorFF_LearningRate,
@@ -3455,7 +3455,7 @@ Private Sub CmdFilterRefresh_Click()
     '    g_fff2pn = 0      // FloorFF Y axis gain
     '    g_ff40wa = 0      // Floor FF Adaptive rate
     '*********************************************************************************************************/
-    
+
     'command g_fff#wn=+1.800, # =0 to 2 FFF
     AxisGain = GetAxisGain(ComboFilterAxis.ListIndex)
 '    If (ComboFilterAxis.ListIndex) > MAX_ED_W_STAGE_FF_AXES_W_FILTERS - 1 Then
