@@ -88,10 +88,8 @@ Public Const PrevCoherence_TF_Num As Integer = 10
 Public ChName(256) As String
 'filter frame variables
 Public Const LOOP_FREQUENCY As Double = 5000  'for ElectroDamp
-'Public Const ONE_OVER_FREQUENCY As Double = 1 / LOOP_FREQUENCY
 Public PI_x2_OVER_FREQUENCY As Double ' = PI * 2 / LOOP_FREQUENCY
-
-'Public FBgain(16) As Double         'feedback axes gains for simulation
+Public UseSingleCalculations As Boolean ' IK20221007 old way of calculating
 Public FilterAxis As Long           'filter axis to change parameters
 Public FilterNumberInChain As Long  'filter number in the axis to change parameters
 Public FilterParamNumber As Long    '0 to 10, filter user parameter number 0-5, 0(Filter Type, integer), 1-5 params, floats,6-10 filter coefficients
@@ -116,10 +114,12 @@ Public SystemName  As String 'gets value from vers string
 Public PhaseReversed As Boolean '=true if 180 added, =false if direct (default)
 Public Const TEST_LTF_ARRAY_LENGTH As Long = 200
     '*********************************************************
-Public Reference_Freq_data(TEST_LTF_ARRAY_LENGTH) As Double
-Public OneFilter_Mag(TEST_LTF_ARRAY_LENGTH) As Double ' data arrays
+Public Freq_Reference(TEST_LTF_ARRAY_LENGTH) As Double
+
+Public OneFilter_Mag(TEST_LTF_ARRAY_LENGTH) As Double  ' data arrays
 Public OneFilter_Phase(TEST_LTF_ARRAY_LENGTH) As Double
-Public Freq_points(TEST_LTF_ARRAY_LENGTH) As Double ' data arrays
+
+Public Freq_points(TEST_LTF_ARRAY_LENGTH) As Double ' used in prediction, based on Freq_Reference
 Public Axis_Mag(TEST_LTF_ARRAY_LENGTH) As Double
 Public Axis_Phase(TEST_LTF_ARRAY_LENGTH) As Double
 Public M3v_Cmd_Word As Long
@@ -149,6 +149,9 @@ Public Const MAX_FILTERS_IN_AXIS   As Long = 6
 '7 filters (0 to 6) in Axis chain, 10 parameters (0 to 5)-user, 6=a1,7=a2,8=b0,9=b1,0xA=b2
 Public Const FB_FILTERS_IN_AXIS As Long = MAX_FILTERS_IN_AXIS - 2 '0 to 4 in ElectroDamp, the last filter is used for stage FF adaptive algorithm
 Public Const FF_ADAPTIVE_FILT_NUM As Long = MAX_FILTERS_IN_AXIS - 1 '#5
+
+Public EnablePrecisionLog As Boolean
+Public PrecisionLogFile As String
 
 Public AirIsoPresent As Boolean
 'Public Const NUM_POS_FB_AXES As Long = 6
@@ -184,20 +187,21 @@ Public Type tF_coeff
     b2 As Double
 End Type
 
-Public Type tMag_Phase
-    Mag As Double
+Public Type tFreqHz_MagTimes_PhaseDeg
+    mag As Double
     Phase As Double
+    Freq_Hz As Double
 End Type
 
 Public Const USER_PARAM_NUMBER As Long = 5
 Type float_iir
     ftyp As Long
-    par(USER_PARAM_NUMBER - 1) As Single
-    a1 As Single
-    a2 As Single
-    b0 As Single
-    b1 As Single
-    b2 As Single
+    par(USER_PARAM_NUMBER - 1) As Double 'IK20221007 changed from Single for Low SampleRate
+    a1 As Double 'IK20221007 changed from Single for Low SampleRate
+    a2 As Double
+    b0 As Double
+    b1 As Double
+    b2 As Double
     'coefficients are rarely change
 '    Private HistBuff As p_iir_history
 End Type
@@ -595,7 +599,7 @@ Dim tr As Double, ti As Double, DivN As Double
       ui = ur * wi + ui * wr
       ur = ur1
       Next j
-    Next L  '{l - l>kke}
+    Next l  '{l - l>kke}
 
 End Sub
 
@@ -1047,11 +1051,26 @@ Public Function IM_DIV(ByRef arg1 As tComplex, ByRef arg2 As tComplex) As tCompl
     Denom_Mag = arg2.Re * arg2.Re + arg2.Im * arg2.Im
     IM_DIV = Complex(((arg1.Re * arg2.Re) + (arg1.Im * arg2.Im)) / Denom_Mag, ((arg1.Im * arg2.Re) - (arg1.Re * arg2.Im)) / Denom_Mag)
 End Function
+' returns radians, -Pi... +Pi
+Function Atan2(X As Double, Y As Double) As Double
+    Atan2 = 0
+    'now if x and y are positive
+    If (X > 0) Then  ' 1st and 4th quadrant
+        Atan2 = Atn(Y / X)
+    Else 'left side of circle, X<0
+        If (Y >= 0) Then ' 2nd quadrant
+            Atan2 = (PI + Atn(Y / X))
+        Else            ' Y<0, 3rd quadrant
+            Atan2 = (-PI + Atn(Y / X))
+        End If
+    End If
+End Function
 
 '===============================================================================================================================
-' this function calculates magnitude-phase prediction based on filter coefficients
+' this function calculates magnitude-phase prediction based on filter coefficients,
+' magnitude returns as "times", not dB, phase returns in degrees
 '===============================================================================================================================
-Public Function Mag_Ph_vs_Freq(Coeff As float_iir, freq As Double, LoopFreq As Double) As tMag_Phase
+Public Function Mag_Ph_vs_Freq(Coeff As float_iir, freq As Double, LoopFreq As Double) As tFreqHz_MagTimes_PhaseDeg
     On Error Resume Next ' if frequency = 0 it gives division by zero
     Dim Omega As Double
     Dim H As tComplex
@@ -1062,10 +1081,11 @@ Public Function Mag_Ph_vs_Freq(Coeff As float_iir, freq As Double, LoopFreq As D
     Num = Numerator_Complex(Coeff, Omega)
     Den = Denominator_Complex(Coeff, Omega)
     H = IM_DIV(Num, Den)
-    Mag_Ph_vs_Freq.Mag = Sqr(H.Re * H.Re + H.Im * H.Im)
-    If (Mag_Ph_vs_Freq.Mag = 0) Then Mag_Ph_vs_Freq.Mag = 0.00001 'we take a Log and it cannot be a zero' 1e-5 means it is an error
+    Mag_Ph_vs_Freq.mag = Sqr(H.Re * H.Re + H.Im * H.Im)
+    If (Mag_Ph_vs_Freq.mag = 0) Then Mag_Ph_vs_Freq.mag = 0.00001 'we take a Log and it cannot be a zero' 1e-5 means it is an error
     If (H.Re <> 0) Then
-        Mag_Ph_vs_Freq.Phase = -Atn(H.Im / H.Re) * 180 / PI ' returns between -90 and +90
+        Mag_Ph_vs_Freq.Phase = -Atan2(H.Re, H.Im) * 180 / PI  ' returns between -180 and +180
+        'Mag_Ph_vs_Freq.Phase = -Atn(H.Im / H.Re) * 180 / Pi   ' returns between -90 and +90
     Else
         Mag_Ph_vs_Freq.Phase = -360 'this means it is an error
     End If
@@ -1087,127 +1107,287 @@ Public Function Denominator_Complex(Coeff As float_iir, Omega As Double) As tCom
     Denominator_Complex = Complex(DenRe, DenIm)
 End Function
 ''''''''''''''' End of complex math '''''''''''''''''''''''''''''''''''''''''''''''
+
 ''================FILTER SETTING ++++++++++++++++++++++++++
+
+' -------------------------
+' Internal: Append to log file
+' -------------------------
+Private Sub LogPrecisionLoss(ByVal opName As String, ByVal input1 As Double, _
+                             Optional ByVal input2 As Variant, _
+                             Optional ByVal dblResult As Double, _
+                             Optional ByVal sngResult As Double)
+    On Error Resume Next
+    If EnablePrecisionLog And LenB(PrecisionLogFile) > 0 Then
+        Dim diff As Double
+        Dim PPMerror As Double
+        diff = dblResult - sngResult
+        PPMerror = diff * 1000000#
+        Dim f As Integer
+        f = FreeFile
+        Open PrecisionLogFile For Append As #f
+        If IsMissing(input2) Then
+            Print #f, opName & "," & Format$(input1, "0.###############") & _
+                      ",," & Format$(dblResult, "0.###############") & _
+                      "," & Format$(sngResult, "0.###############") & _
+                      "," & Format$(diff, "0.###############")
+        Else
+            Print #f, opName & "," & Format$(input1, "0.###############") & _
+                      "," & Format$(CDbl(input2), "0.###############") & _
+                      "," & Format$(dblResult, "0.###############") & _
+                      "," & Format$(sngResult, "0.###############") & _
+                      "," & Format$(PPMerror, "0.###############")
+        End If
+        Close #f
+    End If
+End Sub
+
+' -------------------------
+' Precision control
+' -------------------------
+Public Function CFPrecision(ByVal input_val As Double) As Double
+    If (UseSingleCalculations) Then ' Convert to Single, assign to Double
+        CFPrecision = CSng(input_val)
+    Else ' use Doubles
+        CFPrecision = CDbl(input_val)
+    End If
+End Function
+
+
+' ============================================================
+' Math wrappers with logging
+' ============================================================
+
+Public Function FSin(ByVal X As Double) As Double
+    Dim dblVal As Double, sngVal As Single
+    dblVal = Sin(X)
+    sngVal = CSng(dblVal)
+    FSin = IIf(UseSingleCalculations, sngVal, dblVal)
+    Call LogPrecisionLoss("Sin", X, , dblVal, sngVal)
+End Function
+
+Public Function FCos(ByVal X As Double) As Double
+    Dim dblVal As Double, sngVal As Single
+    dblVal = Cos(X)
+    sngVal = CSng(dblVal)
+    FCos = IIf(UseSingleCalculations, sngVal, dblVal)
+    Call LogPrecisionLoss("Cos", X, , dblVal, sngVal)
+End Function
+
+Public Function FTan(ByVal X As Double) As Double
+    Dim dblVal As Double, sngVal As Single
+    dblVal = Tan(X)
+    sngVal = CSng(dblVal)
+    FTan = IIf(UseSingleCalculations, sngVal, dblVal)
+    Call LogPrecisionLoss("Tan", X, , dblVal, sngVal)
+End Function
+
+Public Function FSqr(ByVal X As Double) As Double
+    Dim dblVal As Double, sngVal As Single
+    dblVal = Sqr(X)
+    sngVal = CSng(dblVal)
+    FSqr = IIf(UseSingleCalculations, sngVal, dblVal)
+    Call LogPrecisionLoss("Sqr", X, , dblVal, sngVal)
+End Function
+
+' ============================================================
+' Robust Atan2 with logging
+' ============================================================
+Public Function FAtan2(ByVal Y As Double, ByVal X As Double) As Double
+    Const PI As Double = 3.14159265358979
+    Dim dblVal As Double, sngVal As Single
+
+    ' Full quadrant handling
+    If X > 0 Then
+        dblVal = Atn(Y / X)
+    ElseIf X < 0 Then
+        If Y >= 0 Then
+            dblVal = Atn(Y / X) + PI
+        Else
+            dblVal = Atn(Y / X) - PI
+        End If
+    Else ' x = 0
+        If Y > 0 Then
+            dblVal = PI / 2
+        ElseIf Y < 0 Then
+            dblVal = -PI / 2
+        Else
+            dblVal = 0 ' undefined, both zero
+        End If
+    End If
+
+    ' Simulate single precision
+    sngVal = CSng(dblVal)
+    FAtan2 = IIf(UseSingleCalculations, sngVal, dblVal)
+
+    ' Log precision loss
+    Call LogPrecisionLoss("Atan2", Y, X, dblVal, sngVal)
+End Function
+
+' ============================================================
+' Arithmetic wrappers with logging
+' ============================================================
+Public Function FAdd(ByVal a As Double, ByVal b As Double) As Double
+    Dim dblVal As Double, sngVal As Single
+    dblVal = a + b
+    sngVal = CSng(dblVal)
+    FAdd = IIf(UseSingleCalculations, sngVal, dblVal)
+    Call LogPrecisionLoss("Add", a, b, dblVal, sngVal)
+End Function
+
+Public Function FSub(ByVal a As Double, ByVal b As Double) As Double
+    Dim dblVal As Double, sngVal As Single
+    dblVal = a - b
+    sngVal = CSng(dblVal)
+    FSub = IIf(UseSingleCalculations, sngVal, dblVal)
+    Call LogPrecisionLoss("Sub", a, b, dblVal, sngVal)
+End Function
+
+Public Function FMul(ByVal a As Double, ByVal b As Double) As Double
+    Dim dblVal As Double, sngVal As Single
+    dblVal = a * b
+    sngVal = CSng(dblVal)
+    FMul = IIf(UseSingleCalculations, sngVal, dblVal)
+    Call LogPrecisionLoss("Mul", a, b, dblVal, sngVal)
+End Function
+
+Public Function FDiv(ByVal a As Double, ByVal b As Double) As Double
+    Dim dblVal As Double, sngVal As Single
+    dblVal = a / b
+    sngVal = CSng(dblVal)
+    FDiv = IIf(UseSingleCalculations, sngVal, dblVal)
+    Call LogPrecisionLoss("Div", a, b, dblVal, sngVal)
+End Function
+
+'How to use logging
+'
+'
+'
+'Private Sub Form_Load()
+'    ' Enable simulation and logging
+'    UseSingleCalculations = True
+'    EnablePrecisionLog = True
+'    PrecisionLogFile = App.Path & "\PrecisionLog.csv"
+'
+'    ' Optional: write CSV header
+'    Dim f As Integer
+'    f = FreeFile
+'    Open PrecisionLogFile For Output As #f
+'    Print #f, "Operation,Input1,Input2,DoubleResult,SingleResult,Error"
+'    Close #f
+'
+'    ' Example DSP calculation
+'    Dim fc As Double, fs As Double, omega As Double
+'    fc = 1000#
+'    fs = 48000#
+'    omega = FMul(FTwoPI(), FDiv(fc, fs))
+'    Debug.Print "Omega = "; omega
+'End Sub
+'>> What you get in PrecisionLog.csv
+'Example Output:
+'
+'Operation , input1, input2, DoubleResult, SingleResult, Error
+'Div,1000,48000,0.0208333333333333,0.02083333,
 
 Public Sub set_float_iir(ByRef fp As float_iir)
     On Error Resume Next ' CAUTION !! it can miss divide by zero
 
-' IK20250813 it is POSSIBLE but difficult to use User Defined Type like t_filt_var
-' because it is actually a structure, and direct math is not possible, need access via
-'  structure_name DOT Value
-'    #Const UseDouble = True
-'
-'    #If UseDouble Then
-'        Public Type t_filt_var
-'            Value As Double
-'        End Type
-'    #Else
-'        Public Type t_filt_var
-'            Value As Single
-'        End Type
-'    #End If
-'    Public Function AddVars(a As t_filt_var, b As t_filt_var) As t_filt_var
-'        Dim result As t_filt_var
-'        result.Value = a.Value + b.Value
-'        AddVars = result
-'    End Function
 
 '===============================================================
 ' IK20250813 I simply redefined local variables as Single to simulate TI FPU32
+' Now fully routed through CFPrecision / F* wrappers so UseSingleCalculations
+' correctly emulates FPU32 single-precision behaviour.
 '===============================================================
     '#define omega_1pole omega_1pole 'alias name: omega_Numenator
     '#define omega_2zero omega_2zero 'alias name: omega_DEnominator
     'Dim fp As float_iir
-    Dim h1 As Single
-    Dim h2 As Single 'Double h1, h2'
-    Dim t_gain As Single
-    Dim s_freq_gain_corr As Single 'Double t_gain, s_freq_gain_corr, cotan_of_half_omega_1'
-    Dim cotan_of_half_omega_1 As Single
-    Dim freq_1_correction As Single
-    Dim freq_2_correction As Single
-    Dim tiny_positive_f32_number As Single
-    Dim omega_1pole As Single
-    Dim omega_2zero As Single
-    Dim testVar As Single
-    Dim f1 As Single
-    Dim f2 As Single
-    Dim q1 As Single
-    Dim q2 As Single
+    Dim h1 As Double
+    Dim h2 As Double
+    Dim t_gain As Double
+    Dim s_freq_gain_corr As Double
+    Dim cotan_of_half_omega_1 As Double
+    Dim freq_1_correction As Double
+    Dim freq_2_correction As Double
+    Dim tiny_positive_f32_number As Double
+    Dim omega_1pole As Double
+    Dim omega_2zero As Double
+    Dim testVar As Double
+
+    Dim FilterType As Long
+    Dim f1 As Double
+    Dim f2 As Double
+    Dim q1 As Double
+    Dim q2 As Double
+
     f1 = fp.par(freq_1)
     f2 = fp.par(freq_2)
     q1 = fp.par(Q_f_1)
     q2 = fp.par(Q_f_2)
     tiny_positive_f32_number = POSITIVE_NEAR_ZERO_FLOATING_NUMBER
 
-    PI_x2_OVER_FREQUENCY = PI * 2 / LOOP_FREQUENCY
+    FilterType = fp.ftyp
 
-    omega_1pole = PI_x2_OVER_FREQUENCY * f1 'par[1] is filter corner frequency
-    omega_2zero = PI_x2_OVER_FREQUENCY * f2 '
+    ' Fully wrapped constant
+    PI_x2_OVER_FREQUENCY = FDiv(FMul(CFPrecision(PI), 2#), CFPrecision(LOOP_FREQUENCY))
 
-    'If fp.par(Q_f_1) = 0 Then fp.par(Q_f_1) = 0.5 ' prevent division by zero
-    'If fp.par(Q_f_2) = 0 Then fp.par(Q_f_2) = 0.5 ' prevent division by zero
-    Call ensure_float_number_is_not_zero(q1, tiny_positive_f32_number)
-    Call ensure_float_number_is_not_zero(q2, tiny_positive_f32_number)
+    omega_1pole = CFPrecision(FMul(PI_x2_OVER_FREQUENCY, f1))   'par[1] is filter corner frequency
+    omega_2zero = CFPrecision(FMul(PI_x2_OVER_FREQUENCY, f2))
 
-    testVar = q1 * q1
-    'it is checked above! If testVar <> 0 Then ' denominator is not zero
-        freq_1_correction = 1 / Sqr(1 + 0.25 / (q1 * q1)) ' 'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
-    'Else
-    '    freq_1_correction = 1 'when denominator is zero
-    'End If
-    testVar = q2 * q2 ' IK20250814 fixed bug, was testVar = Q2 * Q1
-    'it is checked above! If testVar <> 0 Then ' denominator is not zero
-        freq_2_correction = 1 / Sqr(1 + 0.25 / (testVar)) '
-    'Else
-    '    freq_2_correction = 1 'when denominator is zero
-    'End If
+    Call ensure_float_number_is_not_zero(q1, tiny_positive_f32_number) 'If q1 = 0 Then q1 = 0.5 ' prevent division by zero
+    Call ensure_float_number_is_not_zero(q2, tiny_positive_f32_number) 'If q2 = 0 Then q2 = 0.5 ' prevent division by zero
 
+    testVar = FMul(q1, q1)
+    freq_1_correction = FDiv(1#, FSqr(FAdd(1#, FDiv(0.25, testVar))))   'correction for 2nd order …
 
-    If (omega_1pole > omega_2zero) Then 'choose bigger of two frequencies for gain correction
-        s_freq_gain_corr = (LOOP_FREQUENCY + f1) / LOOP_FREQUENCY '
+    testVar = FMul(q2, q2)   ' IK20250814 fixed bug, was Q2 * Q1
+    freq_2_correction = FDiv(1#, FSqr(FAdd(1#, FDiv(0.25, testVar))))
+
+    If (omega_1pole > omega_2zero) Then   'choose bigger of two frequencies for gain correction
+        s_freq_gain_corr = FDiv(FAdd(CFPrecision(LOOP_FREQUENCY), f1), CFPrecision(LOOP_FREQUENCY))
     Else
-        s_freq_gain_corr = (LOOP_FREQUENCY + f2) / LOOP_FREQUENCY '
+        s_freq_gain_corr = FDiv(FAdd(CFPrecision(LOOP_FREQUENCY), f2), CFPrecision(LOOP_FREQUENCY))
     End If
-    h1 = Tan(omega_1pole / 2) '
+
+    h1 = FTan(FMul(omega_1pole, 0.5))
     Call ensure_float_number_is_not_zero(h1, tiny_positive_f32_number)
-    cotan_of_half_omega_1 = 1 / h1 '
+    cotan_of_half_omega_1 = FDiv(1#, h1)
 
-    t_gain = fp.par(FilterGain)    '
-' set default parameters as GAIN_ONLY for start (needed gains will be replaced)
-    fp.b2 = 0# '
-    fp.b1 = 0# '
-    fp.b0 = (t_gain) '
-    fp.a2 = 0# '
-    fp.a1 = 0# '
+    t_gain = fp.par(FilterGain)
 
- Select Case (fp.ftyp)
+    ' set default parameters as GAIN_ONLY for start (needed gains will be replaced)
+    fp.b2 = 0#
+    fp.b1 = 0#
+    fp.b0 = t_gain
+    fp.a2 = 0#
+    fp.a1 = 0#
 
-     ' Break '
+ Select Case (FilterType)
+
 ' ============== STACIS FILTERS: only 4 needed ============================================================================================
   Case LPF_1stOr:           'case 1: sharp drop at high freq, notch at Nyquist, phase = -90
-    testVar = 1# + cotan_of_half_omega_1  '//IK20250818 tan() and cotan() can be =-1 at 135 and 315 deg
+    testVar = FAdd(1#, cotan_of_half_omega_1)  '//IK20250818 tan() and cotan() can be =-1 at 135 and 315 deg
     Call ensure_float_number_is_not_zero(testVar, tiny_positive_f32_number)
-    h1 = 1# / testVar '
-    fp.b1 = CSng(t_gain * h1) '
-    fp.b0 = fp.b1 '
-    fp.a1 = CSng((1# - cotan_of_half_omega_1) * h1) '
+    h1 = FDiv(1#, testVar)
+    fp.b1 = CFPrecision(FMul(t_gain, h1))
+    fp.b0 = fp.b1
+    fp.a1 = CFPrecision(FMul(FSub(1#, cotan_of_half_omega_1), h1))
      ' Break '
 
   Case HPF_1stOr:           'case 2: normalized
-    testVar = 1# + cotan_of_half_omega_1
+    testVar = FAdd(1#, cotan_of_half_omega_1)
     Call ensure_float_number_is_not_zero(testVar, tiny_positive_f32_number)
-    h1 = 1# / testVar
-    fp.a1 = CSng((1# - cotan_of_half_omega_1) * h1) '
-    fp.b1 = CSng(-cotan_of_half_omega_1 * h1 * t_gain) '
-    fp.b0 = -fp.b1 '
+    h1 = FDiv(1#, testVar)
+    fp.a1 = CFPrecision(FMul(FSub(1#, cotan_of_half_omega_1), h1))
+    fp.b1 = CFPrecision(FMul(FMul(FSub(0#, cotan_of_half_omega_1), h1), t_gain))
+    fp.b0 = FSub(0#, fp.b1) ' == -fp.b1
      ' Break '
 
   Case LEADLAG_1stOr:      'case 3: normalized maximum unity gain at band pass frequency
 '  if (omega_1pole <= omega_2zero) t_gain = omega_1pole / omega_2zero * t_gain'
-    fp.a1 = CSng((omega_2zero - 1)) '
+    fp.a1 = CFPrecision(FSub(omega_2zero, 1#))
 '  fp.a2 = 0  'set to 0 above "switch(fp.ftyp){}"
     fp.b0 = t_gain '1# '
-    fp.b1 = CSng(omega_1pole - 1) * t_gain '
+    fp.b1 = CFPrecision(FMul(FSub(omega_1pole, 1#), t_gain))
 '  fp.b2 = 0  'set to 0 above "switch(fp.ftyp){}"
      ' Break '
 
@@ -1219,26 +1399,24 @@ Public Sub set_float_iir(ByRef fp As float_iir)
 '  omega_2zero *= freq_2_correction'  'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
 
 ' //IK20250818 checked at the beginning ensure_float_number_is_not_zero(&q2, tiny_positive_f32_number);
-    h2 = 1 - (omega_2zero / (2# * q2))     '
-    fp.a1 = CSng(-2# * h2 * Cos(omega_2zero))  '
-    fp.a2 = CSng(h2 * h2) '
+    h2 = FSub(1#, FDiv(omega_2zero, FMul(2#, q2)))
+    fp.a1 = CFPrecision(FMul(FMul(-2#, h2), FCos(omega_2zero)))
+    fp.a2 = CFPrecision(FMul(h2, h2))
 
-' // IK20250818 checked at the beginning                ensure_float_number_is_not_zero(&q1, tiny_positive_f32_number);
-    h1 = 1 - (omega_1pole / (2 * q1))    '
-    fp.b0 = t_gain '1# '
-    fp.b1 = CSng(-2# * h1 * Cos(omega_1pole)) * t_gain  '
-    fp.b2 = CSng(h1 * h1) * t_gain '
+    h1 = FSub(1#, FDiv(omega_1pole, FMul(2#, q1)))
+    fp.b1 = CFPrecision(FMul(FMul(FMul(-2#, h1), FCos(omega_1pole)), t_gain))
+    fp.b2 = CFPrecision(FMul(FMul(h1, h1), t_gain))
      ' Break '
   Case DIRECT_COEFF:  ' directly enter 2nd order coeffs (b0+b1*z^-1+b2*z^-2)/(1+a1*z^-1+a2*z^-2)
-         fp.b0 = fp.par(FilterGain)
-         fp.b1 = f1
-         fp.b2 = f2
+    fp.b0 = t_gain
+    fp.b1 = f1
+    fp.b2 = f2
 
-         fp.a1 = -q1 'IK 20210301 reversed sign because it is reversed at the end of function
-         fp.a2 = -q2
+    fp.a1 = FSub(0#, q1)   'IK 20210301 reversed sign because it is reversed at the end of function
+    fp.a2 = FSub(0#, q2)
 
-         ' FilterGain  Q_f_1  Q_f_2 freq_1 freq_2
-         ' break '
+    ' FilterGain  Q_f_1  Q_f_2 freq_1 freq_2
+    ' break '
 ' ============== STACIS FILTERS END only 4 needed ============================================================================================
 
 ' ============== ADDITIONAL FILTERS FOR ELECTRODUMP ==========================================================================================
@@ -1246,259 +1424,220 @@ Public Sub set_float_iir(ByRef fp As float_iir)
   Case LEAD_1stOrNorm ', LEAD_1stOrSemiNorm     'case 5: __/-- F1<F2' HPF with max gain = param4 above F2, !! CAREFUL with FIX POINT !!gain at F1 can be much bigger than 1!!
 '  Case LEAD_1stOrSemiNorm:  'case 18: --\__ Semi Normalized! potentially high gain at high freq! Gain=1 @ (F1+F2)/2.
 '  Does not depend on F1<F2 or F1>F2, the lowest of F1,F2 is low corner freq, the highest of F1,F2 - high corner freq
-    h1 = t_gain '1# '
+    h1 = t_gain
     If (omega_1pole >= omega_2zero) Then
-        fp.a1 = CSng(omega_1pole - 1) '
-        fp.b1 = CSng(omega_2zero - 1) '
+        fp.a1 = CFPrecision(FSub(omega_1pole, 1#))
+        fp.b1 = CFPrecision(FSub(omega_2zero, 1#))
 '        If (fp.ftyp = LEAD_1stOrSemiNorm) Then h1 = t_gain * Sqr(omega_1pole / omega_2zero) '
     Else
-        fp.a1 = CSng(omega_2zero - 1) '
-        fp.b1 = CSng(omega_1pole - 1) '
+        fp.a1 = CFPrecision(FSub(omega_2zero, 1#))
+        fp.b1 = CFPrecision(FSub(omega_1pole, 1#))
 '        If (fp.ftyp = LEAD_1stOrSemiNorm) Then h1 = t_gain * Sqr(omega_2zero / omega_1pole) '
     End If
-    fp.b0 = CSng(h1) '
-    fp.b1 = CSng(fp.b1 * h1) '
+    fp.b0 = CFPrecision(h1)
+    fp.b1 = CFPrecision(FMul(fp.b1, h1))
      ' Break '
 
-  Case LAG_1stOr ', LAG_1stOrSemiNorm          'case 6: --\__  NOT normalized gain at lowest frequency, at highest frequency gain = 1
+  Case LAG_1stOr: ', LAG_1stOrSemiNorm          'case 6: --\__  NOT normalized gain at lowest frequency, at highest frequency gain = 1
 '  Case LAG_1stOrSemiNorm:   'case 20:--\__ Semi Normalized! potentially high gain at low freq! Gain=1 @ (F1+F2)/2.
 '  Does not depend on F1<F2 or F1>F2, the lowest of F1,F2 is low corner freq, the highest of F1,F2 - high corner freq
-    h1 = t_gain '1# '
+    h1 = t_gain
     If (omega_1pole <= omega_2zero) Then
-        fp.a1 = CSng(omega_1pole - 1#)  '
-        fp.b1 = CSng(omega_2zero - 1#)  '
+        fp.a1 = CFPrecision(FSub(omega_1pole, 1#))
+        fp.b1 = CFPrecision(FSub(omega_2zero, 1#))
 '        If (fp.ftyp = LAG_1stOrSemiNorm) Then h1 = t_gain * Sqr(omega_1pole / omega_2zero) '
     Else
-        fp.a1 = CSng(omega_2zero - 1#)  '
-        fp.b1 = CSng(omega_1pole - 1#)  '
+        fp.a1 = CFPrecision(FSub(omega_2zero, 1#))
+        fp.b1 = CFPrecision(FSub(omega_1pole, 1#))
 '        If (fp.ftyp = LAG_1stOrSemiNorm) Then h1 = t_gain * Sqr(omega_2zero / omega_1pole) '
     End If
-    fp.b0 = CSng(h1) '
-    fp.b1 = CSng(fp.b1 * h1) '
+    fp.b0 = CFPrecision(h1)
+    fp.b1 = CFPrecision(FMul(fp.b1, h1))
      ' Break '
+
   Case COMBINED_LAG1_LEAD1: '// combines LAG and LEAD 1st order into single 2nd order --\____/--;  --\__ determined by F1,Q1 (float frequency); __/-- determined by F2,Q2
-'               omega_1pole = PI_x2_OVER_FREQUENCY * f1; //par[1] is filter corner frequency
-'               omega_2zero = PI_x2_OVER_FREQUENCY * f2;
+'      omega_1pole = PI_x2_OVER_FREQUENCY * f1; //par[1] is filter corner frequency
+'      omega_2zero = PI_x2_OVER_FREQUENCY * f2;
 
-        Dim omega_D_tmp As Single, a11 As Single, b11 As Single ';// temp a11, b11 for the LEG, b01 is gain ==1 by default
-        Dim omega_N_tmp As Single, a12 As Single, b12 As Single ';// temp a11, b11 for the LEG, b02 is gain ==1 by default
+        Dim omega_D_tmp As Double, a11 As Double, b11 As Double ';// temp a11, b11 for the LEG, b01 is gain ==1 by default
+        Dim omega_N_tmp As Double, a12 As Double, b12 As Double ';// temp a11, b11 for the LEG, b02 is gain ==1 by default
 
-        omega_D_tmp = PI_x2_OVER_FREQUENCY * q1
-        a11 = CSng(omega_1pole - 1#)  '                // normally, and here as well, comes from F1
-        b11 = CSng(omega_D_tmp - 1#)  '            // from Q1
+        omega_D_tmp = FMul(PI_x2_OVER_FREQUENCY, q1)
+        a11 = CFPrecision(FSub(omega_1pole, 1#))   '// normally, and here as well, comes from F1
+        b11 = CFPrecision(FSub(omega_D_tmp, 1#))   '// from Q1
 
-'//alredy known         omega_2zero = PI_x2_OVER_FREQUENCY * f2;
+'//already known         omega_2zero = PI_x2_OVER_FREQUENCY * f2;
 
-        omega_N_tmp = PI_x2_OVER_FREQUENCY * q2 '; // filter corner 2nd frequency __F2_/-Q2--
-        b12 = CSng(omega_2zero - 1) ';               // normally, and here as well, comes from F2
-        a12 = CSng(omega_N_tmp - 1) ';   // now comes from Q2
+        omega_N_tmp = FMul(PI_x2_OVER_FREQUENCY, q2)
+        b12 = CFPrecision(FSub(omega_2zero, 1#))
+        a12 = CFPrecision(FSub(omega_N_tmp, 1#))
 
-        fp.b2 = CSng((b11 * b12) * t_gain)
-        fp.b1 = CSng((b11 + b12) * t_gain)
-        fp.b0 = CSng(t_gain)
-        fp.a2 = CSng(a11 * a12)
-        fp.a1 = CSng(a11 + a12)
-'        break'
-
-'  Case LAG_1stOrNorm:   'case 19: --\__  normalized maximum unity gain at lowest  frequency
-'    If (omega_1pole <= omega_2zero) Then
-'        h1 = omega_1pole / omega_2zero * t_gain '
-'        fp.a1 = CSng(omega_1pole - 1) '
-'        fp.b1 = CSng(omega_2zero - 1) '
-'    Else
-'        h1 = omega_2zero / omega_1pole * t_gain '
-'        fp.a1 = CSng(omega_2zero - 1) '
-'        fp.b1 = CSng(omega_1pole - 1) '
-'    End If
-'    fp.b0 = CSng(h1)  '
-'    fp.b1 = CSng(fp.b1 * h1) '
-'     ' Break '
-
+        fp.b2 = CFPrecision(FMul(FMul(b11, b12), t_gain))
+        fp.b1 = CFPrecision(FMul(FAdd(b11, b12), t_gain))
+        fp.b0 = CFPrecision(t_gain)
+        fp.a2 = CFPrecision(FMul(a11, a12))
+        fp.a1 = CFPrecision(FAdd(a11, a12))
 
   Case LPF_2ndOr_wPk:   'case 7: par1 = F1 = corner freq, par2,4 not used, par3 = Q factor Q=0.5 - classic, Q=2, peak approximately 2 times over unity
-        ' IK20210425 calculations were wrong !
-        ' gain = (omega_1pole/2)^2    * 1/(4 *(Q_1]^2) +1) * (FilterGain) <<<< WAS
-        ' gain = (omega_1pole/2)^2    * (1/4 /(Q_1]^2) +1) * (FilterGain) <<<< should be
-        ' gain = 0.25*(omega_1pole)^2 * (0.25/(Q_1]^2) +1) * (FilterGain)
+    h2 = FMul(FMul(omega_1pole, omega_1pole), 0.25) '       temp use (omega_1pole/2)^2
+    h1 = FAdd(FDiv(0.25, FMul(q1, q1)), 1#) '   temp use (0.25/Q_1^2 + 1)
+    h2 = FMul(FMul(FMul(h2, h1), t_gain), freq_1_correction)  'overall gain
 
-    '   gain = (omega_1pole/4)^2 * (0.25/(Q_1)^2)+1) * (FilterGain)
-    'omega_1pole = omega_1pole * freq_1_correction '  'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
-    h2 = omega_1pole * omega_1pole * 0.25 '       temp use (omega_1pole/2)^2
-    h1 = 0.25 / (q1 * q1) + 1 '   temp use (0.25/Q_1^2 + 1)
-    h2 = h2 * h1 * t_gain * freq_1_correction 'overall gain
+    h1 = FSub(1#, FDiv(omega_1pole, FMul(2#, q1)))
 
-'// IK20250818 checked at the beginning         ensure_float_number_is_not_zero(&q1, tiny_positive_f32_number);
-    h1 = 1 - (omega_1pole / (2 * q1)) '
-
-    fp.a1 = CSng(-2# * h1 * Cos(omega_1pole))  '
-    fp.a2 = CSng(h1 * h1) '
-    fp.b0 = CSng(h2)  '
-    fp.b1 = CSng(2# * h2) '
-    fp.b2 = CSng(h2)  '
+    fp.a1 = CFPrecision(FMul(FMul(-2#, h1), FCos(omega_1pole)))
+    fp.a2 = CFPrecision(FMul(h1, h1))
+    fp.b0 = CFPrecision(h2)
+    fp.b1 = CFPrecision(FMul(2#, h2))
+    fp.b2 = CFPrecision(h2)
      ' Break '
 
   Case HPF_2ndOr_wPk:   'case 8:
-    omega_1pole = omega_1pole * freq_1_correction '  'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
-'// IK20250818 checked at the beginning         ensure_float_number_is_not_zero(&q1, tiny_positive_f32_number);
-    h1 = 1 - (omega_1pole / (2 * q1)) '
+    omega_1pole = FMul(omega_1pole, freq_1_correction)
+    h1 = FSub(1#, FDiv(omega_1pole, FMul(2#, q1)))
 
-    fp.a1 = CSng(-2 * h1 * Cos(omega_1pole)) '
-    fp.a2 = CSng(h1 * h1) '
+    fp.a1 = CFPrecision(FMul(FMul(-2#, h1), FCos(omega_1pole)))
+    fp.a2 = CFPrecision(FMul(h1, h1))
 
-    fp.b0 = CSng(t_gain) '
-    fp.b1 = CSng(-2# * t_gain)  '
-    fp.b2 = CSng(t_gain) '
+    fp.b0 = CFPrecision(t_gain)
+    fp.b1 = CFPrecision(FMul(-2#, t_gain))
+    fp.b2 = CFPrecision(t_gain)
      ' Break '
 
-
   Case LEAD_2ndOr_wPk:  'case 12:  __/--- , normalized (max gain = Q, can be > 1)
-    'reverse F1 and F2 to maintain LEAD shape
-    omega_1pole = omega_1pole * freq_1_correction '  'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
-    omega_2zero = omega_2zero * freq_2_correction '  'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
+    omega_1pole = FMul(omega_1pole, freq_1_correction) 'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
+    omega_2zero = FMul(omega_2zero, freq_2_correction) 'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_2
 
-'// IK20250818 checked at the beginning         ensure_float_number_is_not_zero(&q1, tiny_positive_f32_number);
-'// IK20250818 checked at the beginning         ensure_float_number_is_not_zero(&q2, tiny_positive_f32_number);
     Call ensure_float_number_is_not_zero(s_freq_gain_corr, tiny_positive_f32_number)
 
     If (omega_1pole > omega_2zero) Then ' gain_corr = s_freq_gain_corr * (omega_1pole/omega_2zero)^2
-        h1 = 1 - (omega_1pole / (2 * q1))    '
-        h2 = 1 - (omega_2zero / (2 * q2))    '
-        fp.a1 = CSng(-2# * h1 * Cos(omega_1pole))  '
-        fp.a2 = CSng(h1 * h1) '
+        h1 = FSub(1#, FDiv(omega_1pole, FMul(2#, q1)))
+        h2 = FSub(1#, FDiv(omega_2zero, FMul(2#, q2)))
+        fp.a1 = CFPrecision(FMul(FMul(-2#, h1), FCos(omega_1pole)))
+        fp.a2 = CFPrecision(FMul(h1, h1))
 
-        t_gain = t_gain / s_freq_gain_corr '
-        h1 = Cos(omega_2zero)    'temp use for b1 calculation
+        t_gain = FDiv(t_gain, s_freq_gain_corr)
+        h1 = FCos(omega_2zero)    'temp use for b1 calculation
     Else 'omega_1pole <= omega_2zero
-        h1 = 1# - (omega_2zero / (2# * q2))      '
-        h2 = 1# - (omega_1pole / (2# * q1))      '
-        fp.a1 = CSng(-2# * h1 * Cos(omega_2zero))  '
-        fp.a2 = CSng(h1 * h1) '
+        h1 = FSub(1#, FDiv(omega_2zero, FMul(2#, q2)))
+        h2 = FSub(1#, FDiv(omega_1pole, FMul(2#, q1)))
+        fp.a1 = CFPrecision(FMul(FMul(-2#, h1), FCos(omega_2zero)))
+        fp.a2 = CFPrecision(FMul(h1, h1))
 
-        t_gain = t_gain / s_freq_gain_corr '
-        h1 = Cos(omega_1pole)    'temp use for b1 calculation
+        t_gain = FDiv(t_gain, s_freq_gain_corr)
+        h1 = FCos(omega_1pole)    'temp use for b1 calculation
     End If
-    fp.b0 = CSng(t_gain) '
-    fp.b1 = CSng(-2# * h2 * h1 * t_gain)  '
-    fp.b2 = CSng(h2 * h2 * t_gain) '
-
+    fp.b0 = CFPrecision(t_gain)
+    fp.b1 = CFPrecision(FMul(FMul(FMul(-2#, h2), h1), t_gain))
+    fp.b2 = CFPrecision(FMul(FMul(h2, h2), t_gain))
      ' Break '
 
   Case LAG_2ndOr_wPk:   'case 13:--\__  normalized (max gain = Q, can be > 1)
-
 ' Q-factor gain correction: =(1+1/(2*Q_1)^2)/(1+1/(2*Q_2)^2)
-    omega_1pole = omega_1pole * freq_1_correction '  'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
-    omega_2zero = omega_2zero * freq_2_correction '  'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
+    omega_1pole = FMul(omega_1pole, freq_1_correction) 'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_1
+    omega_2zero = FMul(omega_2zero, freq_2_correction) 'correction for 2nd order LPF, HPF, Lead, Lag to have 90 degree phase at any Q_2
 
-'// IK20250818 checked at the beginning         ensure_float_number_is_not_zero(&q1, tiny_positive_f32_number);
-'// IK20250818 checked at the beginning         ensure_float_number_is_not_zero(&q2, tiny_positive_f32_number);
     Call ensure_float_number_is_not_zero(omega_2zero, tiny_positive_f32_number)
-    h1 = omega_1pole / omega_2zero '
-    h1 = h1 * h1 '
-    h2 = 1 + 0.25 / (q2 * q2) '
-    h2 = (1 + 0.25 / (q1 * q1)) / h2 '
-    h1 = h1 * h2 ' h1 includes F2/F1, Q2 and Q1 gain correction
+    h1 = FDiv(omega_1pole, omega_2zero)
+    h1 = FMul(h1, h1)
+    h2 = FAdd(1#, FDiv(0.25, FMul(q2, q2)))
+    h2 = FDiv(FAdd(1#, FDiv(0.25, FMul(q1, q1))), h2)
+    h1 = FMul(h1, h2)   ' h1 includes F2/F1, Q2 and Q1 gain correction
 
     'reverse F1 and F2 to maintain LEAD shape
     If (omega_1pole <= omega_2zero) Then ' gain_corr = s_freq_gain_corr * (omega_1pole/omega_2zero)^2
-        t_gain = s_freq_gain_corr * t_gain * h1 '' h1 includes F2/F1, Q2 and Q1 gain correction
-
-        h1 = 1# - (omega_1pole / (2# * q1))      '
-        h2 = 1# - (omega_2zero / (2# * q2))      '
-        fp.a1 = CSng(-2# * h1 * Cos(omega_1pole))  '
-        fp.a2 = CSng(h1 * h1) '
-        h1 = Cos(omega_2zero)    'temp use for b1 calculation
+        t_gain = FMul(FMul(s_freq_gain_corr, t_gain), h1)  ' h1 includes F2/F1, Q2 and Q1 gain correction
+        h1 = FSub(1#, FDiv(omega_1pole, FMul(2#, q1)))
+        h2 = FSub(1#, FDiv(omega_2zero, FMul(2#, q2)))
+        fp.a1 = CFPrecision(FMul(FMul(-2#, h1), FCos(omega_1pole)))
+        fp.a2 = CFPrecision(FMul(h1, h1))
+        h1 = FCos(omega_2zero)    'temp use for b1 calculation
     Else 'omega_1pole > omega_2zero
-'// IK20250818 checked at the beginning         ensure_float_number_is_not_zero(&h1, tiny_positive_f32_number);
-        t_gain = s_freq_gain_corr * t_gain / h1 '' h1 includes F2/F1, Q2 and Q1 gain correction
+        t_gain = FDiv(FMul(s_freq_gain_corr, t_gain), h1) ' h1 includes F2/F1, Q2 and Q1 gain correction
 
-        h1 = 1 - (omega_2zero / (2 * q2))    '
-        h2 = 1 - (omega_1pole / (2 * q1))    '
-        fp.a1 = CSng(-2 * h1 * Cos(omega_2zero)) '
-        fp.a2 = CSng(h1 * h1) '
-        h1 = Cos(omega_1pole)    'temp use for b1 calculation
+        h1 = FSub(1#, FDiv(omega_2zero, FMul(2#, q2)))
+        h2 = FSub(1#, FDiv(omega_1pole, FMul(2#, q1)))
+        fp.a1 = CFPrecision(FMul(FMul(-2#, h1), FCos(omega_2zero)))
+        fp.a2 = CFPrecision(FMul(h1, h1))
+        h1 = FCos(omega_1pole)    'temp use for b1 calculation
     End If
-    fp.b0 = CSng(t_gain) '
-    fp.b1 = CSng(-2 * h2 * h1 * t_gain) '
-    fp.b2 = CSng(h2 * h2 * t_gain) '
+    fp.b0 = CFPrecision(t_gain)
+    fp.b1 = CFPrecision(FMul(FMul(FMul(-2#, h2), h1), t_gain))
+    fp.b2 = CFPrecision(FMul(FMul(h2, h2), t_gain))
       ' Break '
 
   Case PEAK_on_FLAT: ' made from leadlag
-'// IK20250818 checked at the beginning         ensure_float_number_is_not_zero(&q1, tiny_positive_f32_number);
-    h2 = 0.89 + 0.064 / q1 '' Experimental automatic second frequency calculation to have unity gain from both sides of peak
-    omega_2zero = omega_1pole * h2 '
-    h1 = 1# - (omega_1pole / (2# * q1))     '
-    h2 = 1# - (omega_2zero / 2#)      '
-    fp.a1 = CSng(-2# * h1 * Cos(omega_1pole))  '
-    fp.a2 = CSng(h1 * h1) '
-    t_gain = t_gain * s_freq_gain_corr '
-    fp.b0 = CSng(t_gain) '
-    fp.b1 = CSng(-2# * h2 * Cos(omega_2zero) * t_gain)  '
-    fp.b2 = CSng(h2 * h2 * t_gain) '
+    h2 = FAdd(0.89, FDiv(0.064, q1))   '' Experimental automatic second frequency calculation to have unity gain from both sides of peak
+    omega_2zero = FMul(omega_1pole, h2)
+    h1 = FSub(1#, FDiv(omega_1pole, FMul(2#, q1)))
+    h2 = FSub(1#, FDiv(omega_2zero, 2#))
+    fp.a1 = CFPrecision(FMul(FMul(-2#, h1), FCos(omega_1pole)))
+    fp.a2 = CFPrecision(FMul(h1, h1))
+    t_gain = FMul(t_gain, s_freq_gain_corr)
+    fp.b0 = CFPrecision(t_gain)
+    fp.b1 = CFPrecision(FMul(FMul(FMul(-2#, h2), FCos(omega_2zero)), t_gain))
+    fp.b2 = CFPrecision(FMul(FMul(h2, h2), t_gain))
      ' Break '
 
   Case NOTCH: ' made from leadlag
-
 '  h1  = (q1 - 1)'' automatic second frequency calculation to have unity gain from both sides of notch
 '  h2  = 1 / (q1 + 1)'
 '  h2  = h2 * h2'
 '  omega_2zero = omega_1pole * (1 - h1 * h2)' = (1 - (Q - 1)/((Q + 1)^2))
 
 '    h2 = 0.89 + 0.064 / q1 '' Experimental automatic second frequency calculation to have unity gain from both sides of peak
-'// IK20250818 checked at the beginning         ensure_float_number_is_not_zero(&q1, tiny_positive_f32_number);
-    h2 = 0.8208 + 0.1673 / q1 + 0.009105 * q1 + 0.00001825 * q1 * f1
-    omega_2zero = omega_1pole * h2 '
-    h1 = 1 - (omega_1pole / (2 * q1))    '
-    h2 = 1 - (omega_2zero / 2)    '
-    fp.a1 = CSng(-2 * h2 * Cos(omega_2zero)) '
-    fp.a2 = CSng(h2 * h2) '
+    h2 = FAdd(FAdd(FAdd(0.8208, FDiv(0.1673, q1)), FMul(0.009105, q1)), FMul(FMul(0.00001825, q1), f1))
+    omega_2zero = FMul(omega_1pole, h2)
+    h1 = FSub(1#, FDiv(omega_1pole, FMul(2#, q1)))
+    h2 = FSub(1#, FMul(omega_2zero, 0.5))
+    fp.a1 = CFPrecision(FMul(FMul(-2#, h2), FCos(omega_2zero)))
+    fp.a2 = CFPrecision(FMul(h2, h2))
 
-    t_gain = t_gain * s_freq_gain_corr '
+    t_gain = FMul(t_gain, s_freq_gain_corr)
 
-    fp.b0 = CSng(t_gain) '
-    fp.b1 = CSng(-2 * h1 * Cos(omega_1pole) * t_gain) '
-    fp.b2 = CSng(h1 * h1 * t_gain) '
+    fp.b0 = CFPrecision(t_gain)
+    fp.b1 = CFPrecision(FMul(FMul(FMul(-2#, h1), FCos(omega_1pole)), t_gain))
+    fp.b2 = CFPrecision(FMul(FMul(h1, h1), t_gain))
      ' Break '
 
   Case NOTCH_Sharp: 'Q regulates "width" of a notch
-'// IK20250818 checked at the beginning         ensure_float_number_is_not_zero(&q1, tiny_positive_f32_number);
-        testVar = 1# + cotan_of_half_omega_1 / q1 + cotan_of_half_omega_1 * cotan_of_half_omega_1
-        Call ensure_float_number_is_not_zero(testVar, tiny_positive_f32_number)
-        h1 = 1# / testVar
-    h2 = 2# * (1# - cotan_of_half_omega_1 * cotan_of_half_omega_1) * h1  '
+    testVar = FAdd(FAdd(1#, FDiv(cotan_of_half_omega_1, q1)), FMul(cotan_of_half_omega_1, cotan_of_half_omega_1))
+    Call ensure_float_number_is_not_zero(testVar, tiny_positive_f32_number)
+    h1 = FDiv(1#, testVar)
+    h2 = FMul(FMul(2#, FSub(1#, FMul(cotan_of_half_omega_1, cotan_of_half_omega_1))), h1)
 
-    fp.a1 = CSng(h2)  '
-'// IK20250818 checked at the beginning         ensure_float_number_is_not_zero(&q1, tiny_positive_f32_number);
-    fp.a2 = CSng((1# - cotan_of_half_omega_1 / q1 + cotan_of_half_omega_1 * cotan_of_half_omega_1) * h1) '
-    fp.b0 = CSng((1# + cotan_of_half_omega_1 * cotan_of_half_omega_1) * h1 * t_gain) '
-    fp.b1 = CSng(h2 * t_gain) ' IK 20210422 fix: added * t_gain; otherwise TF is correct only when filter gain == 1
-    fp.b2 = fp.b0 '
+    fp.a1 = CFPrecision(h2)
+    fp.a2 = CFPrecision(FMul(FAdd(FSub(1#, FDiv(cotan_of_half_omega_1, q1)), FMul(cotan_of_half_omega_1, cotan_of_half_omega_1)), h1))
+    fp.b0 = CFPrecision(FMul(FMul(FAdd(1#, FMul(cotan_of_half_omega_1, cotan_of_half_omega_1)), h1), t_gain))
+    fp.b1 = CFPrecision(FMul(h2, t_gain))   ' IK 20210422 fix: added * t_gain; otherwise TF is correct only when filter gain == 1
+    fp.b2 = fp.b0
      ' Break '
 
   Case BPF: '"roof shape BPF" +20dB/dec-peak-20dB/dec' par1=peak freq, par3=Q1=peak mag
-'// IK20250818 checked at the beginning         ensure_float_number_is_not_zero(&q1, tiny_positive_f32_number);
-        testVar = 1# + cotan_of_half_omega_1 / q1 + cotan_of_half_omega_1 * cotan_of_half_omega_1
-        Call ensure_float_number_is_not_zero(testVar, tiny_positive_f32_number)
-        h1 = 1# / testVar
-    h2 = t_gain * cotan_of_half_omega_1 * h1 / q1 '= (fp.par(FilterGain)*cotan_of_half_omega_1) / q1 * h1'
+    testVar = FAdd(FAdd(1#, FDiv(cotan_of_half_omega_1, q1)), FMul(cotan_of_half_omega_1, cotan_of_half_omega_1))
+    Call ensure_float_number_is_not_zero(testVar, tiny_positive_f32_number)
+    h1 = FDiv(1#, testVar)
+    h2 = FDiv(FMul(FMul(t_gain, cotan_of_half_omega_1), h1), q1)
 
-    fp.a1 = CSng(2# * (1# - cotan_of_half_omega_1 * cotan_of_half_omega_1) * h1) '
-    fp.a2 = CSng((1# - cotan_of_half_omega_1 / q1 + cotan_of_half_omega_1 * cotan_of_half_omega_1) * h1) '
-    fp.b0 = CSng(h2) '
-    fp.b1 = 0# '
-    fp.b2 = CSng(-h2) '
+    fp.a1 = CFPrecision(FMul(FMul(2#, FSub(1#, FMul(cotan_of_half_omega_1, cotan_of_half_omega_1))), h1))
+    fp.a2 = CFPrecision(FMul(FAdd(FSub(1#, FDiv(cotan_of_half_omega_1, q1)), FMul(cotan_of_half_omega_1, cotan_of_half_omega_1)), h1))
+    fp.b0 = CFPrecision(h2)
+    fp.b1 = 0#
+    fp.b2 = CFPrecision(FSub(0#, h2))
      ' Break '
 
   Case PID: '"leaky" integral
-    h1 = fp.par(PID_I_gain) * 1 / LOOP_FREQUENCY '      ' Integral
-    h2 = fp.par(PID_D_gain) * LOOP_FREQUENCY / 1000 '   ' differential, /1000 because D gain is too big, should be in the range 0.001 then mag bend up happens at 100 Hz
+    h1 = FDiv(FMul(fp.par(PID_I_gain), 1#), LOOP_FREQUENCY)          ' Integral
+    h2 = FMul(FMul(fp.par(PID_D_gain), LOOP_FREQUENCY), 0.001)       ' differential, /1000 because D gain is too big, should be in the range 0.001 then mag bend up happens at 100 Hz
     'par(3) is filter Q, here used as frequency of leak
-    fp.a1 = PI_x2_OVER_FREQUENCY * q1 - 1# 'slightly more, then -1.0f - "leaky" integral - ALLOWS GRADUALLY PURGE delay buffers
+    fp.a1 = FSub(FMul(PI_x2_OVER_FREQUENCY, q1), 1#)                 'slightly more, then -1.0f - "leaky" integral - ALLOWS GRADUALLY PURGE delay buffers
+' IK in fixed point math (inherited from PEPS-2 Arm 7TDMA processor ADuC7026/7126)
 ' experimentally found 0.9999 cannot efficiently remove offset at low gain if OP is way too low,
 ' but too much 0.99998 can overflow filter internal delay buffers and flip over at start, especially if input pressure only 10 psi above max iso pressure.
 'IT DEPENDS ON SAMPLE FREQUENCY -same a1, higher freq gives faster purge!!!
-    fp.b0 = CSng(fp.par(PID_P_gain) + h1 + h2) '
-    fp.b1 = CSng(-(fp.par(PID_P_gain) + (2# * h2))) '
-    fp.b2 = CSng(h2)  '
+    fp.b0 = CFPrecision(FAdd(FAdd(fp.par(PID_P_gain), h1), h2))
+    fp.b1 = CFPrecision(FSub(0#, FAdd(fp.par(PID_P_gain), FMul(2#, h2))))
+    fp.b2 = CFPrecision(h2)
      ' Break '
 
 '  Case GEO_OPT: 'gain = 1 when f > F2, INTENDED USE: F1=0.2, F2=0.5' it is LEDLAG --2nd order with Q1=Q2~0.1
@@ -1508,66 +1647,68 @@ Public Sub set_float_iir(ByRef fp As float_iir)
 '' Note: (1 - tan(x)) / (1 + tan(x)) = ((cotan(x) - 1) /  ((cotan(x) + 1)
 '    h1 = (cotan_of_half_omega_1 - 1) / (cotan_of_half_omega_1 + 1) ' = (1 - tan(PI*f1/fs) / (1 + tan(PI*f1/fs)~= exp(-f1* PI_x2_OVER_FREQUENCY)
 '
-'    fp.a1 = CSng(-2 * h2) '
-'    fp.a2 = CSng(h2 * h2) '
-'    fp.b0 = CSng(t_gain) '
-'    fp.b1 = CSng(-2 * h1 * t_gain) '
-'    fp.b2 = CSng(h1 * h1 * t_gain) '
+'    fp.a1 = CFPrecision(-2 * h2) '
+'    fp.a2 = CFPrecision(h2 * h2) '
+'    fp.b0 = CFPrecision(t_gain) '
+'    fp.b1 = CFPrecision(-2 * h1 * t_gain) '
+'    fp.b2 = CFPrecision(h1 * h1 * t_gain) '
 '     ' Break '
 
   Case VELOCITY:
-    h1 = Tan(omega_2zero / 2#)  'use as temporary to calculate h2
-        testVar = 1# + h1
-        Call ensure_float_number_is_not_zero(testVar, tiny_positive_f32_number)
-        h2 = (1# - h1) / testVar                       ' = (1 - tan(PI*f2/fs) / (1 + tan(PI*f2/fs) approx = exp(-f2* PI_x2_OVER_FREQUENCY), better than 1% when fs/f0 > 63
+    h1 = FTan(FDiv(omega_2zero, 2#))  'use as temporary to calculate h2
+    testVar = FAdd(1#, h1)
+    Call ensure_float_number_is_not_zero(testVar, tiny_positive_f32_number)
+    h2 = FDiv(FSub(1#, h1), testVar)
 ' Note: (1 - tan(x)) / (1 + tan(x)) = ((cotan(x) - 1) /  ((cotan(x) + 1)
-        testVar = cotan_of_half_omega_1 + 1#
-        Call ensure_float_number_is_not_zero(testVar, tiny_positive_f32_number)
-        h1 = (cotan_of_half_omega_1 - 1#) / testVar  ' = (1 - tan(PI*f1/fs) / (1 + tan(PI*f1/fs)~= exp(-f1* PI_x2_OVER_FREQUENCY)
-    fp.a1 = CSng(-(h1 + h2)) '
-    fp.a2 = CSng(h1 * h2) '
+    testVar = FAdd(cotan_of_half_omega_1, 1#)
+    Call ensure_float_number_is_not_zero(testVar, tiny_positive_f32_number)
+    h1 = FDiv(FSub(cotan_of_half_omega_1, 1#), testVar)
+
+    fp.a1 = CFPrecision(FSub(0#, FAdd(h1, h2)))
+    fp.a2 = CFPrecision(FMul(h1, h2))
 
     If (omega_1pole > omega_2zero) Then
         Call ensure_float_number_is_not_zero(f2, tiny_positive_f32_number)
-        t_gain = t_gain * LOOP_FREQUENCY / f2 * 0.08 ' when F2 > F1
+        t_gain = FMul(FMul(FDiv(t_gain, f2), LOOP_FREQUENCY), 0.08) ' when F2 > F1
     Else
         Call ensure_float_number_is_not_zero(f1, tiny_positive_f32_number)
-        t_gain = t_gain * LOOP_FREQUENCY / f1 * 0.08 ' when F2 < F1
+        t_gain = FMul(FMul(FDiv(t_gain, f1), LOOP_FREQUENCY), 0.08) ' when F2 < F1
     End If
-    fp.b0 = CSng((1# + (fp.a1) + (fp.a2)) * t_gain)  'gain correction '-!- PHASE CORRECTED 09-25-09
-    fp.b2 = -(fp.b0) '
+    fp.b0 = CFPrecision(FMul(FAdd(FAdd(1#, fp.a1), fp.a2), t_gain))  'gain correction '-!- PHASE CORRECTED 09-25-09
+    fp.b2 = FSub(0#, fp.b0)
      ' Break '
 
   Case Position:
-    h1 = Tan(omega_2zero / 2) 'use as temporary to calculate h2
-        testVar = 1# + h1
-        Call ensure_float_number_is_not_zero(testVar, tiny_positive_f32_number)
-        h2 = (1# - h1) / testVar                       ' = (1 - tan(PI*f2/fs) / (1 + tan(PI*f2/fs) approx = exp(-f2* PI_x2_OVER_FREQUENCY), better than 1% when fs/f0 > 63
+    h1 = FTan(FDiv(omega_2zero, 2#)) 'use as temporary to calculate h2
+    testVar = FAdd(1#, h1)
+    Call ensure_float_number_is_not_zero(testVar, tiny_positive_f32_number)
+    h2 = FDiv(FSub(1#, h1), testVar) ' = (1 - tan(PI*f2/fs) / (1 + tan(PI*f2/fs) approx = exp(-f2* PI_x2_OVER_FREQUENCY), better than 1% when fs/f0 > 63
 ' Note: (1 - tan(x)) / (1 + tan(x)) = ((cotan(x) - 1) /  ((cotan(x) + 1)
-        testVar = cotan_of_half_omega_1 + 1#
-        Call ensure_float_number_is_not_zero(testVar, tiny_positive_f32_number)
-        h1 = (cotan_of_half_omega_1 - 1#) / testVar   '= (1 - tan(PI*f1/fs) / (1 + tan(PI*f1/fs)~= exp(-f1* PI_x2_OVER_FREQUENCY)
-    fp.a1 = CSng(-(h1 + h2)) '
-    fp.a2 = CSng(h1 * h2) '
-    fp.b0 = CSng(0.5 * (1 + fp.a1 + fp.a2) * t_gain) '        'fp.b0= -(1.0 + fp.a2 + fp.a1)/2''-!- PHASE CORRECTED 09-25-09
-    fp.b1 = fp.b0 '
+    testVar = FAdd(cotan_of_half_omega_1, 1#)
+    Call ensure_float_number_is_not_zero(testVar, tiny_positive_f32_number)
+    h1 = FDiv(FSub(cotan_of_half_omega_1, 1#), testVar)   '= (1 - tan(PI*f1/fs) / (1 + tan(PI*f1/fs)~= exp(-f1* PI_x2_OVER_FREQUENCY)
+    fp.a1 = CFPrecision(FSub(0#, FAdd(h1, h2)))
+    fp.a2 = CFPrecision(FMul(h1, h2))
+    fp.b0 = CFPrecision(FMul(FMul(0.5, FAdd(FAdd(1#, fp.a1), fp.a2)), t_gain)) '        'fp.b0= -(1.0 + fp.a2 + fp.a1)/2''-!- PHASE CORRECTED 09-25-09
+    fp.b1 = fp.b0
      ' Break '
-   Case GAIN_ONLY:
-    'h1 = h1
-   Case Else:
-    'h1 = h1
-End Select
+
+  Case GAIN_ONLY:
+    ' already set above
+  Case Else:
+    ' already set above
+ End Select
+
 ''Reverse a1, a2 to use only ADD (summing) and do not use SUB (no subtraction)
-    fp.a1 = -fp.a1 '
-    fp.a2 = -fp.a2 '
+    fp.a1 = FSub(0#, fp.a1)
+    fp.a2 = FSub(0#, fp.a2)
 End Sub
 
 ' 20250806 Simon Li
 ' if incoming floating number is close to zero, this function will change input floating number to
 ' a very small number to avoid divide by zero problem
 ' near_zero_positive_float_number is used to allow using different small positive floating number
-Sub ensure_float_number_is_not_zero(ByRef var_ptr As Single, near_zero_positive_float_number As Single)
-
+Sub ensure_float_number_is_not_zero(ByRef var_ptr As Double, near_zero_positive_float_number As Double)
     If ((var_ptr >= 0#) And (var_ptr < near_zero_positive_float_number)) Then
         var_ptr = near_zero_positive_float_number
     Else
@@ -1849,6 +1990,12 @@ Public Function FORMAT_G(ByVal Value As Single, Optional ByVal UseLocale As Bool
         FORMAT_G = Replace(FORMAT_G, ".", DecimalSep)
     End If
 End Function
+
+'public function Modulo(a/b) = a - (b * Fix(a / b))
+Public Function Modulo(a As Double, b As Double) As Double
+Modulo = a - (b * Fix(a / b))
+End Function
+
 
 'Note: BitsToSingle() is not a numeric conversion - it directly reinterprets the bit pattern (identical to a C-style union or type pun).
 'For example:

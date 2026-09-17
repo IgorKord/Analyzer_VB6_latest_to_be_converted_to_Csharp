@@ -372,7 +372,7 @@ Begin VB.Form frmSplash
       Begin VB.Label Label1 
          Alignment       =   2  'Center
          AutoSize        =   -1  'True
-         Caption         =   "V1.5.6 @ 01-05-2026"
+         Caption         =   "V1.6.0 @ 08-20-2026"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   9.75

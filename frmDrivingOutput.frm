@@ -949,7 +949,7 @@ End Sub
 Private Sub Form_click()
     If (OutputChosen = 32) Then ' radio button "DAC channel #" is selected
         Me.Caption = "Choose Driving Output. Now = DAC " & Format(cwNumDACchannel.Value, "00")
-        LTFtestOutputName = cwNumDACchannel.Tag & cwNumDACchannel.Value
+        LTFtestOutputName = cwNumDACchannel.Tag & Format(cwNumDACchannel.Value, "00")
     Else
         Me.Caption = "Choose Driving Output. Now = " & optExcitOutput(OutputChosen).Caption
         LTFtestOutputName = optExcitOutput(OutputChosen).Tag
@@ -959,7 +959,7 @@ End Sub
 Private Sub Form_LostFocus()
     If (OutputChosen = 32) Then ' radio button "DAC channel #" is selected
         Me.Caption = "Choose Driving Output. Now = DAC " & cwNumDACchannel.Value
-        LTFtestOutputName = cwNumDACchannel.Tag & cwNumDACchannel.Value
+        LTFtestOutputName = cwNumDACchannel.Tag & Format(cwNumDACchannel.Value, "00")
         Analyzer.cmdChooseExcitation.Caption = "Choose Output" & vbCrLf & "Now = DAC " & Format(cwNumDACchannel.Value, "00")
     Else
         Me.Caption = "Choose Driving Output. Now = " & optExcitOutput(OutputChosen).Caption

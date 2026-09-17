@@ -17220,7 +17220,7 @@ Begin VB.Form Analyzer
    Begin VB.Label lbl_Version_Date
       Alignment       =   2  'Center
       BackColor       =   &H00FFFFFF&
-      Caption         =   "V1.5.6 @ 01-05-2026"
+      Caption         =   "V1.6.0 @ 08-20-2026"
       BeginProperty Font
          Name            =   "Arial"
          Size            =   9.75
@@ -17234,7 +17234,7 @@ Begin VB.Form Analyzer
       Left            =   0
       TabIndex        =   53
       ToolTipText     =   "TMC part number of this software"
-      Top             =   2229
+      Top             =   2250
       Width           =   2715
    End
    Begin VB.Image Image1
@@ -17509,7 +17509,7 @@ Option Explicit
     Const Alarm_file As Integer = 2
     Const Params_file As Integer = 3
     Dim tst As Long
-    Dim retVal As String
+    Dim retval As String
     Dim percent_divider As Long ' number of LTF lines received from controller
     Dim ActiveTabIndex As Long ' index of current tab
 '//define indexes for float_iir.par[index]
@@ -18032,7 +18032,7 @@ End Sub
 
 Private Sub cwBut_BasicCMD_ValueChanged(Index As Integer, ByVal Value As Boolean)
     Dim cmd   As String
-    Dim retVal As String
+    Dim retval As String
     cmd = ""
     If Index = 0 Then 'floating - docking
         If Value = False Then
@@ -18087,8 +18087,8 @@ Private Sub cwBut_BasicCMD_ValueChanged(Index As Integer, ByVal Value As Boolean
 End Sub
 
 Sub ShowSysStatus()
-    retVal = GetSend("s", True)  'send command
-    Decode_SysStatus (retVal)
+    retval = GetSend("s", True)  'send command
+    Decode_SysStatus (retval)
 End Sub
 
 Function get_ID() As Boolean
@@ -18196,14 +18196,14 @@ Private Sub cwNum_DockedPos_ValueChanged(Value As Variant, PreviousValue As Vari
     Dim cmd As String
     If Init_sys_data = True Then Exit Sub
     cmd = cwNum_DockedPos.Tag & "=" & cwNum_DockedPos.Text
-    retVal = Analyzer.GetSend(cmd, True)
+    retval = Analyzer.GetSend(cmd, True)
 End Sub
 
 Private Sub cwNum_Go_NoGO_window_ValueChanged(Index As Integer, Value As Variant, PreviousValue As Variant, ByVal OutOfRange As Boolean)
     Dim cmd As String
     If Init_sys_data = True Then Exit Sub
     cmd = cwNum_Go_NoGO_window(Index).Tag & "=" & cwNum_Go_NoGO_window(Index).Text
-    retVal = Analyzer.GetSend(cmd, True)
+    retval = Analyzer.GetSend(cmd, True)
 End Sub
 
 Private Sub cwNum_PressureSetPoint_ValueChanged(Index As Integer, Value As Variant, PreviousValue As Variant, ByVal OutOfRange As Boolean)
@@ -18215,21 +18215,21 @@ Private Sub cwNum_PressureSetPoint_ValueChanged(Index As Integer, Value As Varia
     Dim cmd As String
     If Init_sys_data = True Then Exit Sub
     cmd = cwNum_PressureSetPoint(Index).Tag & "=" & cwNum_PressureSetPoint(Index).Text
-    retVal = Analyzer.GetSend(cmd, True)
+    retval = Analyzer.GetSend(cmd, True)
 End Sub
 
 Private Sub cwNumFBgain_ValueChanged(Index As Integer, Value As Variant, PreviousValue As Variant, ByVal OutOfRange As Boolean)
     Dim gain_cmd As String
     If Init_sys_data = True Then Exit Sub
     gain_cmd = cwNumFBgain(Index).Tag & "=" & cwNumFBgain(Index).Text
-    retVal = Analyzer.GetSend(gain_cmd, True)
+    retval = Analyzer.GetSend(gain_cmd, True)
 End Sub
 
 Private Sub cwNumHeightAdj_ValueChanged(Index As Integer, Value As Variant, PreviousValue As Variant, ByVal OutOfRange As Boolean)
     Dim offset_cmd As String
     If Init_sys_data = True Then Exit Sub
     offset_cmd = cwNumHeightAdj(Index).Tag & "=" & cwNumHeightAdj(Index).Text
-    retVal = Analyzer.GetSend(offset_cmd, True)
+    retval = Analyzer.GetSend(offset_cmd, True)
 End Sub
 
 '==================== END POSITION FRAME ==================================================================================================
@@ -18252,7 +18252,7 @@ End Sub
 Private Sub Form_Initialize() ' happens very first time when an instance of the form is created in your application
     percent_divider = 141 ' approximate number of LTF lines received from controller
     waitresponse = True
-
+    UseSingleCalculations = True ' IK20260820
     If strTelnet_IP_ADR = "" Then strTelnet_IP_ADR = "169.254.20.20"
     If strTelnet_PORT = "" Then strTelnet_PORT = "2020"
     ID_valid = False
@@ -18262,6 +18262,10 @@ Private Sub Form_Load() 'happens after form_initalize
     Dim zero_Xline(2) As Double
     Dim zero_Yline(2) As Double
     Dim temp_str As String
+
+    ' Enable simulation and logging
+    UseSingleCalculations = True
+    'EnablePrecisionLog = True
 
     zero_Xline(0) = 0.1
     zero_Xline(1) = 5000
@@ -20166,8 +20170,8 @@ End Sub
 Public Sub update_reference_plot()
     CWGraph.Plots(RefPlot_Num).LineColor = &H40C0&
     CWGraphPhase.Plots(RefPlot_Num).LineColor = &H40C0&
-    CWGraph.Plots(RefPlot_Num).PlotXvsY Reference_Freq_data, Reference_Gain_data
-    CWGraphPhase.Plots(RefPlot_Num).PlotXvsY Reference_Freq_data, Reference_Phase_data
+    CWGraph.Plots(RefPlot_Num).PlotXvsY Freq_Reference, Reference_Gain_data
+    CWGraphPhase.Plots(RefPlot_Num).PlotXvsY Freq_Reference, Reference_Phase_data
 End Sub
 
 Private Sub OptGraphMode_Click(Index As Integer)
@@ -20281,8 +20285,8 @@ Sub Calc_prediction()
     Dim freq_sum_for_test As Double
     freq_sum_for_test = 0
     For freq_pt = 0 To TEST_LTF_ARRAY_LENGTH  '0 to 200
-        If Reference_Freq_data(freq_pt) > 0 Then 'prepare test array for axis OLTF calculation
-            prev_freq = Reference_Freq_data(freq_pt)         'prepare test array for axis OLTF calculation
+        If Freq_Reference(freq_pt) > 0 Then 'prepare test array for axis OLTF calculation
+            prev_freq = Freq_Reference(freq_pt)         'prepare test array for axis OLTF calculation
 '            Freq_points(freq_pt) = prev_freq
 '        Else
 '            Freq_points(freq_pt) = prev_freq ' fill up to the end with the last valid frequency
@@ -20293,7 +20297,7 @@ Sub Calc_prediction()
     freq_pt = freq_pt - 1
     If freq_sum_for_test = 0 Then
         If (ChkShowRefPlot.Value = Checked) Then
-            retVal = MsgBox("Need reference for prediction" + vbCrLf + "Please load Reference Transfer Function" + vbCrLf + "Use 'Get Ref Plot' button", vbOKOnly + vbExclamation, "Reference plot not loaded")
+            retval = MsgBox("Need reference for prediction" + vbCrLf + "Please load Reference Transfer Function" + vbCrLf + "Use 'Get Ref Plot' button", vbOKOnly + vbExclamation, "Reference plot not loaded")
         End If
         Exit Sub
     End If
@@ -20451,10 +20455,10 @@ Sub SaveRawMeasurementPlot(Real_true_Prediction_false As Boolean)
     End If
     For i = 0 To UBound(Gain_data)
         If Real_true_Prediction_false = False Then ' predicted OLTF plot
-            If (Reference_Freq_data(i) > 0) Then
-                'chFreq = Reference_Freq_data(i) ' do not print empty data
+            If (Freq_Reference(i) > 0) Then
+                'chFreq = Freq_Reference(i) ' do not print empty data
                 'If chFreq * 100 = 0 Then Exit For
-                chData = Str(Reference_Freq_data(i)) ' Str always converts decimal separator to "." reverse function to Val()
+                chData = Str(Freq_Reference(i)) ' Str always converts decimal separator to "." reverse function to Val()
                 chFreq = chData
                 If (chData < 10) Then
                     'chFreq = Round(chData, 1)
@@ -20471,7 +20475,7 @@ Sub SaveRawMeasurementPlot(Real_true_Prediction_false As Boolean)
             End If
         Else ' real plot
             If (Freq_data(i) > 0) Then
-                'chFreq = Reference_Freq_data(i) ' do not print empty data
+                'chFreq = Freq_Reference(i) ' do not print empty data
                 'If chFreq * 100 = 0 Then Exit For
                 chData = Str(Freq_data(i)) ' Str always converts decimal separator to "." reverse function to Val()
                 chFreq = chData
@@ -20653,7 +20657,7 @@ end_reading:
     If (ref_plot <> 0) Then
         'update reference plots ONLY
         For i = 0 To TEST_LTF_ARRAY_LENGTH
-            Reference_Freq_data(i) = Freq_data(i)
+            Freq_Reference(i) = Freq_data(i)
             Freq_data(i) = 0
             Reference_Gain_data(i) = Gain_data(i)
             Gain_data(i) = 0
@@ -20998,7 +21002,7 @@ End Sub
 
 Function Decode_SysStatus(stat_str As String) As String
   On Error Resume Next ' some cwBut_BasicCMD(index) are removed
-    Dim retVal As String
+    Dim retval As String
     Dim token_pos As Long
     Dim bits_str As String
     Dim sys_stat_int As Long
@@ -21016,17 +21020,17 @@ Function Decode_SysStatus(stat_str As String) As String
     If Len(stat_str) > 2 Then 'front port
         token_pos = InStr(stat_str, ": ")
         If ((token_pos <> 0) And (Len(stat_str) >= token_pos + 2)) Then
-            retVal = Mid(stat_str, token_pos + 2, 2) '"8e"
+            retval = Mid(stat_str, token_pos + 2, 2) '"8e"
         Else
             Decode_SysStatus = ""
             Exit Function
         End If
     Else 'rear port
-        retVal = stat_str '"8e"
+        retval = stat_str '"8e"
     End If
-    sys_stat_int = Val("&H" & retVal)
+    sys_stat_int = Val("&H" & retval)
     bits_str = BIN(CByte(sys_stat_int))
-    txtStatus.Text = "Status 0x" & retVal & "; " & CStr(sys_stat_int) & "D; b" & bits_str
+    txtStatus.Text = "Status 0x" & retval & "; " & CStr(sys_stat_int) & "D; b" & bits_str
     Init_sys_data = True
     For bit_N = 0 To 7
 '        If (sys_stat_int And (2 ^ bit_N)) Then
@@ -21044,7 +21048,7 @@ Function Decode_SysStatus(stat_str As String) As String
         End If
     Next bit_N
     Init_sys_data = False
-    Decode_SysStatus = retVal
+    Decode_SysStatus = retval
 End Function
 
 '====================================  E N D   O F  =========================================================================
@@ -21641,7 +21645,7 @@ Private Sub cwBNC0select_PointerValueChanged(ByVal Pointer As Long, Value As Var
     Dim cmd As String
     If Init_sys_data = True Then Exit Sub
     BNC_0_index = Value
-    retVal = cwBNC0select.axis.ValuePairs(cwBNC0select.ValuePairIndex).Name
+    retval = cwBNC0select.axis.ValuePairs(cwBNC0select.ValuePairIndex).Name
     If cwBNC0select.axis.ValuePairs(cwBNC0select.ValuePairIndex).Value >= 0 Then ' -other-- has ValuePairs.Value -1, do not send command
         cmd = "bncd0=" & CStr(Value)
         Call Analyzer.GetSend(cmd, True)
@@ -21655,7 +21659,7 @@ Private Sub cwBNC1select_PointerValueChanged(ByVal Pointer As Long, Value As Var
     Dim cmd As String
     If Init_sys_data = True Then Exit Sub
     BNC_1_index = Value
-    retVal = cwBNC1select.axis.ValuePairs(cwBNC1select.ValuePairIndex).Name
+    retval = cwBNC1select.axis.ValuePairs(cwBNC1select.ValuePairIndex).Name
     If cwBNC1select.axis.ValuePairs(cwBNC1select.ValuePairIndex).Value >= 0 Then ' -other-- has ValuePairs.Value -1, do not send command
         cmd = "bncd1=" & CStr(Value)
         Call Analyzer.GetSend(cmd, True)
@@ -21718,7 +21722,7 @@ End Function
 
 Function RectifyValueResponse(cmd As String) As Double
     Dim temp_str As String
-    Dim retVal As String
+    Dim retval As String
     Dim token_pos As Long
     RectifyValueResponse = WRONG_VALUE ' some strange unlikely response
     temp_str = GetSend(cmd, True) 'command string
@@ -21750,20 +21754,20 @@ Function RectifyValueResponse(cmd As String) As Double
     End If
     token_pos = InStr(temp_str, "=") 'find value which starts after "="
     If (token_pos <> 0) Then
-        retVal = Mid(temp_str, token_pos + 1)
-        token_pos = InStr(retVal, "//") ''if verbose response
+        retval = Mid(temp_str, token_pos + 1)
+        token_pos = InStr(retval, "//") ''if verbose response
         If (token_pos <> 0) Then
-            retVal = Left(retVal, token_pos - 1)
+            retval = Left(retval, token_pos - 1)
         End If
-        If IsNumber(retVal) Then
-            RectifyValueResponse = Val(retVal)
+        If IsNumber(retval) Then
+            RectifyValueResponse = Val(retval)
         End If
     End If
 End Function
 
 Sub Get_diag_params()
     Dim temp_str As String
-    Dim retVal As String
+    Dim retval As String
     Dim paramValue As Double
 
     Dim indx As Long
@@ -21838,8 +21842,8 @@ Sub Get_diag_params()
     End If
 
     temp_str = GetSend("excit", True)
-    retVal = LCase(Mid(temp_str, 7))
-    If InStr(retVal, "star") Then
+    retval = LCase(Mid(temp_str, 7))
+    If InStr(retval, "star") Then
         Excitation_status = True  ' global excitation status for monitoring and main forms
     Else
         Excitation_status = False  ' global excitation status for monitoring and main forms
@@ -21851,7 +21855,7 @@ End Sub
 
 Sub GetDiagData()
     Dim temp_str As String
-    Dim retVal As String
+    Dim retval As String
     Dim monitor_stat As Boolean
     Dim cont_field_monitoring As Boolean
     Init_sys_data = True
@@ -21862,18 +21866,18 @@ Sub GetDiagData()
     If temp_str = "Timeout" Then 'error, port buzy or something
         Call portproblems("getting sys data")
     End If
-    retVal = Mid(temp_str, 6)
-    If IsNumber(retVal) Then 'returned string "10.000", but for German/French it is not valid: "10,000" is ten Hertz
+    retval = Mid(temp_str, 6)
+    If IsNumber(retval) Then 'returned string "10.000", but for German/French it is not valid: "10,000" is ten Hertz
         'Locale_tmp_number = CSng(retval) 'CStr converted to value 10000 when German locale
-        Locale_tmp_number = Val(retVal) 'Val converted as 10.000
+        Locale_tmp_number = Val(retval) 'Val converted as 10.000
         TestFrequency = Locale_tmp_number
         cwNumExcitFreq(0).Value = TestFrequency
         cwNumExcitFreq(1).Value = TestFrequency
     End If
     temp_str = GetSend("ampl?", 2) 'returned string "0.200", but for German/French it must be: "0,2"
-    retVal = Mid(temp_str, 6)
-    If IsNumber(retVal) Then
-        TestGain = Val(retVal) 'Val ALWAYS converted using "."
+    retval = Mid(temp_str, 6)
+    If IsNumber(retval) Then
+        TestGain = Val(retval) 'Val ALWAYS converted using "."
         cwNumExcitAmpl(0).Value = TestGain 'variable converted as 0.2 or 0,2 depends on locale
         cwNumExcitAmpl(1).Value = TestGain
     End If

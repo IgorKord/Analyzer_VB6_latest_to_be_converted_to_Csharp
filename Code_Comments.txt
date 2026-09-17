@@ -1,3 +1,16 @@
+20260820 IK vers 1.6.0.
+implemented alternative precision calculations - as double or as float - in filter coefficients
+with optional logging of coeff calculation difference double vs float
+
+20260102 IK ver 1.5.6
+Tested VB6 coefficients vs DC-2020 coefficients. Some filter calculations 
+(VELOCITY, even we are not using it now) were wrong. Found that problem is with 
+Const POSITIVE_NEAR_ZERO_FLOATING_NUMBER As Single = (0.000001) which is 1E-6.
+For 32-bit float it should be 1E-7, 
+Const POSITIVE_NEAR_ZERO_FLOATING_NUMBER As Single = (0.0000001)
+
+20251218 IK ver 1.5.5
+Fixed Analyzer – individual FFF loops on/off
 20251217 IK ver 1.5.4
 Fixed FloorFF form - now it updates FloorFF gains and adaptive rate. The command itself is recorder in the ".Tag" of control.
 Fixed bug - FF to motor Adaptive was using wrong command "loop_FFM", changed to "loop_MAD" (Motor ADaptive)

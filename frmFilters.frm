@@ -2,13 +2,13 @@ VERSION 5.00
 Object = "{D940E4E4-6079-11CE-88CB-0020AF6845F6}#1.6#0"; "cwui.ocx"
 Begin VB.Form frmFilters
    Caption         =   "Filters Tuning"
-   ClientHeight    =   4260
+   ClientHeight    =   5865
    ClientLeft      =   60
    ClientTop       =   345
    ClientWidth     =   13665
    Icon            =   "frmFilters.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   4260
+   ScaleHeight     =   5865
    ScaleWidth      =   13665
    StartUpPosition =   3  'Windows Default
    Begin VB.Frame FramePneumatic
@@ -172,7 +172,49 @@ Begin VB.Form frmFilters
       Left            =   45
       TabIndex        =   67
       Top             =   4230
-      Width           =   11760
+      Width           =   13605
+      Begin VB.CheckBox ChkEnablePRecisionLogging
+         BackColor       =   &H0000C000&
+         Caption         =   "Precision Log"
+         BeginProperty Font
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   11970
+         TabIndex        =   110
+         ToolTipText     =   "If enabled writes double-single precision difference in each operation when caclulating filter factors"
+         Top             =   315
+         Width           =   1410
+      End
+      Begin VB.CheckBox ChkUseDoubleCalcWhenFalse
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0E0FF&
+         Caption         =   "32-bit float"
+         BeginProperty Font
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   375
+         Left            =   12060
+         Style           =   1  'Graphical
+         TabIndex        =   108
+         ToolTipText     =   "Filter coefficients calculation precision: 32-bit float used in DC-2020, 64-bit double can be used in this simulation"
+         Top             =   990
+         Value           =   1  'Checked
+         Width           =   1140
+      End
       Begin VB.CommandButton CmdCalcMagPhaseNOW
          BackColor       =   &H00C0FFC0&
          Caption         =   "Calculate Mag-Phase"
@@ -212,6 +254,28 @@ Begin VB.Form frmFilters
          ToolTipText     =   "Enter frequency to calculate Magnitude-phase of the filter"
          Top             =   450
          Width           =   780
+      End
+      Begin VB.Label Label1
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         Caption         =   "PC precision"
+         BeginProperty Font
+            Name            =   "Tahoma"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   690
+         Index           =   5
+         Left            =   11970
+         TabIndex        =   109
+         Top             =   720
+         Width           =   1320
       End
       Begin VB.Label Label1
          Alignment       =   2  'Center
@@ -1214,7 +1278,7 @@ Begin VB.Form frmFilters
                AccelIncVarType_1=   5
                AccelInc_Val_1  =   1
                RangeMinVarType_1=   5
-               RangeMin_Val_1  =   0.01
+               RangeMin_Val_1  =   0.001
                RangeMaxVarType_1=   5
                RangeMax_Val_1  =   5000
                ButtonStyle_1   =   0
@@ -1324,7 +1388,7 @@ Begin VB.Form frmFilters
                AccelIncVarType_1=   5
                AccelInc_Val_1  =   1
                RangeMinVarType_1=   5
-               RangeMin_Val_1  =   0.01
+               RangeMin_Val_1  =   0.001
                RangeMaxVarType_1=   5
                RangeMax_Val_1  =   5000
                ButtonStyle_1   =   0
@@ -2592,9 +2656,9 @@ Begin VB.Form frmFilters
       Tag             =   "gain00"
       ToolTipText     =   "Experimentally found addtional scale for the FloorFF axis, default = 2.0"
       Top             =   3690
-      Width           =   1050
+      Width           =   1365
       _Version        =   524288
-      _ExtentX        =   1852
+      _ExtentX        =   2408
       _ExtentY        =   635
       _StockProps     =   4
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851}
@@ -2673,8 +2737,8 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
     Dim tst As Long
-    Dim retVal As String
-    Dim Prev_Phase As Single ' from the privious line to detect jump
+    Dim retval As String
+    Dim FilterPrevPhase As Single ' the previous phase of the filter TF at previous frequency, to detect jump in phase
 
     Const FILTER_PARAMS_TOTAL   As Long = 11 'filt type, 5 params, 5 coefficients
 '#define PID_P_gain FilterGain
@@ -2741,8 +2805,38 @@ Private Sub ChkAuxDamping_Click()
     Call Analyzer.Calc_prediction
 End Sub
 
+Private Sub ChkEnablePRecisionLogging_Click()
+On Error Resume Next
+    If ChkEnablePRecisionLogging = Checked Then
+        EnablePrecisionLog = True
+        PrecisionLogFile = App.Path & "\PrecisionLog.csv"
+        ' Optional: write CSV header
+        Dim f As Integer
+        f = FreeFile
+        Open PrecisionLogFile For Output As #f
+        Print #f, "Operation,Input1,Input2,DoubleResult,SingleResult,Error PPM"
+        Close #f
+    Else
+        EnablePrecisionLog = False
+    End If
+End Sub
+
 Private Sub ChkRealTimeUpdateTF_Click()
     'Call CalculateAxis_TF
+    Call Analyzer.Calc_prediction
+End Sub
+
+Private Sub ChkUseDoubleCalcWhenFalse_Click() ' IK20260820
+    If (ChkUseDoubleCalcWhenFalse.Value = Unchecked) Then
+        ChkUseDoubleCalcWhenFalse.BackColor = &HC0FFC0
+        ChkUseDoubleCalcWhenFalse.Caption = "64-bit double"
+        UseSingleCalculations = False
+    Else 'checked
+        ChkUseDoubleCalcWhenFalse.BackColor = &HC0E0FF
+        ChkUseDoubleCalcWhenFalse.Caption = "32-bit float"
+        UseSingleCalculations = True
+    End If
+    Call CalculateAxis_TF
     Call Analyzer.Calc_prediction
 End Sub
 
@@ -2806,6 +2900,7 @@ Private Sub cmdLoadDefaults_Click(Index As Integer)
 End Sub
 
 Private Sub cwNumAxisGain_ValueChanged(Value As Variant, PreviousValue As Variant, ByVal OutOfRange As Boolean)
+    On Error Resume Next
     Dim gain_str As String
     Dim AxisIndex As Long
     AxisIndex = ComboFilterAxis.ListIndex
@@ -2894,7 +2989,7 @@ End Sub
 
 Sub CalculateFilterTF(Filt_num As Long)
     Dim i As Long
-    Dim Mag_Phase As tMag_Phase ''temp structure
+    Dim Mag_Phase As tFreqHz_MagTimes_PhaseDeg ''temp structure
     Dim ThisFilterCoeff As float_iir
     Dim freq_sum_for_test As Single
     Dim prev_freq As Single
@@ -2914,9 +3009,9 @@ Sub CalculateFilterTF(Filt_num As Long)
         If Freq_points(i) > 0 Then 'prepare test array for axis OLTF calculation
             prev_freq = Freq_points(i)         'prepare test array for axis OLTF calculation
             Freq_points(i) = prev_freq
-        Else 'Freq_points are empty, maybe Reference_Freq_data is filled?
-            If Reference_Freq_data(i) > 0 Then
-                prev_freq = Reference_Freq_data(i) ' update array
+        Else 'Freq_points are empty, maybe Freq_Reference is filled?
+            If Freq_Reference(i) > 0 Then
+                prev_freq = Freq_Reference(i) ' update array
                 Freq_points(i) = prev_freq
             Else
 '                Freq_points(i) = prev_freq ' fill up to the end with the last valid frequency
@@ -2929,13 +3024,14 @@ Sub CalculateFilterTF(Filt_num As Long)
         Call fill_Freq_array
     End If
 
-
+ ' calculate filter TF
     For i = TEST_LTF_ARRAY_LENGTH - 1 To 0 Step -1 'IK 20210425 fixed, starts from lower frequency, 0.1 Hz; was starting from index 0 which is high freq
        Mag_Phase = Mag_Ph_vs_Freq(ThisFilterCoeff, CDbl(Freq_points(i)), LOOP_FREQUENCY)
        OneFilter_Mag(i) = 20 * Log(Mag_Phase.mag) / Log(10)
        t_float = Mag_Phase.Phase ' returns between -90 and +90
-       If i = TEST_LTF_ARRAY_LENGTH - 1 Then Prev_Phase = t_float 'IK20210614 was if i=0 - when changed search order, forgot to set initial prev_phase. That caused some phase plots to jump 180 deg.
-
+       If i = TEST_LTF_ARRAY_LENGTH - 1 Then
+           FilterPrevPhase = t_float 'IK20210614 was if i=0 - when changed search order, forgot to set initial prev_phase. That caused some phase plots to jump 180 deg.
+       End If
 '       If ThisFilterCoeff.ftyp = Position Then '7 = LPF 2nd order, need to reverse phase because it calculates phase 180 at low freq IK 20210425 fixed LP2 2nd order ThisFilterCoeff.ftyp = LPF_2ndOr_wPk Or
 '          t_float = t_float - 180
 '       End If
@@ -2968,15 +3064,15 @@ Function Phase_Filter_Expand_plus_minus_180(phase_in As Double)
     ' example: prev phase is still -87, but this phase has jumped to +88
     ' check starts from lower frequency, 0.1 Hz
 
-    If (Prev_Phase >= 180) Then ' > 179.9999999
-        Prev_Phase = Prev_Phase - 180 '
+    If (FilterPrevPhase >= 180) Then ' > 179.9999999
+        FilterPrevPhase = FilterPrevPhase - 180 '
     Else
-        If (Prev_Phase <= -180) Then '<= -179.9999999
-            Prev_Phase = Prev_Phase + 180 '
+        If (FilterPrevPhase <= -180) Then '<= -179.9999999
+            FilterPrevPhase = FilterPrevPhase + 180 '
         End If
     End If
 
-    phase_diff = phase_in - Prev_Phase
+    phase_diff = phase_in - FilterPrevPhase
     'ex: phase_diff=-136.0: prevPhase=+46.5,phase_in=-89.5
     'ex: phase_diff=+175.0: prevPhase = -87,phase_in = +88
     If (phase_diff >= 179.9999999) Then
@@ -2996,7 +3092,7 @@ Function Phase_Filter_Expand_plus_minus_180(phase_in As Double)
             End If
         End If
     End If
-    Prev_Phase = phase_in
+    FilterPrevPhase = phase_in
     Phase_Filter_Expand_plus_minus_180 = phase_in
 End Function
 
@@ -3021,7 +3117,7 @@ Function Phase_Limit_TF_plus_minus_180(phase_in As Single)
             End If
         End If
     End If
-    'Prev_Phase = phase_in
+    'FilterPrevPhase = phase_in
     Phase_Limit_TF_plus_minus_180 = phase_in
 End Function
 
@@ -3038,8 +3134,9 @@ Sub set_filt_params_from_user_input(Filt_Number As Long) 'FilterParams As float_
     For param = 0 To USER_PARAM_NUMBER - 1
         If FilterParams.par(param) <> 0 Then testVar = testVar + 1
     Next param
-    If (testVar = 0) Then Exit Sub 'all params are zero, not initiated yet. it will cause 'dived by zero' exception
-
+    If (testVar = 0) Then
+        Exit Sub 'all params are zero, not initiated yet. it will cause 'dived by zero' exception
+    End If
     If ChkRealTimeUpdateTF.Value = Checked Then
         Call set_float_iir(FilterParams)  'this recalculates a, b coefficients
         ' update coefficients so we can re-cal axis TF and re-plot
@@ -3084,19 +3181,19 @@ Sub ShowDifference(Filt_Number As Long)
 End Sub
 
 Public Function PredictionCorrectionFloorFF(mag As Double)
-    Dim retVal As Double
-    retVal = mag
+    Dim retval As Double
+    retval = mag
     If ((ComboFilterAxis.ListIndex >= 12) And (ComboFilterAxis.ListIndex <= 15) And (HasFloorFF = True)) Then
-        retVal = mag + 20 * Log(cwNumExperimentalFFscale.Value) / Log(10)  'add as dB experimental index for feed forward
+        retval = mag + 20 * Log(cwNumExperimentalFFscale.Value) / Log(10)  'add as dB experimental index for feed forward
     End If
-    PredictionCorrectionFloorFF = retVal
+    PredictionCorrectionFloorFF = retval
 End Function
 
 Public Sub CalculateAxis_TF(Optional reverse_Ph As Boolean = False)
     Dim i As Long
     Dim Filt_num As Long
-    Dim Mag_Phase As tMag_Phase ''temp structure
-    Dim Axis_mag_phase As tMag_Phase
+    Dim Mag_Phase As tFreqHz_MagTimes_PhaseDeg ''temp structure
+    Dim Axis_mag_phase As tFreqHz_MagTimes_PhaseDeg
     Dim ThisFilterCoeff As float_iir
     Dim TmpFiltPlot_Mag(TEST_LTF_ARRAY_LENGTH) As Single
     Dim TmpFiltPlot_Phase(TEST_LTF_ARRAY_LENGTH) As Single
@@ -3302,13 +3399,13 @@ Function GetAxisGain(AxisIndex As Long) As Double
                 response = Analyzer.GetSend(gain_str, True)
                 sep_pos = InStr(response, "=")
                 If (sep_pos <> 0) Then
-                    retVal = Mid(response, sep_pos + 1)
-                    sep_pos = InStr(retVal, "//") ''if verbose response
+                    retval = Mid(response, sep_pos + 1)
+                    sep_pos = InStr(retval, "//") ''if verbose response
                     If (sep_pos <> 0) Then
-                        retVal = Left(retVal, sep_pos - 1)
+                        retval = Left(retval, sep_pos - 1)
                     End If
-                    If IsNumber(retVal) Then
-                        cwAuxDampGain.Value = Val(retVal)
+                    If IsNumber(retval) Then
+                        cwAuxDampGain.Value = Val(retval)
                         cwAuxDampGain.BackColorText = vbWhite
                     Else
                         cwAuxDampGain.BackColorText = &HC0C0FF
@@ -3370,15 +3467,15 @@ Function GetAxisGain(AxisIndex As Long) As Double
     End If
     sep_pos = InStr(response, "=")
     If (sep_pos <> 0) Then
-        retVal = Mid(response, sep_pos + 1)
-        sep_pos = InStr(retVal, "//") ''if verbose response
+        retval = Mid(response, sep_pos + 1)
+        sep_pos = InStr(retval, "//") ''if verbose response
         If (sep_pos <> 0) Then
-            retVal = Left(retVal, sep_pos - 1)
+            retval = Left(retval, sep_pos - 1)
         End If
-        If IsNumber(retVal) Then
-            cwNumAxisGain.Value = Val(retVal)
+        If IsNumber(retval) Then
+            cwNumAxisGain.Value = Val(retval)
             cwNumAxisGain.BackColorText = vbWhite
-            GetAxisGain = Val(retVal)
+            GetAxisGain = Val(retval)
         Else
             cwNumAxisGain.BackColorText = &HC0C0FF
             GetAxisGain = -9.99 ' wrong value
@@ -3390,7 +3487,7 @@ End Function
 'event handlers
 Private Sub CmdFilterRefresh_Click()
     Dim gain_str As String
-    Dim retVal As String
+    Dim retval As String
     Dim sep_pos As Long
     Dim AxisIndex As Long
     Dim AxisGain As Double
@@ -3563,8 +3660,8 @@ End Sub
 
 Private Sub ComboFilterTYPE_Click()
     If Init_sys_data = True Then Exit Sub
-    FilterTypeNumber = ComboFilterTYPE.ListIndex
-    CHANGED_FilterParamArray(FilterNumberInChain, 0) = ComboFilterTYPE.ListIndex ' FilterTYPE is float in VB, but integer param
+    FilterTypeNumber = ComboFilterTYPE.ListIndex ' between 0 and 20
+    CHANGED_FilterParamArray(FilterNumberInChain, 0) = FilterTypeNumber ' FilterTYPE is float in VB, but integer param
 
     Call ChangeFilterFontsAndMins(FilterNumberInChain, FilterTypeNumber)
 
@@ -3601,30 +3698,39 @@ Sub ChangeFilterFontsAndMins(FilterNumberInAxis As Long, FilterTypeNum As Long) 
         Lbl_FilterQ1(FilterNumberInAxis).Font.Size = DirectCoeffFontSize
         Lbl_FilterQ2(FilterNumberInAxis).Font.Size = DirectCoeffFontSize
         Lbl_FilterGain(FilterNumberInAxis).Font.Size = DirectCoeffFontSize
-'        Lbl_F1.Caption = "b1 coeff"
-'        Lbl_F2.Caption = "b2 coeff"
-'        Lbl_Q1.Caption = "a1 coeff"
-'        Lbl_Q2.Caption = "a2 coeff"
-'        Lbl_FiltGain.Caption = "b0 coeff"
-'        CmdPasteCoeff.Enabled = True    ' enable pasting
+         ' IK20260310 filter coefficients names
+        cwNumFilterParam(1).ToolTipText = "b1 coeff" ' F1
+        cwNumFilterParam(2).ToolTipText = "b2 coeff" ' F2
+        cwNumFilterParam(3).ToolTipText = "a1 coeff" ' Q1
+        cwNumFilterParam(4).ToolTipText = "a2 coeff" ' Q2
+        cwNumFilterParam(0).ToolTipText = "b0 coeff" ' Gain
     Else
         For i = 0 To 4
             FilterNumberToUpdate = i ' pass extra parameter to cwNumFilterParam(i)_Changed event to avoid miss-formating direct coeff when neg values substituted with 0.001
             cwNumFilterParam(i).Font.Size = RegularFontSize
             cwNumFilterParam(i).FormatString = ".##0" ' change numeric format to show 3 dec points for filter param
-            If i > 0 Then cwNumFilterParam(i).Minimum = 0.001 ' filter param change range to +0.001,+5000 except gain -10...+10
+            cwNumFilterParam(i).IncDecValue = 0.1       ' IK20260310
+            If i > 0 Then cwNumFilterParam(i).Minimum = 0.001 ' filter param change range to +0.001,+5000 except gain -100...+100
         Next i
         Lbl_FilterFreq1(FilterNumberInAxis).Font.Size = RegularFontSize
         Lbl_FilterFreq2(FilterNumberInAxis).Font.Size = RegularFontSize
         Lbl_FilterQ1(FilterNumberInAxis).Font.Size = RegularFontSize
         Lbl_FilterQ2(FilterNumberInAxis).Font.Size = RegularFontSize
         Lbl_FilterGain(FilterNumberInAxis).Font.Size = RegularFontSize
-'        Lbl_F1.Caption = "Frequency 1"
-'        Lbl_Q1.Caption = "Q-factor 1"
-'        Lbl_F2.Caption = "Frequency 2"
-'        Lbl_Q2.Caption = "Q-factor 2"
-'        Lbl_FiltGain.Caption = "Filter Gain"
-'        CmdPasteCoeff.Enabled = False    ' disable pasting
+         ' IK20260310 restore std filter parameter names
+        If (FilterTypeNum = PID) Then
+            cwNumFilterParam(1).ToolTipText = "Integral gain"
+            cwNumFilterParam(3).ToolTipText = "Leaky - HPF frequency: larger = more leaky"
+            cwNumFilterParam(2).ToolTipText = "Differential gain"
+            cwNumFilterParam(4).ToolTipText = "Not used in PID"
+            cwNumFilterParam(0).ToolTipText = "Proportional gain"
+        Else
+            cwNumFilterParam(1).ToolTipText = "Frequency 1"
+            cwNumFilterParam(3).ToolTipText = "Q-factor 1"
+            cwNumFilterParam(2).ToolTipText = "Frequency 2"
+            cwNumFilterParam(4).ToolTipText = "Q-factor 2"
+            cwNumFilterParam(0).ToolTipText = "Filter Gain"
+        End If
     End If
 End Sub
 
@@ -3707,14 +3813,14 @@ Private Sub CmdUpdateFilter_Click()
             If (Filter_CHANGED(Fnum, Fpar) = True) Then 'flag for individual param
                 filter_param_str = "fpar" & ExtendedHEX(FilterAxis) & CStr(Fnum) & CStr(Fpar)
                 ' IK 20220130 the Str(CHANGED_FilterParamArray(Fnum, Fpar)) produces string with leading space, " 4", and firmware gives error because "fpar000= 4" is not recognized prior 20220130
-                ' IK20250828 fixed the bug: value was rounding to integer: if value was 0.876, "fpar902 = 1.0"
+                ' IK20250828 fixed the bug: value was rounding to integer: if value was 0.876, "fpar902 = 1.0" ' just appending numeric to string (with '&') converts it correctly
                 filter_param_str = filter_param_str & "=" & Format(CHANGED_FilterParamArray(Fnum, Fpar), "0.00#######") ' Format produces "4"
                 response = Analyzer.GetSend(filter_param_str, True)
             End If
           Else 'update ALL filters
-                filter_param_str = "fpar" & ExtendedHEX(FilterAxis) & CStr(Fnum) & CStr(Fpar)
+            filter_param_str = "fpar" & ExtendedHEX(FilterAxis) & CStr(Fnum) & CStr(Fpar) ' coordinates of the filter
                 filter_param_str = filter_param_str & "=" & CHANGED_FilterParamArray(Fnum, Fpar) ' just appending numeric to string (with '&') converts it correctly
-                response = Analyzer.GetSend(filter_param_str, True)
+            response = Analyzer.GetSend(filter_param_str, True)
           End If
         Next Fpar
         Call Fill_in_filter_params(Fnum) 'read back changed filter
@@ -3810,13 +3916,13 @@ Sub Fill_in_filter_params(filter_num As Long)
        filter_param_str = Analyzer.GetSend("fpar" & filt_axis_code & CStr(filter_num) & "0", True)
        sep_pos = InStr(filter_param_str, "=")
        If (sep_pos <> 0) Then
-           retVal = Mid(filter_param_str, sep_pos + 1)
-           sep_pos = InStr(retVal, "//") ''if verbose response
+           retval = Mid(filter_param_str, sep_pos + 1)
+           sep_pos = InStr(retval, "//") ''if verbose response
            If (sep_pos <> 0) Then
-               retVal = Left(retVal, sep_pos - 1)
+               retval = Left(retval, sep_pos - 1)
            End If
-           If IsNumber(retVal) Then
-               paramValue = Val(retVal)
+           If IsNumber(retval) Then
+               paramValue = Val(retval)
                OriginalFilterParamArray(filter_num, 0) = paramValue 'filter type
                CHANGED_FilterParamArray(filter_num, 0) = paramValue 'filter type
                Filter_CHANGED(filter_num, 0) = False
@@ -3834,13 +3940,13 @@ Sub Fill_in_filter_params(filter_num As Long)
         filter_param_str = Analyzer.GetSend(filter_param_str, True)
         sep_pos = InStr(filter_param_str, "=")
         If (sep_pos <> 0) Then
-            retVal = Mid(filter_param_str, sep_pos + 1)
-            sep_pos = InStr(retVal, "//") ''if verbose response
+            retval = Mid(filter_param_str, sep_pos + 1)
+            sep_pos = InStr(retval, "//") ''if verbose response
             If (sep_pos <> 0) Then
-                retVal = Left(retVal, sep_pos - 1)
+                retval = Left(retval, sep_pos - 1)
             End If
-            If IsNumber(retVal) Then
-                paramValue = Val(retVal)
+            If IsNumber(retval) Then
+                paramValue = Val(retval)
                 OriginalFilterParamArray(filter_num, i) = paramValue 'filter parameter as float[0 to 4], coefficient [5 to 9]
                 CHANGED_FilterParamArray(filter_num, i) = paramValue 'make a copy for editing
                 If (i < USER_PARAM_NUMBER) Then Filter_CHANGED(filter_num, i) = False
@@ -3872,15 +3978,13 @@ Sub SetNumericIncDec(idx As Integer)
     End If
 End Sub
 
-Sub Copy_Params_for_Edit(filter_num As Long) ' from original array
+Sub Copy_Params_for_Edit(filter_num As Long) ' from original array to the moving "edit frame"
     Dim i As Long
     Dim sep_pos As Long
     Dim filter_param_str As String
     Dim paramValue As Single
     Init_sys_data = True
-    'IK20220226 If (ConnectionType = ConnDEMO) Then Exit Sub
-    ' fill edit panel
-    ' FilterAxis = filter_num 'update global variable
+
     FilterNumberInChain = filter_num 'update global variable
   ''fill filter type
     For i = 0 To ComboFilterTYPE.ListCount
@@ -3953,6 +4057,7 @@ name_found:
     Else
         cwNumFilterParam(4).BackColorText = &HC0C0FF
     End If
+
     Lbl_b2 = Format(OriginalFilterParamArray(filter_num, 6), FiltCoeffFormat)
     Lbl_b1 = Format(OriginalFilterParamArray(filter_num, 7), FiltCoeffFormat)
     Lbl_b0 = Format(OriginalFilterParamArray(filter_num, 8), FiltCoeffFormat)
@@ -3985,7 +4090,7 @@ Sub Refresh_FilterParams()
 
     FrameFilter.Visible = False ' hide editing panel to see filter behind
 
-    retVal = Analyzer.GetSend("echo>enab", True) 'disable "echo>verb" to speed up
+    retval = Analyzer.GetSend("echo>enab", True) 'disable "echo>verb" to speed up
 
     For filter_num = 0 To MAX_FILTERS_IN_AXIS - 1 '0 to 5, 5 params AND FILTER_TYPE
         Call Fill_in_filter_params(filter_num) ' read one filter
@@ -4013,7 +4118,7 @@ Sub Refresh_FilterParams()
 End Sub
 
 Private Sub CmdCalcMagPhaseNOW_Click()
-    Dim TF As tMag_Phase
+    Dim TF As tFreqHz_MagTimes_PhaseDeg
     Dim FiltCoef As float_iir
     Dim dB As Double
     Dim frq As Double

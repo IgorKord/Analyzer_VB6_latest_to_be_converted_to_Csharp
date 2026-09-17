@@ -6,14 +6,141 @@ Begin VB.Form frmSensorInput
    ClientHeight    =   8250
    ClientLeft      =   45
    ClientTop       =   330
-   ClientWidth     =   5010
+   ClientWidth     =   6615
    Icon            =   "frmSensorInput.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
    ScaleHeight     =   8250
-   ScaleWidth      =   5010
+   ScaleWidth      =   6615
    StartUpPosition =   3  'Windows Default
+   Begin VB.OptionButton optSensorInput 
+      BackColor       =   &H00C0E0FF&
+      Caption         =   "Position X4"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   204
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   300
+      Index           =   49
+      Left            =   4905
+      TabIndex        =   59
+      Tag             =   "PRX3"
+      ToolTipText     =   "Input signal from a position (proximity) sensor, par=PRX3"
+      Top             =   3600
+      Width           =   1450
+   End
+   Begin VB.OptionButton optSensorInput 
+      BackColor       =   &H00C0E0FF&
+      Caption         =   "Position Y4"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   204
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   300
+      Index           =   48
+      Left            =   4905
+      TabIndex        =   58
+      Tag             =   "PRY3"
+      ToolTipText     =   "Input signal from a position (proximity) sensor, par=PRY3"
+      Top             =   4005
+      Width           =   1450
+   End
+   Begin VB.OptionButton optSensorInput 
+      BackColor       =   &H00FFFFC0&
+      Caption         =   "Position Z4"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   204
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   300
+      Index           =   47
+      Left            =   4905
+      TabIndex        =   57
+      Tag             =   "PRZ3"
+      ToolTipText     =   "Input signal from a position (proximity) sensor, par=PRZ3"
+      Top             =   4410
+      Width           =   1450
+   End
+   Begin VB.OptionButton optSensorInput 
+      BackColor       =   &H00C0FFFF&
+      Caption         =   "Velocity X4"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   204
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   300
+      Index           =   46
+      Left            =   4905
+      TabIndex        =   56
+      Tag             =   "G_X3"
+      ToolTipText     =   "Input signal from a velocity sensor (geophone), par=G_X3"
+      Top             =   4860
+      Width           =   1450
+   End
+   Begin VB.OptionButton optSensorInput 
+      BackColor       =   &H00C0FFFF&
+      Caption         =   "Velocity Y4"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   204
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   300
+      Index           =   45
+      Left            =   4905
+      TabIndex        =   55
+      Tag             =   "G_Y3"
+      ToolTipText     =   "Input signal from a velocity sensor (geophone), par=G_Y3"
+      Top             =   5265
+      Width           =   1450
+   End
+   Begin VB.OptionButton optSensorInput 
+      BackColor       =   &H00C0FFC0&
+      Caption         =   "Velocity Z4"
+      Enabled         =   0   'False
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   204
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   300
+      Index           =   44
+      Left            =   4905
+      TabIndex        =   54
+      Tag             =   "G_Z3"
+      ToolTipText     =   "Input signal from a velocity sensor (geophone), par=G_Z3"
+      Top             =   5670
+      Width           =   1450
+   End
    Begin VB.OptionButton optSensorInput 
       BackColor       =   &H00FFC0C0&
       Caption         =   "A  D  C   I N P U T #"
@@ -1124,7 +1251,7 @@ Begin VB.Form frmSensorInput
       TabIndex        =   26
       ToolTipText     =   "Double-click updates input and closes window"
       Top             =   3330
-      Width           =   4875
+      Width           =   6495
    End
    Begin VB.Label lblAXES 
       Alignment       =   2  'Center
