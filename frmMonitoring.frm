@@ -6,394 +6,12 @@ Begin VB.Form frmMonitoring
    ClientHeight    =   9285
    ClientLeft      =   60
    ClientTop       =   345
-   ClientWidth     =   19305
+   ClientWidth     =   12795
    Icon            =   "frmMonitoring.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   9285
-   ScaleWidth      =   19305
+   ScaleWidth      =   12795
    StartUpPosition =   3  'Windows Default
-   Begin VB.ComboBox cmb_TestType 
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   9
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   345
-      ItemData        =   "frmMonitoring.frx":030A
-      Left            =   45
-      List            =   "frmMonitoring.frx":031A
-      Style           =   2  'Dropdown List
-      TabIndex        =   87
-      ToolTipText     =   "Choose axis OUTPUT for excitation"
-      Top             =   15
-      Width           =   2280
-   End
-   Begin VB.Frame FrmDeflateOffset 
-      Height          =   2085
-      Left            =   17415
-      TabIndex        =   54
-      Top             =   1305
-      Width           =   1860
-      Begin CWUIControlsLib.CWNumEdit cwValveHoldCurrent 
-         Height          =   300
-         Left            =   810
-         TabIndex        =   55
-         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-         Top             =   1665
-         Width           =   945
-         _Version        =   524288
-         _ExtentX        =   1667
-         _ExtentY        =   529
-         _StockProps     =   4
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   12
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Reset_0         =   0   'False
-         CompatibleVers_0=   524288
-         NumEdit_0       =   1
-         ClassName_1     =   "CCWNumEdit"
-         opts_1          =   458814
-         C[0]_1          =   16777215
-         C[1]_1          =   0
-         BorderStyle_1   =   1
-         TextAlignment_1 =   1
-         Appearance_1    =   0
-         format_1        =   2
-         ClassName_2     =   "CCWFormat"
-         Format_2        =   ".0"
-         scale_1         =   3
-         ClassName_3     =   "CCWScale"
-         opts_3          =   65536
-         dMax_3          =   10
-         discInterval_3  =   1
-         ValueVarType_1  =   5
-         Value_Val_1     =   60
-         IncValueVarType_1=   5
-         IncValue_Val_1  =   1
-         AccelIncVarType_1=   5
-         AccelInc_Val_1  =   5
-         RangeMinVarType_1=   5
-         RangeMaxVarType_1=   5
-         RangeMax_Val_1  =   150
-         ButtonStyle_1   =   0
-         Bindings_1      =   4
-         ClassName_4     =   "CCWBindingHolderArray"
-         Editor_4        =   5
-         ClassName_5     =   "CCWBindingHolderArrayEditor"
-         Owner_5         =   1
-      End
-      Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
-         Height          =   300
-         Index           =   0
-         Left            =   855
-         TabIndex        =   56
-         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-         Top             =   225
-         Visible         =   0   'False
-         Width           =   855
-         _Version        =   524288
-         _ExtentX        =   1508
-         _ExtentY        =   529
-         _StockProps     =   4
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   11.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Reset_0         =   0   'False
-         CompatibleVers_0=   524288
-         NumEdit_0       =   1
-         ClassName_1     =   "CCWNumEdit"
-         opts_1          =   196670
-         C[0]_1          =   16777215
-         C[1]_1          =   0
-         BorderStyle_1   =   1
-         TextAlignment_1 =   1
-         Appearance_1    =   0
-         format_1        =   2
-         ClassName_2     =   "CCWFormat"
-         Format_2        =   ".#0"
-         scale_1         =   3
-         ClassName_3     =   "CCWScale"
-         opts_3          =   65536
-         dMax_3          =   10
-         discInterval_3  =   1
-         ValueVarType_1  =   5
-         Value_Val_1     =   60
-         IncValueVarType_1=   5
-         IncValue_Val_1  =   1
-         AccelIncVarType_1=   5
-         AccelInc_Val_1  =   5
-         RangeMinVarType_1=   5
-         RangeMaxVarType_1=   5
-         RangeMax_Val_1  =   150
-         ButtonStyle_1   =   0
-         Bindings_1      =   4
-         ClassName_4     =   "CCWBindingHolderArray"
-         Editor_4        =   5
-         ClassName_5     =   "CCWBindingHolderArrayEditor"
-         Owner_5         =   1
-      End
-      Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
-         Height          =   300
-         Index           =   1
-         Left            =   855
-         TabIndex        =   57
-         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-         Top             =   585
-         Visible         =   0   'False
-         Width           =   855
-         _Version        =   524288
-         _ExtentX        =   1508
-         _ExtentY        =   529
-         _StockProps     =   4
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   11.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Reset_0         =   0   'False
-         CompatibleVers_0=   524288
-         NumEdit_0       =   1
-         ClassName_1     =   "CCWNumEdit"
-         opts_1          =   196670
-         C[0]_1          =   16777215
-         C[1]_1          =   0
-         BorderStyle_1   =   1
-         TextAlignment_1 =   1
-         Appearance_1    =   0
-         format_1        =   2
-         ClassName_2     =   "CCWFormat"
-         Format_2        =   ".#0"
-         scale_1         =   3
-         ClassName_3     =   "CCWScale"
-         opts_3          =   65536
-         dMax_3          =   10
-         discInterval_3  =   1
-         ValueVarType_1  =   5
-         Value_Val_1     =   60
-         IncValueVarType_1=   5
-         IncValue_Val_1  =   1
-         AccelIncVarType_1=   5
-         AccelInc_Val_1  =   5
-         RangeMinVarType_1=   5
-         RangeMaxVarType_1=   5
-         RangeMax_Val_1  =   150
-         ButtonStyle_1   =   0
-         Bindings_1      =   4
-         ClassName_4     =   "CCWBindingHolderArray"
-         Editor_4        =   5
-         ClassName_5     =   "CCWBindingHolderArrayEditor"
-         Owner_5         =   1
-      End
-      Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
-         Height          =   300
-         Index           =   2
-         Left            =   855
-         TabIndex        =   58
-         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-         Top             =   945
-         Visible         =   0   'False
-         Width           =   855
-         _Version        =   524288
-         _ExtentX        =   1508
-         _ExtentY        =   529
-         _StockProps     =   4
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   11.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Reset_0         =   0   'False
-         CompatibleVers_0=   524288
-         NumEdit_0       =   1
-         ClassName_1     =   "CCWNumEdit"
-         opts_1          =   196670
-         C[0]_1          =   16777215
-         C[1]_1          =   0
-         BorderStyle_1   =   1
-         TextAlignment_1 =   1
-         Appearance_1    =   0
-         format_1        =   2
-         ClassName_2     =   "CCWFormat"
-         Format_2        =   ".#0"
-         scale_1         =   3
-         ClassName_3     =   "CCWScale"
-         opts_3          =   65536
-         dMax_3          =   10
-         discInterval_3  =   1
-         ValueVarType_1  =   5
-         Value_Val_1     =   60
-         IncValueVarType_1=   5
-         IncValue_Val_1  =   1
-         AccelIncVarType_1=   5
-         AccelInc_Val_1  =   5
-         RangeMinVarType_1=   5
-         RangeMaxVarType_1=   5
-         RangeMax_Val_1  =   150
-         ButtonStyle_1   =   0
-         Bindings_1      =   4
-         ClassName_4     =   "CCWBindingHolderArray"
-         Editor_4        =   5
-         ClassName_5     =   "CCWBindingHolderArrayEditor"
-         Owner_5         =   1
-      End
-      Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
-         Height          =   300
-         Index           =   3
-         Left            =   855
-         TabIndex        =   59
-         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-         Top             =   1305
-         Visible         =   0   'False
-         Width           =   855
-         _Version        =   524288
-         _ExtentX        =   1508
-         _ExtentY        =   529
-         _StockProps     =   4
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   11.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Reset_0         =   0   'False
-         CompatibleVers_0=   524288
-         NumEdit_0       =   1
-         ClassName_1     =   "CCWNumEdit"
-         opts_1          =   196670
-         C[0]_1          =   16777215
-         C[1]_1          =   0
-         BorderStyle_1   =   1
-         TextAlignment_1 =   1
-         Appearance_1    =   0
-         format_1        =   2
-         ClassName_2     =   "CCWFormat"
-         Format_2        =   ".#0"
-         scale_1         =   3
-         ClassName_3     =   "CCWScale"
-         opts_3          =   65536
-         dMax_3          =   10
-         discInterval_3  =   1
-         ValueVarType_1  =   5
-         Value_Val_1     =   60
-         IncValueVarType_1=   5
-         IncValue_Val_1  =   1
-         AccelIncVarType_1=   5
-         AccelInc_Val_1  =   5
-         RangeMinVarType_1=   5
-         RangeMaxVarType_1=   5
-         RangeMax_Val_1  =   150
-         ButtonStyle_1   =   0
-         Bindings_1      =   4
-         ClassName_4     =   "CCWBindingHolderArray"
-         Editor_4        =   5
-         ClassName_5     =   "CCWBindingHolderArrayEditor"
-         Owner_5         =   1
-      End
-      Begin VB.Label Label1 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H00FFFFC0&
-         Caption         =   "V4set"
-         Height          =   210
-         Index           =   19
-         Left            =   180
-         TabIndex        =   65
-         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-         Top             =   1350
-         Visible         =   0   'False
-         Width           =   645
-      End
-      Begin VB.Label Label1 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H00FFFFC0&
-         Caption         =   "V3set"
-         Height          =   210
-         Index           =   16
-         Left            =   180
-         TabIndex        =   64
-         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-         Top             =   990
-         Visible         =   0   'False
-         Width           =   645
-      End
-      Begin VB.Label Label1 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H00FFFFC0&
-         Caption         =   "V2set"
-         Height          =   210
-         Index           =   15
-         Left            =   180
-         TabIndex        =   63
-         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-         Top             =   630
-         Visible         =   0   'False
-         Width           =   645
-      End
-      Begin VB.Label Label1 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H00FFFFC0&
-         Caption         =   "V1set"
-         Height          =   210
-         Index           =   14
-         Left            =   180
-         TabIndex        =   62
-         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-         Top             =   315
-         Visible         =   0   'False
-         Width           =   645
-      End
-      Begin VB.Label Label1 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H00FFFFC0&
-         Caption         =   "Deflate Offset mA"
-         Height          =   255
-         Index           =   13
-         Left            =   180
-         TabIndex        =   61
-         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-         Top             =   0
-         Visible         =   0   'False
-         Width           =   1320
-      End
-      Begin VB.Label Label1 
-         Alignment       =   1  'Right Justify
-         BackColor       =   &H00FFFFC0&
-         Caption         =   "Hold mA"
-         Height          =   255
-         Index           =   12
-         Left            =   135
-         TabIndex        =   60
-         ToolTipText     =   "ANOTHER VALVE SET driving mA, default +60"
-         Top             =   1710
-         Width           =   645
-      End
-   End
    Begin VB.Timer aTimerContMonitoring 
       Enabled         =   0   'False
       Left            =   6660
@@ -408,11 +26,11 @@ Begin VB.Form frmMonitoring
       Appearance      =   0  'Flat
       BackColor       =   &H00FFFF80&
       Height          =   285
-      Left            =   2340
+      Left            =   90
       TabIndex        =   23
       Text            =   "Position Monitoring, Recording and Excitation"
       Top             =   15
-      Width           =   9150
+      Width           =   11985
    End
    Begin VB.Frame FramePosScan 
       BackColor       =   &H00E0E0E0&
@@ -421,1175 +39,7 @@ Begin VB.Form frmMonitoring
       Left            =   0
       TabIndex        =   0
       Top             =   360
-      Width           =   16605
-      Begin VB.Frame FramData 
-         BorderStyle     =   0  'None
-         Caption         =   "Data"
-         Height          =   4965
-         Left            =   2610
-         TabIndex        =   151
-         Top             =   3510
-         Width           =   915
-         Begin VB.Label Label1 
-            Alignment       =   2  'Center
-            BackColor       =   &H00FFFFFF&
-            Caption         =   "Data"
-            Height          =   240
-            Index           =   4
-            Left            =   180
-            TabIndex        =   169
-            Top             =   0
-            Width           =   600
-         End
-         Begin VB.Label lbPosition 
-            Alignment       =   1  'Right Justify
-            Appearance      =   0  'Flat
-            BackColor       =   &H00FFFFFF&
-            BorderStyle     =   1  'Fixed Single
-            Caption         =   "65000"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   11.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00C0C000&
-            Height          =   285
-            Index           =   10
-            Left            =   45
-            TabIndex        =   163
-            ToolTipText     =   "Ch11 Measured Signal"
-            Top             =   4050
-            Width           =   780
-         End
-         Begin VB.Label lbPosition 
-            Alignment       =   1  'Right Justify
-            Appearance      =   0  'Flat
-            BackColor       =   &H00FFFFFF&
-            BorderStyle     =   1  'Fixed Single
-            Caption         =   "65000"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   11.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00008000&
-            Height          =   285
-            Index           =   11
-            Left            =   45
-            TabIndex        =   162
-            ToolTipText     =   "Ch12 Measured Signal"
-            Top             =   4425
-            Width           =   780
-         End
-         Begin VB.Label lbPosition 
-            Alignment       =   1  'Right Justify
-            Appearance      =   0  'Flat
-            BackColor       =   &H00FFFFC0&
-            BorderStyle     =   1  'Fixed Single
-            Caption         =   "65000"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   11.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H80000008&
-            Height          =   285
-            Index           =   0
-            Left            =   45
-            TabIndex        =   161
-            ToolTipText     =   "Measured Vertical #1 Prox Sensor Raw Signal"
-            Top             =   300
-            Width           =   780
-         End
-         Begin VB.Label lbPosition 
-            Alignment       =   1  'Right Justify
-            Appearance      =   0  'Flat
-            BackColor       =   &H00C0FFC0&
-            BorderStyle     =   1  'Fixed Single
-            Caption         =   "65000"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   11.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H80000008&
-            Height          =   285
-            Index           =   1
-            Left            =   45
-            TabIndex        =   160
-            ToolTipText     =   "Measured Vertical #2 Prox Sensor Raw Signal"
-            Top             =   675
-            Width           =   780
-         End
-         Begin VB.Label lbPosition 
-            Alignment       =   1  'Right Justify
-            Appearance      =   0  'Flat
-            BackColor       =   &H0080C0FF&
-            BorderStyle     =   1  'Fixed Single
-            Caption         =   "65000"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   11.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H80000008&
-            Height          =   285
-            Index           =   2
-            Left            =   45
-            TabIndex        =   159
-            ToolTipText     =   "Measured Vertical #3 Prox Sensor Raw Signal"
-            Top             =   1050
-            Width           =   780
-         End
-         Begin VB.Label lbPosition 
-            Alignment       =   1  'Right Justify
-            Appearance      =   0  'Flat
-            BackColor       =   &H0000C080&
-            BorderStyle     =   1  'Fixed Single
-            Caption         =   "65000"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   11.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H80000008&
-            Height          =   285
-            Index           =   3
-            Left            =   45
-            TabIndex        =   158
-            ToolTipText     =   "Measured Horizontal #1 Prox Sensor Raw Signal"
-            Top             =   1425
-            Width           =   780
-         End
-         Begin VB.Label lbPosition 
-            Alignment       =   1  'Right Justify
-            Appearance      =   0  'Flat
-            BackColor       =   &H00FFC0C0&
-            BorderStyle     =   1  'Fixed Single
-            Caption         =   "65000"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   11.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H80000008&
-            Height          =   285
-            Index           =   4
-            Left            =   45
-            TabIndex        =   157
-            ToolTipText     =   "Measured Horizontal #2 Prox Sensor Raw Signal"
-            Top             =   1800
-            Width           =   780
-         End
-         Begin VB.Label lbPosition 
-            Alignment       =   1  'Right Justify
-            Appearance      =   0  'Flat
-            BackColor       =   &H00FFC0FF&
-            BorderStyle     =   1  'Fixed Single
-            Caption         =   "65000"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   11.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H80000008&
-            Height          =   285
-            Index           =   5
-            Left            =   45
-            TabIndex        =   156
-            ToolTipText     =   "Measured Horizontal #3 Prox Sensor Raw Signal"
-            Top             =   2175
-            Width           =   780
-         End
-         Begin VB.Label lbPosition 
-            Alignment       =   1  'Right Justify
-            Appearance      =   0  'Flat
-            BackColor       =   &H00FFFFFF&
-            BorderStyle     =   1  'Fixed Single
-            Caption         =   "65000"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   11.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00C000C0&
-            Height          =   285
-            Index           =   9
-            Left            =   45
-            TabIndex        =   155
-            ToolTipText     =   "Measured Stage Feed Forward Y-acceleration Signal"
-            Top             =   3675
-            Width           =   780
-         End
-         Begin VB.Label lbPosition 
-            Alignment       =   1  'Right Justify
-            Appearance      =   0  'Flat
-            BackColor       =   &H00FFFFFF&
-            BorderStyle     =   1  'Fixed Single
-            Caption         =   "65000"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   11.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00C00000&
-            Height          =   285
-            Index           =   8
-            Left            =   45
-            TabIndex        =   154
-            ToolTipText     =   "Measured Stage Feed Forward X-acceleration Signal"
-            Top             =   3300
-            Width           =   780
-         End
-         Begin VB.Label lbPosition 
-            Alignment       =   1  'Right Justify
-            Appearance      =   0  'Flat
-            BackColor       =   &H00FFFFFF&
-            BorderStyle     =   1  'Fixed Single
-            Caption         =   "65000"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   11.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00008000&
-            Height          =   285
-            Index           =   7
-            Left            =   45
-            TabIndex        =   153
-            ToolTipText     =   "Measured Stage Feed Forward Y-position Signal"
-            Top             =   2925
-            Width           =   780
-         End
-         Begin VB.Label lbPosition 
-            Alignment       =   1  'Right Justify
-            Appearance      =   0  'Flat
-            BackColor       =   &H00FFFFFF&
-            BorderStyle     =   1  'Fixed Single
-            Caption         =   "65000"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   11.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H000000C0&
-            Height          =   285
-            Index           =   6
-            Left            =   45
-            TabIndex        =   152
-            ToolTipText     =   "Measured Stage Feed Forward X-position Signal"
-            Top             =   2550
-            Width           =   780
-         End
-      End
-      Begin VB.Frame FramPlotSinal 
-         BorderStyle     =   0  'None
-         Height          =   4875
-         Left            =   45
-         TabIndex        =   140
-         Top             =   3510
-         Width           =   555
-         Begin VB.CheckBox chkPOSvisible 
-            BackColor       =   &H00008000&
-            Height          =   285
-            Index           =   11
-            Left            =   45
-            TabIndex        =   165
-            ToolTipText     =   "Check to plot this sensor"
-            Top             =   4425
-            Value           =   1  'Checked
-            Width           =   345
-         End
-         Begin VB.CheckBox chkPOSvisible 
-            BackColor       =   &H00808000&
-            Height          =   285
-            Index           =   10
-            Left            =   45
-            TabIndex        =   164
-            ToolTipText     =   "Check to plot this sensor"
-            Top             =   4050
-            Value           =   1  'Checked
-            Width           =   345
-         End
-         Begin VB.CheckBox chkPOSvisible 
-            BackColor       =   &H00FF00FF&
-            Height          =   285
-            Index           =   9
-            Left            =   45
-            TabIndex        =   150
-            ToolTipText     =   "Check to plot this sensor"
-            Top             =   3675
-            Value           =   1  'Checked
-            Width           =   345
-         End
-         Begin VB.CheckBox chkPOSvisible 
-            BackColor       =   &H00FF0000&
-            Height          =   285
-            Index           =   8
-            Left            =   45
-            TabIndex        =   149
-            ToolTipText     =   "Check to plot this sensor"
-            Top             =   3300
-            Value           =   1  'Checked
-            Width           =   345
-         End
-         Begin VB.CheckBox chkPOSvisible 
-            BackColor       =   &H0000C000&
-            Height          =   285
-            Index           =   7
-            Left            =   45
-            TabIndex        =   148
-            ToolTipText     =   "Check to plot this sensor"
-            Top             =   2925
-            Value           =   1  'Checked
-            Width           =   345
-         End
-         Begin VB.CheckBox chkPOSvisible 
-            BackColor       =   &H000000FF&
-            Height          =   285
-            Index           =   6
-            Left            =   45
-            TabIndex        =   147
-            ToolTipText     =   "Check to plot this sensor"
-            Top             =   2550
-            Value           =   1  'Checked
-            Width           =   345
-         End
-         Begin VB.CheckBox chkPOSvisible 
-            BackColor       =   &H00FFC0FF&
-            Height          =   285
-            Index           =   5
-            Left            =   45
-            TabIndex        =   146
-            ToolTipText     =   "Check to plot this sensor"
-            Top             =   2175
-            Value           =   1  'Checked
-            Width           =   345
-         End
-         Begin VB.CheckBox chkPOSvisible 
-            BackColor       =   &H00FFC0C0&
-            Height          =   285
-            Index           =   4
-            Left            =   45
-            TabIndex        =   145
-            ToolTipText     =   "Check to plot this sensor"
-            Top             =   1800
-            Value           =   1  'Checked
-            Width           =   345
-         End
-         Begin VB.CheckBox chkPOSvisible 
-            BackColor       =   &H0000C080&
-            Height          =   285
-            Index           =   3
-            Left            =   45
-            TabIndex        =   144
-            ToolTipText     =   "Check to plot this sensor"
-            Top             =   1425
-            Value           =   1  'Checked
-            Width           =   345
-         End
-         Begin VB.CheckBox chkPOSvisible 
-            BackColor       =   &H000080FF&
-            Height          =   285
-            Index           =   2
-            Left            =   45
-            TabIndex        =   143
-            ToolTipText     =   "Check to plot this sensor"
-            Top             =   1050
-            Value           =   1  'Checked
-            Width           =   345
-         End
-         Begin VB.CheckBox chkPOSvisible 
-            BackColor       =   &H00C0FFC0&
-            Height          =   285
-            Index           =   1
-            Left            =   45
-            TabIndex        =   142
-            ToolTipText     =   "Check to plot this sensor"
-            Top             =   675
-            Value           =   1  'Checked
-            Width           =   345
-         End
-         Begin VB.CheckBox chkPOSvisible 
-            BackColor       =   &H00FFFFC0&
-            Height          =   285
-            Index           =   0
-            Left            =   45
-            TabIndex        =   141
-            ToolTipText     =   "Check to plot this sensor"
-            Top             =   300
-            Value           =   1  'Checked
-            Width           =   345
-         End
-         Begin VB.Label Label1 
-            Alignment       =   2  'Center
-            BackColor       =   &H00FFFFFF&
-            Caption         =   "Plot?"
-            Height          =   240
-            Index           =   18
-            Left            =   45
-            TabIndex        =   166
-            Top             =   0
-            Width           =   420
-         End
-      End
-      Begin VB.Frame Fram_B_cmd 
-         BorderStyle     =   0  'None
-         Caption         =   "Pos && FF"
-         Height          =   4965
-         Left            =   585
-         TabIndex        =   128
-         Top             =   3510
-         Width           =   960
-         Begin VB.CommandButton cmdGetCurrentPosition 
-            BackColor       =   &H0080FF80&
-            Caption         =   "Get position once"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   9
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   735
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   139
-            ToolTipText     =   "Reads momentary proximity sensors and FF signals"
-            Top             =   4050
-            Width           =   825
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H00FFC0FF&
-            Caption         =   "Prox H3"
-            Height          =   300
-            Index           =   6
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   138
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   2175
-            Width           =   800
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H00FFC0C0&
-            Caption         =   "Prox H2"
-            Height          =   300
-            Index           =   5
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   137
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   1800
-            Width           =   800
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H0000C080&
-            Caption         =   "Prox H1"
-            Height          =   300
-            Index           =   4
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   136
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   1425
-            Width           =   800
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H000080FF&
-            Caption         =   "Prox V3"
-            Height          =   300
-            Index           =   3
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   135
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   1050
-            Width           =   800
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H00C0FFC0&
-            Caption         =   "Prox V2"
-            Height          =   300
-            Index           =   2
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   134
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   675
-            Width           =   800
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H00FFFFC0&
-            Caption         =   "Prox V1"
-            Height          =   300
-            Index           =   1
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   133
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   300
-            Value           =   -1  'True
-            Width           =   800
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H000000FF&
-            Caption         =   "FF Xpos"
-            ForeColor       =   &H00FFFFFF&
-            Height          =   300
-            Index           =   7
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   132
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   2550
-            Width           =   800
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H0000C000&
-            Caption         =   "FF Ypos"
-            ForeColor       =   &H00FFFFFF&
-            Height          =   300
-            Index           =   8
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   131
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   2925
-            Width           =   800
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H00FF0000&
-            Caption         =   "FF Xacc"
-            ForeColor       =   &H00FFFFFF&
-            Height          =   300
-            Index           =   9
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   130
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   3300
-            Width           =   800
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H00FF00FF&
-            Caption         =   "FF Yacc"
-            ForeColor       =   &H00FFFFFF&
-            Height          =   300
-            Index           =   10
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   129
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   3675
-            Width           =   800
-         End
-         Begin VB.Label Label1 
-            Alignment       =   2  'Center
-            BackColor       =   &H00FFFFFF&
-            Caption         =   "Pos && FF"
-            Height          =   240
-            Index           =   0
-            Left            =   0
-            TabIndex        =   167
-            Top             =   0
-            Width           =   825
-         End
-      End
-      Begin VB.Frame FramSelAnyCh 
-         Caption         =   "Free Selection"
-         Height          =   4875
-         Left            =   495
-         TabIndex        =   103
-         Top             =   3510
-         Width           =   2175
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H00008000&
-            Caption         =   "12"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00000000&
-            Height          =   300
-            Index           =   21
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   127
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   4425
-            Width           =   390
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H00808000&
-            Caption         =   "11"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00000000&
-            Height          =   300
-            Index           =   20
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   126
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   4050
-            Width           =   390
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H00FF80FF&
-            Caption         =   "10"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00000000&
-            Height          =   300
-            Index           =   19
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   125
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   3675
-            Width           =   390
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H00FF8080&
-            Caption         =   "9"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00000000&
-            Height          =   300
-            Index           =   18
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   124
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   3300
-            Width           =   390
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H0000C000&
-            Caption         =   "8"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00000000&
-            Height          =   300
-            Index           =   17
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   123
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   2925
-            Width           =   390
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H008080FF&
-            Caption         =   "7"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00000000&
-            Height          =   300
-            Index           =   16
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   122
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   2550
-            Width           =   390
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H00FFFFC0&
-            Caption         =   "1"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   300
-            Index           =   15
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   121
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   300
-            Value           =   -1  'True
-            Width           =   390
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H00C0FFC0&
-            Caption         =   "2"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   300
-            Index           =   14
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   120
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   675
-            Width           =   390
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H000080FF&
-            Caption         =   "3"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   300
-            Index           =   13
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   119
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   1050
-            Width           =   390
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H0000C080&
-            Caption         =   "4"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   300
-            Index           =   12
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   118
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   1425
-            Width           =   390
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H00FFC0C0&
-            Caption         =   "5"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   300
-            Index           =   11
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   117
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   1800
-            Width           =   390
-         End
-         Begin VB.OptionButton optChooseCh 
-            BackColor       =   &H00FFC0FF&
-            Caption         =   "6"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   300
-            Index           =   0
-            Left            =   45
-            Style           =   1  'Graphical
-            TabIndex        =   116
-            ToolTipText     =   "Click to highlight this channel"
-            Top             =   2175
-            Width           =   390
-         End
-         Begin VB.ComboBox cmbSelData 
-            BackColor       =   &H00008000&
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   330
-            Index           =   11
-            ItemData        =   "frmMonitoring.frx":0377
-            Left            =   540
-            List            =   "frmMonitoring.frx":0387
-            Style           =   2  'Dropdown List
-            TabIndex        =   115
-            ToolTipText     =   "Choose which signal to show"
-            Top             =   4425
-            Width           =   1580
-         End
-         Begin VB.ComboBox cmbSelData 
-            BackColor       =   &H00808000&
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   330
-            Index           =   10
-            ItemData        =   "frmMonitoring.frx":03B0
-            Left            =   540
-            List            =   "frmMonitoring.frx":03C0
-            Style           =   2  'Dropdown List
-            TabIndex        =   114
-            ToolTipText     =   "Choose which signal to show"
-            Top             =   4050
-            Width           =   1580
-         End
-         Begin VB.ComboBox cmbSelData 
-            BackColor       =   &H00FF80FF&
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00000000&
-            Height          =   330
-            Index           =   9
-            ItemData        =   "frmMonitoring.frx":03E9
-            Left            =   540
-            List            =   "frmMonitoring.frx":03F9
-            Style           =   2  'Dropdown List
-            TabIndex        =   113
-            ToolTipText     =   "Choose which signal to show"
-            Top             =   3675
-            Width           =   1580
-         End
-         Begin VB.ComboBox cmbSelData 
-            BackColor       =   &H00FF8080&
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00000000&
-            Height          =   330
-            Index           =   8
-            ItemData        =   "frmMonitoring.frx":0422
-            Left            =   540
-            List            =   "frmMonitoring.frx":0432
-            Style           =   2  'Dropdown List
-            TabIndex        =   112
-            ToolTipText     =   "Choose which signal to show"
-            Top             =   3300
-            Width           =   1580
-         End
-         Begin VB.ComboBox cmbSelData 
-            BackColor       =   &H0000C000&
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   330
-            Index           =   7
-            ItemData        =   "frmMonitoring.frx":045B
-            Left            =   540
-            List            =   "frmMonitoring.frx":046B
-            Style           =   2  'Dropdown List
-            TabIndex        =   111
-            ToolTipText     =   "Choose which signal to show"
-            Top             =   2925
-            Width           =   1580
-         End
-         Begin VB.ComboBox cmbSelData 
-            BackColor       =   &H008080FF&
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   330
-            Index           =   6
-            ItemData        =   "frmMonitoring.frx":0494
-            Left            =   540
-            List            =   "frmMonitoring.frx":04A4
-            Style           =   2  'Dropdown List
-            TabIndex        =   110
-            ToolTipText     =   "Choose which signal to show"
-            Top             =   2550
-            Width           =   1580
-         End
-         Begin VB.ComboBox cmbSelData 
-            BackColor       =   &H00FFC0FF&
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   330
-            Index           =   5
-            ItemData        =   "frmMonitoring.frx":04CD
-            Left            =   540
-            List            =   "frmMonitoring.frx":04DD
-            Style           =   2  'Dropdown List
-            TabIndex        =   109
-            ToolTipText     =   "Choose which signal to show"
-            Top             =   2175
-            Width           =   1580
-         End
-         Begin VB.ComboBox cmbSelData 
-            BackColor       =   &H00FFC0C0&
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   330
-            Index           =   4
-            ItemData        =   "frmMonitoring.frx":0506
-            Left            =   540
-            List            =   "frmMonitoring.frx":0516
-            Style           =   2  'Dropdown List
-            TabIndex        =   108
-            ToolTipText     =   "Choose which signal to show"
-            Top             =   1800
-            Width           =   1580
-         End
-         Begin VB.ComboBox cmbSelData 
-            BackColor       =   &H0000C080&
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   330
-            Index           =   3
-            ItemData        =   "frmMonitoring.frx":053F
-            Left            =   540
-            List            =   "frmMonitoring.frx":054F
-            Style           =   2  'Dropdown List
-            TabIndex        =   107
-            ToolTipText     =   "Choose which signal to show"
-            Top             =   1425
-            Width           =   1580
-         End
-         Begin VB.ComboBox cmbSelData 
-            BackColor       =   &H000080FF&
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   330
-            Index           =   2
-            ItemData        =   "frmMonitoring.frx":0578
-            Left            =   540
-            List            =   "frmMonitoring.frx":0588
-            Style           =   2  'Dropdown List
-            TabIndex        =   106
-            ToolTipText     =   "Choose which signal to show"
-            Top             =   1050
-            Width           =   1580
-         End
-         Begin VB.ComboBox cmbSelData 
-            BackColor       =   &H00C0FFC0&
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   330
-            Index           =   1
-            ItemData        =   "frmMonitoring.frx":05B1
-            Left            =   540
-            List            =   "frmMonitoring.frx":05C1
-            Style           =   2  'Dropdown List
-            TabIndex        =   105
-            ToolTipText     =   "Choose which signal to show"
-            Top             =   675
-            Width           =   1580
-         End
-         Begin VB.ComboBox cmbSelData 
-            BackColor       =   &H00FFFFC0&
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   330
-            Index           =   0
-            ItemData        =   "frmMonitoring.frx":05EA
-            Left            =   540
-            List            =   "frmMonitoring.frx":05FA
-            Style           =   2  'Dropdown List
-            TabIndex        =   104
-            ToolTipText     =   "Choose which signal to show"
-            Top             =   300
-            Width           =   1580
-         End
-         Begin VB.Label Label1 
-            Alignment       =   2  'Center
-            BackColor       =   &H00FFFFFF&
-            Caption         =   "Free Selection"
-            Height          =   240
-            Index           =   1
-            Left            =   135
-            TabIndex        =   168
-            Top             =   0
-            Width           =   1455
-         End
-      End
+      Width           =   12195
       Begin VB.Frame framExitation 
          BackColor       =   &H00E0E0E0&
          Caption         =   "Exitation"
@@ -1602,12 +52,12 @@ Begin VB.Form frmMonitoring
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   1365
-         Left            =   11070
-         TabIndex        =   92
-         ToolTipText     =   $"frmMonitoring.frx":0623
-         Top             =   315
-         Width           =   4965
+         Height          =   1680
+         Left            =   6840
+         TabIndex        =   146
+         ToolTipText     =   $"frmMonitoring.frx":030A
+         Top             =   -45
+         Width           =   5235
          Begin VB.ComboBox cmb_ExcitAxis 
             BeginProperty Font 
                Name            =   "Arial"
@@ -1619,13 +69,13 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Height          =   345
-            ItemData        =   "frmMonitoring.frx":06C0
-            Left            =   2790
-            List            =   "frmMonitoring.frx":0711
+            ItemData        =   "frmMonitoring.frx":03A7
+            Left            =   3150
+            List            =   "frmMonitoring.frx":03F8
             Style           =   2  'Dropdown List
-            TabIndex        =   102
+            TabIndex        =   150
             ToolTipText     =   "Choose axis OUTPUT for excitation"
-            Top             =   155
+            Top             =   135
             Width           =   1875
          End
          Begin VB.OptionButton optExitation 
@@ -1640,12 +90,12 @@ Begin VB.Form frmMonitoring
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Height          =   270
+            Height          =   300
             Index           =   1
-            Left            =   1080
-            TabIndex        =   101
+            Left            =   1215
+            TabIndex        =   149
             ToolTipText     =   "Enables noise exitation (Frequency is set to 0 Hz means niose)"
-            Top             =   510
+            Top             =   630
             Width           =   870
          End
          Begin VB.OptionButton optExitation 
@@ -1660,12 +110,12 @@ Begin VB.Form frmMonitoring
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Height          =   270
+            Height          =   300
             Index           =   0
-            Left            =   1080
-            TabIndex        =   100
+            Left            =   1215
+            TabIndex        =   148
             ToolTipText     =   "Enables Sine exitation (Frequency MUST BE NOT ZERO)"
-            Top             =   195
+            Top             =   180
             Value           =   -1  'True
             Width           =   870
          End
@@ -1681,24 +131,24 @@ Begin VB.Form frmMonitoring
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Height          =   495
-            Left            =   1080
+            Height          =   510
+            Left            =   1215
             Style           =   1  'Graphical
-            TabIndex        =   99
+            TabIndex        =   147
             ToolTipText     =   "Applies pulse to chosen axis (If excitation was ON, it is disabled after pulse)"
-            Top             =   825
+            Top             =   1035
             Width           =   870
          End
          Begin CWUIControlsLib.CWButton cwBut_Excitation 
-            Height          =   1110
+            Height          =   1245
             Left            =   90
-            TabIndex        =   93
+            TabIndex        =   151
             ToolTipText     =   "Enable / Disable excitation on chosen axis output"
-            Top             =   225
-            Width           =   870
+            Top             =   315
+            Width           =   1005
             _Version        =   524288
-            _ExtentX        =   1535
-            _ExtentY        =   1958
+            _ExtentX        =   1773
+            _ExtentY        =   2196
             _StockProps     =   68
             BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                Name            =   "Arial"
@@ -1815,7 +265,7 @@ Begin VB.Form frmMonitoring
             Rows_14         =   1
             Cols_14         =   1
             URL_14          =   "C:\in_out\Software\DC-2020_ED_Analyzer_VB6\Resources\SwitchOffGreen.bmp"
-            Pict_14         =   "frmMonitoring.frx":083A
+            Pict_14         =   "frmMonitoring.frx":0521
             ColorReplaceWith_14=   8421504
             ColorReplace_14 =   8421504
             Tolerance_14    =   2
@@ -1881,7 +331,7 @@ Begin VB.Form frmMonitoring
             Rows_21         =   1
             Cols_21         =   1
             URL_21          =   "C:\in_out\Software\DC-2020_ED_Analyzer_VB6\Resources\SwitchOnYellow.bmp"
-            Pict_21         =   "frmMonitoring.frx":19F6C
+            Pict_21         =   "frmMonitoring.frx":19C53
             ColorReplaceWith_21=   8421504
             ColorReplace_21 =   8421504
             Tolerance_21    =   2
@@ -1942,13 +392,13 @@ Begin VB.Form frmMonitoring
          End
          Begin CWUIControlsLib.CWNumEdit cwNumExcitFreq 
             Height          =   360
-            Left            =   3285
-            TabIndex        =   94
+            Left            =   3735
+            TabIndex        =   152
             ToolTipText     =   "Driving frequency, Hz, 0.01...1000 Hz (default = 5 Hz)"
-            Top             =   555
-            Width           =   1335
+            Top             =   630
+            Width           =   1290
             _Version        =   524288
-            _ExtentX        =   2355
+            _ExtentX        =   2275
             _ExtentY        =   635
             _StockProps     =   4
             BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
@@ -1995,10 +445,10 @@ Begin VB.Form frmMonitoring
          End
          Begin CWUIControlsLib.CWNumEdit cwNumExcitAmpl 
             Height          =   360
-            Left            =   3285
-            TabIndex        =   95
+            Left            =   3690
+            TabIndex        =   153
             ToolTipText     =   "Driving Amplitude, 0...30000 (default = 300)"
-            Top             =   960
+            Top             =   1170
             Width           =   1335
             _Version        =   524288
             _ExtentX        =   2355
@@ -2033,7 +483,7 @@ Begin VB.Form frmMonitoring
             ValueVarType_1  =   5
             Value_Val_1     =   1000
             IncValueVarType_1=   5
-            IncValue_Val_1  =   100
+            IncValue_Val_1  =   10
             AccelIncVarType_1=   5
             AccelInc_Val_1  =   10
             RangeMinVarType_1=   5
@@ -2051,7 +501,7 @@ Begin VB.Form frmMonitoring
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
             BackColor       =   &H00C0FFC0&
-            Caption         =   " Sine Freq Hz"
+            Caption         =   " Sine Freq, Hz"
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   9.75
@@ -2063,12 +513,12 @@ Begin VB.Form frmMonitoring
             EndProperty
             ForeColor       =   &H80000008&
             Height          =   330
-            Index           =   35
-            Left            =   2070
-            TabIndex        =   98
+            Index           =   34
+            Left            =   2340
+            TabIndex        =   156
             ToolTipText     =   "Driving frequency, Hz, 0.01...1000 Hz (default = 5 Hz)"
-            Top             =   555
-            Width           =   1215
+            Top             =   630
+            Width           =   1380
          End
          Begin VB.Label Label1 
             Alignment       =   2  'Center
@@ -2087,10 +537,10 @@ Begin VB.Form frmMonitoring
             ForeColor       =   &H80000008&
             Height          =   330
             Index           =   6
-            Left            =   2070
-            TabIndex        =   97
+            Left            =   2340
+            TabIndex        =   155
             ToolTipText     =   "Driving Amplitude, 0...30000 (default = 300)"
-            Top             =   960
+            Top             =   1170
             Width           =   1335
          End
          Begin VB.Label Label1 
@@ -2110,10 +560,10 @@ Begin VB.Form frmMonitoring
             ForeColor       =   &H80000008&
             Height          =   285
             Index           =   5
-            Left            =   2070
-            TabIndex        =   96
+            Left            =   2340
+            TabIndex        =   154
             ToolTipText     =   "Choose axis OUTPUT for excitation"
-            Top             =   195
+            Top             =   180
             Width           =   690
          End
       End
@@ -2129,18 +579,40 @@ Begin VB.Form frmMonitoring
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   1365
-         Left            =   3825
-         TabIndex        =   88
+         Height          =   1680
+         Left            =   2565
+         TabIndex        =   137
          ToolTipText     =   "Position recording can be internal, by controller, up to 10 sec, and external, by PC, up to 1000 lines (100 - 1000 sec)"
-         Top             =   90
-         Width           =   1275
+         Top             =   -45
+         Width           =   4245
+         Begin VB.CheckBox ChkExcelFriendly 
+            BackColor       =   &H00C0FFC0&
+            Caption         =   "Excel friendly"
+            Height          =   300
+            Left            =   1350
+            TabIndex        =   139
+            ToolTipText     =   $"frmMonitoring.frx":338A1
+            Top             =   720
+            Value           =   1  'Checked
+            Width           =   1605
+         End
+         Begin VB.CheckBox ChkUntilSTOP 
+            BackColor       =   &H00FF80FF&
+            Caption         =   "Saving Until Stop"
+            Height          =   315
+            Left            =   1350
+            TabIndex        =   138
+            ToolTipText     =   "If CHECKED, number of records is not limited"
+            Top             =   1170
+            Value           =   1  'Checked
+            Width           =   1590
+         End
          Begin CWUIControlsLib.CWNumEdit cwContCMDperiod 
             Height          =   360
             Left            =   135
-            TabIndex        =   89
+            TabIndex        =   140
             ToolTipText     =   "Wait interval between repeated position requests, sec, 0.1-10"
-            Top             =   450
+            Top             =   585
             Width           =   990
             _Version        =   524288
             _ExtentX        =   1746
@@ -2191,15 +663,15 @@ Begin VB.Form frmMonitoring
             Owner_5         =   1
          End
          Begin CWUIControlsLib.CWButton cwButContinuesSend 
-            Height          =   510
+            Height          =   555
             Left            =   90
-            TabIndex        =   90
-            ToolTipText     =   "Initiates / stops continuous monitoring WITHOUT recording to the file"
-            Top             =   810
+            TabIndex        =   141
+            ToolTipText     =   "Initiates / stops continuous position monitoring"
+            Top             =   1035
             Width           =   1140
             _Version        =   524288
             _ExtentX        =   2011
-            _ExtentY        =   900
+            _ExtentY        =   979
             _StockProps     =   68
             BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                Name            =   "Arial"
@@ -2443,20 +915,118 @@ Begin VB.Form frmMonitoring
             Animator_26     =   0
             Blinker_26      =   0
          End
+         Begin CWUIControlsLib.CWNumEdit cwNumFileRecords 
+            Height          =   360
+            Left            =   1755
+            TabIndex        =   142
+            ToolTipText     =   $"frmMonitoring.frx":33936
+            Top             =   270
+            Width           =   1200
+            _Version        =   524288
+            _ExtentX        =   2117
+            _ExtentY        =   635
+            _StockProps     =   4
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   12
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Reset_0         =   0   'False
+            CompatibleVers_0=   524288
+            NumEdit_0       =   1
+            ClassName_1     =   "CCWNumEdit"
+            opts_1          =   458814
+            C[0]_1          =   12648384
+            C[1]_1          =   0
+            BorderStyle_1   =   1
+            TextAlignment_1 =   1
+            Appearance_1    =   0
+            format_1        =   2
+            ClassName_2     =   "CCWFormat"
+            scale_1         =   3
+            ClassName_3     =   "CCWScale"
+            opts_3          =   65536
+            dMax_3          =   10
+            discInterval_3  =   1
+            ValueVarType_1  =   5
+            Value_Val_1     =   80320
+            IncValueVarType_1=   5
+            IncValue_Val_1  =   10
+            AccelIncVarType_1=   5
+            AccelInc_Val_1  =   60
+            RangeMinVarType_1=   5
+            RangeMaxVarType_1=   5
+            RangeMax_Val_1  =   100000
+            ButtonStyle_1   =   0
+            Bindings_1      =   4
+            ClassName_4     =   "CCWBindingHolderArray"
+            Editor_4        =   5
+            ClassName_5     =   "CCWBindingHolderArrayEditor"
+            Owner_5         =   1
+         End
          Begin VB.Label Label1 
             BackColor       =   &H00C0FFFF&
             Caption         =   "Interval, sec"
             Height          =   255
             Index           =   33
             Left            =   135
-            TabIndex        =   91
-            Top             =   225
+            TabIndex        =   145
+            Top             =   270
+            Width           =   915
+         End
+         Begin VB.Label Label1 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BackColor       =   &H00C0E0FF&
+            Caption         =   "missing lines"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   450
+            Index           =   32
+            Left            =   3105
+            TabIndex        =   144
+            Top             =   720
+            Width           =   915
+         End
+         Begin VB.Label lbMissingLines 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BackColor       =   &H00C0E0FF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "0"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   285
+            Left            =   3105
+            TabIndex        =   143
+            ToolTipText     =   "Decrease sample interval or switch to Ethernet if lines are missing"
+            Top             =   1170
             Width           =   915
          End
       End
       Begin VB.Frame FrameTest 
          BackColor       =   &H00E0E0E0&
-         Caption         =   "Recording to file"
+         Caption         =   "Test type"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   9.75
@@ -2466,39 +1036,48 @@ Begin VB.Form frmMonitoring
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   1365
-         Left            =   0
-         TabIndex        =   77
-         Top             =   90
-         Width           =   3795
+         Height          =   1680
+         Left            =   60
+         TabIndex        =   131
+         Top             =   -45
+         Width           =   2445
+         Begin VB.ComboBox cmb_TestType 
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   345
+            ItemData        =   "frmMonitoring.frx":339CF
+            Left            =   90
+            List            =   "frmMonitoring.frx":339DF
+            Style           =   2  'Dropdown List
+            TabIndex        =   136
+            ToolTipText     =   "Choose axis OUTPUT for excitation"
+            Top             =   225
+            Width           =   2280
+         End
          Begin VB.CommandButton cmdReadPositionFile 
             BackColor       =   &H00FFC0FF&
             Caption         =   "Read Test"
-            Height          =   420
-            Left            =   135
+            Height          =   375
+            Left            =   1215
             Style           =   1  'Graphical
-            TabIndex        =   79
+            TabIndex        =   132
             ToolTipText     =   "Reads saved position data and shows plots"
-            Top             =   855
+            Top             =   1215
             Width           =   915
-         End
-         Begin VB.CheckBox ChkUntilSTOP 
-            BackColor       =   &H00FF80FF&
-            Caption         =   "Saving Until Stop"
-            Height          =   315
-            Left            =   2070
-            TabIndex        =   78
-            ToolTipText     =   "If CHECKED, number of records is not limited"
-            Top             =   270
-            Value           =   1  'Checked
-            Width           =   1590
          End
          Begin CWUIControlsLib.CWButton cwSaveScan 
             Height          =   495
-            Left            =   135
-            TabIndex        =   80
+            Left            =   225
+            TabIndex        =   133
             ToolTipText     =   "If plots exist, saves plots into data file. If there is no plots, starts recording, plotting, and saving into file."
-            Top             =   270
+            Top             =   585
             Width           =   1860
             _Version        =   524288
             _ExtentX        =   3281
@@ -2707,83 +1286,17 @@ Begin VB.Form frmMonitoring
             Animator_28     =   0
             Blinker_28      =   0
          End
-         Begin CWUIControlsLib.CWNumEdit cwNumFileRecords 
-            Height          =   360
-            Left            =   2600
-            TabIndex        =   81
-            ToolTipText     =   $"frmMonitoring.frx":33BBA
-            Top             =   900
-            Width           =   1110
-            _Version        =   524288
-            _ExtentX        =   1958
-            _ExtentY        =   635
-            _StockProps     =   4
-            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-               Name            =   "Arial"
-               Size            =   12
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Reset_0         =   0   'False
-            CompatibleVers_0=   524288
-            NumEdit_0       =   1
-            ClassName_1     =   "CCWNumEdit"
-            opts_1          =   458814
-            C[0]_1          =   12648384
-            C[1]_1          =   0
-            BorderStyle_1   =   1
-            TextAlignment_1 =   1
-            Appearance_1    =   0
-            format_1        =   2
-            ClassName_2     =   "CCWFormat"
-            scale_1         =   3
-            ClassName_3     =   "CCWScale"
-            opts_3          =   65536
-            dMax_3          =   10
-            discInterval_3  =   1
-            ValueVarType_1  =   5
-            Value_Val_1     =   80320
-            IncValueVarType_1=   5
-            IncValue_Val_1  =   10
-            AccelIncVarType_1=   5
-            AccelInc_Val_1  =   60
-            RangeMinVarType_1=   5
-            RangeMaxVarType_1=   5
-            RangeMax_Val_1  =   100000
-            ButtonStyle_1   =   0
-            Bindings_1      =   4
-            ClassName_4     =   "CCWBindingHolderArray"
-            Editor_4        =   5
-            ClassName_5     =   "CCWBindingHolderArrayEditor"
-            Owner_5         =   1
-         End
          Begin VB.Label Label1 
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
-            BackColor       =   &H00C0E0FF&
-            Caption         =   "missing"
-            ForeColor       =   &H80000008&
-            Height          =   195
-            Index           =   34
-            Left            =   1980
-            TabIndex        =   86
-            Top             =   750
-            Width           =   520
-         End
-         Begin VB.Label Label1 
-            Alignment       =   2  'Center
-            Appearance      =   0  'Flat
-            BackColor       =   &H80000005&
+            BackColor       =   &H00E0E0E0&
             Caption         =   "data line # "
             ForeColor       =   &H80000008&
             Height          =   255
-            Index           =   32
-            Left            =   1100
-            TabIndex        =   85
-            Top             =   750
+            Index           =   17
+            Left            =   135
+            TabIndex        =   135
+            Top             =   1080
             Width           =   825
          End
          Begin VB.Label lbLineNum 
@@ -2803,29 +1316,86 @@ Begin VB.Form frmMonitoring
             EndProperty
             ForeColor       =   &H80000008&
             Height          =   285
-            Left            =   1100
-            TabIndex        =   84
+            Left            =   135
+            TabIndex        =   134
             ToolTipText     =   "current  line number of position data"
-            Top             =   975
+            Top             =   1305
             Width           =   825
          End
+      End
+      Begin VB.Frame FramData 
+         BorderStyle     =   0  'None
+         Caption         =   "Data"
+         Height          =   4965
+         Left            =   2610
+         TabIndex        =   112
+         Top             =   3195
+         Width           =   915
          Begin VB.Label Label1 
-            Alignment       =   1  'Right Justify
-            BackColor       =   &H00E0E0E0&
-            Caption         =   "Samples num"
-            Height          =   255
-            Index           =   17
-            Left            =   2655
-            TabIndex        =   83
-            Top             =   675
-            Width           =   1005
-         End
-         Begin VB.Label lbMissingLines 
             Alignment       =   2  'Center
+            BackColor       =   &H00FFFFFF&
+            Caption         =   "Data"
+            Height          =   240
+            Index           =   4
+            Left            =   180
+            TabIndex        =   130
+            Top             =   0
+            Width           =   600
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
             Appearance      =   0  'Flat
-            BackColor       =   &H00C0E0FF&
+            BackColor       =   &H00FFFFFF&
             BorderStyle     =   1  'Fixed Single
-            Caption         =   "9999"
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00C0C000&
+            Height          =   285
+            Index           =   10
+            Left            =   45
+            TabIndex        =   124
+            ToolTipText     =   "Ch11 Measured Signal"
+            Top             =   4050
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00008000&
+            Height          =   285
+            Index           =   11
+            Left            =   45
+            TabIndex        =   123
+            ToolTipText     =   "Ch12 Measured Signal"
+            Top             =   4425
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFC0&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   11.25
@@ -2837,39 +1407,1106 @@ Begin VB.Form frmMonitoring
             EndProperty
             ForeColor       =   &H80000008&
             Height          =   285
-            Left            =   1980
-            TabIndex        =   82
-            ToolTipText     =   "Decrease sample interval or switch to Ethernet if lines are missing"
-            Top             =   975
-            Width           =   530
+            Index           =   0
+            Left            =   45
+            TabIndex        =   122
+            ToolTipText     =   "Measured Vertical #1 Prox Sensor Raw Signal"
+            Top             =   300
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00C0FFC0&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   285
+            Index           =   1
+            Left            =   45
+            TabIndex        =   121
+            ToolTipText     =   "Measured Vertical #2 Prox Sensor Raw Signal"
+            Top             =   675
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H0080C0FF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   285
+            Index           =   2
+            Left            =   45
+            TabIndex        =   120
+            ToolTipText     =   "Measured Vertical #3 Prox Sensor Raw Signal"
+            Top             =   1050
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H0000C080&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   285
+            Index           =   3
+            Left            =   45
+            TabIndex        =   119
+            ToolTipText     =   "Measured Horizontal #1 Prox Sensor Raw Signal"
+            Top             =   1425
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFC0C0&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   285
+            Index           =   4
+            Left            =   45
+            TabIndex        =   118
+            ToolTipText     =   "Measured Horizontal #2 Prox Sensor Raw Signal"
+            Top             =   1800
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFC0FF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   285
+            Index           =   5
+            Left            =   45
+            TabIndex        =   117
+            ToolTipText     =   "Measured Horizontal #3 Prox Sensor Raw Signal"
+            Top             =   2175
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00C000C0&
+            Height          =   285
+            Index           =   9
+            Left            =   45
+            TabIndex        =   116
+            ToolTipText     =   "Measured Stage Feed Forward Y-acceleration Signal"
+            Top             =   3675
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00C00000&
+            Height          =   285
+            Index           =   8
+            Left            =   45
+            TabIndex        =   115
+            ToolTipText     =   "Measured Stage Feed Forward X-acceleration Signal"
+            Top             =   3300
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00008000&
+            Height          =   285
+            Index           =   7
+            Left            =   45
+            TabIndex        =   114
+            ToolTipText     =   "Measured Stage Feed Forward Y-position Signal"
+            Top             =   2925
+            Width           =   780
+         End
+         Begin VB.Label lbPosition 
+            Alignment       =   1  'Right Justify
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "65000"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H000000C0&
+            Height          =   285
+            Index           =   6
+            Left            =   45
+            TabIndex        =   113
+            ToolTipText     =   "Measured Stage Feed Forward X-position Signal"
+            Top             =   2550
+            Width           =   780
          End
       End
-      Begin VB.CheckBox ChkExcelFriendly 
-         BackColor       =   &H00C0FFC0&
-         Caption         =   "Excel friendly"
-         Height          =   300
-         Left            =   13680
-         TabIndex        =   76
-         ToolTipText     =   $"frmMonitoring.frx":33C53
-         Top             =   45
-         Value           =   1  'Checked
-         Width           =   1605
+      Begin VB.Frame FramPlotSinal 
+         BorderStyle     =   0  'None
+         Height          =   4875
+         Left            =   45
+         TabIndex        =   101
+         Top             =   3195
+         Width           =   555
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00008000&
+            Height          =   285
+            Index           =   11
+            Left            =   45
+            TabIndex        =   126
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   4425
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00808000&
+            Height          =   285
+            Index           =   10
+            Left            =   45
+            TabIndex        =   125
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   4050
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00FF00FF&
+            Height          =   285
+            Index           =   9
+            Left            =   45
+            TabIndex        =   111
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   3675
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00FF0000&
+            Height          =   285
+            Index           =   8
+            Left            =   45
+            TabIndex        =   110
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   3300
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H0000C000&
+            Height          =   285
+            Index           =   7
+            Left            =   45
+            TabIndex        =   109
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   2925
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H000000FF&
+            Height          =   285
+            Index           =   6
+            Left            =   45
+            TabIndex        =   108
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   2550
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00FFC0FF&
+            Height          =   285
+            Index           =   5
+            Left            =   45
+            TabIndex        =   107
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   2175
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00FFC0C0&
+            Height          =   285
+            Index           =   4
+            Left            =   45
+            TabIndex        =   106
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   1800
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H0000C080&
+            Height          =   285
+            Index           =   3
+            Left            =   45
+            TabIndex        =   105
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   1425
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H000080FF&
+            Height          =   285
+            Index           =   2
+            Left            =   45
+            TabIndex        =   104
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   1050
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00C0FFC0&
+            Height          =   285
+            Index           =   1
+            Left            =   45
+            TabIndex        =   103
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   675
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.CheckBox chkPOSvisible 
+            BackColor       =   &H00FFFFC0&
+            Height          =   285
+            Index           =   0
+            Left            =   45
+            TabIndex        =   102
+            ToolTipText     =   "Check to plot this sensor"
+            Top             =   300
+            Value           =   1  'Checked
+            Width           =   345
+         End
+         Begin VB.Label Label1 
+            Alignment       =   2  'Center
+            BackColor       =   &H00FFFFFF&
+            Caption         =   "Plot?"
+            Height          =   240
+            Index           =   18
+            Left            =   45
+            TabIndex        =   127
+            Top             =   0
+            Width           =   420
+         End
+      End
+      Begin VB.Frame Frame_B_cmd 
+         BorderStyle     =   0  'None
+         Caption         =   "Pos && FF"
+         Height          =   4965
+         Left            =   585
+         TabIndex        =   89
+         Top             =   3195
+         Width           =   960
+         Begin VB.CommandButton cmdGetCurrentPosition 
+            BackColor       =   &H0080FF80&
+            Caption         =   "Get position once"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   735
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   100
+            ToolTipText     =   "Reads momentary proximity sensors and FF signals"
+            Top             =   4050
+            Width           =   825
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FFC0FF&
+            Caption         =   "Prox H3"
+            Height          =   300
+            Index           =   6
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   99
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   2175
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FFC0C0&
+            Caption         =   "Prox H2"
+            Height          =   300
+            Index           =   5
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   98
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   1800
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H0000C080&
+            Caption         =   "Prox H1"
+            Height          =   300
+            Index           =   4
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   97
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   1425
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H000080FF&
+            Caption         =   "Prox V3"
+            Height          =   300
+            Index           =   3
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   96
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   1050
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00C0FFC0&
+            Caption         =   "Prox V2"
+            Height          =   300
+            Index           =   2
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   95
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   675
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FFFFC0&
+            Caption         =   "Prox V1"
+            Height          =   300
+            Index           =   1
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   94
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   300
+            Value           =   -1  'True
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H000000FF&
+            Caption         =   "FF Xpos"
+            ForeColor       =   &H00FFFFFF&
+            Height          =   300
+            Index           =   7
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   93
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   2550
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H0000C000&
+            Caption         =   "FF Ypos"
+            ForeColor       =   &H00FFFFFF&
+            Height          =   300
+            Index           =   8
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   92
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   2925
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FF0000&
+            Caption         =   "FF Xacc"
+            ForeColor       =   &H00FFFFFF&
+            Height          =   300
+            Index           =   9
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   91
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   3300
+            Width           =   800
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FF00FF&
+            Caption         =   "FF Yacc"
+            ForeColor       =   &H00FFFFFF&
+            Height          =   300
+            Index           =   10
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   90
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   3675
+            Width           =   800
+         End
+         Begin VB.Label Label1 
+            Alignment       =   2  'Center
+            BackColor       =   &H00FFFFFF&
+            Caption         =   "Pos && FF"
+            Height          =   240
+            Index           =   0
+            Left            =   0
+            TabIndex        =   128
+            Top             =   0
+            Width           =   825
+         End
+      End
+      Begin VB.Frame FramSelAnyCh 
+         Caption         =   "Free Selection"
+         Height          =   4875
+         Left            =   495
+         TabIndex        =   64
+         Top             =   3195
+         Visible         =   0   'False
+         Width           =   2175
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00008000&
+            Caption         =   "12"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   300
+            Index           =   21
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   88
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   4425
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00808000&
+            Caption         =   "11"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   300
+            Index           =   20
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   87
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   4050
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FF80FF&
+            Caption         =   "10"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   300
+            Index           =   19
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   86
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   3675
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FF8080&
+            Caption         =   "9"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   300
+            Index           =   18
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   85
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   3300
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H0000C000&
+            Caption         =   "8"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   300
+            Index           =   17
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   84
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   2925
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H008080FF&
+            Caption         =   "7"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   300
+            Index           =   16
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   83
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   2550
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FFFFC0&
+            Caption         =   "1"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   300
+            Index           =   15
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   82
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   300
+            Value           =   -1  'True
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00C0FFC0&
+            Caption         =   "2"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   300
+            Index           =   14
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   81
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   675
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H000080FF&
+            Caption         =   "3"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   300
+            Index           =   13
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   80
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   1050
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H0000C080&
+            Caption         =   "4"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   300
+            Index           =   12
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   79
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   1425
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FFC0C0&
+            Caption         =   "5"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   300
+            Index           =   11
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   78
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   1800
+            Width           =   390
+         End
+         Begin VB.OptionButton optChooseCh 
+            BackColor       =   &H00FFC0FF&
+            Caption         =   "6"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   300
+            Index           =   0
+            Left            =   45
+            Style           =   1  'Graphical
+            TabIndex        =   77
+            ToolTipText     =   "Click to highlight this channel"
+            Top             =   2175
+            Width           =   390
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00008000&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   11
+            ItemData        =   "frmMonitoring.frx":33A3C
+            Left            =   540
+            List            =   "frmMonitoring.frx":33A4C
+            Style           =   2  'Dropdown List
+            TabIndex        =   76
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   4425
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00808000&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   10
+            ItemData        =   "frmMonitoring.frx":33A75
+            Left            =   540
+            List            =   "frmMonitoring.frx":33A85
+            Style           =   2  'Dropdown List
+            TabIndex        =   75
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   4050
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00FF80FF&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   330
+            Index           =   9
+            ItemData        =   "frmMonitoring.frx":33AAE
+            Left            =   540
+            List            =   "frmMonitoring.frx":33ABE
+            Style           =   2  'Dropdown List
+            TabIndex        =   74
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   3675
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00FF8080&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   330
+            Index           =   8
+            ItemData        =   "frmMonitoring.frx":33AE7
+            Left            =   540
+            List            =   "frmMonitoring.frx":33AF7
+            Style           =   2  'Dropdown List
+            TabIndex        =   73
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   3300
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H0000C000&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   7
+            ItemData        =   "frmMonitoring.frx":33B20
+            Left            =   540
+            List            =   "frmMonitoring.frx":33B30
+            Style           =   2  'Dropdown List
+            TabIndex        =   72
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   2925
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H008080FF&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   6
+            ItemData        =   "frmMonitoring.frx":33B59
+            Left            =   540
+            List            =   "frmMonitoring.frx":33B69
+            Style           =   2  'Dropdown List
+            TabIndex        =   71
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   2550
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00FFC0FF&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   5
+            ItemData        =   "frmMonitoring.frx":33B92
+            Left            =   540
+            List            =   "frmMonitoring.frx":33BA2
+            Style           =   2  'Dropdown List
+            TabIndex        =   70
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   2175
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00FFC0C0&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   4
+            ItemData        =   "frmMonitoring.frx":33BCB
+            Left            =   540
+            List            =   "frmMonitoring.frx":33BDB
+            Style           =   2  'Dropdown List
+            TabIndex        =   69
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   1800
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H0000C080&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   3
+            ItemData        =   "frmMonitoring.frx":33C04
+            Left            =   540
+            List            =   "frmMonitoring.frx":33C14
+            Style           =   2  'Dropdown List
+            TabIndex        =   68
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   1425
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H000080FF&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   2
+            ItemData        =   "frmMonitoring.frx":33C3D
+            Left            =   540
+            List            =   "frmMonitoring.frx":33C4D
+            Style           =   2  'Dropdown List
+            TabIndex        =   67
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   1050
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00C0FFC0&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   1
+            ItemData        =   "frmMonitoring.frx":33C76
+            Left            =   540
+            List            =   "frmMonitoring.frx":33C86
+            Style           =   2  'Dropdown List
+            TabIndex        =   66
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   675
+            Width           =   1580
+         End
+         Begin VB.ComboBox cmbSelData 
+            BackColor       =   &H00FFFFC0&
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   0
+            ItemData        =   "frmMonitoring.frx":33CAF
+            Left            =   540
+            List            =   "frmMonitoring.frx":33CBF
+            Style           =   2  'Dropdown List
+            TabIndex        =   65
+            ToolTipText     =   "Choose which signal to show"
+            Top             =   300
+            Width           =   1580
+         End
+         Begin VB.Label Label1 
+            Alignment       =   2  'Center
+            BackColor       =   &H00FFFFFF&
+            Caption         =   "Free Selection"
+            Height          =   240
+            Index           =   1
+            Left            =   135
+            TabIndex        =   129
+            Top             =   0
+            Width           =   1455
+         End
       End
       Begin VB.Frame FramePlotScales 
          BackColor       =   &H00FFFFFF&
          Height          =   1500
-         Left            =   0
-         TabIndex        =   66
+         Left            =   60
+         TabIndex        =   54
          ToolTipText     =   "Plot controls"
-         Top             =   1995
-         Width           =   3525
+         Top             =   1665
+         Width           =   3480
          Begin VB.CommandButton cmdZoom_05x 
             BackColor       =   &H00C0FFC0&
             Height          =   600
             Left            =   765
             Picture         =   "frmMonitoring.frx":33CE8
             Style           =   1  'Graphical
-            TabIndex        =   71
+            TabIndex        =   59
             ToolTipText     =   "When ""Y scale"" in ""Manual"" mode, Zoom OUT Y scale"
             Top             =   765
             Width           =   600
@@ -2880,7 +2517,7 @@ Begin VB.Form frmMonitoring
             Left            =   90
             Picture         =   "frmMonitoring.frx":34D5A
             Style           =   1  'Graphical
-            TabIndex        =   70
+            TabIndex        =   58
             ToolTipText     =   "When ""Y scale"" in ""Manual"" mode, Zoom IN Y scale"
             Top             =   765
             Width           =   600
@@ -2891,7 +2528,7 @@ Begin VB.Form frmMonitoring
             Left            =   2790
             Picture         =   "frmMonitoring.frx":35DCC
             Style           =   1  'Graphical
-            TabIndex        =   69
+            TabIndex        =   57
             ToolTipText     =   "Zoom window"
             Top             =   765
             Width           =   600
@@ -2902,7 +2539,7 @@ Begin VB.Form frmMonitoring
             Left            =   2115
             Picture         =   "frmMonitoring.frx":36E3E
             Style           =   1  'Graphical
-            TabIndex        =   68
+            TabIndex        =   56
             ToolTipText     =   "Pan window"
             Top             =   765
             Width           =   600
@@ -2913,17 +2550,17 @@ Begin VB.Form frmMonitoring
             Left            =   1440
             Picture         =   "frmMonitoring.frx":37EB0
             Style           =   1  'Graphical
-            TabIndex        =   67
+            TabIndex        =   55
             ToolTipText     =   "Snap cursor to chosen plot"
             Top             =   765
             Width           =   600
          End
          Begin CWUIControlsLib.CWButton cwBut_Yautoscale 
             Height          =   645
-            Left            =   0
-            TabIndex        =   72
+            Left            =   45
+            TabIndex        =   60
             ToolTipText     =   "Vertical Scale toggle"
-            Top             =   45
+            Top             =   30
             Width           =   900
             _Version        =   524288
             _ExtentX        =   1587
@@ -3161,7 +2798,7 @@ Begin VB.Form frmMonitoring
          Begin CWUIControlsLib.CWNumEdit cwSpreadPlotsByY 
             Height          =   390
             Left            =   2250
-            TabIndex        =   73
+            TabIndex        =   61
             ToolTipText     =   "When plotting relative format, traces spread vertically by this value"
             Top             =   270
             Width           =   1095
@@ -3212,7 +2849,7 @@ Begin VB.Form frmMonitoring
          Begin CWUIControlsLib.CWButton cwRel_T_Abs_F_Position 
             Height          =   645
             Left            =   855
-            TabIndex        =   74
+            TabIndex        =   62
             ToolTipText     =   "Remove Offset of the RAW signal - subtract the FIRST reading from each consecutive measurement"
             Top             =   45
             Width           =   1320
@@ -3454,21 +3091,21 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Height          =   645
-            Left            =   1800
-            TabIndex        =   75
+            Left            =   1755
+            TabIndex        =   63
             Top             =   45
             Width           =   1680
          End
       End
       Begin CWUIControlsLib.CWGraph cwGraphDataAcq 
          Height          =   4905
-         Left            =   3465
+         Left            =   3540
          TabIndex        =   18
          ToolTipText     =   "Click - show cursor, dblClick - hide cursor"
-         Top             =   1755
-         Width           =   8925
+         Top             =   1665
+         Width           =   8610
          _Version        =   524288
-         _ExtentX        =   15743
+         _ExtentX        =   15187
          _ExtentY        =   8652
          _StockProps     =   71
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
@@ -3521,7 +3158,7 @@ Begin VB.Form frmMonitoring
          ClassName_8     =   "CCWScale"
          opts_8          =   90112
          rMin_8          =   45
-         rMax_8          =   566
+         rMax_8          =   545
          dMax_8          =   1000
          discInterval_8  =   1
          discBase_8      =   100
@@ -3923,7 +3560,7 @@ Begin VB.Form frmMonitoring
          Left            =   3510
          TabIndex        =   20
          Top             =   6525
-         Width           =   8945
+         Width           =   8625
          Begin VB.TextBox TextXunits 
             Appearance      =   0  'Flat
             BackColor       =   &H00FFFFFF&
@@ -3970,9 +3607,9 @@ Begin VB.Form frmMonitoring
             TabIndex        =   21
             ToolTipText     =   "When 'X scale' in 'Manual' state, adjust X coordinates to zoom in and out"
             Top             =   150
-            Width           =   7320
+            Width           =   7050
             _Version        =   524288
-            _ExtentX        =   12912
+            _ExtentX        =   12435
             _ExtentY        =   1587
             _StockProps     =   68
             BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
@@ -4104,7 +3741,7 @@ Begin VB.Form frmMonitoring
             ClassName_15    =   "CCWScale"
             opts_15         =   90112
             rMin_15         =   18
-            rMax_15         =   470
+            rMax_15         =   453
             dMax_15         =   10
             discInterval_15 =   1
             Radial_13       =   0
@@ -4569,13 +4206,13 @@ Begin VB.Form frmMonitoring
          EndProperty
          ForeColor       =   &H80000008&
          Height          =   735
-         Left            =   3510
+         Left            =   3540
          ScaleHeight     =   705
-         ScaleWidth      =   8910
+         ScaleWidth      =   8550
          TabIndex        =   1
          ToolTipText     =   "Calculated basic statistical results of the chosen channel"
          Top             =   7695
-         Width           =   8945
+         Width           =   8580
          Begin VB.TextBox txtPk_Pk 
             Alignment       =   2  'Center
             BackColor       =   &H00FFFFC0&
@@ -4589,18 +4226,18 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Height          =   315
-            Left            =   5895
+            Left            =   7470
             TabIndex        =   9
             Text            =   "N/A"
             ToolTipText     =   "= Max Value - Min Value"
-            Top             =   540
+            Top             =   315
             Width           =   1005
          End
          Begin VB.TextBox txtMinSignal 
             Alignment       =   2  'Center
             BackColor       =   &H00FFFFC0&
             Height          =   315
-            Left            =   1080
+            Left            =   1035
             TabIndex        =   8
             Text            =   "N/A"
             ToolTipText     =   "Minimum Value"
@@ -4611,7 +4248,7 @@ Begin VB.Form frmMonitoring
             Alignment       =   2  'Center
             BackColor       =   &H00C0C0FF&
             Height          =   315
-            Left            =   3060
+            Left            =   2925
             TabIndex        =   7
             Text            =   "N/A"
             ToolTipText     =   "Maximum Value"
@@ -4622,7 +4259,7 @@ Begin VB.Form frmMonitoring
             Alignment       =   2  'Center
             BackColor       =   &H00C0C0FF&
             Height          =   315
-            Left            =   2115
+            Left            =   2025
             TabIndex        =   6
             Text            =   "N/A"
             ToolTipText     =   "The Index of the maximum value in the chosen channel"
@@ -4653,7 +4290,7 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Height          =   315
-            Left            =   4050
+            Left            =   3870
             TabIndex        =   4
             Text            =   "N/A"
             ToolTipText     =   "The Average of the active channel"
@@ -4673,7 +4310,7 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Height          =   315
-            Left            =   6570
+            Left            =   6255
             TabIndex        =   3
             Text            =   "undefined"
             ToolTipText     =   "= Average / St.Dev."
@@ -4693,12 +4330,12 @@ Begin VB.Form frmMonitoring
                Strikethrough   =   0   'False
             EndProperty
             Height          =   315
-            Left            =   5310
+            Left            =   5085
             TabIndex        =   2
             Text            =   "N/A"
             ToolTipText     =   "The Error (standard deviation) of the chosen channel"
             Top             =   315
-            Width           =   1140
+            Width           =   1095
          End
          Begin VB.Label Label1 
             Alignment       =   2  'Center
@@ -4715,7 +4352,7 @@ Begin VB.Form frmMonitoring
             EndProperty
             Height          =   255
             Index           =   24
-            Left            =   7920
+            Left            =   7515
             TabIndex        =   17
             ToolTipText     =   "= Max Value - Min Value"
             Top             =   90
@@ -4736,7 +4373,7 @@ Begin VB.Form frmMonitoring
             EndProperty
             Height          =   255
             Index           =   11
-            Left            =   1080
+            Left            =   1035
             TabIndex        =   16
             ToolTipText     =   "Minimum Value"
             Top             =   45
@@ -4748,7 +4385,7 @@ Begin VB.Form frmMonitoring
             Caption         =   "Max @ index"
             Height          =   255
             Index           =   7
-            Left            =   2025
+            Left            =   1935
             TabIndex        =   15
             ToolTipText     =   "The Index of the maximum value in the chosen channel"
             Top             =   45
@@ -4769,7 +4406,7 @@ Begin VB.Form frmMonitoring
             EndProperty
             Height          =   255
             Index           =   20
-            Left            =   3060
+            Left            =   2925
             TabIndex        =   14
             ToolTipText     =   "Maximum Value"
             Top             =   45
@@ -4802,7 +4439,7 @@ Begin VB.Form frmMonitoring
             EndProperty
             Height          =   255
             Index           =   21
-            Left            =   4230
+            Left            =   4050
             TabIndex        =   12
             ToolTipText     =   "The Average of the active channel"
             Top             =   45
@@ -4823,7 +4460,7 @@ Begin VB.Form frmMonitoring
             EndProperty
             Height          =   255
             Index           =   23
-            Left            =   6705
+            Left            =   6480
             TabIndex        =   11
             ToolTipText     =   "=Average/St.Dev."
             Top             =   45
@@ -4844,7 +4481,7 @@ Begin VB.Form frmMonitoring
             EndProperty
             Height          =   255
             Index           =   22
-            Left            =   5490
+            Left            =   5220
             TabIndex        =   10
             ToolTipText     =   "The Error (standard deviation) of the chosen channel"
             Top             =   45
@@ -4863,10 +4500,10 @@ Begin VB.Form frmMonitoring
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   1635
-         Left            =   12420
+         Height          =   1500
+         Left            =   2565
          TabIndex        =   24
-         Top             =   1170
+         Top             =   -354
          Width           =   4245
          Begin VB.CommandButton cmdStartMotorTest 
             BackColor       =   &H008080FF&
@@ -4941,20 +4578,20 @@ Begin VB.Form frmMonitoring
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   1770
-         Left            =   4500
+         Height          =   1680
+         Left            =   2565
          TabIndex        =   27
          ToolTipText     =   "Driving current is incremented, pressure is recorded. Need input pressure ans closed volumes!"
-         Top             =   0
+         Top             =   -45
          Visible         =   0   'False
-         Width           =   8925
+         Width           =   9510
          Begin VB.TextBox txtV4sn 
             Height          =   285
             Left            =   3600
             TabIndex        =   44
             Text            =   "4444"
             ToolTipText     =   "Enter Valve 4 Serial  Number"
-            Top             =   1395
+            Top             =   1260
             Width           =   555
          End
          Begin VB.TextBox txtV3sn 
@@ -4963,7 +4600,7 @@ Begin VB.Form frmMonitoring
             TabIndex        =   43
             Text            =   "3333"
             ToolTipText     =   "Enter Valve 3 Serial  Number"
-            Top             =   990
+            Top             =   900
             Width           =   555
          End
          Begin VB.TextBox txtV2sn 
@@ -4972,7 +4609,7 @@ Begin VB.Form frmMonitoring
             TabIndex        =   42
             Text            =   "2222"
             ToolTipText     =   "Enter Valve 2 Serial  Number"
-            Top             =   585
+            Top             =   540
             Width           =   555
          End
          Begin VB.TextBox txtV1sn 
@@ -4989,7 +4626,7 @@ Begin VB.Form frmMonitoring
             Height          =   735
             Left            =   90
             TabIndex        =   40
-            Top             =   945
+            Top             =   855
             Width           =   1140
          End
          Begin CWUIControlsLib.CWButton cwButValveTest 
@@ -5250,7 +4887,7 @@ Begin VB.Form frmMonitoring
             Left            =   2070
             TabIndex        =   29
             ToolTipText     =   "Wait interval to let pressure stabilize, sec, 0.2-2"
-            Top             =   990
+            Top             =   900
             Width           =   900
             _Version        =   524288
             _ExtentX        =   1587
@@ -5359,7 +4996,7 @@ Begin VB.Form frmMonitoring
             Left            =   1935
             TabIndex        =   31
             ToolTipText     =   "Driving mA to stop, default +120"
-            Top             =   1395
+            Top             =   1260
             Width           =   1035
             _Version        =   524288
             _ExtentX        =   1826
@@ -5413,7 +5050,7 @@ Begin VB.Form frmMonitoring
             Left            =   2070
             TabIndex        =   32
             ToolTipText     =   "Increment mA, default 0.5"
-            Top             =   585
+            Top             =   540
             Width           =   900
             _Version        =   524288
             _ExtentX        =   1587
@@ -5522,7 +5159,7 @@ Begin VB.Form frmMonitoring
             Left            =   4500
             TabIndex        =   51
             ToolTipText     =   "Lower pressure threshold to calculate slope, psi. Default 20 psi"
-            Top             =   1350
+            Top             =   1230
             Width           =   900
             _Version        =   524288
             _ExtentX        =   1587
@@ -5572,6 +5209,348 @@ Begin VB.Form frmMonitoring
             ClassName_5     =   "CCWBindingHolderArrayEditor"
             Owner_5         =   1
          End
+         Begin CWUIControlsLib.CWNumEdit cwValveHoldCurrent 
+            Height          =   300
+            Left            =   7560
+            TabIndex        =   157
+            ToolTipText     =   "When ANOTHER VALVE  is driving, SET this vavle to XX mA, default +60"
+            Top             =   1215
+            Width           =   945
+            _Version        =   524288
+            _ExtentX        =   1667
+            _ExtentY        =   529
+            _StockProps     =   4
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   12
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Reset_0         =   0   'False
+            CompatibleVers_0=   524288
+            NumEdit_0       =   1
+            ClassName_1     =   "CCWNumEdit"
+            opts_1          =   458814
+            C[0]_1          =   16777215
+            C[1]_1          =   0
+            BorderStyle_1   =   1
+            TextAlignment_1 =   1
+            Appearance_1    =   0
+            format_1        =   2
+            ClassName_2     =   "CCWFormat"
+            Format_2        =   ".0"
+            scale_1         =   3
+            ClassName_3     =   "CCWScale"
+            opts_3          =   65536
+            dMax_3          =   10
+            discInterval_3  =   1
+            ValueVarType_1  =   5
+            Value_Val_1     =   60
+            IncValueVarType_1=   5
+            IncValue_Val_1  =   1
+            AccelIncVarType_1=   5
+            AccelInc_Val_1  =   5
+            RangeMinVarType_1=   5
+            RangeMaxVarType_1=   5
+            RangeMax_Val_1  =   150
+            ButtonStyle_1   =   0
+            Bindings_1      =   4
+            ClassName_4     =   "CCWBindingHolderArray"
+            Editor_4        =   5
+            ClassName_5     =   "CCWBindingHolderArrayEditor"
+            Owner_5         =   1
+         End
+         Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
+            Height          =   300
+            Index           =   0
+            Left            =   6480
+            TabIndex        =   159
+            ToolTipText     =   "When ANOTHER VALVE  is driving, SET this vavle to XX mA, default +60"
+            Top             =   180
+            Visible         =   0   'False
+            Width           =   855
+            _Version        =   524288
+            _ExtentX        =   1508
+            _ExtentY        =   529
+            _StockProps     =   4
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Reset_0         =   0   'False
+            CompatibleVers_0=   524288
+            NumEdit_0       =   1
+            ClassName_1     =   "CCWNumEdit"
+            opts_1          =   196670
+            C[0]_1          =   16777215
+            C[1]_1          =   0
+            BorderStyle_1   =   1
+            TextAlignment_1 =   1
+            Appearance_1    =   0
+            format_1        =   2
+            ClassName_2     =   "CCWFormat"
+            Format_2        =   ".#0"
+            scale_1         =   3
+            ClassName_3     =   "CCWScale"
+            opts_3          =   65536
+            dMax_3          =   10
+            discInterval_3  =   1
+            ValueVarType_1  =   5
+            Value_Val_1     =   60
+            IncValueVarType_1=   5
+            IncValue_Val_1  =   1
+            AccelIncVarType_1=   5
+            AccelInc_Val_1  =   5
+            RangeMinVarType_1=   5
+            RangeMaxVarType_1=   5
+            RangeMax_Val_1  =   150
+            ButtonStyle_1   =   0
+            Bindings_1      =   4
+            ClassName_4     =   "CCWBindingHolderArray"
+            Editor_4        =   5
+            ClassName_5     =   "CCWBindingHolderArrayEditor"
+            Owner_5         =   1
+         End
+         Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
+            Height          =   300
+            Index           =   1
+            Left            =   6480
+            TabIndex        =   160
+            ToolTipText     =   "When ANOTHER VALVE  is driving, SET this vavle to XX mA, default +60"
+            Top             =   540
+            Visible         =   0   'False
+            Width           =   855
+            _Version        =   524288
+            _ExtentX        =   1508
+            _ExtentY        =   529
+            _StockProps     =   4
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Reset_0         =   0   'False
+            CompatibleVers_0=   524288
+            NumEdit_0       =   1
+            ClassName_1     =   "CCWNumEdit"
+            opts_1          =   196670
+            C[0]_1          =   16777215
+            C[1]_1          =   0
+            BorderStyle_1   =   1
+            TextAlignment_1 =   1
+            Appearance_1    =   0
+            format_1        =   2
+            ClassName_2     =   "CCWFormat"
+            Format_2        =   ".#0"
+            scale_1         =   3
+            ClassName_3     =   "CCWScale"
+            opts_3          =   65536
+            dMax_3          =   10
+            discInterval_3  =   1
+            ValueVarType_1  =   5
+            Value_Val_1     =   60
+            IncValueVarType_1=   5
+            IncValue_Val_1  =   1
+            AccelIncVarType_1=   5
+            AccelInc_Val_1  =   5
+            RangeMinVarType_1=   5
+            RangeMaxVarType_1=   5
+            RangeMax_Val_1  =   150
+            ButtonStyle_1   =   0
+            Bindings_1      =   4
+            ClassName_4     =   "CCWBindingHolderArray"
+            Editor_4        =   5
+            ClassName_5     =   "CCWBindingHolderArrayEditor"
+            Owner_5         =   1
+         End
+         Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
+            Height          =   300
+            Index           =   2
+            Left            =   6480
+            TabIndex        =   161
+            ToolTipText     =   "When ANOTHER VALVE  is driving, SET this vavle to XX mA, default +60"
+            Top             =   900
+            Visible         =   0   'False
+            Width           =   855
+            _Version        =   524288
+            _ExtentX        =   1508
+            _ExtentY        =   529
+            _StockProps     =   4
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Reset_0         =   0   'False
+            CompatibleVers_0=   524288
+            NumEdit_0       =   1
+            ClassName_1     =   "CCWNumEdit"
+            opts_1          =   196670
+            C[0]_1          =   16777215
+            C[1]_1          =   0
+            BorderStyle_1   =   1
+            TextAlignment_1 =   1
+            Appearance_1    =   0
+            format_1        =   2
+            ClassName_2     =   "CCWFormat"
+            Format_2        =   ".#0"
+            scale_1         =   3
+            ClassName_3     =   "CCWScale"
+            opts_3          =   65536
+            dMax_3          =   10
+            discInterval_3  =   1
+            ValueVarType_1  =   5
+            Value_Val_1     =   60
+            IncValueVarType_1=   5
+            IncValue_Val_1  =   1
+            AccelIncVarType_1=   5
+            AccelInc_Val_1  =   5
+            RangeMinVarType_1=   5
+            RangeMaxVarType_1=   5
+            RangeMax_Val_1  =   150
+            ButtonStyle_1   =   0
+            Bindings_1      =   4
+            ClassName_4     =   "CCWBindingHolderArray"
+            Editor_4        =   5
+            ClassName_5     =   "CCWBindingHolderArrayEditor"
+            Owner_5         =   1
+         End
+         Begin CWUIControlsLib.CWNumEdit CwOffsetCurrent 
+            Height          =   300
+            Index           =   3
+            Left            =   6480
+            TabIndex        =   162
+            ToolTipText     =   "When ANOTHER VALVE  is driving, SET this vavle to XX mA, default +60"
+            Top             =   1260
+            Visible         =   0   'False
+            Width           =   855
+            _Version        =   524288
+            _ExtentX        =   1508
+            _ExtentY        =   529
+            _StockProps     =   4
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Arial"
+               Size            =   11.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Reset_0         =   0   'False
+            CompatibleVers_0=   524288
+            NumEdit_0       =   1
+            ClassName_1     =   "CCWNumEdit"
+            opts_1          =   196670
+            C[0]_1          =   16777215
+            C[1]_1          =   0
+            BorderStyle_1   =   1
+            TextAlignment_1 =   1
+            Appearance_1    =   0
+            format_1        =   2
+            ClassName_2     =   "CCWFormat"
+            Format_2        =   ".#0"
+            scale_1         =   3
+            ClassName_3     =   "CCWScale"
+            opts_3          =   65536
+            dMax_3          =   10
+            discInterval_3  =   1
+            ValueVarType_1  =   5
+            Value_Val_1     =   60
+            IncValueVarType_1=   5
+            IncValue_Val_1  =   1
+            AccelIncVarType_1=   5
+            AccelInc_Val_1  =   5
+            RangeMinVarType_1=   5
+            RangeMaxVarType_1=   5
+            RangeMax_Val_1  =   150
+            ButtonStyle_1   =   0
+            Bindings_1      =   4
+            ClassName_4     =   "CCWBindingHolderArray"
+            Editor_4        =   5
+            ClassName_5     =   "CCWBindingHolderArrayEditor"
+            Owner_5         =   1
+         End
+         Begin VB.Label Label1 
+            Alignment       =   1  'Right Justify
+            BackColor       =   &H00FFFFC0&
+            Caption         =   "V1set"
+            Height          =   210
+            Index           =   14
+            Left            =   5805
+            TabIndex        =   166
+            ToolTipText     =   "When ANOTHER VALVE  is driving, SET this vavle to XX mA, default +60"
+            Top             =   270
+            Visible         =   0   'False
+            Width           =   645
+         End
+         Begin VB.Label Label1 
+            Alignment       =   1  'Right Justify
+            BackColor       =   &H00FFFFC0&
+            Caption         =   "V2set"
+            Height          =   210
+            Index           =   15
+            Left            =   5805
+            TabIndex        =   165
+            ToolTipText     =   "When ANOTHER VALVE  is driving, SET this vavle to XX mA, default +60"
+            Top             =   585
+            Visible         =   0   'False
+            Width           =   645
+         End
+         Begin VB.Label Label1 
+            Alignment       =   1  'Right Justify
+            BackColor       =   &H00FFFFC0&
+            Caption         =   "V3set"
+            Height          =   210
+            Index           =   16
+            Left            =   5805
+            TabIndex        =   164
+            ToolTipText     =   "When ANOTHER VALVE  is driving, SET this vavle to XX mA, default +60"
+            Top             =   945
+            Visible         =   0   'False
+            Width           =   645
+         End
+         Begin VB.Label Label1 
+            Alignment       =   1  'Right Justify
+            BackColor       =   &H00FFFFC0&
+            Caption         =   "V4set"
+            Height          =   210
+            Index           =   19
+            Left            =   5805
+            TabIndex        =   163
+            ToolTipText     =   "When ANOTHER VALVE  is driving, SET this vavle to XX mA, default +60"
+            Top             =   1305
+            Visible         =   0   'False
+            Width           =   645
+         End
+         Begin VB.Label Label1 
+            Alignment       =   1  'Right Justify
+            BackColor       =   &H00FFFFC0&
+            Caption         =   "Hold mA"
+            Height          =   255
+            Index           =   12
+            Left            =   7650
+            TabIndex        =   158
+            ToolTipText     =   "When ANOTHER VALVE  is driving, SET this vavle to XX mA, default +60"
+            Top             =   990
+            Width           =   645
+         End
          Begin VB.Label Label1 
             Alignment       =   1  'Right Justify
             BackColor       =   &H00FFFFC0&
@@ -5593,7 +5572,7 @@ Begin VB.Form frmMonitoring
             Index           =   30
             Left            =   4500
             TabIndex        =   52
-            Top             =   1125
+            Top             =   1005
             Width           =   915
          End
          Begin VB.Label Label1 
@@ -5626,7 +5605,7 @@ Begin VB.Form frmMonitoring
             Index           =   28
             Left            =   3015
             TabIndex        =   48
-            Top             =   1440
+            Top             =   1305
             Width           =   555
          End
          Begin VB.Label Label1 
@@ -5638,7 +5617,7 @@ Begin VB.Form frmMonitoring
             Index           =   27
             Left            =   3015
             TabIndex        =   47
-            Top             =   1035
+            Top             =   945
             Width           =   555
          End
          Begin VB.Label Label1 
@@ -5650,7 +5629,7 @@ Begin VB.Form frmMonitoring
             Index           =   26
             Left            =   3015
             TabIndex        =   46
-            Top             =   630
+            Top             =   585
             Width           =   555
          End
          Begin VB.Label Label1 
@@ -5673,7 +5652,7 @@ Begin VB.Form frmMonitoring
             Left            =   1305
             TabIndex        =   36
             ToolTipText     =   "Settling time before measuring pressure"
-            Top             =   990
+            Top             =   945
             Width           =   735
          End
          Begin VB.Label Label1 
@@ -5695,7 +5674,7 @@ Begin VB.Form frmMonitoring
             Index           =   9
             Left            =   1260
             TabIndex        =   34
-            Top             =   630
+            Top             =   585
             Width           =   735
          End
          Begin VB.Label Label1 
@@ -5706,7 +5685,7 @@ Begin VB.Form frmMonitoring
             Index           =   10
             Left            =   1170
             TabIndex        =   33
-            Top             =   1440
+            Top             =   1260
             Width           =   735
          End
       End
@@ -5737,7 +5716,7 @@ Begin VB.Form frmMonitoring
       TabIndex        =   19
       ToolTipText     =   "The last controller's response"
       Top             =   8865
-      Width           =   11640
+      Width           =   12090
    End
 End
 Attribute VB_Name = "frmMonitoring"
@@ -5831,10 +5810,17 @@ Option Explicit
     Dim interval_cmd As Single   'to monitor time it takes
     Dim User_has_been_Warned As Boolean ' about multiple files
     Dim MissingLines As Long
+    Dim FormXsize As Long ' = 13000
+    Dim FormYsize As Long ' = 9900
+    Dim FramePosXsize As Long ' = 12195
+    Dim FramePosYsize As Long ' = 8520
+    Dim PlotXsize As Long ' = 8510
+    Dim PlotYsize As Long ' = 4905
+
 Public Enum TestType
     Monitor_Pos = 0
     Monitor_Pressure = 1
-    valves_2020 = 2
+    Valves_2020 = 2
     Any_Variable = 3
 '    Valve_box = 3
 '    Buffer_rec = 4
@@ -6077,7 +6063,7 @@ Private Sub cwButValveTest_ValueChanged(ByVal Value As Boolean)
 
         Call prepare_for_plotting
         cwRel_T_Abs_F_Position.Value = False 'absolute position for valve test
-        If (MonitoringTestType = valves_2020) Then 'DC2020 valve test
+        If (MonitoringTestType = Valves_2020) Then 'DC2020 valve test
              command = "vtst " & CStr(cwValveStartCurrent.Value) & " " & CStr(cwValveIncrementCurrent.Value) _
              & " " & CStr(cwValveEndCurrent.Value) & " " & CStr(cwValveMeasTime.Value) & " " & CStr(cwValveHoldCurrent.Value) _
              & " " & CStr(CwLowerPSIthreshold.Value) & " " & CStr(CwUpperPSIthreshold.Value)
@@ -6208,6 +6194,13 @@ Private Sub Form_Load()
     End If
     cmd_sent = False
     waitresponse = True
+    FormXsize = Me.Width '13000
+    FormYsize = Me.Height '9900
+    FramePosXsize = FramePosScan.Width ' = 12195
+    FramePosYsize = FramePosScan.Height ' = 8520
+    PlotXsize = cwGraphDataAcq.Width ' = 8600
+    PlotYsize = cwGraphDataAcq.Height ' = 4905
+
 ' instead, update controls from gloabal variables
     frmMonitoring.cwNumExcitAmpl.Value = TestGain
     frmMonitoring.cwNumExcitFreq.Value = TestFrequency
@@ -6237,22 +6230,28 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub Form_Resize()
-    Xsize = Me.Width
+    Dim DeltaX As Long
+    Dim DeltaY As Long
+    Xsize = Me.Width ' current width and height
     Ysize = Me.Height
-    Const FormXsize As Long = 11700
-    Const FormYsize As Long = 9800
-    If (Xsize > FormXsize) Then
-        FramePosScan.Width = Xsize - FormXsize + 12450
-        cwGraphDataAcq.Width = Xsize - FormXsize + 8900
+'    FormXsize  = 13000 got values on Form.Load()
+'    FormYsize  = 9900
+    DeltaX = Xsize - FormXsize
+    DeltaY = Ysize - FormYsize
+    If (Xsize > FormXsize - 450) Then
+        FramePosScan.Width = DeltaX + FramePosXsize + 360 ' frame containing everything
+        cwGraphDataAcq.Width = DeltaX + PlotXsize + 360 '8900
         'txtStatus.Width = Xsize - FormXsize + 11900
-        'lblRawResponse.Width = Xsize - FormXsize + 11900
+        lblRawResponse.Width = FramePosScan.Width
     End If
-    If (Ysize > FormYsize) Then
-        lblRawResponse.Top = Ysize - FormYsize + 8900
-        picStatistics.Top = Ysize - FormYsize + 7775
-        FrameTimeControl.Top = Ysize - FormYsize + 6570
-        FramePosScan.Height = Ysize - FormYsize + 8600
-        cwGraphDataAcq.Height = Ysize - FormYsize + 4920
+    If (Ysize > FormYsize - 450) Then
+        FramePosScan.Height = DeltaY + FramePosYsize  '8600' coordinate of frame containing everything
+        ' coordinate inside FramePosScan
+        cwGraphDataAcq.Height = DeltaY + 4920
+        FrameTimeControl.Top = DeltaY + 6570 'X scale and horiz slider
+        picStatistics.Top = DeltaY + 7695
+        ' coordinate of Form
+        lblRawResponse.Top = DeltaY + FramePosYsize + 360
     End If
 End Sub
 
@@ -6452,7 +6451,7 @@ Private Sub OptGraphMode_Click(Index As Integer)
 End Sub
 
 Private Sub ChangeTestType(Index As Integer)
-    If Index = Monitor_Pressure Or Index = valves_2020 Then  '1, 2
+    If Index = Monitor_Pressure Or Index = Valves_2020 Then  '1, 2
 '0 Monitor Pos
 '1 Monitor Pressure
 '2 2020 valves
@@ -6519,11 +6518,13 @@ Private Sub ChangeTestType(Index As Integer)
             XaxisUnits = Cmb_X_scale.ListIndex
             If (XaxisUnits = 4) Then TextXunits.Text = " Inflation_mA"
         End If
-    Else 'index 0 or 1, 0=Monitor Pos; 1=Buffer Rec
+    Else 'index 0 or 1, 0=Monitor Pos; 2 = Any variable selection
 ' show save and read buttons until test is done
         cwSaveScan.Visible = True
 '        cmdReadPositionFile.Visible = True
         If Index = Monitor_Pos Then ' position or pressure monitoring
+            Frame_B_cmd.Visible = True
+            FramSelAnyCh.Visible = False
             FrameValveTest.Visible = False
             frameMonitoring.Visible = True
             FrameInternalRecording.Visible = False
@@ -6531,7 +6532,17 @@ Private Sub ChangeTestType(Index As Integer)
             XaxisUnits = Cmb_X_scale.ListIndex
             TextXunits.Text = " sec"
         End If
-        If Index = 1 Then ' data from the buffer
+        If Index = Any_Variable Then '  monitoring
+            Frame_B_cmd.Visible = False
+            FramSelAnyCh.Visible = True
+            FrameValveTest.Visible = False
+            frameMonitoring.Visible = True
+            FrameInternalRecording.Visible = False
+            Cmb_X_scale.ListIndex = 1 ''show plot versus time
+            XaxisUnits = Cmb_X_scale.ListIndex
+            TextXunits.Text = " sec"
+        End If
+        If Index = 4 Then ' IK20260917 =4 never happen, because functions are commented out. data from the buffer
             FrameValveTest.Visible = False
             frameMonitoring.Visible = False
             FrameInternalRecording.Visible = True
@@ -6667,7 +6678,7 @@ On Error GoTo format_error
                         tmp_time = ScanTimeStamps(scan_num - 1) + CMDperiod
                     Else
                         If scan_num = 3 Then
-                            If MonitoringTestType = valves_2020 Then
+                            If MonitoringTestType = Valves_2020 Then
                                 CMDperiod = cwValveMeasTime.Value
                             Else
                                 CMDperiod = ScanTimeStamps(2) - ScanTimeStamps(1) ' =cwContCMDperiod.Value
@@ -6684,7 +6695,7 @@ On Error GoTo format_error
                 End If
                 If (scan_num = 0) Then ScanSTARTtimeStamp = (tmp_time) ' start time of the scan, to show X TIME of the plot starting from zero
                 ScanTimeStamps(scan_num) = tmp_time
-                If MonitoringTestType = valves_2020 Then ' Or MonitoringTestType = Valve_box Then ' valve test
+                If MonitoringTestType = Valves_2020 Then ' Or MonitoringTestType = Valve_box Then ' valve test
                     If (ScanSTARTtimeStamp = 0) And (scan_num > 0) Then
                         ScanTimeStamps(scan_num) = ScanTimeStamps(scan_num - 1) + CMDperiod
                     End If
@@ -6905,7 +6916,7 @@ Public Function GetPosScan(cmd As String, WaitingTime As Single) As Long
 '        scan_buf = Analyzer.GetSend(cmd, True)
     Call Send_GUI_command(cmd & vbCr)
     StartTime = Timer
-    If (MonitoringTestType = valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
+    If (MonitoringTestType = Valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
       txtStatus.Text = "Testing valve board...."
       cwGraphDataAcq.Caption = "Iso Pressure vs. Valve Current"
       StartTime = StartTime + 1.2
@@ -7071,7 +7082,7 @@ show_plot:
           ScanNumber = line_counter ' because UpdatePositionPlot(-1) checks If SaveExsistingData = False and assigns to max points ScanNumber
           Call UpdatePositionPlot(-1) ' -1 means update whole plot, not a particular point
 
-          If (MonitoringTestType = valves_2020) Then
+          If (MonitoringTestType = Valves_2020) Then
             Call Analyze_Valve_plot
           Else
             For ch = 0 To MAX_CH
@@ -7112,7 +7123,7 @@ Sub UpdatePositionPlot(Optional scan_num As Long = -2) 'minus 2 when parameter o
   Dim j As Long
   Dim smpl As Long
 '-!-  Dim temp_array_Y() As Double
-  If MonitoringTestType = valves_2020 Then ' Or MonitoringTestType = Valve_box Then ' valve test
+  If MonitoringTestType = Valves_2020 Then ' Or MonitoringTestType = Valve_box Then ' valve test
 '"line#,DrvCnt,Curr_mA1,_mA2,_mA3,_mA4, PSI_1,PSI_2,PSI_3,PSI_4,PSI_in,Hold_mA\r\n"
 '0019 ,  -500, 90.7, 90.7, 90.7, 90.7, 0.2,  0.1, -0.1, -0.0, -0.1, 77.00%
 '0020 ,    +0, 90.7, 90.7, 90.7, 90.7, 0.1, -0.0, -0.1, -0.0, -0.1, 77.00%
@@ -7231,7 +7242,7 @@ Sub UpdatePositionPlot(Optional scan_num As Long = -2) 'minus 2 when parameter o
     End If
 
   Else 'position test
-    'If (MonitoringTestType <> valves_2020) Then
+    'If (MonitoringTestType <> Valves_2020) Then
     If (MonitoringTestType = Monitor_Pos) Or (MonitoringTestType = Monitor_Pressure) Or (MonitoringTestType = Any_Variable) Then
     ' continuous monitoring position or pressure or any variable
       If (MonitoringTestType = Monitor_Pos) Or (MonitoringTestType = Any_Variable) Then cwGraphDataAcq.Axes.Item(2).Caption = "counts"
@@ -7465,7 +7476,7 @@ End Sub
 '
 'End Sub
 Private Sub cwRel_T_Abs_F_Position_ValueChanged(ByVal Value As Boolean)
-    If MonitoringTestType = valves_2020 Then 'Or MonitoringTestType = Valve_box Then ' valve test
+    If MonitoringTestType = Valves_2020 Then 'Or MonitoringTestType = Valve_box Then ' valve test
         cwSpreadPlotsByY.Visible = False
         lblSpreadPlots.Caption = ""
     Else '''''''''''''''''  positon test
@@ -7510,6 +7521,7 @@ Private Sub cwSpreadPlotsByY_ValueChanged(Value As Variant, PreviousValue As Var
 End Sub
 
 Sub Update_labels()
+  On Error Resume Next
     Dim X, Y As Variant
     Dim tmp_f As Single
     Dim array_index As Long
@@ -7518,7 +7530,7 @@ Sub Update_labels()
     Dim data_string As String
 
 ' update graph label and channel readings
-    If MonitoringTestType = valves_2020 Then ' valve test
+    If MonitoringTestType = Valves_2020 Then ' valve test
         array_index = cwGraphDataAcq.Cursors(1).PointIndex ' this is the index
         X = cwGraphDataAcq.Cursors(1).XPosition ' X is the mA, NOT INDEX
         Y = ScanValuesToPlot(ChosenCh - 1, array_index)
@@ -7528,7 +7540,7 @@ Sub Update_labels()
         Y = ScanValues(ChosenCh - 1, array_index)
     End If
     If cwButContinuesSend.Value = False Then
-      If MonitoringTestType = valves_2020 Then ' valve test
+      If MonitoringTestType = Valves_2020 Then ' valve test
         If (Abs(Y) > 100) Then
             data_string = " Pressuse " & Left(optChooseCh(ChosenCh).Caption, 4) & "=" & Format(Y, "#0.0") & "psi @ Current=" & Format(X, "#0.00") & "mA"
         Else 'less than 100
@@ -7945,7 +7957,7 @@ End Sub
 Sub Show_Scan_raw_values(indx As Variant)
     Dim Y As Variant, ch As Long
 '    lbLineNum.Caption = Format(indx, "0000")
-    If MonitoringTestType = valves_2020 Then  ' valve test
+    If MonitoringTestType = Valves_2020 Then  ' valve test
       For ch = 0 To MAX_CH - 2 'show current values
         Y = ScanValuesToPlot(ch, indx)
         If (Abs(Y) > 100) Then
@@ -8096,7 +8108,7 @@ Function SaveDataAcqFile(Next_Multiple_file As Boolean) As Long
     If MonitoringTestType = Any_Variable Then '  variable vs time test
         DefaultFilename = Date$ & "_" & Left$(Time$, 2) & "-" & Mid$(Time$, 4, 2) & " Var_Real_time.csv"
     End If
-    If MonitoringTestType = valves_2020 Then ' valve test
+    If MonitoringTestType = Valves_2020 Then ' valve test
         DefaultFilename = Date$ & "_" & Left$(Time$, 2) & "-" & Mid$(Time$, 4, 2) & " Test_VlvBrd"
         If (txtV1sn.Text <> "") Then
             DefaultFilename = DefaultFilename & ",v1-" & Trim(txtV1sn.Text)
@@ -8174,7 +8186,7 @@ Function SaveDataAcqFile(Next_Multiple_file As Boolean) As Long
         Print #PositionMonitoring_file, ",Date,"; Date$
         start_saving_time = Time$
         Print #PositionMonitoring_file, ",Time,"; start_saving_time
-        If (MonitoringTestType = valves_2020) Then
+        If (MonitoringTestType = Valves_2020) Then
             m_p = cwValveMeasTime.Value
         Else ' position or pressure vs time
             m_p = cwContCMDperiod.Value
@@ -8182,7 +8194,7 @@ Function SaveDataAcqFile(Next_Multiple_file As Boolean) As Long
         CMDperiod = cwContCMDperiod.Value
         'If PC_RealTime = True Then 'if True saved time is PC time. If False time is (usually) 10 ms increments from controller acquisituin buffer
 
-            If (MonitoringTestType = valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
+            If (MonitoringTestType = Valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
                 Print #PositionMonitoring_file, "Scan Type:, Valve Test"
                 Print #PositionMonitoring_file, "command:,";
                 Print #PositionMonitoring_file, "vtst ";
@@ -8212,7 +8224,7 @@ Function SaveDataAcqFile(Next_Multiple_file As Boolean) As Long
             Print #PositionMonitoring_file, " lines:, "; ScanNumber;
         End If
 
-        If (MonitoringTestType = valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
+        If (MonitoringTestType = Valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
            Print #PositionMonitoring_file, ",,Valve Serial Number,,"; txtV1sn.Text; ","; txtV2sn.Text; ","; txtV3sn.Text; ","; txtV4sn.Text
            Print #PositionMonitoring_file, " line#,InfCnt,EhxCnt, Inflat_mA,Exhaust_mA, PSI_1,PSI_2,PSI_3,PSI_4,PSI_in, time"
         End If
@@ -8246,7 +8258,7 @@ Function SaveDataAcqFile(Next_Multiple_file As Boolean) As Long
 '            cwSavingRecords.Enabled = True
             cwSaveScan.Value = False 'it will Close #PositionMonitoring_file
         Else ' acquiring and saving
-            If (MonitoringTestType = valves_2020) Then ' script works inside DC-2020 and sends information, we capture it in the while loop
+            If (MonitoringTestType = Valves_2020) Then ' script works inside DC-2020 and sends information, we capture it in the while loop
                 cwButValveTest.Value = True
             Else ' periodic retrieval by timer
                 Call CalcNumber_ofRecords
@@ -8284,7 +8296,7 @@ Sub write_one_line(i As Long) '-!-
 '        End If
     End If
 
-    If (MonitoringTestType = valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
+    If (MonitoringTestType = Valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
         Print #PositionMonitoring_file, i; ",";
         active_channels = MAX_CH - 1
     End If
@@ -8293,7 +8305,7 @@ Sub write_one_line(i As Long) '-!-
         Print #PositionMonitoring_file, ScanValues(ch, i); ",";
     Next ch
 
-    If (MonitoringTestType = valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
+    If (MonitoringTestType = Valves_2020) Then 'Or (MonitoringTestType = Valve_box) Then ' valve test
         Print #PositionMonitoring_file, t_str; ","; ' print time stamp at the end
     End If
     Print #PositionMonitoring_file, "%"    'end of line
@@ -8323,7 +8335,7 @@ End Sub
 Private Sub cmdReadPositionFile_Click()
    Call ReadDataAcqFile
    Call UpdatePositionPlot(-1) ' -1 means update whole plot, not a particular point
-   If MonitoringTestType = valves_2020 Then ' Or MonitoringTestType = Valve_box Then ' valve test
+   If MonitoringTestType = Valves_2020 Then ' Or MonitoringTestType = Valve_box Then ' valve test
         Call Analyze_Valve_plot
    End If
 End Sub
@@ -8423,7 +8435,7 @@ read_again:
             If sep_pos <> 0 Then
                 sep_pos = InStr(temp_str, "Valve Test") 'catch type of file
                 If sep_pos > 6 Then
-                    ChangeMonitoringTestType (valves_2020)
+                    ChangeMonitoringTestType (Valves_2020)
                     Cmb_X_scale.ListIndex = 2 '2nd column == current mA
                 Else ' not valve test, position or pressure vs time
                     Cmb_X_scale.ListIndex = 1 '1st column == time
@@ -8440,7 +8452,7 @@ read_again:
             If sep_pos <> 0 Then
                 sep_pos = InStr(temp_str, "vtst") 'catch DC2020 valve test
                 If sep_pos > 6 Then
-                    ChangeMonitoringTestType (valves_2020)
+                    ChangeMonitoringTestType (Valves_2020)
                     PC_RealTime = True
                 Else
 '                    sep_pos = InStr(temp_str, "vbxt") 'catch valveBOX test
@@ -8493,7 +8505,7 @@ read_again:
                 Exit Sub
             End If
 
-            If (MonitoringTestType = valves_2020) Then 'Or MonitoringTestType = Valve_box) Then
+            If (MonitoringTestType = Valves_2020) Then 'Or MonitoringTestType = Valve_box) Then
 ' valve test >>>>>>>vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
             '" lines:,160,space, space,Valve SN, 11111,22222,33333,44444"
                 sep_pos = InStr(temp_str, "lines:") 'catch header
@@ -8692,7 +8704,7 @@ read_data_line:
     End If
 
 '''========= VALVES =====================================================
-    If MonitoringTestType = valves_2020 Then 'valve plot
+    If MonitoringTestType = Valves_2020 Then 'valve plot
         XminScale = ScanValues(2, 0)
         XmaxScale = ScanValues(2, ScanNumber - 1)
         If (XminScale > XmaxScale) Then ''reverse
@@ -8714,7 +8726,7 @@ read_data_line:
 '    cwGraphDataAcq.Axes.Item(1).SetMinMax XminScale, XmaxScale
 
     If PC_RealTime = True Then
-      If MonitoringTestType = valves_2020 Then 'valve plot
+      If MonitoringTestType = Valves_2020 Then 'valve plot
         temp_str = "recorded by Analyzer each " & cwValveMeasTime.Text & " sec"
       Else
         temp_str = "recorded by Analyzer each " & cwContCMDperiod.Text & " sec"
@@ -8736,7 +8748,7 @@ Sub ChangeMonitoringTestType(test_type As Integer)
 'line#,InfCnt,EhxCnt, Inflat_mA,Exhaust_mA, PSI_1,PSI_2,PSI_3,PSI_4,PSI_in,
     MonitoringTestType = test_type
     cmb_TestType.ListIndex = test_type
-    If MonitoringTestType = valves_2020 Then
+    If MonitoringTestType = Valves_2020 Then
         Cmb_X_scale.ListIndex = 4    'show plot versus Inflation mA '4th column == current mA'= 2
     Else
         Cmb_X_scale.ListIndex = 1    '1st column == time
